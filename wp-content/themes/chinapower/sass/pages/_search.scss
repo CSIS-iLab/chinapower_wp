@@ -1,0 +1,39 @@
+/*=============================
+=            Search           =
+=============================*/
+
+.search {
+	// Page Title
+	header.page-header {
+		margin-bottom: 2rem;
+		
+		.page-title {
+			font-family: $font__SourceSans;
+			@include fontSize(28px);
+			font-weight: 600;
+			line-height: 1.25;
+			color: $black;
+			margin: 0.25rem 0 0 0;
+		}
+	}
+
+	// Results
+	article.post, article.page {
+		margin-bottom: 3rem;
+
+		@include breakpoint("medium") {
+			border-bottom: 2px solid $archive-filter-gray;
+			padding-bottom: 2rem;
+			margin-bottom: 2rem;
+		}
+
+		&:last-of-type {
+			border-bottom: 0;
+		}
+		
+		header.entry-header .entry-title {
+			@include fontSize(24px);
+		}
+	}
+
+}

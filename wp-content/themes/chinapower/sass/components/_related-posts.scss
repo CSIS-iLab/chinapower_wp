@@ -1,0 +1,48 @@
+/*==============================================
+=            Jetpack: Related Posts            =
+==============================================*/
+
+.post-relatedPostsContainer {
+	margin-top:3rem;
+
+	.relatedPosts-title {
+		color: $gray;
+		@include fontSize(20px);
+		margin: 0 0 1rem 0;
+		text-transform: uppercase;
+		font-weight: normal;
+		overflow: hidden;
+
+		span {
+			display: inline-block;
+			position: relative;
+			
+			&:after {
+			  content: "";
+			  position: absolute;
+			  height: 5px;
+			  border-bottom: 1px solid $latest-decoration-gray;
+			  border-top: 1px solid $latest-decoration-gray;
+			  top: 50%;
+			  margin-top: floor(-5px / 2);
+			  width: 800px;
+			  left: 100%;
+		  	  margin-left: 15px;
+			}
+		}
+	}
+
+	article.post {
+		margin-bottom: 2rem;
+
+		header.entry-header {
+			text-align: left !important;
+			margin-bottom: 0.5rem !important;
+
+			.entry-title {
+				@include fontSize(24px);
+			}
+		}
+	}
+}
+

@@ -1,0 +1,109 @@
+/*====================================
+=            Social Share            =
+====================================*/
+
+.sharedaddy {
+	margin-top: 0.75rem;
+
+	.sd-title {
+		display: inline-block;
+		color: $gray;
+		@include fontSize(14px);
+		text-transform: uppercase !important;
+		font-weight: normal !important;
+
+		&::before {
+			border: 0 !important;
+		}
+	}
+
+	.sd-content {
+		display: inline-block;
+		margin-left: 0.5rem;
+
+		ul li {
+			margin-right: 8px !important;
+		}
+
+		ul li[class*='share-'] a {
+			border-radius: 0 !important;
+			padding: 0 !important;
+			top: -8px !important;
+
+			&.sd-button:before {
+				@include fontSize(20px);
+			}
+
+			&::before {
+				color: $dark-gray;
+				font-family: 'fontello' !important;
+			}
+
+			&:hover {
+				opacity: 1 !important;
+			}
+
+			&:hover::before {
+				color: $bright-green;
+			}
+
+		}
+
+		// Twitter
+		.share-facebook {
+			background-color: transparent !important;
+
+			a::before {
+				content: '\f09a' !important;
+			}
+		}
+
+		// Twitter
+		.share-twitter {
+			background-color: transparent !important;
+
+			a::before {
+				content: '\f099' !important;
+				top: 3px !important;
+			}
+		}
+
+		// Google+
+		.share-google-plus-1 {
+			background-color: transparent !important;
+
+			a::before {
+				content: '\f30f' !important;
+				top: 2px !important;
+			}
+		}
+
+		// LinkedIn
+		.share-linkedin {
+			background-color: transparent !important;
+
+			a::before {
+				content: '\f318' !important;
+			}
+		}
+
+		// Email
+		.share-email {
+			background-color: transparent !important;
+			a::before {
+				content: '\e800' !important;
+				top: 4px !important;
+			}
+		}
+
+		// Print
+		.share-print {
+			background-color: transparent !important;
+			a::before {
+				content: '\e803' !important;
+				top: 3px !important;
+			}
+		}
+	}
+}
+

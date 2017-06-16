@@ -1,0 +1,22 @@
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+.link-btn {
+	background-color: $color__background-button;
+	color: $light-gray;
+	text-transform: uppercase;
+	@include fontSize(14px);
+	padding: 0.5rem 3rem;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
+	border: 0;
+
+	&:visited {
+		color: $light-gray;
+	}
+
+	&:hover {
+		color: $white;
+	}
+}

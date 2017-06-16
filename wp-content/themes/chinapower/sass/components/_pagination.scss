@@ -1,0 +1,28 @@
+/*==================================
+=            Pagination            =
+==================================*/
+
+.pagination-container {
+	text-align: center;
+	@include fontSize(14px);
+	font-weight: bold;
+	letter-spacing: 1px;
+
+	span, a {
+		margin: 0 0.1rem;
+	}
+
+	a {
+		color: $dark-gray;
+
+
+		&:hover {
+			color: $bright-green;
+		}
+	}
+
+	.current {
+		color: $bright-green;
+		border-bottom: 1px solid $bright-green;
+	}
+}

@@ -1,0 +1,275 @@
+/*=============================
+=            Posts            =
+=============================*/
+
+/*----------  Single Posts  ----------*/
+.single-post article.post {
+	header.entry-header {
+		text-align: center;
+		margin-bottom: 0;
+
+		@include breakpoint("medium") {
+			margin-bottom: 2rem;
+		}
+	}
+
+	.entry-content {
+		margin-bottom: 2rem;
+
+		p {
+			margin-bottom: 1rem;
+			line-height: 1.75;
+		}
+	}
+}
+
+article.page .entry-content p {
+	margin-bottom: 1rem !important;
+}
+
+/*----------  Global Post Styles  ----------*/
+article.post, article.page {
+	margin-bottom: 3rem;
+
+	@include breakpoint("medium") {
+		.post-thumbnail.isHomepage {
+			padding-right: 1rem;
+		}
+		.post-content.isHomepage {
+			padding-left: 1rem;
+		}
+	}
+
+	/*----------  Post Sidebar  ----------*/
+	@include breakpoint("medium") {
+		.post-sidebar {
+			padding-left:3rem;
+		}
+	}
+
+	/*----------  Post Header  ----------*/
+	header.entry-header {
+		margin-bottom: 0.5rem;
+
+		.post-contentCategoriesContainer {
+			text-transform: uppercase;
+			@include fontSize(14px);
+			color: $gray;
+
+			.post-contentType {
+				a {
+					color: $gray;
+
+					&:hover {
+						color: $bright-green;
+					}
+				}
+			}
+
+			.post-categories {
+				a {
+					color: $bright-green;
+
+					&:hover {
+						color: $dark-green;
+					}
+				}
+			}
+		}
+
+		.entry-title {
+			font-family: $font__ExpoSerif;
+			@include fontSize(28px);
+			font-weight: 600;
+			line-height: 1.35;
+			color: $black;
+			margin: 0.25rem 0 0 0;
+
+			a {
+				color: $black;
+
+				&:hover {
+					color: $bright-green;
+				}
+			}
+
+			&.home-secondaryFeature {
+				@include fontSize(24px);
+
+				a {
+					color: $black;
+
+					&:hover {
+						color: $bright-green;
+					}
+				}
+			}
+		}
+
+		img {
+			height: auto;
+			margin-top: 2rem;
+			margin-left: -1rem;
+			margin-right: -1rem;
+			width: 100vw;
+
+			@include breakpoint($size__content-max-width) {
+				width: 100%;
+				margin-left: auto;
+				margin-right: auto;
+			}
+		}
+
+		.post-series {
+			color: $gray;
+			@include fontSize(22px);
+			margin: 0;
+			font-weight: normal;
+
+			a {
+				color: $gray;
+
+				&:hover {
+					color: $bright-green;
+				}
+			}
+		}
+	}
+
+	/*----------  Post Body  ----------*/
+	.entry-content {
+		p {
+			margin-bottom: 0.2rem;
+		}
+
+		.download {
+			background-color: $dark-green;
+			color: $light-gray;
+			text-transform: uppercase;
+			@include fontSize(14px);
+			padding: 0.5rem 3rem;
+			margin: 1.5rem auto;
+			display: table;
+
+			@include breakpoint("medium") {
+				margin: 1rem auto;
+			}
+
+			a {
+				color: $light-gray;
+
+				&:hover {
+					color: $white;
+				}
+			}
+		}
+
+		.highlightedContent {
+			margin: 1rem auto;
+			padding: 1rem;
+			border:1px solid $bright-green;
+
+			@include breakpoint("medium") {
+				padding: 1.5rem;
+			}
+
+			h2 {
+				margin-top: 0;
+			}
+		}
+	}
+
+	/*----------  Post Meta  ----------*/
+	.entry-meta {
+		margin-top: 0.3rem;
+		@include fontSize(14px);
+
+		a {
+			color: $gray;
+
+			&:hover {
+				color: $bright-green;
+			}
+		}
+
+		.posted-on {
+			color: $bright-green;
+		}
+
+		.posted-redirectInfo {
+			color: $gray;
+		}
+	}
+
+	/*----------  Tags  ----------*/
+	.tags-links {
+		color: $gray;
+		@include fontSize(14px);
+		text-transform: uppercase;
+
+		a {
+			text-transform: none;
+		}
+	}
+
+	/*----------  Post Authors  ----------*/
+	.post-authorContainer {
+		background-color: $light-gray;
+		padding: 1rem;
+
+		img {
+			width: 100%;
+			height: auto;
+			max-width: 70px;
+		}
+
+		p {
+			margin: 0;
+		}
+
+		&:first-of-type {
+			padding-top: 2rem;
+		}
+
+		&:last-of-type {
+			padding-bottom: 2rem;
+		}
+	}
+
+	/*----------  Post Thumbnails  ----------*/
+	.post-thumbnailContainer {
+		max-width: 100vw;
+		margin-bottom: 0.5rem;
+		width: 100vw;
+		margin-left: -1rem;
+		margin-right: -1rem;
+
+		@include breakpoint("medium") {
+			max-width: 100%;
+			width: initial;
+			margin-left: initial;
+			margin-right: initial;
+		}
+
+		// Secondary Feature
+		&.home-secondaryFeature {
+			margin-top: 5px;
+		}
+
+		img {
+			height: auto;
+			width: 100%;
+		}
+	}
+
+	/*----------  Full Width Content  ----------*/
+	.fullWidthFeatureContent {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+	}
+
+}

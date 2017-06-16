@@ -1,0 +1,33 @@
+/*===========================
+=            404            =
+===========================*/
+
+.error-404 {
+	margin-top: 4rem;
+	text-align: center;
+
+	.page-header {
+		margin-bottom: 2rem;
+
+		img {
+			max-height: 100px;
+		}
+	}
+
+	.error-explanation {
+		@include fontSize(18px);
+	}
+
+	.error-contactUs {
+		color: $gray;
+
+		a {
+			text-transform: uppercase;
+			color: $bright-green;
+
+			&:hover {
+				color: $dark-green;
+			}
+		}
+	}
+}

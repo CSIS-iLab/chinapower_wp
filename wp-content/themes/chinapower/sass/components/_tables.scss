@@ -1,0 +1,12 @@
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+
+	thead {
+		border-bottom: 2px solid $light-gray;
+	}
+
+	th, td {
+		padding: 0.5em;
+	}
+}

@@ -1,0 +1,69 @@
+// Rem output with px fallback
+$browser-context: 18px;
+@function calculateRem($size) {
+  $remSize: $size / $browser-context;
+  @return #{$remSize}rem;
+}
+
+@mixin fontSize($size) {
+  font-size: $size; //Fallback in px
+  font-size: calculateRem($size);
+}
+
+// Center block
+@mixin center-block {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+// Clearfix
+@mixin clearfix() {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+// Clear after (not all clearfix need this also)
+@mixin clearfix-after() {
+	clear: both;
+}
+
+// Breakpoints
+$breakpoint-xlarge: 90em;
+$breakpoint-large: 64em;
+$breakpoing-medium: 48em;
+$breakpoing-small: 35em;
+$breakpoint-xsmall: 25em;
+
+@mixin breakpoint($break) {
+	@if $break == xlarge {
+		@media screen and (min-width:$breakpoint-xlarge) { @content; }
+	}
+	@else if $break == large {
+		@media screen and (min-width:$breakpoint-large) { @content; }
+	}
+	@else if $break == medium {
+		@media screen and (min-width: $breakpoing-medium) { @content; }
+	}
+	@else if $break == small {
+		@media screen and (max-width: $breakpoing-small) { @content; }
+	}
+	@else if $break == xsmall {
+		@media screen and (max-width: $breakpoint-xsmall) { @content; }
+	}@else {
+		@media screen and (min-width: $break) {
+			@content;
+		}
+	}
+
+}
+
+// Transitions
+@mixin transition($args...) {
+  -webkit-transition: $args;
+  -moz-transition: $args;
+  -ms-transition: $args;
+  -o-transition: $args;
+  transition: $args;
+}

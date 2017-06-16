@@ -1,0 +1,197 @@
+/*=================================
+=            Home Page            =
+=================================*/
+
+.home-container {
+
+	/*----------  The Latest  ----------*/
+	.home-latestContainer {
+		@include breakpoint("medium") {
+			padding-right: 1rem;
+		}
+
+		.latest-title {
+			color: $gray;
+			@include fontSize(20px);
+			margin: 0;
+			text-transform: uppercase;
+			font-weight: normal;
+			overflow: hidden;
+
+			span {
+				display: inline-block;
+				position: relative;
+				
+				&:after {
+				  content: "";
+				  position: absolute;
+				  height: 5px;
+				  border-bottom: 1px solid $latest-decoration-gray;
+				  border-top: 1px solid $latest-decoration-gray;
+				  top: 50%;
+				  margin-top: floor(-5px / 2);
+				  width: 800px;
+				  left: 100%;
+			  	  margin-left: 15px;
+				}
+			}
+		}
+
+		.latest-titleDecoration {
+			height: 5px;
+			border-top: 1px solid $latest-decoration-gray;
+			border-bottom: 1px solid $latest-decoration-gray;
+			display: inline-block;
+			width: 54%;
+			margin-left: 4.5%;
+			vertical-align: middle;
+		}
+
+		article.post {
+			border-bottom: 2px solid $archive-filter-gray;
+			margin-bottom: 0;
+			padding-bottom: 0.75rem;
+			margin-top: 0.75rem;
+
+			@include breakpoint("medium") {
+				padding-bottom: 1.5rem;
+				margin-top: 1.5rem;
+			}
+
+			&:last-of-type {
+				border-bottom: 0;
+			}
+
+			header.entry-header .entry-title {
+				@include fontSize(18.5px);
+				a {
+					color: $black;
+
+					&:hover {
+						color: $bright-green;
+					}
+				}
+			}
+		}
+	}
+
+	/*----------  Secondary Features  ----------*/
+	// Post styles in _posts.scss
+	.home-secondaryFeaturesContainer {
+		@include breakpoint("medium") {
+			padding-left: 1rem;
+		}
+	}
+
+	/*----------  Series  ----------*/
+	.home-seriesContainer {
+		background-color: $light-gray;
+		margin-top: 1rem;
+
+		.content-wrapper.row {
+			padding: 0;
+
+			@include breakpoint("medium") {
+				padding: initial;
+			}
+		}
+
+		.home-seriesSpotlight {
+			padding:2rem 1rem;
+
+			@include breakpoint("medium") {
+				padding:2rem 1rem 2rem 0;
+			}
+
+			.series-featuredTitle {
+				font-family: $font__ExpoSerif;
+				@include fontSize(24px);
+				font-weight: 600;
+				margin: 0.25rem 0 1rem;
+
+				a {
+					color: $black;
+
+					&:hover {
+						color: $bright-green;
+					}
+				}
+			}
+
+			p {
+				@include fontSize(14px);
+			}
+		}
+
+		.home-seriesAdditional {
+			padding: 1rem 1rem 2rem;
+			align-self: center;
+
+			@include breakpoint("medium") {
+				padding: 2rem 1rem;
+			}
+
+			.series-additionalTitle {
+				font-family: $font__ExpoSerif;
+				@include fontSize(18px);
+				font-weight: 600;
+				margin: 0.5rem 0 0;
+
+				a {
+					color: $black;
+
+					&:hover {
+						color: $bright-green;
+					}
+				}
+			}
+
+			p {
+				color: $dark-gray;
+				@include fontSize(12px);
+				margin-bottom: 1rem;
+			}
+
+			.series-exploreMore {
+				background-color: $dark-green;
+				color: $light-gray;
+				text-transform: uppercase;
+				@include fontSize(13px);
+				padding: 0.5rem 3rem;
+				display: inline-block;
+
+				&:hover {
+					color: $white;
+				}
+			}
+
+		}
+
+		.home-seriesFeaturedImage {
+			padding: 0;
+			background-repeat: no-repeat;
+			background-size: cover;
+			background-position: center center;
+			min-height: 150px;
+		}
+
+		.series-sectionTitle, .series-learnMore {
+			color: $dark-green;
+			@include fontSize(15px);
+			text-transform: uppercase;
+			font-weight: normal;
+			font-style: normal;
+			margin: 0;
+		}
+
+		.series-learnMore:hover {
+			color: $bright-green;
+		}
+
+	}
+}
+
+/*----------  Footer  ----------*/
+body.home .site-footer {
+	margin-top: 0;
+}
