@@ -166,3 +166,8 @@ require get_template_directory() . '/inc/custom-shortcodes.php';
  * Register Custom TinyMCE Buttons
  */
 require get_template_directory() . '/inc/custom-tinymce-buttons.php';
+
+/**
+ * Register Custom General Settings
+ */
+require get_template_directory() . '/inc/custom-settings.php';
