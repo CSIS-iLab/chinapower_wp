@@ -24,4 +24,27 @@
 			}
 		});
 	});
+	tinymce.PluginManager.add('stats', function( editor, url ) {
+		editor.addButton('stats', {
+			text: null,
+			icon: 'icon dashicons-chart-area',
+			tooltip: 'Insert Stat',
+			onclick: function() {
+				editor.windowManager.open( {
+					title: 'Insert Number for Featured Statistic',
+					width: 400,
+					height: 100,
+					body: [
+						{
+							type: 'textbox',
+							name: 'stat'
+						}
+					],
+					onsubmit: function( e ) {
+						editor.insertContent( '[stat]' + e.data.stat + '[/stat]');
+					}
+				});
+			}
+		});
+	});
 })();

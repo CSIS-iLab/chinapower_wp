@@ -181,3 +181,32 @@ function chinapower_datasources() {
 
 }
 add_action( 'init', 'chinapower_datasources', 0 );
+
+/*----------  Display Featured Statistic  ----------*/
+/**
+ * Displays featured statistic from data repo
+ * @param  Number $ID 			Post ID
+ * @param  String $content 		Featured statistic
+ * @return String               HTML of featured statistic
+ */
+function chinapower_data_display_featured($ID, $content) {
+
+	return '<div class="data-featuredStatBlock">'. do_shortcode($content).' Link to: '.$ID.'</div>';
+}
+
+/*----------  Display Generate Shortcode Button  ----------*/
+// Create Shortcode Column
+function chinapower_data_columns( $columns ) {
+    $columns["shortcode"] = "Shortcode";
+    return $columns;
+}
+add_filter('manage_edit-data_columns', 'chinapower_data_columns');
+
+// Populate Shortcode column
+function chinapower_data_column( $colname, $cptid ) {
+	$shortcode_html = "[dataFeatured id=\'".$cptid."\']";
+
+     if ( $colname == 'shortcode')
+          echo '<a href="#" class="button button-small" onclick="prompt(\'Shortcode to include featured statistic in posts and pages:\', \''.$shortcode_html.'\'); return false;">Get Embed Code</a>';
+}
+add_action('manage_data_posts_custom_column', 'chinapower_data_column', 10, 2);

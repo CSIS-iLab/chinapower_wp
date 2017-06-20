@@ -34,13 +34,14 @@ if ( ! function_exists( 'chinapower_buttons' ) ) {
 if ( ! function_exists( 'chinapower_add_buttons' ) ) {
     function chinapower_add_buttons( $plugin_array ) {
         $plugin_array['podcasts'] = get_template_directory_uri().'/js/tinymce.js';
+        $plugin_array['stats'] = get_template_directory_uri().'/js/tinymce.js';
         return $plugin_array;
     }
 }
  
 if ( ! function_exists( 'chinapower_register_buttons' ) ) {
     function chinapower_register_buttons( $buttons ) {
-        array_push( $buttons, 'podcasts' );
+        array_push( $buttons, 'podcasts', 'stats' );
         return $buttons;
     }
 }
