@@ -85,7 +85,8 @@ function podcast_build_meta_box( $post ){
 
 	// Retrieve current value of fields
 	$current_subtitle = get_post_meta( $post->ID, '_podcast_subtitle', true );
-	$current_soundcloud = get_post_meta( $post->ID, '_podcast_soundcloud', true );
+	$current_soundcloudURL = get_post_meta( $post->ID, '_podcast_soundcloudURL', true );
+	$current_soundcloudID = get_post_meta( $post->ID, '_podcast_soundcloudID', true );
 
 	?>
 	<div class='inside'>
@@ -96,7 +97,12 @@ function podcast_build_meta_box( $post ){
 
 		<h3><?php _e( 'Soundcloud URL', 'chinapower' ); ?></h3>
 		<p>
-			<input type="text" class="large-text" name="soundcloud" value="<?php echo $current_soundcloud; ?>" /> 
+			<input type="text" class="large-text" name="soundcloudURL" value="<?php echo $current_soundcloudURL; ?>" /> 
+		</p>
+
+		<h3><?php _e( 'Soundcloud ID', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="soundcloudID" value="<?php echo $current_soundcloudID; ?>" /> 
 		</p>
 	</div>
 	<?php
@@ -126,9 +132,24 @@ function podcast_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['subtitle'] ) ) {
 		update_post_meta( $post_id, '_podcast_subtitle', sanitize_text_field( $_POST['subtitle'] ) );
 	}
-	// Soundcloud
-	if ( isset( $_REQUEST['soundcloud'] ) ) {
-		update_post_meta( $post_id, '_podcast_soundcloud', sanitize_text_field( $_POST['soundcloud'] ) );
+	// Soundcloud URL
+	if ( isset( $_REQUEST['soundcloudURL'] ) ) {
+		update_post_meta( $post_id, '_podcast_soundcloudURL', sanitize_text_field( $_POST['soundcloudURL'] ) );
+	}
+	// Soundcloud ID
+	if ( isset( $_REQUEST['soundcloudID'] ) ) {
+		update_post_meta( $post_id, '_podcast_soundcloudID', sanitize_text_field( $_POST['soundcloudID'] ) );
 	}
 }
 add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
+
+/*----------  Display iFrame  ----------*/
+/**
+ * Displays the embedded Soundcloud iframe
+ * @param  String $soundcloudID Soundcloud ID for the podcast
+ * @return String               iFrame code
+ */
+function chinapower_podcast_display_iframe($soundcloudID) {
+
+	return '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$soundcloudID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
+}
