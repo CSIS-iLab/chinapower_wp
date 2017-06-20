@@ -156,3 +156,13 @@ require get_template_directory() . '/inc/jetpack.php';
  * Register Custom Post Types
  */
 require get_template_directory() . '/inc/custom-post-types.php';
+
+/**
+ * Register Custom Shortcodes
+ */
+require get_template_directory() . '/inc/custom-shortcodes.php';
+
+/**
+ * Register Custom TinyMCE Buttons
+ */
+require get_template_directory() . '/inc/custom-tinymce-buttons.php';
