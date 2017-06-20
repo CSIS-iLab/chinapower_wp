@@ -5,7 +5,7 @@
  * @package chinapower
  */
 
-// Register Custom Post Type
+/*----------  Register Custom Post Type  ----------*/
 function chinapower_cpt_podcasts() {
 
 	$labels = array(
@@ -41,7 +41,7 @@ function chinapower_cpt_podcasts() {
 		'label'                 => __( 'Podcast', 'chinapower' ),
 		'description'           => __( 'Podcasts', 'chinapower' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'custom-fields', 'page-attributes', ),
+		'supports'              => array( 'title', 'editor', ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -55,9 +55,80 @@ function chinapower_cpt_podcasts() {
 		'has_archive'           => true,		
 		'exclude_from_search'   => false,
 		'publicly_queryable'    => true,
-		'capability_type'       => 'page',
+		'capability_type'       => 'post',
 	);
 	register_post_type( 'podcasts', $args );
 
 }
 add_action( 'init', 'chinapower_cpt_podcasts', 0 );
+
+/*----------  Custom Meta Fields  ----------*/
+/**
+ * Add meta box
+ *
+ * @param post $post The post object
+ * @link https://codex.wordpress.org/Plugin_API/Action_Reference/add_meta_boxes
+ */
+function podcast_add_meta_boxes( $post ){
+	add_meta_box( 'podcast_meta_box', __( 'Podcast Information', 'chinapower' ), 'podcast_build_meta_box', 'podcasts', 'normal', 'high' );
+}
+add_action( 'add_meta_boxes_podcasts', 'podcast_add_meta_boxes' );
+
+/**
+ * Build custom field meta box
+ *
+ * @param post $post The post object
+ */
+function podcast_build_meta_box( $post ){
+	// make sure the form request comes from WordPress
+	wp_nonce_field( basename( __FILE__ ), 'podcast_meta_box_nonce' );
+
+	// Retrieve current value of fields
+	$current_subtitle = get_post_meta( $post->ID, '_podcast_subtitle', true );
+	$current_soundcloud = get_post_meta( $post->ID, '_podcast_soundcloud', true );
+
+	?>
+	<div class='inside'>
+		<h3><?php _e( 'Subtitle', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="subtitle" value="<?php echo $current_subtitle; ?>" /> 
+		</p>
+
+		<h3><?php _e( 'Soundcloud URL', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="soundcloud" value="<?php echo $current_soundcloud; ?>" /> 
+		</p>
+	</div>
+	<?php
+}
+/**
+ * Store custom field meta box data
+ *
+ * @param int $post_id The post ID.
+ * @link https://codex.wordpress.org/Plugin_API/Action_Reference/save_post
+ */
+function podcast_save_meta_box_data( $post_id ){
+	// verify meta box nonce
+	if ( !isset( $_POST['podcast_meta_box_nonce'] ) || !wp_verify_nonce( $_POST['podcast_meta_box_nonce'], basename( __FILE__ ) ) ){
+		return;
+	}
+	// return if autosave
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ){
+		return;
+	}
+    // Check the user's permissions.
+	if ( ! current_user_can( 'edit_post', $post_id ) ){
+		return;
+	}
+
+	// Store custom fields values
+	// Subtitle
+	if ( isset( $_REQUEST['subtitle'] ) ) {
+		update_post_meta( $post_id, '_podcast_subtitle', sanitize_text_field( $_POST['subtitle'] ) );
+	}
+	// Soundcloud
+	if ( isset( $_REQUEST['soundcloud'] ) ) {
+		update_post_meta( $post_id, '_podcast_soundcloud', sanitize_text_field( $_POST['soundcloud'] ) );
+	}
+}
+add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
