@@ -12,7 +12,7 @@
  * @return string          Full width embedded content
  */
 function shortcode_fullWidth( $atts , $content = null ) {
-	return "<div class='fullWidthFeatureContent'>".$content."</div>";
+	return "<div class='fullWidthFeatureContent'>".do_shortcode($content)."</div>";
 }
 add_shortcode( 'fullWidth', 'shortcode_fullWidth' );
 
@@ -86,3 +86,30 @@ function chinapower_shortcode_data_featured_number( $atts, $content = null ) {
 
 }
 add_shortcode( 'stat', 'chinapower_shortcode_data_featured_number' );
+
+/**
+ * Shortcode for displaying embedded interactive
+ * @param  array $atts    Modifying arguments
+ * @return string          Embedded interactive
+ */
+function chinapower_shortcode_interactive( $atts ) {
+
+	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'id' => '', // ID of Interactive Post
+			'width' => '', // Width of Interactive
+			'height' => '', // Height of Interactive
+		),
+		$atts,
+		'interactive'
+	);
+
+	$interactiveURL = get_post_meta( $atts['id'], '_interactive_url', true );
+	$width = get_post_meta( $atts['id'], '_interactive_width', true );
+	$height = get_post_meta( $atts['id'], '_interactive_height', true );
+
+	return chinapower_interactive_display_iframe($interactiveURL, $width, $height);
+
+}
+add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
