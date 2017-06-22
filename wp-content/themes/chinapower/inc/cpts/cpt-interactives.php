@@ -87,6 +87,8 @@ function interactive_build_meta_box( $post ){
 	$current_url = get_post_meta( $post->ID, '_interactive_url', true );
 	$current_width = get_post_meta( $post->ID, '_interactive_width', true );
 	$current_height = get_post_meta( $post->ID, '_interactive_height', true );
+	$current_iframeResizeDisabled = get_post_meta( $post->ID, '_interactive_iframeResizeDisabled', true );
+	$current_fallbackImgDisabled = get_post_meta( $post->ID, '_interactive_fallbackImgDisabled', true );
 
 	?>
 	<div class='inside'>
@@ -104,6 +106,15 @@ function interactive_build_meta_box( $post ){
 		<p>
 			<input type="text" class="large-text" name="height" value="<?php echo $current_height; ?>" /> 
 		</p>
+		<p>
+			<input type="checkbox" name="iframeResizeDisabled" value="1" <?php checked( $current_iframeResizeDisabled, '1' ); ?> /> Disable autoheight resizing?
+		</p>
+
+		<h3><?php _e( 'Fallback Image', 'chinapower' ); ?></h3>
+		<p>
+			<input type="checkbox" name="fallbackImgDisabled" value="1" <?php checked( $current_fallbackImgDisabled, '1' ); ?> /> Disable fallback image on mobile?
+		</p>
+
 	</div>
 	<?php
 }
@@ -140,6 +151,14 @@ function interactive_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['height'] ) ) {
 		update_post_meta( $post_id, '_interactive_height', sanitize_text_field( $_POST['height'] ) );
 	}
+	// Disable iFrame Resizing
+	if ( isset( $_REQUEST['iframeResizeDisabled'] ) ) {
+		update_post_meta( $post_id, '_interactive_iframeResizeDisabled', sanitize_text_field( $_POST['iframeResizeDisabled'] ) );
+	}
+	// Disable Fallback Image
+	if ( isset( $_REQUEST['fallbackImgDisabled'] ) ) {
+		update_post_meta( $post_id, '_interactive_fallbackImgDisabled', sanitize_text_field( $_POST['fallbackImgDisabled'] ) );
+	}
 
 }
 add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
@@ -150,7 +169,7 @@ add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
  * @param  String $soundcloudID Soundcloud ID for the interactive
  * @return String               iFrame code
  */
-function chinapower_interactive_display_iframe($interactiveURL, $width, $height) {
+function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null) {
 
 	if(empty($width)) {
 		$width = "100%";
@@ -160,7 +179,11 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height)
 		$heightValue = 'height="'.$height.'"';
 	}
 
-	return '<iframe width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>';
+	if($fallbackImg) {
+		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'</div>';
+	}
+
+	return '<iframe width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>'.$fallbackImg;
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

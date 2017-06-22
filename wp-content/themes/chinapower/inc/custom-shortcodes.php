@@ -109,7 +109,14 @@ function chinapower_shortcode_interactive( $atts ) {
 	$width = get_post_meta( $atts['id'], '_interactive_width', true );
 	$height = get_post_meta( $atts['id'], '_interactive_height', true );
 
-	return chinapower_interactive_display_iframe($interactiveURL, $width, $height);
+	// Fallback Image
+	$fallbackImgDisabled = get_post_meta( $atts['id'], '_interactive_fallbackImgDisabled', true );
+
+	if(!$fallbackImgDisabled) {
+		$fallbackImg = get_the_post_thumbnail($atts['id'], 'full');
+	}
+
+	return chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg);
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
