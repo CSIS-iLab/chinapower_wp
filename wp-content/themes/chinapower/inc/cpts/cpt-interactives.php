@@ -155,9 +155,15 @@ function interactive_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['iframeResizeDisabled'] ) ) {
 		update_post_meta( $post_id, '_interactive_iframeResizeDisabled', sanitize_text_field( $_POST['iframeResizeDisabled'] ) );
 	}
+	else {
+		update_post_meta( $post_id, '_interactive_iframeResizeDisabled', '');
+	}
 	// Disable Fallback Image
 	if ( isset( $_REQUEST['fallbackImgDisabled'] ) ) {
 		update_post_meta( $post_id, '_interactive_fallbackImgDisabled', sanitize_text_field( $_POST['fallbackImgDisabled'] ) );
+	}
+	else {
+		update_post_meta( $post_id, '_interactive_fallbackImgDisabled', '');
 	}
 
 }
@@ -165,11 +171,15 @@ add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
 
 /*----------  Display iFrame  ----------*/
 /**
- * Displays the embedded Soundcloud iframe
- * @param  String $soundcloudID Soundcloud ID for the interactive
- * @return String               iFrame code
+ * Displays the specified interactive in an iframe
+ * @param  String  $interactiveURL       URL to the interactive
+ * @param  String  $width                Width of the iframe, can be in px or %
+ * @param  String  $height               Height of the iframe, can be in px or %
+ * @param  String  $fallbackImg          Featured image thumbnail img tag string
+ * @param  boolean $iframeResizeDisabled Indicate if iframe should automatically resize based on content height
+ * @return String                        HTML of the iframe
  */
-function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null) {
+function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null, $iframeResizeDisabled = false) {
 
 	if(empty($width)) {
 		$width = "100%";
@@ -183,7 +193,14 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'</div>';
 	}
 
-	return '<iframe width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>'.$fallbackImg;
+	if($iframeResizeDisabled) {
+		$enabledClass = "";
+	}
+	else {
+		$enabledClass = " js-iframeResizeEnabled";
+	}
+
+	return '<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>'.$fallbackImg;
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

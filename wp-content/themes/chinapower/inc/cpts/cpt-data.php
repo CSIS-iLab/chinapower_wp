@@ -127,17 +127,20 @@ function data_save_meta_box_data( $post_id ){
 	}
 
 	// Store custom fields values
-	// Subtitle
+	// View URL
 	if ( isset( $_REQUEST['viewURL'] ) ) {
 		update_post_meta( $post_id, '_data_viewURL', sanitize_text_field( $_POST['viewURL'] ) );
 	}
-	// Soundcloud URL
+	// Download URL
 	if ( isset( $_REQUEST['downloadURL'] ) ) {
 		update_post_meta( $post_id, '_data_downloadURL', sanitize_text_field( $_POST['downloadURL'] ) );
 	}
-	// Soundcloud ID
+	// View URL is a PDF
 	if ( isset( $_REQUEST['viewIsPDF'] ) ) {
 		update_post_meta( $post_id, '_data_viewIsPDF', sanitize_text_field( $_POST['viewIsPDF'] ) );
+	}
+	else {
+		update_post_meta( $post_id, '_data_viewIsPDF', '' );
 	}
 }
 add_action( 'save_post_data', 'data_save_meta_box_data' );
