@@ -22,7 +22,6 @@ add_shortcode( 'fullWidth', 'shortcode_fullWidth' );
  * @param  string $content Embedded content
  * @return string          Embedded podcast
  */
-// Add Shortcode
 function chinapower_shortcode_podcast( $atts ) {
 
 	// Attributes
@@ -53,7 +52,6 @@ add_shortcode( 'podcast', 'chinapower_shortcode_podcast' );
  * @param  string $content Embedded content
  * @return string          Embedded featured statistic
  */
-// Add Shortcode
 function chinapower_shortcode_data_featured( $atts ) {
 
 	// Attributes
@@ -79,7 +77,6 @@ add_shortcode( 'dataFeatured', 'chinapower_shortcode_data_featured' );
  * @param  string $content Embedded content
  * @return string          Embedded featured statistic
  */
-// Add Shortcode
 function chinapower_shortcode_data_featured_number( $atts, $content = null ) {
 
 	return "<div class='data-featuredStatNumber'>".$content."</div>";
@@ -121,3 +118,31 @@ function chinapower_shortcode_interactive( $atts ) {
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
+
+
+/**
+ * Shortcode for displaying the "view" link in the Data Sources section of the post with the option to indicate if it is an external link or not
+ * @param  Array $atts url, external
+ * @return String       Formatted "View" link
+ */
+function chinapower_shortcode_view( $atts ) {
+
+	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'url' => '', // URL of Link
+			'external' => '', // Is this an external link
+		),
+		$atts,
+		'view'
+	);
+
+	if($atts['external']) {
+		$linkTarget = 'target="_blank"';
+		$externalIcon = ' <span class="dashicons dashicons-external"></span>';
+	}
+
+	return '<span class="dataSources-viewLink"><a href="'.$atts['url'].'" '.$linkTarget.'>View'.$externalIcon.'</a></span>';
+
+}
+add_shortcode( 'view', 'chinapower_shortcode_view' );
