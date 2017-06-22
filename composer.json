@@ -15,6 +15,7 @@
         "wpackagist-plugin/tinymce-advanced": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/jetpack": "*",
+        "wpackagist-plugin/related": "*",
         "wpackagist-plugin/search-by-algolia-instant-relevant-results": "*"
     }
 }
