@@ -153,6 +153,11 @@ require get_template_directory() . '/inc/customizer.php';
 require get_template_directory() . '/inc/jetpack.php';
 
 /**
+ * Register Custom Post Meta Boxes for posts
+ */
+require get_template_directory() . '/inc/custom-post-meta.php';
+
+/**
  * Register Custom Post Types
  */
 require get_template_directory() . '/inc/custom-post-types.php';
