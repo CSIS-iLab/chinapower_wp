@@ -47,4 +47,34 @@
 			}
 		});
 	});
+	tinymce.PluginManager.add('view', function( editor, url ) {
+		editor.addButton('view', {
+			text: null,
+			icon: 'icon dashicons-external',
+			tooltip: 'Insert View link for Data Sources',
+			onclick: function() {
+				editor.windowManager.open( {
+					title: 'Insert View Link for Data Sources',
+					width: 400,
+					height: 100,
+					body: [
+						{
+							type: 'textbox',
+							name: 'url',
+							label: 'URL'
+						},
+						{
+		                    type   : 'checkbox',
+		                    name   : 'external',
+		                    label  : 'External Link?',
+		                    checked : false
+		                },
+					],
+					onsubmit: function( e ) {
+						editor.insertContent( '[view url="'+e.data.url+'" external="'+e.data.external+'"]');
+					}
+				});
+			}
+		});
+	});
 })();

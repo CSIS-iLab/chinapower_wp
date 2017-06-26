@@ -35,12 +35,38 @@ function post_build_meta_box( $post ){
 	<div class='inside'>
 		<h3><?php _e( 'Data Sources', 'chinapower' ); ?></h3>
 		<p>
-			<?php wp_editor( $current_dataSources, "post_dataSources", array( 'media_buttons' => false, 'textarea_name' => 'dataSources', 'teeny' => true ) ); ?>
+			<?php wp_editor( 
+				$current_dataSources, 
+				"post_dataSources", 
+				array( 
+					'media_buttons' => false, 
+					'textarea_name' => 'dataSources', 
+					'teeny' => false, 
+					'tinymce' => array(
+						'menubar' => false,
+						'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink,view',
+						'toolbar2' => false
+					) 
+				) 
+			); ?>
 		</p>
-
+		<br />
 		<h3><?php _e( 'Further Reading', 'chinapower' ); ?></h3>
 		<p>
-			<?php wp_editor( $current_furtherReading, "post_furtherReading", array( 'media_buttons' => false, 'textarea_name' => 'furtherReading', 'teeny' => true ) ); ?>
+			<?php wp_editor( 
+				$current_furtherReading, 
+				"post_furtherReading", 
+				array( 
+					'media_buttons' => false, 
+					'textarea_name' => 'furtherReading', 
+					'teeny' => false, 
+					'tinymce' => array(
+						'menubar' => false,
+						'toolbar1' => 'bold,italic,underline,strikethrough,subscript,superscript,bullist,numlist,alignleft,aligncenter,alignright,undo,redo,link,unlink',
+						'toolbar2' => false
+					) 
+				) 
+			); ?>
 		</p>
 	</div>
 	<?php
@@ -68,11 +94,11 @@ function post_save_meta_box_data( $post_id ){
 	// Store custom fields values
 	// Data Sources
 	if ( isset( $_REQUEST['dataSources'] ) ) {
-		update_post_meta( $post_id, '_post_dataSources', esc_textarea( $_POST['dataSources'] ) );
+		update_post_meta( $post_id, '_post_dataSources', wp_kses_post( $_POST['dataSources'] ) );
 	}
 	// Further Reading
 	if ( isset( $_REQUEST['furtherReading'] ) ) {
-		update_post_meta( $post_id, '_post_furtherReading', esc_textarea( $_POST['furtherReading'] ) );
+		update_post_meta( $post_id, '_post_furtherReading', wp_kses_post( $_POST['furtherReading'] ) );
 	}
 }
 add_action( 'save_post', 'post_save_meta_box_data' );
