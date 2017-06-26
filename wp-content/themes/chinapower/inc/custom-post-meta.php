@@ -40,7 +40,7 @@ function post_build_meta_box( $post ){
 
 		<h3><?php _e( 'Further Reading', 'chinapower' ); ?></h3>
 		<p>
-			<?php wp_editor( $current_dataSources, "post_furtherReading", array( 'media_buttons' => false, 'textarea_name' => 'furtherReading', 'teeny' => true ) ); ?>
+			<?php wp_editor( $current_furtherReading, "post_furtherReading", array( 'media_buttons' => false, 'textarea_name' => 'furtherReading', 'teeny' => true ) ); ?>
 		</p>
 	</div>
 	<?php
@@ -68,11 +68,11 @@ function post_save_meta_box_data( $post_id ){
 	// Store custom fields values
 	// Data Sources
 	if ( isset( $_REQUEST['dataSources'] ) ) {
-		update_post_meta( $post_id, '_post_dataSources', sanitize_text_field( $_POST['dataSources'] ) );
+		update_post_meta( $post_id, '_post_dataSources', esc_textarea( $_POST['dataSources'] ) );
 	}
 	// Further Reading
 	if ( isset( $_REQUEST['furtherReading'] ) ) {
-		update_post_meta( $post_id, '_post_furtherReading', sanitize_text_field( $_POST['furtherReading'] ) );
+		update_post_meta( $post_id, '_post_furtherReading', esc_textarea( $_POST['furtherReading'] ) );
 	}
 }
 add_action( 'save_post', 'post_save_meta_box_data' );
