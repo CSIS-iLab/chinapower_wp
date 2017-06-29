@@ -29,6 +29,7 @@ function chinapower_shortcode_podcast( $atts ) {
 		array(
 			'id' => '', // ID of Podcast post
 			'soundcloud' => '', // ID of Soundcloud track
+			'sharing' => true // Include share component
 		),
 		$atts,
 		'podcast'
@@ -58,6 +59,7 @@ function chinapower_shortcode_data_featured( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'id' => '', // ID of Podcast post
+			'sharing' => true // Include share component
 		),
 		$atts,
 		'dataFeatured'
@@ -96,7 +98,8 @@ function chinapower_shortcode_interactive( $atts ) {
 		array(
 			'id' => '', // ID of Interactive Post
 			'width' => '', // Width of Interactive
-			'height' => '', // Height of Interactive
+			'height' => '', // Height of Interactive,
+			'sharing' => true // Include share component
 		),
 		$atts,
 		'interactive'
@@ -118,7 +121,6 @@ function chinapower_shortcode_interactive( $atts ) {
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
-
 
 /**
  * Shortcode for displaying the "view" link in the Data Sources section of the post with the option to indicate if it is an external link or not
@@ -146,3 +148,33 @@ function chinapower_shortcode_view( $atts ) {
 
 }
 add_shortcode( 'view', 'chinapower_shortcode_view' );
+
+/*----------  Add sharing component to shortcodes  ----------*/
+add_filter( 'do_shortcode_tag','chinapower_add_sharing_component',10,3);
+function chinapower_add_sharing_component($output, $tag, $attr ){
+
+	// Only Use for Specific Shortcodes
+	$acceptedTags = array('interactive', 'podcast', 'dataFeatured');
+	if(!in_array($tag, $acceptedTags)){ 
+    	return $output;
+  	}
+
+  	// Only if sharing attribute is true
+	if(isset($attr['sharing']) && $attr['sharing'] != 'true') {
+		return $output;
+	}
+
+	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+		$output .= '<div class="sharing-inline">';
+		$output .= '<div class="sharing-openShareBtn">Share</div>';
+		$output .= '<div class="sharing-shareBtns">';
+		ob_start();
+	    ADDTOANY_SHARE_SAVE_KIT();
+	    $output .= ob_get_contents();
+	    ob_end_clean();
+	    $output .= '</div>';
+	    $output .= '</div>';
+	    return $output;
+	}
+}
+
