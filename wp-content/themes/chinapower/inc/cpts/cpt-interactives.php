@@ -94,7 +94,7 @@ function interactive_build_meta_box( $post ){
 	<div class='inside'>
 		<h3><?php _e( 'URL', 'chinapower' ); ?></h3>
 		<p>
-			<input type="text" class="large-text" name="url" value="<?php echo $current_url; ?>" /> 
+			<textarea name="url" class="large-text"><?php echo $current_url; ?></textarea>
 		</p>
 
 		<h3><?php _e( 'iFrame Width', 'chinapower' ); ?></h3>
