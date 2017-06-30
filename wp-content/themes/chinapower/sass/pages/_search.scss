@@ -22,7 +22,7 @@
 		margin-bottom: 3rem;
 
 		@include breakpoint("medium") {
-			border-bottom: 2px solid $archive-filter-gray;
+			border-bottom: 2px solid $gray;
 			padding-bottom: 2rem;
 			margin-bottom: 2rem;
 		}

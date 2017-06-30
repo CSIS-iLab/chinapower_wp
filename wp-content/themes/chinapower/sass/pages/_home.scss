@@ -26,8 +26,8 @@
 				  content: "";
 				  position: absolute;
 				  height: 5px;
-				  border-bottom: 1px solid $latest-decoration-gray;
-				  border-top: 1px solid $latest-decoration-gray;
+				  border-bottom: 1px solid $light-gray;
+				  border-top: 1px solid $light-gray;
 				  top: 50%;
 				  margin-top: floor(-5px / 2);
 				  width: 800px;
@@ -39,8 +39,8 @@
 
 		.latest-titleDecoration {
 			height: 5px;
-			border-top: 1px solid $latest-decoration-gray;
-			border-bottom: 1px solid $latest-decoration-gray;
+			border-top: 1px solid $light-gray;
+			border-bottom: 1px solid $light-gray;
 			display: inline-block;
 			width: 54%;
 			margin-left: 4.5%;
@@ -48,7 +48,7 @@
 		}
 
 		article.post {
-			border-bottom: 2px solid $archive-filter-gray;
+			border-bottom: 2px solid $gray;
 			margin-bottom: 0;
 			padding-bottom: 0.75rem;
 			margin-top: 0.75rem;
@@ -68,7 +68,7 @@
 					color: $black;
 
 					&:hover {
-						color: $bright-green;
+						color: $red;
 					}
 				}
 			}
@@ -113,7 +113,7 @@
 					color: $black;
 
 					&:hover {
-						color: $bright-green;
+						color: $red;
 					}
 				}
 			}
@@ -141,7 +141,7 @@
 					color: $black;
 
 					&:hover {
-						color: $bright-green;
+						color: $red;
 					}
 				}
 			}
@@ -153,7 +153,7 @@
 			}
 
 			.series-exploreMore {
-				background-color: $dark-green;
+				background-color: $dark-blue;
 				color: $light-gray;
 				text-transform: uppercase;
 				@include fontSize(13px);
@@ -176,7 +176,7 @@
 		}
 
 		.series-sectionTitle, .series-learnMore {
-			color: $dark-green;
+			color: $dark-blue;
 			@include fontSize(15px);
 			text-transform: uppercase;
 			font-weight: normal;
@@ -185,7 +185,7 @@
 		}
 
 		.series-learnMore:hover {
-			color: $bright-green;
+			color: $red;
 		}
 
 	}

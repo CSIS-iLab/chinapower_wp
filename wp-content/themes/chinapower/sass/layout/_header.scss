@@ -3,263 +3,75 @@
 ==============================*/
 
 header.site-header {
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	margin-bottom: 2rem;
 	width: 100%;
-	background-color: $white;
-	z-index:50;
-
-	@include breakpoint("medium") {
-		padding-bottom: initial;
-	}
-
-	&.nav-down {
-		position: fixed;
-		top: 0;
-		transition: top 0.2s ease-in-out;
-
-		@include breakpoint("medium") {
-			position: relative;
-			top: initial;
-		}
-	}
-
-	&.nav-up {
-		top: -101px;
-		position: fixed;
-
-		@include breakpoint("medium") {
-			top: initial;
-			position: relative;
-		}
-	}
+	height: 100px;
 
 	.site-branding {
 		padding: 0;
 		text-align: center;
-
-		@include breakpoint("medium") {
-			text-align: left;
-		}
-
-		img.site-logo {
-			max-width: 90%;
-		}
 	}
-
-	.header-ttIndex {
-		align-self: flex-end;
-		text-align: right;
-		@include fontSize(13px);
-		line-height: 1.5;
-		color: $gray;
-		padding-left: 17%;
-	}
-
-	.header-mobileContainer, .header-searchContainer {
-		justify-content: center;
-		align-self: center;
-		@include fontSize(25px);
-		cursor: pointer;
-
-	}
-
-	/*----------  Navigation  ----------*/
-	.navigation-container {
-		display: none;
-
-		@include breakpoint("medium") {
-			display: block;
-		}
-	}
-
 
 	/*----------  Navigation: Main Menu  ----------*/
+	.main-navigationContainer {
+		align-self: flex-end;
 	
-	nav.main-navigation {
-		padding-top: 1rem;
-		padding-bottom: 0;
+		nav.main-navigation {
+			padding-top: 1rem;
+			padding-bottom: 0;
 
-		.content-wrapper {
-			max-width: 100%;
-			width: 100%;
-			padding: 0;
-
-			@include breakpoint("medium") {
-				max-width: $size__container-max-width;
-				margin: 0 auto;
-				padding: 0 1rem;
-			}
-
-			@include breakpoint($size__container-max-width) {
+			ul#primary-menu {
+				display: block;
+				list-style: none;
+				margin: 0;
 				padding: 0;
-			}
-		}
 
-		.menu-main-container {
-			padding: 0;
-		}
+				li {
+					text-align: center;
+					@include fontSize(16px);
+					margin-bottom: 0;
 
-		ul#primary-menu {
-			display: block;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-
-			li {
-				text-align: center;
-				@include fontSize(16px);
-				margin-bottom: 0;
-
-				// Apply styles to all list items at medium breakpoint
-				@include breakpoint("medium") {
-					text-align: left !important;
-					margin-right: 5% !important;
-					display: inline-block !important;
-					width: auto !important;
-					border: 0 !important;
-					top: 0 !important;
-					@include fontSize(17px);
-				}
-
-				&.home {
-					display: none;
-
+					// Apply styles to all list items at medium breakpoint
 					@include breakpoint("medium") {
-						margin-right: 3%;
-						display: inline;
+						text-align: left !important;
+						margin-right: 5% !important;
+						display: inline-block !important;
+						width: auto !important;
+						border: 0 !important;
+						top: 0 !important;
+						@include fontSize(17px);
 					}
-				}
-
-				// First 4 Menu Items
-				&:nth-child(-n+4):not(.home) {
-					display: inline-block;
-					width: 32%;
-					margin: 0;
-					border-left: 1px solid $color__navigation-border;
-					padding: 0.25rem 0;
-				}
-
-				// Second Menu Item
-				&:nth-child(2) {
-					border:0 !important;
-				}
-
-				// All Other Menu Items
-				&:not(:nth-child(-n+4)) {
-					display: block;
-					border-bottom: 1px solid $color__navigation-border;
-					padding: 0.5rem 0;
-					position: relative;
-					top: 220px;
-				}
-
-				.menu-description {
-					text-transform: uppercase;
-					color: $dark-gray;
-					letter-spacing: 0.5px;
 
 					a {
+						font-weight: 600;
+						text-decoration: none;
 						color: $dark-gray;
-						font-weight: normal;
-						letter-spacing: 0.5px;
+						text-transform: uppercase;
+						letter-spacing: 0.04em;
+
+						&:hover {
+							color: $red;
+						}
+					}
+
+					&:hover > ul.sub-menu {
+						display: block;
+					}
+
+					// Sub-menus
+					ul.sub-menu {
+						display: none;
+						position: absolute;
+						left: 0;
+						right: 0;
+						background-color: red;
+						height: 50px;
+						margin-left: 0;
+
+						li {
+							display: inline-block;
+						}
 					}
 				}
-
-				a {
-					font-weight: 600;
-					text-decoration: none;
-					color: $dark-gray;
-					text-transform: uppercase;
-					letter-spacing: 0.04em;
-
-					&:hover {
-						color: $bright-green;
-					}
-				}
-			}
-		}
-	}
-
-	/*----------  Navigation: Secondary Menu  ----------*/
-	
-	nav.secondary-navigation {
-		background-color: $light-gray;
-		position: relative;
-		top: -65px;
-
-		@include breakpoint("medium") {
-			top: 0;
-			padding: 0.5rem 1rem 0.7rem;
-		}
-
-		.content-wrapper {
-			max-width: 100%;
-			width: 100%;
-			padding: 0;
-
-			@include breakpoint("medium") {
-				max-width: $size__container-max-width;
-				margin: 0 auto;
-			}
-
-			@include breakpoint($size__container-max-width) {
-				padding: 0;
-			}
-		}
-
-		.menu-categories-menu-container {
-			padding: 0;
-		}
-
-		ul#secondary-menu {
-			display: block;
-			list-style: none;
-			margin: 0;
-			padding: 0;
-
-			li {
-				display: block;
-				background-color: $light-gray;
-				border-bottom: 1px solid $color__navigation-border;
-				padding: 0.5rem 0;
-				text-align: center;
-				margin: 0;
-
-				a {
-					font-weight: normal;
-					color: $dark-gray;
-					text-transform: uppercase;
-					letter-spacing: 0.06em;
-					@include fontSize(16px);
-
-					&:hover {
-						color: $bright-green;
-					}
-				}
-
-				@include breakpoint("medium") {
-					display: inline-block;
-					margin-right: 5%;
-					text-align: left;
-					border: 0;
-					padding: 0;
-				}
-			}
-		}
-
-		.nav-searchIconContainer {
-			text-align: right;
-			padding: 0;
-
-			.icon-search {
-				@include fontSize(14px);
-			}
-
-			.icon-search:hover {
-				cursor:pointer;
-				color: $bright-green;
 			}
 		}
 	}
@@ -287,7 +99,7 @@ header.site-header {
 			color: $dark-gray;
 
 			&:hover {
-				color: $bright-green;
+				color: $red;
 			}
 		}
 
@@ -324,7 +136,7 @@ header.site-header {
 			}
 
 			.search-form {
-				border-bottom: 1px solid $search-gray;
+				border-bottom: 1px solid $gray;
 			}
 
 			.search-field {
@@ -332,7 +144,7 @@ header.site-header {
 				border-radius: 0;
 				background-color: transparent;
 				border: 0;
-				color: $search-gray;
+				color: $gray;
 				text-transform: uppercase;
 				@include fontSize(14px);
 				line-height: 1;

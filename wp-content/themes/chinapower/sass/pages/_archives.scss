@@ -31,7 +31,7 @@
 		margin-bottom: 3rem;
 
 		@include breakpoint("medium") {
-			border-bottom: 2px solid $archive-filter-gray;
+			border-bottom: 2px solid $gray;
 			padding-bottom: 2rem;
 			margin-bottom: 2rem;
 		}
@@ -53,7 +53,7 @@
 	.searchFilter-title {
 		display:inline-block;
 		width: 10%;
-		border: 2px solid $archive-filter-gray;
+		border: 2px solid $gray;
 		border-right: 0;
 		font-weight: bold;
 		text-align: center;
@@ -80,7 +80,7 @@
 			display: block;
 		    flex: 0 1 auto; /* Default */
 		    list-style-type: none;
-		    border: 2px solid $archive-filter-gray;
+		    border: 2px solid $gray;
 		    border-bottom: 0;
 		    width: 100%;
 		    text-align: left;
@@ -91,23 +91,23 @@
 		    @include breakpoint("medium") {
 		    	text-align: center;
 		    	border-right: 0;
-		    	border-bottom: 2px solid $archive-filter-gray;
+		    	border-bottom: 2px solid $gray;
 		    	padding: 0;
 		    }
 
 		    &:nth-last-child(2) {
-	    		border-bottom: 2px solid $archive-filter-gray;
+	    		border-bottom: 2px solid $gray;
 	    	}
 
 		    &:last-of-type {
-		    	border-bottom: 2px solid $archive-filter-gray;
+		    	border-bottom: 2px solid $gray;
 		    	max-width: 40%;
 		    	margin: 1rem auto;
 		    	padding: 0;
 
 		    	@include breakpoint("medium") {
 		    		width: 40%;
-		    		border-right: 2px solid $archive-filter-gray;
+		    		border-right: 2px solid $gray;
 		    		margin: initial;
 		    	}
 
@@ -116,7 +116,7 @@
 		    		text-transform: uppercase;
 		    		border: 0;
 		    		border-radius: 0;
-		    		color: $bright-green;
+		    		color: $red;
 		    		font-weight: bold;
 		    		width: 100%;
 		    		text-align: center;
@@ -128,7 +128,7 @@
 		    }
 
 		    &:first-of-type {
-		    	border-bottom: 2px solid $archive-filter-gray;
+		    	border-bottom: 2px solid $gray;
 
 		    	@include breakpoint("medium") {
 			    	width: 85%;

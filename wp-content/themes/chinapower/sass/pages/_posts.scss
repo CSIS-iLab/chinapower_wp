@@ -61,17 +61,17 @@ article.post, article.page {
 					color: $gray;
 
 					&:hover {
-						color: $bright-green;
+						color: $red;
 					}
 				}
 			}
 
 			.post-categories {
 				a {
-					color: $bright-green;
+					color: $red;
 
 					&:hover {
-						color: $dark-green;
+						color: $dark-blue;
 					}
 				}
 			}
@@ -89,7 +89,7 @@ article.post, article.page {
 				color: $black;
 
 				&:hover {
-					color: $bright-green;
+					color: $red;
 				}
 			}
 
@@ -100,7 +100,7 @@ article.post, article.page {
 					color: $black;
 
 					&:hover {
-						color: $bright-green;
+						color: $red;
 					}
 				}
 			}
@@ -130,7 +130,7 @@ article.post, article.page {
 				color: $gray;
 
 				&:hover {
-					color: $bright-green;
+					color: $red;
 				}
 			}
 		}
@@ -143,7 +143,7 @@ article.post, article.page {
 		}
 
 		.download {
-			background-color: $dark-green;
+			background-color: $dark-blue;
 			color: $light-gray;
 			text-transform: uppercase;
 			@include fontSize(14px);
@@ -167,7 +167,7 @@ article.post, article.page {
 		.highlightedContent {
 			margin: 1rem auto;
 			padding: 1rem;
-			border:1px solid $bright-green;
+			border:1px solid $red;
 
 			@include breakpoint("medium") {
 				padding: 1.5rem;
@@ -188,12 +188,12 @@ article.post, article.page {
 			color: $gray;
 
 			&:hover {
-				color: $bright-green;
+				color: $red;
 			}
 		}
 
 		.posted-on {
-			color: $bright-green;
+			color: $red;
 		}
 
 		.posted-redirectInfo {

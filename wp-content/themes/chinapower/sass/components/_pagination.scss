@@ -17,12 +17,12 @@
 
 
 		&:hover {
-			color: $bright-green;
+			color: $red;
 		}
 	}
 
 	.current {
-		color: $bright-green;
-		border-bottom: 1px solid $bright-green;
+		color: $red;
+		border-bottom: 1px solid $red;
 	}
 }
