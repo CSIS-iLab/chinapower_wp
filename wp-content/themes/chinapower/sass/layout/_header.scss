@@ -2,7 +2,7 @@
 =            Header            =
 ==============================*/
 
-header.site-header {
+header div.site-header {
 	width: 100%;
 	background-color: $blue;
 	padding-top: 1rem;
@@ -90,50 +90,14 @@ header.site-header {
 	.close-icon {
 		display: none;
 	}
+}
 
-	/*----------  Navigation: Social Media  ----------*/
-	.nav-social {
-		padding: 1rem 0;
-		text-align: center;
-
-		@include breakpoint("medium") {
-			text-align: right;
-			padding: 0;
-		}
-
-		a {
-			color: $dark-gray;
-
-			&:hover {
-				color: $red;
-			}
-		}
-
-		i.icon {
-			@include fontSize(32px);
-			margin: 0 1rem;
-
-			@include breakpoint("medium") {
-				@include fontSize(16px);
-				margin: initial;
-			}
-		}
-	}
-
-	/*----------  Search Form  ----------*/
+/*----------  Search Form  ----------*/
+header#masthead {
 	.header-searchFormContainer {
-		background-color: $black;
-		padding: 1rem 0.5rem;
-		position: relative;
-		z-index: 10;
 		display: none;
-		margin-top: 1rem;
-
-		@include breakpoint("medium") {
-			top: -42px;
-			padding: 0.3rem 0.5rem 0.6rem;
-			margin-top: 0;
-		}
+		background-color: $off-white;
+		padding: 1rem 0.5rem;
 
 		.header-searchForm {
 
@@ -195,4 +159,3 @@ header.site-header {
 		}
 	}
 }
-
