@@ -37,12 +37,16 @@ $color__border-abbr: #666;
 /*==================================
 =            Typography            =
 ==================================*/
+@import url('https://fonts.googleapis.com/css?family=Hind:400,500,600|Roboto:400,700');
 
 $font__SourceSans: "source-sans-pro",sans-serif;
 $font__ExpoSerif: "expo-serif-pro",serif;
 
+$font__Roboto: 'Roboto', sans-serif;
+$font__Hind: 'Hind', sans-serif;
 
-$font__main: $font__SourceSans;
+
+$font__main: $font__Hind;
 $font__code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 $font__pre: "Courier 10 Pitch", Courier, monospace;
 $font__line-height-body: 1.5;
