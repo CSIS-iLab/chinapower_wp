@@ -2,98 +2,105 @@
 =            Header            =
 ==============================*/
 
-header div.site-header {
-	width: 100%;
-	background-color: $blue;
-	padding-top: 1rem;
+header.site-header {
+	position: fixed;
+	top: 0;
+	z-index: 50;
+	left: 0;
+	right: 0;
 
-	.site-branding {
-		padding: 0;
-		text-align: center;
+	.header-main {
+		width: 100%;
+		background-color: $blue;
+		padding-top: 1rem;
 
-		a {
-			color: $white;
+
+		.site-branding {
+			padding: 0;
+			text-align: center;
+
+			a {
+				color: $white;
+			}
 		}
-	}
 
-	/*----------  Navigation: Main Menu  ----------*/
-	.main-navigationContainer {
-		align-self: flex-end;
-	
-		nav.main-navigation {
-			padding-top: 1rem;
-			padding-bottom: 0;
+		/*----------  Navigation: Main Menu  ----------*/
+		.main-navigationContainer {
+			align-self: flex-end;
+		
+			nav.main-navigation {
+				padding-top: 1rem;
+				padding-bottom: 0;
 
-			ul#primary-menu {
-				display: block;
-				list-style: none;
-				margin: 0;
-				padding: 0;
+				ul#primary-menu {
+					display: block;
+					list-style: none;
+					margin: 0;
+					padding: 0;
 
-				li {
-					text-align: center;
-					@include fontSize(16px);
-					margin-bottom: 0;
-					padding-bottom: 1rem;
+					li {
+						text-align: center;
+						@include fontSize(16px);
+						margin-bottom: 0;
+						padding-bottom: 1rem;
 
-					// Apply styles to all list items at medium breakpoint
-					@include breakpoint("medium") {
-						text-align: left !important;
-						margin-right: 5% !important;
-						display: inline-block !important;
-						width: auto !important;
-						border: 0 !important;
-						top: 0 !important;
-						@include fontSize(17px);
-					}
-
-					a {
-						font-weight: 600;
-						text-decoration: none;
-						color: $dark-gray;
-						text-transform: uppercase;
-						letter-spacing: 0.04em;
-
-						&:hover {
-							color: $red;
+						// Apply styles to all list items at medium breakpoint
+						@include breakpoint("medium") {
+							text-align: left !important;
+							margin-right: 5% !important;
+							display: inline-block !important;
+							width: auto !important;
+							border: 0 !important;
+							top: 0 !important;
+							@include fontSize(17px);
 						}
-					}
 
-					&:hover > ul.sub-menu {
-						display: block;
-					}
+						a {
+							font-weight: 600;
+							text-decoration: none;
+							color: $dark-gray;
+							text-transform: uppercase;
+							letter-spacing: 0.04em;
 
-					// Sub-menus
-					ul.sub-menu {
-						display: none;
-						position: absolute;
-						left: 0;
-						right: 0;
-						background-color: $off-white;
-						height: 50px;
-						margin-left: 0;
+							&:hover {
+								color: $red;
+							}
+						}
 
-						li {
-							display: inline-block;
+						&:hover > ul.sub-menu {
+							display: block;
+						}
+
+						// Sub-menus
+						ul.sub-menu {
+							display: none;
+							position: absolute;
+							left: 0;
+							right: 0;
+							background-color: $off-white;
+							height: 50px;
+							margin-left: 0;
+
+							li {
+								display: inline-block;
+							}
 						}
 					}
 				}
 			}
 		}
+
+		/*----------  Mobile Menu Styles  ----------*/
+		&.menu-mobile-active {
+			height: 100vh;
+		}
+
+		.close-icon {
+			display: none;
+		}
 	}
 
-	/*----------  Mobile Menu Styles  ----------*/
-	&.menu-mobile-active {
-		height: 100vh;
-	}
-
-	.close-icon {
-		display: none;
-	}
-}
-
-/*----------  Search Form  ----------*/
-header#masthead {
+	/*----------  Search Form  ----------*/
 	.header-searchFormContainer {
 		display: none;
 		background-color: $off-white;
@@ -159,3 +166,5 @@ header#masthead {
 		}
 	}
 }
+
+.admin-bar header.site-header {top: 32px;}

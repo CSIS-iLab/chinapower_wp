@@ -45,6 +45,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   ## Pagination
   ## Related Posts
   ## Autocomplete
+  ## Post Nav
 # Layout
 	## Header
 	## Footer
@@ -89,7 +90,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   'components/social-share',
   'components/pagination',
   'components/related-posts',
-  'components/autocomplete';
+  'components/autocomplete',
+  'components/post-nav';
 
 /*----------  Layout  ----------*/
 @import

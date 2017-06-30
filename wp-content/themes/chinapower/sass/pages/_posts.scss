@@ -2,30 +2,48 @@
 =            Posts            =
 =============================*/
 
-/*----------  Single Posts  ----------*/
-.single-post article.post {
-	header.entry-header {
-		text-align: center;
-		margin-bottom: 0;
+/*----------  Single Post Styles  ----------*/
+.single-post {
 
-		@include breakpoint("medium") {
-			margin-bottom: 2rem;
+	/*----------  Post Header  ----------*/
+	.featureImg {
+		width: 100%;
+		height: 600px;
+		position: relative;
+		background-size: cover;
+		background-repeat: no-repeat;
+		background-position: center center;
+		display: flex;
+		padding-bottom: 1rem;
+
+		&:before {
+			content: '';
+			position: absolute;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			height: 40%;
+			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
+			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
+			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
 		}
-	}
 
-	.entry-content {
-		margin-bottom: 2rem;
-
-		p {
-			margin-bottom: 1rem;
-			line-height: 1.75;
+		.entry-title {
+			position: relative;
+			flex: 1;
+			align-self: flex-end;
+			font-family: $font__Roboto;
+			@include fontSize(48px);
+			font-weight: bold;
+			line-height: 1.27;
+			letter-spacing: 0.6px;
+			color: $white;
+			text-align: center;
 		}
 	}
 }
 
-article.page .entry-content p {
-	margin-bottom: 1rem !important;
-}
 
 /*----------  Global Post Styles  ----------*/
 article.post, article.page {
@@ -49,133 +67,24 @@ article.post, article.page {
 
 	/*----------  Post Header  ----------*/
 	header.entry-header {
-		margin-bottom: 0.5rem;
-
-		.post-contentCategoriesContainer {
-			text-transform: uppercase;
-			@include fontSize(14px);
-			color: $gray;
-
-			.post-contentType {
-				a {
-					color: $gray;
-
-					&:hover {
-						color: $red;
-					}
-				}
-			}
-
-			.post-categories {
-				a {
-					color: $red;
-
-					&:hover {
-						color: $dark-blue;
-					}
-				}
-			}
-		}
-
 		.entry-title {
-			font-family: $font__ExpoSerif;
-			@include fontSize(28px);
-			font-weight: 600;
-			line-height: 1.35;
-			color: $black;
-			margin: 0.25rem 0 0 0;
-
-			a {
-				color: $black;
-
-				&:hover {
-					color: $red;
-				}
-			}
-
-			&.home-secondaryFeature {
-				@include fontSize(24px);
-
-				a {
-					color: $black;
-
-					&:hover {
-						color: $red;
-					}
-				}
-			}
+			font-family: $font__Roboto;
+			@include fontSize(48px);
+			font-weight: bold;
+			line-height: 1.27;
+			letter-spacing: 0.6px;
+			color: $white;
+			text-align: center;
 		}
-
-		img {
-			height: auto;
-			margin-top: 2rem;
-			margin-left: -1rem;
-			margin-right: -1rem;
-			width: 100vw;
-
-			@include breakpoint($size__content-max-width) {
-				width: 100%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-		}
-
-		.post-series {
-			color: $gray;
-			@include fontSize(22px);
-			margin: 0;
-			font-weight: normal;
-
-			a {
-				color: $gray;
-
-				&:hover {
-					color: $red;
-				}
-			}
-		}
+	
 	}
 
 	/*----------  Post Body  ----------*/
 	.entry-content {
+		margin-top: 2rem;
+
 		p {
 			margin-bottom: 0.2rem;
-		}
-
-		.download {
-			background-color: $dark-blue;
-			color: $light-gray;
-			text-transform: uppercase;
-			@include fontSize(14px);
-			padding: 0.5rem 3rem;
-			margin: 1.5rem auto;
-			display: table;
-
-			@include breakpoint("medium") {
-				margin: 1rem auto;
-			}
-
-			a {
-				color: $light-gray;
-
-				&:hover {
-					color: $white;
-				}
-			}
-		}
-
-		.highlightedContent {
-			margin: 1rem auto;
-			padding: 1rem;
-			border:1px solid $red;
-
-			@include breakpoint("medium") {
-				padding: 1.5rem;
-			}
-
-			h2 {
-				margin-top: 0;
-			}
 		}
 	}
 

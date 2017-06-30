@@ -23,8 +23,8 @@
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'chinapower' ); ?></a>
 
-	<header id="masthead" role="banner">
-		<div class="site-header">
+	<header id="masthead" class="site-header" role="banner">
+		<div class="header-main">
 			<div class="content-wrapper row">
 				<div class="site-branding col-xs-12 col-md-4">
 					<?php
