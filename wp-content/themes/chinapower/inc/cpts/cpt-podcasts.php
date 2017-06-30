@@ -134,7 +134,7 @@ function podcast_save_meta_box_data( $post_id ){
 	}
 	// Soundcloud URL
 	if ( isset( $_REQUEST['soundcloudURL'] ) ) {
-		update_post_meta( $post_id, '_podcast_soundcloudURL', sanitize_text_field( $_POST['soundcloudURL'] ) );
+		update_post_meta( $post_id, '_podcast_soundcloudURL', esc_url( $_POST['soundcloudURL'] ) );
 	}
 	// Soundcloud ID
 	if ( isset( $_REQUEST['soundcloudID'] ) ) {

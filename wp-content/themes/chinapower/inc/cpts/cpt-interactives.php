@@ -141,7 +141,7 @@ function interactive_save_meta_box_data( $post_id ){
 	// Store custom fields values
 	// URL
 	if ( isset( $_REQUEST['url'] ) ) {
-		update_post_meta( $post_id, '_interactive_url', sanitize_text_field( $_POST['url'] ) );
+		update_post_meta( $post_id, '_interactive_url', esc_url( $_POST['url'] ) );
 	}
 	// Width
 	if ( isset( $_REQUEST['width'] ) ) {

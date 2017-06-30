@@ -129,11 +129,11 @@ function data_save_meta_box_data( $post_id ){
 	// Store custom fields values
 	// View URL
 	if ( isset( $_REQUEST['viewURL'] ) ) {
-		update_post_meta( $post_id, '_data_viewURL', sanitize_text_field( $_POST['viewURL'] ) );
+		update_post_meta( $post_id, '_data_viewURL', esc_url( $_POST['viewURL'] ) );
 	}
 	// Download URL
 	if ( isset( $_REQUEST['downloadURL'] ) ) {
-		update_post_meta( $post_id, '_data_downloadURL', sanitize_text_field( $_POST['downloadURL'] ) );
+		update_post_meta( $post_id, '_data_downloadURL', esc_url( $_POST['downloadURL'] ) );
 	}
 	// View URL is a PDF
 	if ( isset( $_REQUEST['viewIsPDF'] ) ) {
