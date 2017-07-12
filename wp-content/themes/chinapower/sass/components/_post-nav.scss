@@ -5,6 +5,9 @@
 .post-nav {
 	background-color: $off-white;
 	padding: 0.5rem 0;
+	z-index: 50;
+	left: 0;
+	right: 0;
 
 	.post-nav-menu {
 		text-align: right;
@@ -65,7 +68,7 @@
 				color: $black;
 			}
 
-			.post-nav-toTop {
+			.post-nav-toTop a {
 				font-family: $font__Roboto;
 				@include fontSize(11px);
 				text-transform: uppercase;
@@ -88,6 +91,7 @@
 
 					a {
 						color: $off-black;
+						transition: none;
 
 						&:hover {
 							color: $red;
@@ -102,7 +106,6 @@
 								margin-right: 0.2rem;
 							}
 						}
-
 					}
 				}
 			}

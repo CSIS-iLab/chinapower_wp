@@ -111,7 +111,7 @@ function chinapower_scripts() {
 
 	wp_enqueue_script( 'chinapower-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
 
-	wp_enqueue_script( 'chinapower-mobile-menu-search', get_template_directory_uri() . '/js/mobile-menu-search.js', array(), '20170630', true );
+	wp_enqueue_script( 'chinapower-header-menu', get_template_directory_uri() . '/js/header-menu.js', array(), '20170630', true );
 
 	wp_enqueue_script( 'chinapower-post-nav', get_template_directory_uri() . '/js/post-nav.js', array(), '20170630', true );
 
