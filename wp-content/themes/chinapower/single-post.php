@@ -24,13 +24,25 @@ endif;
 				<div class="post-nav">
 					<div class="content-wrapper row">
 						<div class="post-nav-content col-xs-12 col-md-8">
-							<div class="post-nav-title"><?php the_title(); ?></div>
+							<div class="post-nav-title js-isDefault active"><?php the_title(); ?></div>
+							<div class="post-share-buttons">
+								<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+							</div>
+							<div class="post-nav-jumpto">
+								<?php the_title('<span class="post-title">','</span>'); ?>
+								<span class="post-nav-toTop">Top&#8593;</span>
+								<ul class="post-nav-toc">
+									<li><a href="#introduction">Introduction</a></li>
+									<li><a href="#test" class="active">Test</a></li>
+									<li><a href="#foobar">Foobar</a></li>
+								</ul>
+							</div>
 						</div>
 						<div class="post-nav-menu col-xs-12 col-md-4">
 							<ul>
-								<li><a href="#share">Share</a></li>
-								<li><a href="#jumpTo">Jump To</a></li>
-								<li><a href="#translations">Translations</a></li>
+								<li><a id="share" data-panel="post-share-buttons">Share</a></li>
+								<li><a id="jump" data-panel="post-nav-jumpto">Jump To</a></li>
+								<?php echo chinapower_icl_post_languages(); ?>
 							</ul>
 						</div>
 					</div>

@@ -144,3 +144,20 @@ function chinapower_category_transient_flusher() {
 }
 add_action( 'edit_category', 'chinapower_category_transient_flusher' );
 add_action( 'save_post',     'chinapower_category_transient_flusher' );
+
+/**
+ * Display if post is available in a different language
+ * @return String Translated language names in native language
+ */
+function chinapower_icl_post_languages(){
+	if ( function_exists('icl_object_id') ) {
+		$languages = icl_get_languages('skip_missing=1');
+		if(1 < count($languages)){
+			foreach($languages as $l){
+				if(!$l['active']) $langs[] = '<a href="'.$l['url'].'">'.$l['native_name'].'</a>';
+			}
+			$output = "<li>".join(' / ', $langs)."</li>";
+			return $output;
+		}
+	}
+}

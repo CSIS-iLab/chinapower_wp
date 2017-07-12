@@ -25,6 +25,11 @@
 
 				a {
 					color: $dark-gray;
+					cursor: pointer;
+
+					&.active {
+						color: $red;
+					}
 				}
 
 				& + li::before {
@@ -38,10 +43,73 @@
 
 	.post-nav-content {
 		.post-nav-title {
+			display: none;
 			font-family: $font__Hind;
 			@include fontSize(16px);
 			line-height: 1.81;
 			color: $dark-gray;
+		}
+
+		.post-share-buttons {
+			display: none;
+		}
+
+		.post-nav-jumpto {
+			display: none;
+
+			.post-title {
+				font-family: $font__Hind;
+				@include fontSize(20px);
+				font-weight: 500;
+				line-height: 0.08;
+				color: $black;
+			}
+
+			.post-nav-toTop {
+				font-family: $font__Roboto;
+				@include fontSize(11px);
+				text-transform: uppercase;
+				line-height: 2.64;
+				letter-spacing: 0.7px;
+				color: $blue;
+				margin-left: 0.25rem;
+			}
+
+			.post-nav-toc {
+				list-style-type: none;
+				border-left: 1px solid $light-gray;
+				padding-left: 10px;
+				margin: 0.75rem 0;
+
+				li {
+					font-family: $font__Hind;
+					@include fontSize(16px);
+					line-height: 1.4;
+
+					a {
+						color: $off-black;
+
+						&:hover {
+							color: $red;
+						}
+
+						&.active {
+							font-weight: 600;
+
+							&:before {
+								content: "\2192";
+								color: $red;
+								margin-right: 0.2rem;
+							}
+						}
+
+					}
+				}
+			}
+		}
+
+		.active {
+			display: block;
 		}
 	}
 }
