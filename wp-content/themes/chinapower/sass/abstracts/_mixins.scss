@@ -1,5 +1,5 @@
 // Rem output with px fallback
-$browser-context: 18px;
+$browser-context: 16px;
 @function calculateRem($size) {
   $remSize: $size / $browser-context;
   @return #{$remSize}rem;

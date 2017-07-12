@@ -33,6 +33,7 @@
 			position: relative;
 			flex: 1;
 			align-self: flex-end;
+			max-width: $size__container-max-width;
 			font-family: $font__Roboto;
 			@include fontSize(48px);
 			font-weight: bold;
@@ -40,6 +41,7 @@
 			letter-spacing: 0.6px;
 			color: $white;
 			text-align: center;
+			margin: 0 auto;
 		}
 	}
 }
@@ -82,10 +84,6 @@ article.post, article.page {
 	/*----------  Post Body  ----------*/
 	.entry-content {
 		margin-top: 2rem;
-
-		p {
-			margin-bottom: 0.2rem;
-		}
 	}
 
 	/*----------  Post Meta  ----------*/
@@ -100,14 +98,6 @@ article.post, article.page {
 				color: $red;
 			}
 		}
-
-		.posted-on {
-			color: $red;
-		}
-
-		.posted-redirectInfo {
-			color: $gray;
-		}
 	}
 
 	/*----------  Tags  ----------*/
@@ -118,56 +108,6 @@ article.post, article.page {
 
 		a {
 			text-transform: none;
-		}
-	}
-
-	/*----------  Post Authors  ----------*/
-	.post-authorContainer {
-		background-color: $light-gray;
-		padding: 1rem;
-
-		img {
-			width: 100%;
-			height: auto;
-			max-width: 70px;
-		}
-
-		p {
-			margin: 0;
-		}
-
-		&:first-of-type {
-			padding-top: 2rem;
-		}
-
-		&:last-of-type {
-			padding-bottom: 2rem;
-		}
-	}
-
-	/*----------  Post Thumbnails  ----------*/
-	.post-thumbnailContainer {
-		max-width: 100vw;
-		margin-bottom: 0.5rem;
-		width: 100vw;
-		margin-left: -1rem;
-		margin-right: -1rem;
-
-		@include breakpoint("medium") {
-			max-width: 100%;
-			width: initial;
-			margin-left: initial;
-			margin-right: initial;
-		}
-
-		// Secondary Feature
-		&.home-secondaryFeature {
-			margin-top: 5px;
-		}
-
-		img {
-			height: auto;
-			width: 100%;
 		}
 	}
 

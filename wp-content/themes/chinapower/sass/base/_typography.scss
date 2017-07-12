@@ -5,7 +5,7 @@ select,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	@include fontSize(18px);
+	@include fontSize(16px);
 	line-height: $font__line-height-body;
 }
 
@@ -27,11 +27,12 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 %h2 {
-	font-family: $font__SourceSans;
-	@include fontSize(24px);
+	font-family: $font__Roboto;
+	@include fontSize(30px);
+	line-height: 1.53;
 	font-weight: normal;
-	color: $red;
-	margin: 2rem 0 1rem;
+	color: $blue;
+	margin: 0;
 }
 
 %h3 {
@@ -66,7 +67,7 @@ body.single, body.page {
 
 p {
 	margin: 0 0 1rem;
-	line-height: 1.5;
+	line-height: 1.8;
 }
 
 hr {
