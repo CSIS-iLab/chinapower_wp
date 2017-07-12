@@ -30,12 +30,8 @@ endif;
 							</div>
 							<div class="post-nav-jumpto">
 								<?php the_title('<span class="post-title">','</span>'); ?>
-								<span class="post-nav-toTop">Top&#8593;</span>
-								<ul class="post-nav-toc">
-									<li><a href="#introduction">Introduction</a></li>
-									<li><a href="#test" class="active">Test</a></li>
-									<li><a href="#foobar">Foobar</a></li>
-								</ul>
+								<span class="post-nav-toTop"><a href="#page">Top&#8593;</a></span>
+								<ul class="post-nav-toc"></ul>
 							</div>
 						</div>
 						<div class="post-nav-menu col-xs-12 col-md-4">
