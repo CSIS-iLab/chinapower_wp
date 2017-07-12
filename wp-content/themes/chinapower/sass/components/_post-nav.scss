@@ -1,0 +1,48 @@
+/*=======================================
+=            Post Navigation            =
+=======================================*/
+
+.post-nav {
+	background-color: $off-white;
+	padding: 0.5rem 0;
+
+	.post-nav-menu {
+		text-align: right;
+
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style: none;
+
+			li {
+				display: inline-block;
+				margin: 0;
+				font-family: $font__Roboto;
+				@include fontSize(13px);
+				line-height: 1.69;
+				letter-spacing: 0.7px;
+				text-transform: uppercase;
+
+				a {
+					color: $dark-gray;
+				}
+
+				& + li::before {
+					content: " | ";
+					margin: 0 0.5rem;
+					color: $light-gray;
+				}
+			}
+		}
+	}
+
+	.post-nav-content {
+		.post-nav-title {
+			font-family: $font__Hind;
+			@include fontSize(16px);
+			line-height: 1.81;
+			color: $dark-gray;
+		}
+	}
+}
+
