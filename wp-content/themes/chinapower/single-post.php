@@ -5,9 +5,36 @@
 
 get_header();
 
+$postID = get_the_ID();
+
+// Post Thumbnail
 if (has_post_thumbnail()) :
 	$featured_img_url = get_the_post_thumbnail_url();
 endif;
+
+// Data Sources, Further Reading, Related Content
+$dataSources = get_post_meta($postID, '_post_dataSources', true);
+$furtherReading = get_post_meta($postID, '_post_furtherReading', true);
+
+global $related;
+$rel = $related->show( get_the_ID(), true );
+
+// Width of Further Reading & Related Content
+if($furtherReading) {
+	$relatedContentWidth = "4";
+	$furtherReadingHeader = '<h5 class="furtherReading-heading">Further Reading</h5>';
+}
+else {
+	$relatedContentWidth = "12";
+}
+
+if(is_array($rel) && count($rel) > 0) {
+	$furtherReadingWidth = "8";
+	$relatedContentHeader = '<h6 class="relatedContent-heading">Related Content</h6>';
+}
+else {
+	$furtherReadingWidth = "12";
+}
 
 ?>
 
@@ -61,12 +88,21 @@ endif;
 			</div><!-- .entry-content -->
 
 			<footer class="entry-footer">
-				<?php
-					echo "<div class='post-relatedPostsContainer content-wrapper-narrow'>";
-					echo '<h3 class="relatedPosts-title"><span>Related</span></h3>';
-					echo do_shortcode( '[jprel]' );
-					echo "</div>";
-				?>
+				<!-- Tags -->
+				<div class="post-tags-container"></div>
+				<!-- Data Sources & Citation -->
+				<div class="post-dataSources-container"></div>
+				<!-- Further Reading & Related Content -->
+				<div class="post-furtherReading-container content-wrapper row">
+					<div class="furtherReading-container col-xs-12 col-md-<?php echo $furtherReadingWidth; ?>">
+						<?php echo $furtherReadingHeader; ?>
+						<?php echo $furtherReading; ?>
+					</div>
+					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
+						<?php echo $relatedContentHeader; ?>
+						<?php chinapower_relatedContent($rel); ?>
+					</div>
+				</div>
 			</footer><!-- .entry-footer -->
 		</article><!-- #post-## -->
 	</main><!-- #main -->

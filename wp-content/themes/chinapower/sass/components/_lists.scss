@@ -2,7 +2,8 @@ ul, ol {
 	margin: 0 0 1.5em 0;
 
 	li {
-		margin-bottom: 0.5em;
+		margin-bottom: 0.75rem;
+		line-height: 1.69;
 	}
 }
 
@@ -26,4 +27,19 @@ dt {
 
 dd {
 	margin: 0 1.5em 1.5em;
+}
+
+.entry-content ul, .furtherReading-container ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+
+	li {
+
+		&:before {
+			content: "•";
+			color: $red;
+			margin-right: 0.5rem;
+		}
+	}
 }

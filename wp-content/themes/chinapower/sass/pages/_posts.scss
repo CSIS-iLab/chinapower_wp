@@ -111,6 +111,26 @@ article.post, article.page {
 		}
 	}
 
+	.post-furtherReading-container {
+		margin: 2rem auto;
+
+		/*----------  Further Reading  ----------*/
+		.furtherReading-container {
+			padding-right: 2.5rem;
+
+			.furtherReading-heading {
+				font-family: $font__Hind;
+				@include fontSize(22px);
+				line-height: 1.55;
+				font-weight: 600;
+				letter-spacing: 1.1px;
+				color: $black;
+				text-transform: uppercase;
+				margin: 0 0 0.5rem 0;
+			}
+		}
+	}
+
 	/*----------  Full Width Content  ----------*/
 	.fullWidthFeatureContent {
 		width: 100vw;

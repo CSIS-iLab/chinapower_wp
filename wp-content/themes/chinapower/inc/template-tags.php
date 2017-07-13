@@ -101,6 +101,23 @@ function chinapower_entry_footer() {
 }
 endif;
 
+if ( ! function_exists( 'chinapower_post_categories' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function chinapower_post_categories() {
+	// Hide category and tag text for pages.
+	if ( 'post' === get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$categories_list = get_the_category_list( esc_html__( ', ', 'chinapower' ) );
+		if ( $categories_list && chinapower_categorized_blog() ) {
+			/* translators: 1: list of categories. */
+			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+		}
+	}
+}
+endif;
+
 /**
  * Returns true if a blog has more than 1 category.
  *
@@ -160,4 +177,30 @@ function chinapower_icl_post_languages(){
 			return $output;
 		}
 	}
+}
+
+/**
+ * Displays related content to the current post
+ * @param  Array $rel Array of related posts
+ * @return String      HTML of related posts
+ */
+function chinapower_relatedContent($rel){
+	// Display the title and excerpt of each related post
+    if( is_array( $rel ) && count( $rel ) > 0 ) {
+    	global $post;
+        foreach( $rel as $post ) : setup_postdata($post);
+            if ($post->post_status != 'trash') {
+            	echo '<div class="relatedContent-post row">';
+            	echo '<div class="relatedContent-img col-xs-4">';
+            	the_post_thumbnail('thumbnail');
+            	echo '</div><div class="col-xs-8">';
+            	chinapower_post_categories();
+            	echo '<span class="relatedContent-title"><a href="'.get_permalink().'">';
+            	the_title();
+            	echo '</a></span>';
+                echo '</div></div>';
+            }
+        endforeach;
+        wp_reset_postdata();
+    }
 }
