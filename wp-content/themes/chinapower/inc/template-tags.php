@@ -204,3 +204,7 @@ function chinapower_relatedContent($rel){
         wp_reset_postdata();
     }
 }
+
+function chinapower_citation() {
+	return '<p class="cite-citation">China Power Team. "'.get_the_title().'" China Power. '.get_the_date().'. Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
+}

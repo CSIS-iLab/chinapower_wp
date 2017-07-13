@@ -111,12 +111,78 @@ article.post, article.page {
 		}
 	}
 
+	.post-dataSources-container {
+		margin: 2rem 0;
+		padding: 2rem 0;
+		background-color: $off-white;
+
+		/*----------  Data Sources  ----------*/
+		.dataSources-content {
+			padding-right: 3rem;
+
+			.dataSources-heading {
+				font-family: $font__Hind;
+				@include fontSize(22px);
+				line-height: 1.55;
+				font-weight: 600;
+				letter-spacing: 1.1px;
+				color: $black;
+				text-transform: uppercase;
+				margin: 0 0 0.5rem 0;
+			}
+
+			p {
+				line-height: 1.69;
+				margin-bottom: 0.75rem;
+			}
+
+			.dataSources-viewLink a {
+				font-family: $font__Roboto;
+				@include fontSize(11px);
+				line-height: 2.64;
+				letter-spacing: 0.7px;
+				text-transform: uppercase;
+				color: $blue;
+			}
+		}
+
+		/*----------  Cite This Page  ----------*/
+		.cite-heading {
+			font-family: $font__Hind;
+			@include fontSize(18px);
+			line-height: 1.33;
+			font-weight: 600;
+			letter-spacing: 1.1px;
+			text-transform: uppercase;
+			color: $black;
+			margin-bottom: 1rem;
+		}
+
+		.cite-citation {
+			@include fontSize(14px);
+			line-height: 1.5;
+			color: $gray;
+			margin-bottom: 0;
+		}
+
+		.btn-copy {
+			background-color: $red;
+			border-radius: 2px;
+			color: $white;
+			font-family: $font__Roboto;
+			@include fontSize(13px);
+			line-height: 1.69;
+			letter-spacing: 0.7px;
+			padding: 0.25rem 0.75rem;
+		}
+	}
+
 	.post-furtherReading-container {
 		margin: 2rem auto;
 
 		/*----------  Further Reading  ----------*/
 		.furtherReading-container {
-			padding-right: 2.5rem;
+			padding-right: 3rem;
 
 			.furtherReading-heading {
 				font-family: $font__Hind;

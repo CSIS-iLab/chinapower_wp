@@ -91,12 +91,24 @@ else {
 				<!-- Tags -->
 				<div class="post-tags-container"></div>
 				<!-- Data Sources & Citation -->
-				<div class="post-dataSources-container"></div>
+				<div class="post-dataSources-container">
+					<div class="content-wrapper row">
+						<div class="dataSources-content col-xs-12 col-md-8">
+							<h5 class="dataSources-heading">Data Sources</h5>
+							<?php echo apply_filters('meta_content', $dataSources); ?>
+						</div>
+						<div class="col-xs-12 col-md-4">
+							<h6 class="cite-heading">Cite This Page</h6>
+							<?php echo chinapower_citation(); ?>
+							<button class="btn-copy" data-clipboard-target=".cite-citation">Copy</button>
+						</div>
+					</div>
+				</div>
 				<!-- Further Reading & Related Content -->
 				<div class="post-furtherReading-container content-wrapper row">
 					<div class="furtherReading-container col-xs-12 col-md-<?php echo $furtherReadingWidth; ?>">
 						<?php echo $furtherReadingHeader; ?>
-						<?php echo $furtherReading; ?>
+						<?php echo apply_filters('meta_content', $furtherReading); ?>
 					</div>
 					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
 						<?php echo $relatedContentHeader; ?>
