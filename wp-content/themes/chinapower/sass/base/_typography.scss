@@ -132,6 +132,16 @@ big {
 	font-size: 125%;
 }
 
+::-moz-selection {
+	background-color: $red;
+	color: $white;
+}
+
+::selection { 
+	background-color: $red;
+	color: $white;
+}
+
 /*=============================
 =            Links            =
 =============================*/

@@ -106,14 +106,25 @@ if ( ! function_exists( 'chinapower_post_categories' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function chinapower_post_categories() {
-	// Hide category and tag text for pages.
-	if ( 'post' === get_post_type() ) {
-		/* translators: used between list items, there is a space after the comma */
-		$categories_list = get_the_category_list( esc_html__( ', ', 'chinapower' ) );
-		if ( $categories_list && chinapower_categorized_blog() ) {
-			/* translators: 1: list of categories. */
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
-		}
+	/* translators: used between list items, there is a space after the comma */
+	$categories_list = get_the_category_list( esc_html__( ', ', 'chinapower' ) );
+	if ( $categories_list && chinapower_categorized_blog() ) {
+		/* translators: 1: list of categories. */
+		printf( '<span class="cat-links">' . esc_html__( '%1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+	}
+}
+endif;
+
+if ( ! function_exists( 'chinapower_post_tags' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function chinapower_post_tags() {
+	/* translators: used between list items, there is a space after the comma */
+	$tags_list = get_the_tag_list('<ul><li>','</li><li>','</li></ul>');
+	if ( $tags_list ) {
+		/* translators: 1: list of tags. */
+		printf( '<span class="tags-heading">Keywords</span>' . esc_html__( '%1$s', 'chinapower' ), $tags_list ); // WPCS: XSS OK.
 	}
 }
 endif;

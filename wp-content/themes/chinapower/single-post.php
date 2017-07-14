@@ -89,7 +89,9 @@ else {
 
 			<footer class="entry-footer">
 				<!-- Tags -->
-				<div class="post-tags-container"></div>
+				<div class="post-tags-container content-wrapper">
+					<?php chinapower_post_tags(); ?>
+				</div>
 				<!-- Data Sources & Citation -->
 				<div class="post-dataSources-container">
 					<div class="content-wrapper row">
