@@ -164,17 +164,6 @@ article.post, article.page {
 			color: $gray;
 			margin-bottom: 0;
 		}
-
-		.btn-copy {
-			background-color: $red;
-			border-radius: 2px;
-			color: $white;
-			font-family: $font__Roboto;
-			@include fontSize(13px);
-			line-height: 1.69;
-			letter-spacing: 0.7px;
-			padding: 0.25rem 0.75rem;
-		}
 	}
 
 	.post-furtherReading-container {

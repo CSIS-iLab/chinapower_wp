@@ -4,6 +4,7 @@
 $black: #000;
 $white: #fff;
 $red: #ed392a;
+$dark-red: #c42d20;
 $light-blue: #bfccd2;
 $blue: #728c99;
 $dark-blue: #455a64;
@@ -19,9 +20,12 @@ $color__background-body: $white;
 $color__background-screen: $white;
 $color__background-hr: $light-gray;
 $color__navigation-border: #dfdfdf;
-$color__background-button: $off-white;
+$color__background-button-red: $red;
+$color__background-button-gray: #d6d6d6;
+$color__background-button-blue: #2b3d46;
 $color__background-pre: #eee;
 $color__background-ins: #fff9c0;
+$color__background-tooltip: rgba(0,0,0,0.8);
 
 $color__text-screen: $off-black;
 $color__text-input: $off-black;

@@ -121,7 +121,12 @@ function chinapower_scripts() {
 
 	wp_enqueue_script('chinapower-clipboard', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js', array(), '20170713', true );
 
-	wp_add_inline_script('chinapower-clipboard', "new Clipboard('.btn-copy');");
+	wp_add_inline_script('chinapower-clipboard', "var clipboard = new Clipboard('#btn-copy');
+
+		clipboard.on('success', function(e) {
+		    var d = document.getElementById('btn-copy');
+			d.className += ' tooltipped';
+		});");
 }
 add_action( 'wp_enqueue_scripts', 'chinapower_scripts' );
 

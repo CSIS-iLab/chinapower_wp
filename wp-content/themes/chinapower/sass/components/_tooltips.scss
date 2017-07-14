@@ -1,0 +1,124 @@
+/*================================
+=            Tooltips            =
+================================*/
+
+.tooltipped {
+  position: relative;
+}
+
+// This is the tooltip bubble
+.tooltipped::after {
+  position: absolute;
+  z-index: 1000000;
+  display: none;
+  padding: 5px 8px;
+  font: normal normal 11px/1.5 $font__Hind;
+  -webkit-font-smoothing: subpixel-antialiased;
+  color: $white;
+  text-align: center;
+  text-decoration: none;
+  text-shadow: none;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: break-word;
+  white-space: pre;
+  pointer-events: none;
+  content: attr(aria-label);
+  background: $color__background-tooltip;
+  border-radius: 3px;
+  opacity: 0;
+}
+
+// This is the tooltip arrow
+.tooltipped::before {
+  position: absolute;
+  z-index: 1000001;
+  display: none;
+  width: 0;
+  height: 0;
+  color: $color__background-tooltip;
+  pointer-events: none;
+  content: "";
+  border: 5px solid transparent;
+  opacity: 0;
+}
+
+// delay animation for tooltip
+@keyframes tooltip-appear {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+// This will indicate when we'll activate the tooltip
+.tooltipped:hover,
+.tooltipped:active,
+.tooltipped:focus {
+  &::before,
+  &::after {
+    display: inline-block;
+    text-decoration: none;
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.tooltipped-no-delay:hover,
+.tooltipped-no-delay:active,
+.tooltipped-no-delay:focus {
+  &::before,
+  &::after {
+    opacity: 1;
+    animation: none;
+  }
+}
+
+.tooltipped-multiline:hover,
+.tooltipped-multiline:active,
+.tooltipped-multiline:focus {
+  &::after {
+    display: table-cell;
+  }
+}
+
+// Tooltips above the object
+.tooltipped-n {
+  &::after {
+    right: 50%;
+    bottom: 100%;
+    margin-bottom: 5px;
+  }
+
+  &::before {
+    top: -5px;
+    right: 50%;
+    bottom: auto;
+    margin-right: -5px;
+    border-top-color: $color__background-tooltip;
+  }
+}
+
+// Move the tooltip body to the center of the object.
+.tooltipped-n::after {
+  transform: translateX(50%);
+}
+
+// Sticky tooltips
+//
+// Always show the tooltip.
+.tooltipped-sticky {
+  &::before,
+  &::after {
+    display: inline-block;
+  }
+
+  &.tooltipped-multiline {
+    &::after {
+      display: table-cell;
+    }
+  }
+}

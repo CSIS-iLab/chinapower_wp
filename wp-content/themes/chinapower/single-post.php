@@ -100,7 +100,7 @@ else {
 						<div class="col-xs-12 col-md-4">
 							<h6 class="cite-heading">Cite This Page</h6>
 							<?php echo chinapower_citation(); ?>
-							<button class="btn-copy" data-clipboard-target=".cite-citation">Copy</button>
+							<button class="btn btn-red tooltipped-n" id="btn-copy" data-clipboard-target=".cite-citation" aria-label="Copied!">Copy</button>
 						</div>
 					</div>
 				</div>
