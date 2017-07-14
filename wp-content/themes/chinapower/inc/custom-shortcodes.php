@@ -178,3 +178,13 @@ function chinapower_add_sharing_component($output, $tag, $attr ){
 	}
 }
 
+/**
+ * Shortcode to include ChinaPower symbol
+ * @return String       Image HTML
+ */
+function chinapower_shortcode_cpp() {
+
+	return '<img class="img-cpp" src="/wp-content/themes/chinapower/img/china-power-symbol.svg" title="ChinaPower" alt="ChinaPower" />';
+
+}
+add_shortcode( 'cpp', 'chinapower_shortcode_cpp' );

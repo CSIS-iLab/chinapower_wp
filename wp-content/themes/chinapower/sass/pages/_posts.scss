@@ -51,22 +51,6 @@
 article.post, article.page {
 	margin-bottom: 3rem;
 
-	@include breakpoint("medium") {
-		.post-thumbnail.isHomepage {
-			padding-right: 1rem;
-		}
-		.post-content.isHomepage {
-			padding-left: 1rem;
-		}
-	}
-
-	/*----------  Post Sidebar  ----------*/
-	@include breakpoint("medium") {
-		.post-sidebar {
-			padding-left:3rem;
-		}
-	}
-
 	/*----------  Post Header  ----------*/
 	header.entry-header {
 		.entry-title {
@@ -84,19 +68,12 @@ article.post, article.page {
 	/*----------  Post Body  ----------*/
 	.entry-content {
 		margin-top: 2rem;
-	}
 
-	/*----------  Post Meta  ----------*/
-	.entry-meta {
-		margin-top: 0.3rem;
-		@include fontSize(14px);
-
-		a {
-			color: $gray;
-
-			&:hover {
-				color: $red;
-			}
+		/*----------  ChinaPower Image  ----------*/
+		.img-cpp {
+			max-width:15px;
+			height: auto;
+			display: inline-block;
 		}
 	}
 
@@ -257,6 +234,7 @@ article.post, article.page {
 		right: 50%;
 		margin-left: -50vw;
 		margin-right: -50vw;
+		text-align: center;
 	}
 
 }

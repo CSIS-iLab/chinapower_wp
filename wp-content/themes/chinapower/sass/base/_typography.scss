@@ -32,7 +32,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.53;
 	font-weight: normal;
 	color: $blue;
-	margin: 0;
+	margin: 0 0 0.5rem 0;
 }
 
 %h3 {
@@ -86,7 +86,24 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 0 1.5em;
+	margin: 2rem 1rem;
+	padding: 1rem;
+	border-top: 2px solid $red;
+	border-bottom: 2px solid $red;
+
+	.source {
+		text-align: right;
+		@include fontSize(14px);
+		color: $dark-gray;
+		text-transform: uppercase;
+		margin-top: -0.75rem;
+	}
+}
+
+blockquote, blockquote p {
+	font-family: $font__Hind;
+	@include fontSize(18px);
+	line-height: 1.61;
 }
 
 blockquote, q {

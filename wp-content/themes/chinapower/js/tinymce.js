@@ -1,5 +1,5 @@
 (function() {
-	tinymce.PluginManager.add('podcasts', function( editor, url ) {
+	tinymce.PluginManager.add('chinapower', function( editor, url ) {
 		editor.addButton('podcasts', {
 			text: null,
 			icon: 'icon dashicons-format-audio',
@@ -23,8 +23,7 @@
 				});
 			}
 		});
-	});
-	tinymce.PluginManager.add('stats', function( editor, url ) {
+
 		editor.addButton('stats', {
 			text: null,
 			icon: 'icon dashicons-chart-area',
@@ -46,8 +45,7 @@
 				});
 			}
 		});
-	});
-	tinymce.PluginManager.add('view', function( editor, url ) {
+
 		editor.addButton('view', {
 			text: null,
 			icon: 'icon dashicons-external',
@@ -74,6 +72,15 @@
 						editor.insertContent( '[view url="'+e.data.url+'" external="'+e.data.external+'"]');
 					}
 				});
+			}
+		});
+
+		editor.addButton('cpp', {
+			text: 'CPP',
+			icon: null,
+			tooltip: 'Insert CPP Image',
+			onclick: function() {
+				editor.insertContent( '[cpp]');
 			}
 		});
 	});
