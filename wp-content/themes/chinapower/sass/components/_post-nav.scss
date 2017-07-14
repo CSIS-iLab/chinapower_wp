@@ -101,9 +101,10 @@
 							font-weight: 600;
 
 							&:before {
-								content: "\2192";
+								content: "\e802";
+								font-family: 'chinapower';
 								color: $red;
-								margin-right: 0.2rem;
+								margin-right: 0.3rem;
 							}
 						}
 					}

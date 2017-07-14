@@ -186,6 +186,22 @@ article.post, article.page {
 				letter-spacing: 0.7px;
 				text-transform: uppercase;
 				color: $blue;
+
+				.icon {
+					color: $blue-gray;
+					opacity: 0.75;
+					@include fontSize(8px);
+					margin-left: 0;
+				}
+
+				&:hover {
+					color: $dark-blue;
+
+					.icon {
+						color: $dark-blue;
+						@include transition(all .3s ease-in-out);
+					}
+				}
 			}
 		}
 
@@ -206,6 +222,10 @@ article.post, article.page {
 			line-height: 1.5;
 			color: $gray;
 			margin-bottom: 0;
+		}
+
+		.btn .icon {
+			margin-left: 0;
 		}
 	}
 

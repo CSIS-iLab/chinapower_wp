@@ -141,7 +141,7 @@ function chinapower_shortcode_view( $atts ) {
 
 	if($atts['external']) {
 		$linkTarget = 'target="_blank"';
-		$externalIcon = ' <span class="dashicons dashicons-external"></span>';
+		$externalIcon = '<i class="icon icon-external-link"></i>';
 	}
 
 	return '<span class="dataSources-viewLink"><a href="'.$atts['url'].'" '.$linkTarget.'>View'.$externalIcon.'</a></span>';
