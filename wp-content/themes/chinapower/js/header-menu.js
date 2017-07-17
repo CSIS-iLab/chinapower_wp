@@ -5,6 +5,22 @@
 
 ( function( $ ) {
 	var width = $(window).width();
+	console.log("test");
+
+	// Add class to header
+	$(window).scroll(function(){
+		var currentScroll = $(this).scrollTop();
+		console.log("scroll");
+		  
+		if(currentScroll > 0){
+	    	$(".header-main").addClass("minimal");
+		}
+		else {
+			$(".header-main").removeClass("minimal");
+		}
+		
+	});
+
 	// Toggle Search
 	$(".searchIcon").click(function() {
 		// Show Search

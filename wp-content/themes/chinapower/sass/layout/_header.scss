@@ -5,50 +5,130 @@
 header.site-header {
 	position: fixed;
 	top: 0;
-	z-index: 100;
 	left: 0;
-	right: 0;
+	z-index: 100;
+	width: 25%;
+
+	@include breakpoint("medium") {
+		width: 100%;
+	}
 
 	.header-main {
-		width: 100%;
-		height: 100px;
-		background-color: $blue;
-		padding-top: 1rem;
-		padding-bottom: 1rem;
+		background-color: $white;
+		-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+		-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+		box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+
+		@include breakpoint("medium") {
+			box-shadow: none;
+			background-color: $blue;
+			height: 100px;
+			width: 100%;
+			padding-top: 1rem;
+		}
+
+		.content-wrapper {
+			padding: 0;
+
+			@include breakpoint("medium") {
+				height: 100%;
+			}
+		}
 
 		.site-branding {
 			padding: 0;
-			margin-bottom: 1rem;
 			text-align: left;
 
 			a {
 				color: $white;
 
-				img {
+				.logo-main {
+					display: none;
+					@include breakpoint("medium") {
+						display: block;
+						height: 45px;
+						width: auto;
+					}
+				}
+				
+				.logo-mobile {
+					display: block;
 					height: 45px;
-					width: auto;
+
+					@include breakpoint("medium") {
+						display: none;
+					}
 				}
 
 				.site-tagline {
-					display: block;
-					margin-top: -5px;
-					font-family: $font__Roboto;
-					@include fontSize(14px);
-					line-height: normal;
-					font-style: italic;
-					color: $off-white;
-					letter-spacing: 0.3px;
+					display: none;
+
+					@include breakpoint("medium") {
+						display: block;
+						font-family: $font__Roboto;
+						@include fontSize(14px);
+						line-height: normal;
+						font-style: italic;
+						color: $off-white;
+						letter-spacing: 0.3px;
+					}
 				}
 			}
 		}
 
 		/*----------  Navigation: Main Menu  ----------*/
 		.main-navigationContainer {
-			align-self: flex-end;
+			padding-left: 0.3rem;
+
+			@include breakpoint("medium") {
+				align-self: flex-end;
+				padding-left: 0.5rem;
+			}
+
+			.main-navigationControl {
+				background-color: transparent;
+				padding: 0;
+				margin: 0;
+				
+				span {
+					position: absolute;
+					top: 50%;
+				}
+
+				span, 
+				span:before,
+				span:after {
+				  cursor: pointer;
+				  border-radius: 3px;
+				  height: 3px;
+				  width: 26px;
+				  background: $black;
+				  position: absolute;
+				  display: block;
+				  content: '';
+				}
+				span:before {
+				  top: -7px;
+				  width: 16px;
+				}
+				span:after {
+				  bottom: -7px;
+				  width: 21px; 
+				}
+
+				@include breakpoint("medium") {
+					display: none;
+				}
+			}
 		
 			nav.main-navigation {
-				padding-top: 1rem;
-				padding-bottom: 0;
+				display: none;
+
+				@include breakpoint("medium") {
+					display: block;
+					padding-top: 1rem;
+					padding-bottom: 0;
+				}
 
 				ul#primary-menu {
 					display: block;
@@ -81,19 +161,25 @@ header.site-header {
 							text-decoration: none;
 							color: $white;
 							text-transform: uppercase;
-							padding: 0.6rem 1rem;
+							padding: 0.63rem 1rem;
 							width: 100%;
 							position: relative;
-							
+						}
 
-							&:hover {
-								transition: none;
-								background-color: $blue-hover;
-							}
+						&:hover {
+							transition: none;
+							background-color: $blue-hover;
 						}
 
 						&:hover > div.sub-menu-container {
 							display: block;
+						}
+
+						&:not(.menu-item-has-children) {
+							a:after {
+								content: " ";
+								font-family: "chinapower";
+							}
 						}
 
 						// Item is Parent Item
@@ -107,8 +193,6 @@ header.site-header {
 							}
 
 							&:hover a {
-								transition: none;
-								background-color: $blue-hover;
 
 								&:after {
 									content: "\2013";
@@ -119,7 +203,7 @@ header.site-header {
 								&:before {
 									content:'';
 								    position: absolute;
-								    top: 78%;
+								    top: 79%;
 								    left: 0;
 								    right: 0;
 								    margin: 0 auto;
@@ -139,7 +223,7 @@ header.site-header {
 							left: 0;
 							right: 0;
 							background-color: $off-white;
-							top: 132px;
+							top: 100px;
 
 							ul.sub-menu {
 								width: $size__container-max-width;
@@ -148,6 +232,10 @@ header.site-header {
 
 								li {
 									display: inline-block;
+
+									&:hover {
+										background-color: transparent;
+									}
 
 									a {
 										padding: 0;
@@ -164,7 +252,6 @@ header.site-header {
 										}
 
 										&:hover {
-											background-color: transparent;
 											color: $red;
 
 											&:before, &:after {
@@ -187,6 +274,56 @@ header.site-header {
 
 		.close-icon {
 			display: none;
+		}
+
+		/*----------  Minimal Header  ----------*/
+		@include breakpoint("medium") {
+			&.minimal {
+				height: 50px;
+				padding-top: 0;
+				padding-bottom: 0;
+
+				.content-wrapper {
+					align-items: center;
+					height: 100%;
+				}
+
+				.site-branding {
+					margin-bottom: 0;
+					a {
+						img {
+							height: 28px;
+							margin: 0;
+						}
+						.site-tagline {display: none;}
+					}
+				}
+
+				.main-navigationContainer {
+					align-self: initial;
+					height: 100%;
+
+					.main-navigation {
+						padding-top: 0;
+						ul#primary-menu li {
+							padding: 0;
+
+							a {
+								display: inline-block;
+								height: 100%;
+							}
+
+							.sub-menu-container {
+								top: 82px;
+
+								ul li {padding: 0.5rem 0;}
+							}
+
+						}
+					}
+					
+				}
+			}
 		}
 	}
 

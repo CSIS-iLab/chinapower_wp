@@ -8,9 +8,13 @@
 
 		// Stick Menu on scroll
 		var postNavPos = $(".post-nav").offset().top;
-		var headerHeight = $(".site-header").height() + parseInt($('.site-header').css('top'), 10);
+		var headerHeight;
 		$(window).scroll(function(){
 			var currentScroll = $(this).scrollTop();
+			if(!headerHeight) {
+				console.log("caulcate");
+				headerHeight = $(".site-header").height() + parseInt($('.site-header').css('top'), 10);
+			}
 			  
 			if(currentScroll >= postNavPos - headerHeight){
 		    	$(".post-nav").css({"position": "fixed", "top": headerHeight});
