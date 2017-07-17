@@ -26,22 +26,19 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-main">
 			<div class="content-wrapper row">
-				<div class="site-branding col-xs-12 col-md-4">
-					<?php
-					if ( is_front_page() && is_home() ) : ?>
-						<h1 class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
-					<?php else : ?>
-						<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>
-					<?php
-					endif;
-					?>
+				<div class="site-branding col-xs-12 col-md-5">
+					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+						<img src="/wp-content/themes/chinapower/img/chinapower-logo-main.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>">
+						<span class="site-tagline"><?php bloginfo( 'description' ); ?></span>
+					</a>
 				</div><!-- .site-branding -->
-				<div class="main-navigationContainer col-xs-12 col-md-8">
+				<div class="main-navigationContainer col-xs-12 col-md-7">
 					<nav id="site-navigation" class="main-navigation" role="navigation">
 						<?php
 							wp_nav_menu( array(
 								'theme_location' => 'menu-1',
 								'menu_id'        => 'primary-menu',
+								'walker'         => new WPSE_78121_Sublevel_Walker
 							) );
 						?>
 					</nav><!-- #site-navigation -->

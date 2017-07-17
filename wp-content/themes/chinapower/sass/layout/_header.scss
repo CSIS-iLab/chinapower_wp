@@ -5,22 +5,40 @@
 header.site-header {
 	position: fixed;
 	top: 0;
-	z-index: 50;
+	z-index: 100;
 	left: 0;
 	right: 0;
 
 	.header-main {
 		width: 100%;
+		height: 100px;
 		background-color: $blue;
 		padding-top: 1rem;
-
+		padding-bottom: 1rem;
 
 		.site-branding {
 			padding: 0;
-			text-align: center;
+			margin-bottom: 1rem;
+			text-align: left;
 
 			a {
 				color: $white;
+
+				img {
+					height: 45px;
+					width: auto;
+				}
+
+				.site-tagline {
+					display: block;
+					margin-top: -5px;
+					font-family: $font__Roboto;
+					@include fontSize(14px);
+					line-height: normal;
+					font-style: italic;
+					color: $off-white;
+					letter-spacing: 0.3px;
+				}
 			}
 		}
 
@@ -37,17 +55,17 @@ header.site-header {
 					list-style: none;
 					margin: 0;
 					padding: 0;
+					text-align: right;
 
 					li {
 						text-align: center;
 						@include fontSize(16px);
 						margin-bottom: 0;
-						padding-bottom: 1rem;
+						padding: 0.5rem 0;
 
 						// Apply styles to all list items at medium breakpoint
 						@include breakpoint("medium") {
 							text-align: left !important;
-							margin-right: 5% !important;
 							display: inline-block !important;
 							width: auto !important;
 							border: 0 !important;
@@ -56,33 +74,105 @@ header.site-header {
 						}
 
 						a {
-							font-weight: 600;
+							font-family: $font__Hind;
+							@include fontSize(16px);
+							line-height: 1.81;
+							font-weight: 500;
 							text-decoration: none;
-							color: $dark-gray;
+							color: $white;
 							text-transform: uppercase;
-							letter-spacing: 0.04em;
+							padding: 0.6rem 1rem;
+							width: 100%;
+							position: relative;
+							
 
 							&:hover {
-								color: $red;
+								transition: none;
+								background-color: $blue-hover;
 							}
 						}
 
-						&:hover > ul.sub-menu {
+						&:hover > div.sub-menu-container {
 							display: block;
 						}
 
+						// Item is Parent Item
+						&.menu-item-has-children {
+
+							a:after {
+								content: "\e800";
+								font-family: "chinapower";
+								color: $light-blue;
+								margin-left: 5px;
+							}
+
+							&:hover a {
+								transition: none;
+								background-color: $blue-hover;
+
+								&:after {
+									content: "\2013";
+									color: $light-blue;
+									margin-left: 5px;
+								}
+
+								&:before {
+									content:'';
+								    position: absolute;
+								    top: 78%;
+								    left: 0;
+								    right: 0;
+								    margin: 0 auto;
+								    width: 0;
+								    height: 0;
+								    border-bottom: solid 10px $off-white;
+								    border-left: solid 10px transparent;
+								    border-right: solid 10px transparent;
+								}
+							}
+						}
+
 						// Sub-menus
-						ul.sub-menu {
+						.sub-menu-container {
 							display: none;
-							position: absolute;
+							position: fixed;
 							left: 0;
 							right: 0;
 							background-color: $off-white;
-							height: 50px;
-							margin-left: 0;
+							top: 132px;
 
-							li {
-								display: inline-block;
+							ul.sub-menu {
+								width: $size__container-max-width;
+								margin: 0 auto;
+								padding: 0;
+
+								li {
+									display: inline-block;
+
+									a {
+										padding: 0;
+										margin: 0 2rem 0 0;
+										color: $dark-gray;
+										font-family: $font__Roboto;
+										@include fontSize(13px);
+										line-height: 1.69;
+										letter-spacing: 0.7px;
+										background-color: transparent;
+
+										&:after, &:before {
+											content: none;
+										}
+
+										&:hover {
+											background-color: transparent;
+											color: $red;
+
+											&:before, &:after {
+												content: none;
+											}
+										}
+									}
+								}
 							}
 						}
 					}

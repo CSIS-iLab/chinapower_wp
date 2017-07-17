@@ -25,3 +25,19 @@ function chinapower_body_classes( $classes ) {
 	return $classes;
 }
 add_filter( 'body_class', 'chinapower_body_classes' );
+
+/**
+ * Add wrapper around sub-menu items for main navigation
+ */
+class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
+{
+    function start_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<div class='sub-menu-container'><ul class='sub-menu'>\n";
+    }
+    function end_lvl( &$output, $depth = 0, $args = array() ) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul></div>\n";
+    }
+}
+ 
