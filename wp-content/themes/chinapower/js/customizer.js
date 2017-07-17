@@ -7,7 +7,6 @@
  */
 
 ( function( $ ) {
-
 	// Site title and description.
 	wp.customize( 'blogname', function( value ) {
 		value.bind( function( to ) {
@@ -24,12 +23,12 @@
 	wp.customize( 'header_textcolor', function( value ) {
 		value.bind( function( to ) {
 			if ( 'blank' === to ) {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-title a, .site-description' ).css( {
 					'clip': 'rect(1px, 1px, 1px, 1px)',
 					'position': 'absolute'
 				} );
 			} else {
-				$( '.site-title, .site-description' ).css( {
+				$( '.site-title a, .site-description' ).css( {
 					'clip': 'auto',
 					'position': 'relative'
 				} );
@@ -39,4 +38,26 @@
 			}
 		} );
 	} );
+
+	// Footer: Site Description
+	wp.customize( 'footer-site', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-info p' ).text( to );
+		} );
+	} );
+
+	// Footer: Address
+	wp.customize( 'contact-address', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-contact address' ).text( to );
+		} );
+	} );
+
+	// Footer: Newsletter Description
+	wp.customize( 'footer-newsletter', function( value ) {
+		value.bind( function( to ) {
+			$( '.footer-newsletter p' ).text( to );
+		} );
+	} );
+
 } )( jQuery );
