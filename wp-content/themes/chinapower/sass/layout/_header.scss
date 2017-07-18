@@ -390,7 +390,7 @@ header.site-header {
 		display: none;
 		position: absolute;
 		z-index: 51;
-		top: 4rem;
+		top: 5rem;
 		left: 0;
 		right: 0;
 
@@ -410,7 +410,7 @@ header.site-header {
 			border: 0;
 			color: $light-blue;
 			text-transform: uppercase;
-			@include fontSize(14px);
+			@include fontSize(16px);
 			line-height: 1;
 			-webkit-appearance: textfield;
 
@@ -445,7 +445,7 @@ header.site-header {
 			border-radius: 0;
 			color: $light-blue;
 			padding: 0;
-			@include fontSize(14px);
+			@include fontSize(16px);
 			line-height: 1;
 			font-family: "chinapower";
 			margin: 0;
@@ -481,11 +481,6 @@ header.site-header {
 		overflow: hidden;
 
 		.navOverlay-heading {
-			position: fixed;
-			z-index:51;
-			top: 0;
-			left: 0;
-			right: 0;
 			background-color: $dark-blue;
 			padding: 1rem 0;
 			text-align: center;
@@ -529,5 +524,8 @@ header.site-header {
 	}
 }
 
-.admin-bar header.site-header {top: 32px;}
+.admin-bar header.site-header,
+.admin-bar header.site-header .header-navOverlay {
+	top: 32px;
+}
 .admin-bar header.site-header .header-main .main-navigationContainer nav.main-navigation ul#primary-menu li .sub-menu-container {top: 132px;}
