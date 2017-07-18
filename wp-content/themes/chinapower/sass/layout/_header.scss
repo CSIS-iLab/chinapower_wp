@@ -8,20 +8,26 @@ header.site-header {
 	left: 0;
 	z-index: 100;
 	width: 25%;
+	background-color: $white;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 
-	@include breakpoint("medium") {
+	&.overlay-isActive {
 		width: 100%;
 	}
 
+	@include breakpoint("medium") {
+		width: 100%;
+		box-shadow: none;
+		background-color: $blue;
+	}
+
 	.header-main {
-		background-color: $white;
-		-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
-		-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
-		box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+		position: relative;
+		z-index: 100;
 
 		@include breakpoint("medium") {
-			box-shadow: none;
-			background-color: $blue;
 			height: 100px;
 			width: 100%;
 			padding-top: 1rem;
@@ -123,11 +129,17 @@ header.site-header {
 		
 			nav.main-navigation {
 				display: none;
+				position: absolute;
+				top: 5rem;
+				width: 100%;
 
 				@include breakpoint("medium") {
 					display: block;
+					position: relative;
+					top: initial;
 					padding-top: 1rem;
 					padding-bottom: 0;
+					width: initial;
 				}
 
 				ul#primary-menu {
@@ -138,37 +150,42 @@ header.site-header {
 					text-align: right;
 
 					li {
-						text-align: center;
-						@include fontSize(16px);
+						text-align: left;
 						margin-bottom: 0;
 						padding: 0.5rem 0;
 
-						// Apply styles to all list items at medium breakpoint
 						@include breakpoint("medium") {
-							text-align: left !important;
 							display: inline-block !important;
 							width: auto !important;
 							border: 0 !important;
 							top: 0 !important;
-							@include fontSize(17px);
 						}
 
 						a {
 							font-family: $font__Hind;
-							@include fontSize(16px);
-							line-height: 1.81;
+							@include fontSize(20px);
+							line-height: 1.45;
 							font-weight: 500;
 							text-decoration: none;
 							color: $white;
 							text-transform: uppercase;
-							padding: 0.63rem 1rem;
+							padding: 0 1rem;
 							width: 100%;
 							position: relative;
+							display: block;
+
+							@include breakpoint("medium") {
+								@include fontSize(16px);
+								line-height: 1.81;
+								padding: 0.63rem 1rem;
+							}
 						}
 
 						&:hover {
 							transition: none;
-							background-color: $blue-hover;
+							@include breakpoint("medium") {
+								background-color: $blue-hover;
+							}
 						}
 
 						&:hover > div.sub-menu-container {
@@ -200,18 +217,20 @@ header.site-header {
 									margin-left: 5px;
 								}
 
-								&:before {
-									content:'';
-								    position: absolute;
-								    top: 79%;
-								    left: 0;
-								    right: 0;
-								    margin: 0 auto;
-								    width: 0;
-								    height: 0;
-								    border-bottom: solid 10px $off-white;
-								    border-left: solid 10px transparent;
-								    border-right: solid 10px transparent;
+								@include breakpoint("medium") {
+									&:before {
+										content:'';
+									    position: absolute;
+									    top: 79%;
+									    left: 0;
+									    right: 0;
+									    margin: 0 auto;
+									    width: 0;
+									    height: 0;
+									    border-bottom: solid 10px $off-white;
+									    border-left: solid 10px transparent;
+									    border-right: solid 10px transparent;
+									}
 								}
 							}
 						}
@@ -219,19 +238,34 @@ header.site-header {
 						// Sub-menus
 						.sub-menu-container {
 							display: none;
-							position: fixed;
-							left: 0;
-							right: 0;
-							background-color: $off-white;
-							top: 100px;
+							border-left: 1px solid $blue-gray;
+							margin: 0.5rem 1rem;
+
+							@include breakpoint("medium") {
+								position: fixed;
+								left: 0;
+								right: 0;
+								background-color: $off-white;
+								top: 100px;
+								border-left: 0;
+								margin: 0;
+							}
 
 							ul.sub-menu {
 								width: $size__container-max-width;
 								margin: 0 auto;
-								padding: 0;
+								padding: 0 0 0 1rem;
+								list-style: none;
+
+								@include breakpoint("medium") {
+									padding: 0;
+								}
 
 								li {
-									display: inline-block;
+
+									@include breakpoint("medium") {
+										display: inline-block;
+									}
 
 									&:hover {
 										background-color: transparent;
@@ -240,12 +274,18 @@ header.site-header {
 									a {
 										padding: 0;
 										margin: 0 2rem 0 0;
-										color: $dark-gray;
+										color: $blue-gray;
 										font-family: $font__Roboto;
-										@include fontSize(13px);
-										line-height: 1.69;
+										@include fontSize(18px);
+										line-height: 1.61;
 										letter-spacing: 0.7px;
 										background-color: transparent;
+
+										@include breakpoint("medium") {
+											@include fontSize(13px);
+											line-height: 1.69;
+											color: $dark-gray;
+										}
 
 										&:after, &:before {
 											content: none;
@@ -260,6 +300,40 @@ header.site-header {
 										}
 									}
 								}
+							}
+						}
+					}
+				}
+
+				/*----------  Social  ----------*/
+				ul.nav-socialContainer {
+					list-style: none;
+					margin-top: 2rem;
+					padding-left: 0.5rem;
+
+					@include breakpoint("medium") {
+						display: none;
+					}
+
+					a {
+						display: block;
+						font-family: $font__Hind;
+						@include fontSize(16px);
+						line-height: 1.81;
+						color: $blue;
+
+						.icon {
+							color: $white;
+							@include fontSize(20px);
+							margin-left: 0;
+							margin-right: 2rem;
+							vertical-align: middle;
+							height: 20px;
+							width: 20px;
+							line-height: 20px;
+
+							&.icon-email-share {
+								@include fontSize(18px);
 							}
 						}
 					}
@@ -390,6 +464,45 @@ header.site-header {
 					}
 				}
 			}
+		}
+	}
+
+	/*----------  Navigation Overlay  ----------*/
+	.header-navOverlay {
+		display: none;
+		position: fixed;
+		z-index: 50;
+		top: 0;
+		left: 0;
+		right: 0;
+		height: 100%;
+		overflow: hidden;
+
+		.navOverlay-heading {
+			position: fixed;
+			z-index:51;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: $dark-blue;
+			padding: 1rem 0;
+			text-align: center;
+			color: $blue-gray;
+			font-family: $font__Roboto;
+			@include fontSize(18px);
+			line-height: 1.61;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+
+			.icon {
+				color: $white;
+			}
+		}
+
+		.navOverlay-content {
+			background-color: $dark-blue;
+			opacity: 0.95;
+			height: 100%;
 		}
 	}
 }

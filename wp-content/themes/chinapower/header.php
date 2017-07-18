@@ -45,6 +45,17 @@
 								'walker'         => new WPSE_78121_Sublevel_Walker
 							) );
 						?>
+						<ul class="nav-socialContainer">
+							<?php if(get_theme_mod('contact-facebook')) {
+								echo '<li><a href="https://www.facebook.com/'.get_theme_mod('contact-facebook').'" target="_blank"><i class="icon icon-facebook"></i> <span>/'.get_theme_mod('contact-facebook').'</a></li>';
+							} ?>
+							<?php if(get_theme_mod('contact-twitter')) {
+								echo '<li><a href="https://www.twitter.com/'.get_theme_mod('contact-twitter').'" target="_blank"><i class="icon icon-twitter"></i> <span>@'.get_theme_mod('contact-twitter').'</a></li>';
+							} ?>
+							<?php if(get_theme_mod('contact-email')) {
+								echo '<li><a href="mailto:'.get_theme_mod('contact-email').'"><i class="icon icon-email-share"></i> <span>'.get_theme_mod('contact-email').'</a></li>';
+							} ?>
+						</ul><!-- .nav-socialContainer -->
 					</nav><!-- #site-navigation -->
 				</div>
 			</div><!-- .content-wrapper -->
@@ -64,6 +75,16 @@
 				</form>
 			</div>
 		</div><!-- .header-searchFormContainer -->
+		<div class="header-navOverlay">
+			<div class="navOverlay-heading">
+				<div class="content-wrapper row">
+					<div class="col-xs-2"><i class="icon icon-close-x" aria-label="Close" aria-controls="navigation"></i></div>
+					<div class="col-xs-8">Menu</div>
+					<div class="col-xs-2"><i class="icon icon-search"></i></div>
+				</div>
+			</div>
+			<div class="navOverlay-content"></div>
+		</div>
 	</header><!-- #masthead -->
 
 	<div id="content" class="site-content">

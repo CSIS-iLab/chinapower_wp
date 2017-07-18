@@ -12,7 +12,6 @@
 		$(window).scroll(function(){
 			var currentScroll = $(this).scrollTop();
 			if(!headerHeight) {
-				console.log("caulcate");
 				headerHeight = $(".site-header").height() + parseInt($('.site-header').css('top'), 10);
 			}
 			  
