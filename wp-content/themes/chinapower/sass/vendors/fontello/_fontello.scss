@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'chinapower';
-  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?93758024');
-  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?93758024#iefix') format('embedded-opentype'),
-       url('/wp-content/themes/chinapower/fonts/chinapower.woff2?93758024') format('woff2'),
-       url('/wp-content/themes/chinapower/fonts/chinapower.woff?93758024') format('woff'),
-       url('/wp-content/themes/chinapower/fonts/chinapower.ttf?93758024') format('truetype'),
-       url('/wp-content/themes/chinapower/fonts/chinapower.svg?93758024#chinapower') format('svg');
+  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?16686240');
+  src: url('/wp-content/themes/chinapower/fonts/chinapower.eot?16686240#iefix') format('embedded-opentype'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.woff2?16686240') format('woff2'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.woff?16686240') format('woff'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.ttf?16686240') format('truetype'),
+       url('/wp-content/themes/chinapower/fonts/chinapower.svg?16686240#chinapower') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'chinapower';
-    src: url('../font/chinapower.svg?93758024#chinapower') format('svg');
+    src: url('../font/chinapower.svg?16686240#chinapower') format('svg');
   }
 }
 */
@@ -58,6 +58,8 @@
 .icon-plus:before { content: '\e800'; } /* '' */
 .icon-close-x:before { content: '\e801'; } /* '' */
 .icon-arrow-right-full:before { content: '\e802'; } /* '' */
+.icon-left:before { content: '\e803'; } /* '' */
+.icon-up:before { content: '\e804'; } /* '' */
 .icon-copylink-share:before { content: '\e805'; } /* '' */
 .icon-email-contact:before { content: '\e806'; } /* '' */
 .icon-email-share:before { content: '\e807'; } /* '' */
@@ -66,8 +68,14 @@
 .icon-search:before { content: '\e80a'; } /* '' */
 .icon-share:before { content: '\e80b'; } /* '' */
 .icon-wechat:before { content: '\e80c'; } /* '' */
+.icon-down:before { content: '\e80d'; } /* '' */
 .icon-external-link:before { content: '\e80e'; } /* '' */
+.icon-arrow-right-1:before { content: '\e80f'; } /* '' */
+.icon-weibo:before { content: '\e810'; } /* '' */
+.icon-down-open:before { content: '\f004'; } /* '' */
+.icon-up-open:before { content: '\f005'; } /* '' */
 .icon-arrow-right:before { content: '\f006'; } /* '' */
+.icon-left-open:before { content: '\f007'; } /* '' */
 .icon-twitter:before { content: '\f099'; } /* '' */
 .icon-facebook:before { content: '\f09a'; } /* '' */
 .icon-linkedin:before { content: '\f0e1'; } /* '' */

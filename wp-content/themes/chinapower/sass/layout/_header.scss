@@ -152,7 +152,7 @@ header.site-header {
 					li {
 						text-align: left;
 						margin-bottom: 0;
-						padding: 0.5rem 0;
+						padding: 0;
 
 						@include breakpoint("medium") {
 							display: inline-block !important;
@@ -221,7 +221,7 @@ header.site-header {
 									&:before {
 										content:'';
 									    position: absolute;
-									    top: 79%;
+									    bottom: 0;
 									    left: 0;
 									    right: 0;
 									    margin: 0 auto;
@@ -265,6 +265,7 @@ header.site-header {
 
 									@include breakpoint("medium") {
 										display: inline-block;
+										padding: 0.5rem 0;
 									}
 
 									&:hover {
@@ -377,24 +378,7 @@ header.site-header {
 					align-self: initial;
 					height: 100%;
 
-					.main-navigation {
-						padding-top: 0;
-						ul#primary-menu li {
-							padding: 0;
-
-							a {
-								display: inline-block;
-								height: 100%;
-							}
-
-							.sub-menu-container {
-								top: 82px;
-
-								ul li {padding: 0.5rem 0;}
-							}
-
-						}
-					}
+					.main-navigation {padding-top: 0;}
 					
 				}
 			}
@@ -404,64 +388,82 @@ header.site-header {
 	/*----------  Search Form  ----------*/
 	.header-searchFormContainer {
 		display: none;
-		background-color: $off-white;
-		padding: 1rem 0.5rem;
+		position: absolute;
+		z-index: 51;
+		top: 4rem;
+		left: 0;
+		right: 0;
 
-		.header-searchForm {
+		.header-searchInputContainer {
+			padding: 0;
+		}
 
-			.header-searchInputContainer {
-				padding: 0;
+		.search-form {
+			border-bottom: 1px solid $light-blue;
+			width: 100%;
+		}
+
+		.search-field {
+			width: 93%;
+			border-radius: 0;
+			background-color: transparent;
+			border: 0;
+			color: $light-blue;
+			text-transform: uppercase;
+			@include fontSize(14px);
+			line-height: 1;
+			-webkit-appearance: textfield;
+
+			&:focus {
+				box-shadow: none;
+				color: $white;
 			}
 
-			.search-form {
-				border-bottom: 1px solid $gray;
+			&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+			    color:    $light-blue;
 			}
-
-			.search-field {
-				width: 94%;
-				border-radius: 0;
-				background-color: transparent;
-				border: 0;
-				color: $gray;
-				text-transform: uppercase;
-				@include fontSize(14px);
-				line-height: 1;
-				-webkit-appearance: textfield;
-
-				&:focus {
-					box-shadow: none;
-					outline: none;
-					color: $light-gray;
-				}
+			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+			   color:    $light-blue;
+			   opacity:  1;
 			}
-
-			.search-submit {
-				width: 4%;
-				border: 0;
-				background-color: transparent;
-				border-radius: 0;
-				color: $light-gray;
-				padding: 0;
-				@include fontSize(14px);
-				line-height: 1;
-				font-family: "fontello";
-				margin: 0;
-				text-align: right;
+			&::-moz-placeholder { /* Mozilla Firefox 19+ */
+			   color:    $light-blue;
+			   opacity:  1;
 			}
+			&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+			   color:    $light-blue;
+			}
+			&::-ms-input-placeholder { /* Microsoft Edge */
+			   color:    $light-blue;
+			}
+		}
 
-			.search-closeContainer {
-				text-align: right;
-				padding: 0;
+		.search-submit {
+			width: 5%;
+			border: 0;
+			background-color: transparent;
+			border-radius: 0;
+			color: $light-blue;
+			padding: 0;
+			@include fontSize(14px);
+			line-height: 1;
+			font-family: "chinapower";
+			margin: 0;
+			text-align: right;
+		}
 
-				.close-icon {
-					display: inline-block;
-					width: 15px;
-					height: 15px;
-					top: 3px;
+		.search-closeContainer {
+			text-align: right;
+			padding: 0;
 
-					&::before, &::after {
-						background-color: $light-gray;
-					}
+			.close-icon {
+				display: inline-block;
+				width: 15px;
+				height: 15px;
+				top: 3px;
+
+				&::before, &::after {
+					background-color: $light-gray;
 				}
 			}
 		}
@@ -497,6 +499,26 @@ header.site-header {
 			.icon {
 				color: $white;
 			}
+
+			.navOverlay-heading-search {
+				display: none;
+
+				.search-back {
+					@include fontSize(13px);
+					line-height: 1.69;
+					letter-spacing: 0.6px;
+					color: $white;
+
+					.icon {
+						color: $blue;
+						line-height: 13px;
+					}
+				}
+
+				.icon {
+					vertical-align: middle;
+				}
+			}
 		}
 
 		.navOverlay-content {
@@ -508,3 +530,4 @@ header.site-header {
 }
 
 .admin-bar header.site-header {top: 32px;}
+.admin-bar header.site-header .header-main .main-navigationContainer nav.main-navigation ul#primary-menu li .sub-menu-container {top: 132px;}

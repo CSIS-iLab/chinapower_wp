@@ -63,6 +63,8 @@
 		<div class="header-searchFormContainer">
 			<div class="content-wrapper row">
 				<form role="search" method="get" class="search-form" action="<?php echo home_url( '/' ); ?>">
+					<input type="submit" class="search-submit"
+				        value="<?php echo esc_attr_x( '&#xe80a;', 'submit button' ) ?>" />
 				    <label>
 				        <span class="screen-reader-text"><?php echo _x( 'Search for:', 'label' ) ?></span>
 				        <input type="search" class="search-field"
@@ -70,17 +72,20 @@
 				            value="<?php echo get_search_query() ?>" name="s"
 				            title="<?php echo esc_attr_x( 'Search for:', 'label' ) ?>" />
 				    </label>
-				    <input type="submit" class="search-submit"
-				        value="<?php echo esc_attr_x( '&#xe804;', 'submit button' ) ?>" />
 				</form>
 			</div>
 		</div><!-- .header-searchFormContainer -->
 		<div class="header-navOverlay">
 			<div class="navOverlay-heading">
-				<div class="content-wrapper row">
+				<div class="navOverlay-heading-menu content-wrapper row flex-center__y">
 					<div class="col-xs-2"><i class="icon icon-close-x" aria-label="Close" aria-controls="navigation"></i></div>
 					<div class="col-xs-8">Menu</div>
 					<div class="col-xs-2"><i class="icon icon-search"></i></div>
+				</div>
+				<div class="navOverlay-heading-search content-wrapper row flex-center__y">
+					<div class="search-back col-xs-3"><i class="icon icon-left"></i> Back</div>
+					<div class="col-xs-6">Search</div>
+					<div class="col-xs-3"><i class="icon icon-close-x" aria-label="Close" aria-controls="navigation"></i></div>
 				</div>
 			</div>
 			<div class="navOverlay-content"></div>
