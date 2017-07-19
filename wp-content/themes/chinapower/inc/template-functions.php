@@ -40,4 +40,15 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
         $output .= "$indent</ul></div>\n";
     }
 }
+
+/**
+ * Filter the except length to 45 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 45;
+}
+add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
  

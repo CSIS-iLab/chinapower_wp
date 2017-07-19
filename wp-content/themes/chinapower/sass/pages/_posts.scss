@@ -44,6 +44,10 @@
 			margin: 0 auto;
 		}
 	}
+
+	.entry-content {
+		padding: 0;
+	}
 }
 
 
@@ -53,21 +57,48 @@ article.post, article.page {
 
 	/*----------  Post Header  ----------*/
 	header.entry-header {
-		.entry-title {
-			font-family: $font__Roboto;
-			@include fontSize(48px);
-			font-weight: bold;
-			line-height: 1.27;
-			letter-spacing: 0.6px;
-			color: $white;
-			text-align: center;
+		padding: 1rem;
+
+		@include breakpoint("medium") {
+			padding: 2rem 1rem;
 		}
-	
+
+		.entry-title {
+			margin: 0;
+			font-family: $font__Hind;
+			@include fontSize(22px);
+			line-height: 1.32;
+			font-weight: 600;
+			letter-spacing: 0.1px;
+
+			a {
+				color: $black;
+
+				&:hover {
+					color: $red;
+				}
+			}
+		}
+	}
+
+	/*----------  Post Thumbnail  ----------*/
+	.entry-thumbnail {
+		padding: 0;
+
+		img {
+			@include breakpoint("medium") {
+				height: 100%;
+			}
+		}
 	}
 
 	/*----------  Post Body  ----------*/
 	.entry-content {
-		margin-top: 2rem;
+		padding: 0rem 1rem 1rem 1rem;
+
+		@include breakpoint("medium") {
+			padding: 2rem;
+		}
 
 		/*----------  ChinaPower Image  ----------*/
 		.img-cpp {
@@ -75,6 +106,23 @@ article.post, article.page {
 			height: auto;
 			display: inline-block;
 		}
+	}
+
+	.entry-header .entry-title a:hover + .entry-content .learnMore {
+		display: block;
+	}
+
+	/*----------  Category  ----------*/
+	.cat-links {
+		display: block;
+		margin-bottom: 0.5rem;
+		font-family: $font__Roboto;
+		@include fontSize(13px);
+		font-weight: 500;
+		line-height: 1;
+		letter-spacing: 0.8px;
+		text-transform: uppercase;
+		color: $red;
 	}
 
 	/*----------  Tags  ----------*/
