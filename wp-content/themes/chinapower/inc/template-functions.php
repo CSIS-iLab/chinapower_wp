@@ -72,4 +72,25 @@ add_filter( 'get_the_archive_title', function ($title) {
     }
     return $title;
 });
+
+/**
+ * Category Archives: Display sticky posts at the top
+ */
+add_filter('the_posts', 'bump_sticky_posts_to_top');
+function bump_sticky_posts_to_top($posts) {
+	if( ! is_admin() && is_category())
+    {
+	    $stickies = array();
+	    foreach($posts as $i => $post) {
+	        if(is_sticky($post->ID)) {
+	            $stickies[] = $post;
+	            unset($posts[$i]);
+	        }
+	    }
+	    return array_merge($stickies, $posts);
+	}
+	else {
+		return $posts;
+	}
+}
  

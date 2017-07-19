@@ -35,6 +35,45 @@
 		margin-bottom: 2rem;
 		background-color: $white;
 
+		.sticky-container {
+			padding-left: 0;
+			padding-right: 0;
+
+			.entry-header {
+				@include breakpoint("medium") {
+					padding-bottom: 0.5rem;
+				}
+
+				.isFeatured {
+					display: inline-block;
+					background-color: $red;
+					font-family: $font__Roboto;
+					@include fontSize(13px);
+					line-height: 1.69;
+					font-weight: bold;
+					letter-spacing: 0.9px;
+					color: $white;
+					text-transform: uppercase;
+					padding: 4px 8px;
+					margin-right: 5px;
+				}
+
+				.cat-links {
+					display: inline-block;
+				}
+
+				.entry-title {
+					margin-top: 1rem;
+				}
+			}
+
+			.entry-content {
+				@include breakpoint("medium") {
+					padding: 0 1rem 1rem 1rem;
+				}
+			}
+		}
+
 		/*----------  Learn More  ----------*/
 		.learnMore {
 			display: none;
