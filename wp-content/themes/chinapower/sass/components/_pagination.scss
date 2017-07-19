@@ -2,14 +2,25 @@
 =            Pagination            =
 ==================================*/
 
-.pagination-container {
+.pagination {
 	text-align: center;
-	@include fontSize(14px);
-	font-weight: bold;
-	letter-spacing: 1px;
+	font-family: $font__Roboto;
+	@include fontSize(13px);
+	line-height: 1.69;
+	letter-spacing: 0.6px;
+	text-transform: uppercase;
 
 	span, a {
 		margin: 0 0.1rem;
+		background-color: $off-white;
+		border-radius: 2px;
+		padding: 4px 10px;
+	}
+
+	.dots {
+		background-color: transparent;
+		border-radius: 0;
+		padding: 4px 5px;
 	}
 
 	a {
@@ -17,12 +28,58 @@
 
 
 		&:hover {
-			color: $red;
+			background-color: $color__background-button-gray;
 		}
 	}
 
 	.current {
-		color: $red;
-		border-bottom: 1px solid $red;
+		background-color: $red;
+		color: $white;
+	}
+
+	.next {
+		position: relative;
+
+		&:before {
+			content: "";
+			float: right;
+			position: absolute;
+			top: 0;
+			right: -12px;
+			width: 0;
+			height: 0;
+			border-color: transparent transparent transparent $off-white;
+			border-style: solid;
+			border-width: 13px 0 13px 13px;
+			@include transition(all .3s ease-in-out);
+		}
+
+		&:hover:before {
+			@include transition(all .3s ease-in-out);
+			border-color: transparent transparent transparent $color__background-button-gray;
+		}
+	}
+
+	.prev {
+		position: relative;
+
+		&:before {
+			content: "";
+			float: left;
+			position: absolute;
+			top: 0;
+			left: -12px;
+			width: 0;
+			height: 0;
+			border-color: transparent $off-white transparent transparent;
+			border-style: solid;
+			border-width: 13px 13px 13px 0;
+			@include transition(all .3s ease-in-out);
+		}
+
+		&:hover:before {
+			@include transition(all .3s ease-in-out);
+			border-color: transparent $color__background-button-gray transparent transparent;
+		}
 	}
 }

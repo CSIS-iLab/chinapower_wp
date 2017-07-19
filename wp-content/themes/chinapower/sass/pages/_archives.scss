@@ -71,4 +71,28 @@
 			display: block;
 		}
 	}
+
+	/*----------  Pagination  ----------*/
+	.pagination {
+		span:not(.current), a {
+			background-color: $white;
+
+			&:hover {
+				background-color: $color__background-button-gray;
+			}
+		}
+
+		.next:before {
+			border-left-color: $white;
+		}
+		.next:hover:before {
+			border-left-color: $color__background-button-gray;
+		}
+		.prev:before {
+			border-right-color: $white;
+		}
+		.prev:hover:before {
+			border-right-color: $color__background-button-gray;
+		}
+	}
 }
