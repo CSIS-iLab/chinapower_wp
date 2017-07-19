@@ -10,48 +10,37 @@
 
 	// Open Mobile Menu
 	$(".main-navigationControl").click(function() {
-		$("body").addClass("menu-mobile-active");
-		$(".site-branding").hide();
-		$(".main-navigationControl").hide();
-		$(".header-navOverlay").show("fast");
-		$(".navOverlay-heading-menu").show();
-		$(".main-navigation").show();
-		$(".site-header").addClass("overlay-isActive");
+		$("body, .site-header").addClass("overlay-isActive");
+		$(".site-branding, .main-navigationControl").addClass("isHidden");
+		$(".header-navOverlay, .main-navigation").addClass("isVisible");
 	});
 
 	// Close Mobile Menu
 	$(".navOverlay-heading .icon-close-x").click(function() {
-		$("body").removeClass("menu-mobile-active");
-		$(".site-branding").show();
-		$(".main-navigationControl").show();
-		$(".header-navOverlay").hide("fast");
-		$(".main-navigation").hide();
-		$(".site-header").removeClass("overlay-isActive");
-		$(".header-searchFormContainer").hide();
-		$(".navOverlay-heading-search").hide();
+		$("body, .site-header").removeClass("overlay-isActive");
+		$(".site-branding, .main-navigationControl, .navOverlay-heading-menu").removeClass("isHidden");
+		$(".header-navOverlay, .main-navigation, .header-searchFormContainer, .navOverlay-heading-search").removeClass("isVisible");
 	});
 
 	// Open Search
 	$(".header-navOverlay .icon-search").click(function() {
-		$(".navOverlay-heading-menu").hide();
-		$(".navOverlay-heading-search").css("display","flex");
-		$(".header-searchFormContainer").show();
-		$(".main-navigation").hide();
+		$(".navOverlay-heading-menu").addClass("isHidden");
+		$(".navOverlay-heading-search, .header-searchFormContainer").addClass("isVisible");
+		$(".main-navigation").removeClass("isVisible");
 	});
 
 	// Back from Search
 	$(".header-navOverlay .search-back").click(function() {
-		$(".navOverlay-heading-menu").show();
-		$(".navOverlay-heading-search").hide();
-		$(".header-searchFormContainer").hide();
-		$(".main-navigation").show();
+		$(".navOverlay-heading-menu").removeClass("isHidden");
+		$(".navOverlay-heading-search, .header-searchFormContainer").removeClass("isVisible");
+		$(".main-navigation").addClass("isVisible");
 	});
 
 	// Disable the dropdown menu on mobile
 	if(mobileDisplay != "none") {
 		$(".menu-item-has-children > a").click(function(e) {
 			e.preventDefault();
-			$(this).siblings(".sub-menu-container").toggle();
+			$(this).siblings(".sub-menu-container").toggleClass("isVisible");
 		});
 	}
 

@@ -45,6 +45,10 @@ header.site-header {
 			padding: 0;
 			text-align: left;
 
+			&.isHidden {
+				display: none;
+			}
+
 			a {
 				color: $white;
 
@@ -95,6 +99,14 @@ header.site-header {
 				background-color: transparent;
 				padding: 0;
 				margin: 0;
+
+				@include breakpoint("medium") {
+					display: none;
+				}
+
+				&.isHidden {
+					display: none;
+				}
 				
 				span {
 					position: absolute;
@@ -121,10 +133,6 @@ header.site-header {
 				  bottom: -7px;
 				  width: 21px; 
 				}
-
-				@include breakpoint("medium") {
-					display: none;
-				}
 			}
 		
 			nav.main-navigation {
@@ -140,6 +148,10 @@ header.site-header {
 					padding-top: 1rem;
 					padding-bottom: 0;
 					width: initial;
+				}
+
+				&.isVisible {
+					display: block;
 				}
 
 				ul#primary-menu {
@@ -342,15 +354,6 @@ header.site-header {
 			}
 		}
 
-		/*----------  Mobile Menu Styles  ----------*/
-		&.menu-mobile-active {
-			height: 100vh;
-		}
-
-		.close-icon {
-			display: none;
-		}
-
 		/*----------  Minimal Header  ----------*/
 		@include breakpoint("medium") {
 			&.minimal {
@@ -393,6 +396,10 @@ header.site-header {
 		top: 5rem;
 		left: 0;
 		right: 0;
+
+		&.isVisible {
+			display: block;
+		}
 
 		.header-searchInputContainer {
 			padding: 0;
@@ -480,6 +487,10 @@ header.site-header {
 		height: 100%;
 		overflow: hidden;
 
+		&.isVisible {
+			display: block;
+		}
+
 		.navOverlay-heading {
 			background-color: $dark-blue;
 			padding: 1rem 0;
@@ -495,8 +506,16 @@ header.site-header {
 				color: $white;
 			}
 
+			.navOverlay-heading-menu.isHidden {
+				display: none;
+			}
+
 			.navOverlay-heading-search {
 				display: none;
+
+				&.isVisible {
+					display: flex;
+				}
 
 				.search-back {
 					@include fontSize(13px);
