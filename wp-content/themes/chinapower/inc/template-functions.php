@@ -51,4 +51,25 @@ function wpdocs_custom_excerpt_length( $length ) {
     return 45;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
+
+// Replaces the excerpt "Read More" text by a link
+function new_excerpt_more($more) {
+       global $post;
+	return '<a class="moretag" href="'. get_permalink($post->ID) . '">...</a>';
+}
+add_filter('excerpt_more', 'new_excerpt_more');
+
+/**
+ * Change the_archive_title to use custom text before categories, tags, and other taxonomies.
+ */
+add_filter( 'get_the_archive_title', function ($title) {
+    if ( is_category() ) {
+		$title = single_cat_title('', false );
+    } elseif ( is_tag() ) {
+        $title = single_tag_title( '', false );
+    } elseif ( is_author() ) {
+        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
+    }
+    return $title;
+});
  
