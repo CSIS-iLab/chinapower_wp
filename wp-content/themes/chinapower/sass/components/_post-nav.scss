@@ -3,11 +3,28 @@
 =======================================*/
 
 .post-nav {
-	background-color: $off-white;
-	padding: 0.5rem 0;
+	position: fixed;
 	z-index: 50;
+	top: 0;
 	left: 0;
 	right: 0;
+	background-color: $white;
+	height: 45px;
+	-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+
+	@include breakpoint("medium") {
+		position: relative;
+		top: initial;
+		background-color: $off-white;
+		height: initial;
+		box-shadow: none;
+	}
+
+	.content-wrapper {
+		height: 100%;
+	}
 
 	.post-nav-menu {
 		text-align: right;

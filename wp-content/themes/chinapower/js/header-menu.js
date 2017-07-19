@@ -50,11 +50,11 @@
 		var headerHeight = $(".site-header").height() + parseInt($(".site-header").css("top"), 10);
 		  
 		if(currentScroll > 0){
-	    	$(".header-main").addClass("minimal");
+	    	$(".site-header").addClass("minimal");
 	    	$(".header-main .sub-menu-container").css("top",headerHeight);
 		}
 		else {
-			$(".header-main").removeClass("minimal");
+			$(".site-header").removeClass("minimal");
 			$(".header-main .sub-menu-container").css("top",headerHeightInitial);
 		}
 		

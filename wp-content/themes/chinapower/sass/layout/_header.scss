@@ -13,6 +13,10 @@ header.site-header {
 	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 
+	.single-post & {
+		box-shadow: none;
+	}
+
 	&.overlay-isActive {
 		width: 100%;
 	}
@@ -353,39 +357,6 @@ header.site-header {
 				}
 			}
 		}
-
-		/*----------  Minimal Header  ----------*/
-		@include breakpoint("medium") {
-			&.minimal {
-				height: 50px;
-				padding-top: 0;
-				padding-bottom: 0;
-
-				.content-wrapper {
-					align-items: center;
-					height: 100%;
-				}
-
-				.site-branding {
-					margin-bottom: 0;
-					a {
-						img {
-							height: 28px;
-							margin: 0;
-						}
-						.site-tagline {display: none;}
-					}
-				}
-
-				.main-navigationContainer {
-					align-self: initial;
-					height: 100%;
-
-					.main-navigation {padding-top: 0;}
-					
-				}
-			}
-		}
 	}
 
 	/*----------  Search Form  ----------*/
@@ -539,6 +510,39 @@ header.site-header {
 			background-color: $dark-blue;
 			opacity: 0.95;
 			height: 100%;
+		}
+	}
+
+	/*----------  Minimal Header  ----------*/
+	@include breakpoint("medium") {
+		&.minimal .header-main {
+			height: 50px;
+			padding-top: 0;
+			padding-bottom: 0;
+
+			.content-wrapper {
+				align-items: center;
+				height: 100%;
+			}
+
+			.site-branding {
+				margin-bottom: 0;
+				a {
+					img {
+						height: 28px;
+						margin: 0;
+					}
+					.site-tagline {display: none;}
+				}
+			}
+
+			.main-navigationContainer {
+				align-self: initial;
+				height: 100%;
+
+				.main-navigation {padding-top: 0;}
+				
+			}
 		}
 	}
 }
