@@ -61,6 +61,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   ## Search
   ## 404
   ## About
+  ## Podcasts
 # Vendors
 --------------------------------------------------------------*/
 
@@ -94,7 +95,9 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   'components/autocomplete',
   'components/post-nav',
   'components/related-content',
-  'components/tooltips';
+  'components/tooltips',
+  'components/post-meta',
+  'components/post-feature-img';
 
 /*----------  Layout  ----------*/
 @import
@@ -110,7 +113,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   'pages/archives',
   'pages/search',
   'pages/404',
-  'pages/about';
+  'pages/about',
+  'pages/podcasts';
 
 /*----------  Vendors  ----------*/
 @import

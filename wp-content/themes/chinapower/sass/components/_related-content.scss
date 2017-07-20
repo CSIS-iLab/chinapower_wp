@@ -4,14 +4,7 @@
 
 .relatedContent-container {
 	.relatedContent-heading {
-		font-family: $font__Hind;
-		@include fontSize(18px);
-		line-height: 1.33;
-		font-weight: 600;
-		letter-spacing: 1.1px;
-		text-transform: uppercase;
-		color: $black;
-		margin-bottom: 1rem;
+		@extend %postFooter-subheading;
 	}
 
 	.relatedContent-post {
@@ -19,18 +12,6 @@
 
 		.relatedContent-img {
 			max-width: 175px;
-		}
-
-		.cat-links {
-			display: block;
-			margin-bottom: 0.5rem;
-			font-family: $font__Roboto;
-			@include fontSize(13px);
-			font-weight: 500;
-			line-height: 1;
-			letter-spacing: 0.8px;
-			text-transform: uppercase;
-			color: $red;
 		}
 
 		.relatedContent-title a {

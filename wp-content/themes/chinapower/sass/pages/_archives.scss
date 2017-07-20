@@ -10,13 +10,7 @@
 		margin-bottom: 2rem;
 
 		.page-title {
-			font-family: $font__Roboto;
-			@include fontSize(48px);
-			line-height: 1.27;
-			font-weight: bold;
-			letter-spacing: 0.6px;
-			color: $black;
-			text-align: center;
+			@extend %page-title;
 			margin: 0 0 1rem 0;
 		}
 

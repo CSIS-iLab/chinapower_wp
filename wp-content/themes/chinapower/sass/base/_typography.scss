@@ -53,6 +53,47 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 1rem 0;
 }
 
+%page-title {
+	font-family: $font__Roboto;
+	@include fontSize(48px);
+	line-height: 1.27;
+	font-weight: bold;
+	letter-spacing: 0.6px;
+	color: $black;
+	text-align: center;
+}
+
+%post-title {
+	margin: 0;
+	font-family: $font__Hind;
+	@include fontSize(22px);
+	line-height: 1.32;
+	font-weight: 600;
+	letter-spacing: 0.1px;
+}
+
+%postFooter-heading {
+	font-family: $font__Hind;
+	@include fontSize(22px);
+	line-height: 1.55;
+	font-weight: 600;
+	letter-spacing: 1.1px;
+	color: $black;
+	text-transform: uppercase;
+	margin: 0 0 0.5rem 0;
+}
+
+%postFooter-subheading {
+	font-family: $font__Hind;
+	@include fontSize(18px);
+	line-height: 1.33;
+	font-weight: 600;
+	letter-spacing: 1.1px;
+	text-transform: uppercase;
+	color: $black;
+	margin-bottom: 1rem;
+}
+
 body.single, body.page {
 
 	h1 { @extend %h1 }

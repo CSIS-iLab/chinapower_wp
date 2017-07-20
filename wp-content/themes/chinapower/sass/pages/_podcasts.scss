@@ -1,0 +1,54 @@
+/*================================
+=            Podcasts            =
+================================*/
+
+/*----------  Single Podcast Styles  ----------*/
+.single-podcasts article.podcasts {
+
+	/*----------  Post Header  ----------*/
+	.entry-header {
+		padding: 0;
+
+		.featureImg {
+			@extend %post-featureImg;
+			background-color: $red;
+			background-size: 90%;
+			background-position: center top;
+
+			@include breakpoint("medium") {
+				background-size: 35%;
+			}
+
+			.entry-title { @extend %post-featureImgTitle; }
+		}
+	}
+
+	.entry-content {
+		padding: 0;
+		margin-top: 2rem;
+
+		iframe {
+			margin-bottom: 1rem;
+		}
+
+		p:first-of-type {
+			display: inline;
+
+			&:before {
+				content: "\02014";
+				color: $off-black;
+				margin: 0 5px;
+			}
+		}
+	}
+
+	.entry-footer {
+		.podcastDesc-container {
+			padding-right: 3rem;
+
+			.podcastDesc-heading {
+				@extend %postFooter-heading;
+			}
+		}
+	}
+}

@@ -3,215 +3,35 @@
 =============================*/
 
 /*----------  Single Post Styles  ----------*/
-.single-post {
+.single-post article.post {
 
 	/*----------  Post Header  ----------*/
-	.featureImg {
-		width: 100%;
-		height: 600px;
-		position: relative;
-		background-size: cover;
-		background-repeat: no-repeat;
-		background-position: center center;
-		display: flex;
-		padding-bottom: 1rem;
-
-		&:before {
-			content: '';
-			position: absolute;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			height: 40%;
-			background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.65) 100%); /* FF3.6-15 */
-			background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* Chrome10-25,Safari5.1-6 */
-			background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(0,0,0,0.65) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#a6000000',GradientType=0 ); /* IE6-9 */
-		}
-
-		.entry-title {
-			position: relative;
-			flex: 1;
-			align-self: flex-end;
-			max-width: $size__container-max-width;
-			font-family: $font__Roboto;
-			@include fontSize(48px);
-			font-weight: bold;
-			line-height: 1.27;
-			letter-spacing: 0.6px;
-			color: $white;
-			text-align: center;
-			margin: 0 auto;
-		}
-	}
-
-	.entry-content {
-		padding: 0;
-	}
-}
-
-
-/*----------  Global Post Styles  ----------*/
-article.post, article.page, article.podcasts {
-	margin-bottom: 3rem;
-
-	/*----------  Post Header  ----------*/
-	header.entry-header {
-		padding: 1rem;
-
-		@include breakpoint("medium") {
-			padding: 2rem 1rem;
-		}
-
-		.entry-title {
-			margin: 0;
-			font-family: $font__Hind;
-			@include fontSize(22px);
-			line-height: 1.32;
-			font-weight: 600;
-			letter-spacing: 0.1px;
-
-			a {
-				color: $black;
-
-				&:hover {
-					color: $red;
-				}
-			}
-		}
-
-		.posted-on a {
-			line-height: 1.81;
-			color: $blue;
-		}
-
-	}
-
-	/*----------  Post Thumbnail  ----------*/
-	.entry-thumbnail {
+	.entry-header {
 		padding: 0;
 
-		img {
-			@include breakpoint("medium") {
-				height: 100%;
-			}
+		.featureImg {
+			@extend %post-featureImg;
+
+			.entry-title { @extend %post-featureImgTitle; }
 		}
 	}
 
-	/*----------  Post Body  ----------*/
+	/*----------  Post Content  ----------*/
 	.entry-content {
-		padding: 0rem 1rem 1rem 1rem;
-
-		@include breakpoint("medium") {
-			padding: 2rem;
-		}
-
-		/*----------  ChinaPower Image  ----------*/
-		.img-cpp {
-			max-width:15px;
-			height: auto;
-			display: inline-block;
-		}
+		padding: 0;
+		margin-top: 2rem;
 	}
 
-	.entry-header .entry-title a:hover + .entry-content .learnMore {
-		display: block;
-	}
-
-	/*----------  Category  ----------*/
-	.cat-links {
-		display: block;
-		margin-bottom: 0.5rem;
-		font-family: $font__Roboto;
-		@include fontSize(13px);
-		font-weight: 500;
-		line-height: 1;
-		letter-spacing: 0.8px;
-		text-transform: uppercase;
-		color: $gray;
-		
-		a {
-			color: $red;
-
-			&:hover {
-				color: $dark-red;
-			}
-		}
-	}
-
-	/*----------  Tags  ----------*/
-	.post-tags-container {
-		margin: 3rem auto 2rem auto;
-
-		.tags-heading {
-			position: relative;
-			background-color: $red;
-			color: $white;
-			font-family: $font__Roboto;
-			@include fontSize(13px);
-			line-height: 1.69;
-			letter-spacing: 0.7px;
-			text-transform: uppercase;
-			padding: 3px 7px;
-
-			&:before {
-				content: "";
-				float: right;
-				position: absolute;
-				top: 0;
-				right: -12px;
-				width: 0;
-				height: 0;
-				border-color: transparent transparent transparent $red;
-				border-style: solid;
-				border-width: 12px 0 12px 12px;
-			}
-		}
-
-		ul {
-			list-style-type: none;
-			display: inline-block;
-			margin-bottom: 0;
-			padding-left: 1.5rem;
-
-			li {
-				display: inline-block;
-				margin: 0 1rem;
-				padding: 3px 0;
-				font-family: $font__Roboto;
-				@include fontSize(15px);
-
-				a {
-					color: $black;
-					border-bottom: 1px solid $red;
-
-					&:hover {
-						border-bottom-color: $dark-red;
-					}
-				}
-			}
-		}
-	}
-
+	/*----------  Data Sources  ----------*/
 	.post-dataSources-container {
 		margin: 2rem 0;
 		padding: 2rem 0;
 		background-color: $off-white;
 
-		/*----------  Data Sources  ----------*/
 		.dataSources-content {
 			padding-right: 3rem;
 
-			.dataSources-heading {
-				font-family: $font__Hind;
-				@include fontSize(22px);
-				line-height: 1.55;
-				font-weight: 600;
-				letter-spacing: 1.1px;
-				color: $black;
-				text-transform: uppercase;
-				margin: 0 0 0.5rem 0;
-			}
+			.dataSources-heading { @extend %postFooter-heading; }
 
 			p {
 				line-height: 1.69;
@@ -245,16 +65,7 @@ article.post, article.page, article.podcasts {
 		}
 
 		/*----------  Cite This Page  ----------*/
-		.cite-heading {
-			font-family: $font__Hind;
-			@include fontSize(18px);
-			line-height: 1.33;
-			font-weight: 600;
-			letter-spacing: 1.1px;
-			text-transform: uppercase;
-			color: $black;
-			margin-bottom: 1rem;
-		}
+		.cite-heading { @extend %postFooter-subheading; }
 
 		.cite-citation {
 			@include fontSize(14px);
@@ -263,29 +74,79 @@ article.post, article.page, article.podcasts {
 			margin-bottom: 0;
 		}
 
-		.btn .icon {
-			margin-left: 0;
-		}
+		.btn .icon { margin-left: 0; }
 	}
 
+	/*----------  Further Reading  ----------*/
 	.post-furtherReading-container {
 		margin: 2rem auto;
 
-		/*----------  Further Reading  ----------*/
 		.furtherReading-container {
 			padding-right: 3rem;
 
 			.furtherReading-heading {
-				font-family: $font__Hind;
-				@include fontSize(22px);
-				line-height: 1.55;
-				font-weight: 600;
-				letter-spacing: 1.1px;
-				color: $black;
-				text-transform: uppercase;
-				margin: 0 0 0.5rem 0;
+				@extend %postFooter-heading;
 			}
 		}
+	}
+}
+
+
+/*----------  Global Post Styles  ----------*/
+article.post, article.page {
+	margin-bottom: 3rem;
+
+	/*----------  Post Header  ----------*/
+	header.entry-header {
+		padding: 1rem;
+
+		@include breakpoint("medium") {
+			padding: 2rem 1rem;
+		}
+
+		.entry-title {
+			@extend %post-title;
+
+			a {
+				color: $black;
+
+				&:hover {
+					color: $red;
+				}
+			}
+		}
+
+	}
+
+	/*----------  Post Thumbnail  ----------*/
+	.entry-thumbnail {
+		padding: 0;
+
+		img {
+			@include breakpoint("medium") {
+				height: 100%;
+			}
+		}
+	}
+
+	/*----------  Post Body  ----------*/
+	.entry-content {
+		padding: 0rem 1rem 1rem 1rem;
+
+		@include breakpoint("medium") {
+			padding: 2rem;
+		}
+
+		/*----------  ChinaPower Image  ----------*/
+		.img-cpp {
+			max-width:15px;
+			height: auto;
+			display: inline-block;
+		}
+	}
+
+	.entry-header .entry-title a:hover + .entry-content .learnMore {
+		display: block;
 	}
 
 	/*----------  Full Width Content  ----------*/
