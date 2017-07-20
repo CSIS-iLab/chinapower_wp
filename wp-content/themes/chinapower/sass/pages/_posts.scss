@@ -52,7 +52,7 @@
 
 
 /*----------  Global Post Styles  ----------*/
-article.post, article.page {
+article.post, article.page, article.podcasts {
 	margin-bottom: 3rem;
 
 	/*----------  Post Header  ----------*/
@@ -79,6 +79,12 @@ article.post, article.page {
 				}
 			}
 		}
+
+		.posted-on a {
+			line-height: 1.81;
+			color: $blue;
+		}
+
 	}
 
 	/*----------  Post Thumbnail  ----------*/
@@ -122,7 +128,15 @@ article.post, article.page {
 		line-height: 1;
 		letter-spacing: 0.8px;
 		text-transform: uppercase;
-		color: $red;
+		color: $gray;
+		
+		a {
+			color: $red;
+
+			&:hover {
+				color: $dark-red;
+			}
+		}
 	}
 
 	/*----------  Tags  ----------*/

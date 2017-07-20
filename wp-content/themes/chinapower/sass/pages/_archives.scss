@@ -29,8 +29,8 @@
 		}
 	}
 
-	/*----------  Posts  ----------*/
-	article.post {
+	/*----------  Posts, Podcasts  ----------*/
+	article.post, article.podcasts {
 		position: relative;
 		margin-bottom: 2rem;
 		background-color: $white;
@@ -132,6 +132,72 @@
 		}
 		.prev:hover:before {
 			border-right-color: $color__background-button-gray;
+		}
+	}
+
+	/*----------  Podcast Archive  ----------*/
+	.archive-control-area {
+		margin-bottom: 2rem;
+	}
+
+	.podcast-desc {
+		@include breakpoint("medium") {
+			padding-right: 2rem;
+		}
+	}
+
+	.podcast-host {
+		@include breakpoint("medium") {
+			padding-left: 2rem;
+		}
+
+		strong {
+			color: $red;
+			text-transform: uppercase;
+			@include fontSize(18px);
+			line-height: 1.71;
+		}
+		.podcast-host-pos {
+			color: $gray;
+			@include fontSize(14px);
+			line-height: 1.5;
+		}
+	}
+
+	article.podcasts {
+
+		.sticky-container .entry-header,
+		.sticky-container .entry-content {
+			@include breakpoint("medium") {
+				padding-right: 2rem;
+				padding-left: 1rem;
+			}
+		}
+
+		.entry-thumbnail {
+			text-align: center;
+			padding: 2rem 0;
+		}
+
+		.entry-header {
+			@include breakpoint("medium") {
+				padding: 2rem 1rem 2rem 2rem;
+			}
+		}
+
+		.entry-content {
+			@include breakpoint("medium") {
+				padding: 2rem 2rem 2rem 1rem;
+			}
+		}
+
+		.soundcloud-mini-container {
+			background-color: $off-white;
+			padding: 0.5rem;
+
+			iframe {
+				vertical-align: middle;
+			}
 		}
 	}
 }

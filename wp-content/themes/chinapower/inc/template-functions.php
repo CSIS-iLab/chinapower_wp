@@ -93,4 +93,20 @@ function bump_sticky_posts_to_top($posts) {
 		return $posts;
 	}
 }
+
+/**
+ * Helper function to render first post differently than other posts
+ */
+function is_first_post()
+{
+    static $called = FALSE;
+
+    if ( ! $called )
+    {
+        $called = TRUE;
+        return TRUE;
+    }
+
+    return FALSE;
+}
  

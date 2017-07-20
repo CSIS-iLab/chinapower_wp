@@ -18,7 +18,7 @@ else {
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
 	<div class="entry-thumbnail col-xs-12 col-md-4">
-		<a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_post_thumbnail('medium-large'); ?></a>
+		<a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark"><?php the_post_thumbnail('medium-large'); ?></a>
 	</div>
 	<?php
 		if(is_sticky()) {
@@ -55,14 +55,10 @@ else {
 			?>
 		</header><!-- .entry-header -->
 		<div class="entry-content col-xs-12 col-md-5">
-			<p>
-			<?php
-				the_excerpt();
-			?>
-			</p>
+			<p> <?php the_excerpt(); ?> </p>
 		</div><!-- .entry-content -->
 	<?php } ?>
 	<footer class="entry-footer learnMore">
-		<p><a href="<?php esc_url( get_permalink() ); ?>" rel="bookmark">Learn More <i class="icon icon-arrow-right-full"></i></a></p>
+		<p><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">Learn More <i class="icon icon-arrow-right-full"></i></a></p>
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->
