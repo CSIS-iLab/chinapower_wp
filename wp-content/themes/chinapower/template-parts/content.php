@@ -8,10 +8,10 @@
  */
 
 if(is_sticky()) {
-	$classes = "sticky row";
+	$classes = "sticky row cardLayout";
 }
 else {
-	$classes = "row";
+	$classes = "row cardLayout";
 }
 
 ?>

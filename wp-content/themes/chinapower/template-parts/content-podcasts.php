@@ -9,10 +9,10 @@
 
 if ( is_first_post() ) {
 	$sticky = true;
-	$classes = "sticky row";
+	$classes = "sticky row cardLayout";
 }
 else {
-	$classes = "row";
+	$classes = "row cardLayout";
 }
 
 $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);

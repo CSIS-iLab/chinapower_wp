@@ -20,6 +20,17 @@
 	.entry-content {
 		padding: 0;
 		margin-top: 2rem;
+
+		/*----------  Full Width Content  ----------*/
+		.fullWidthFeatureContent {
+			width: 100vw;
+			position: relative;
+			left: 50%;
+			right: 50%;
+			margin-left: -50vw;
+			margin-right: -50vw;
+			text-align: center;
+		}
 	}
 
 	/*----------  Data Sources  ----------*/
@@ -92,8 +103,8 @@
 }
 
 
-/*----------  Global Post Styles  ----------*/
-article.post, article.page {
+/*----------  Card Layout Styles  ----------*/
+article.post.cardLayout {
 	margin-bottom: 3rem;
 
 	/*----------  Post Header  ----------*/
@@ -147,17 +158,6 @@ article.post, article.page {
 
 	.entry-header .entry-title a:hover + .entry-content .learnMore {
 		display: block;
-	}
-
-	/*----------  Full Width Content  ----------*/
-	.fullWidthFeatureContent {
-		width: 100vw;
-		position: relative;
-		left: 50%;
-		right: 50%;
-		margin-left: -50vw;
-		margin-right: -50vw;
-		text-align: center;
 	}
 
 }
