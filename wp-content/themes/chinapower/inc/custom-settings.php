@@ -16,6 +16,17 @@ function chinapower_general_section() {
     );
 
     add_settings_field( // Option 1
+        'chinapower_podcast_desc_long', // Option ID
+        'Podcast Description (Long):', // Label
+        'chinapower_textarea_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'chinapower_settings_section', // Name of our section
+        array( // The $args
+            'chinapower_podcast_desc_long' // Should match Option ID
+        )  
+    );
+
+    add_settings_field( // Option 1
         'chinapower_itunesURL', // Option ID
         'iTunes URL', // Label
         'chinapower_textbox_callback', // !important - This is where the args go!
@@ -26,6 +37,7 @@ function chinapower_general_section() {
         )  
     ); 
 
+    register_setting('general','chinapower_podcast_desc_long', 'esc_attr');
     register_setting('general','chinapower_itunesURL', 'esc_attr');
 }
 
@@ -36,4 +48,9 @@ function chinapower_section_options_callback() { // Section Callback
 function chinapower_textbox_callback($args) {  // Textbox Callback
     $option = get_option($args[0]);
     echo '<input type="text" class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" value="' . $option . '" />';
+}
+
+function chinapower_textarea_callback($args) {  // Textbox Callback
+    $option = get_option($args[0]);
+    echo '<textarea class="regular-text" id="'. $args[0] .'" name="'. $args[0] .'" rows="5">'.$option.'</textarea>';
 }

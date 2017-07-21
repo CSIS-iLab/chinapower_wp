@@ -29,6 +29,10 @@ else {
 	$podcastDescWidth = "12";
 }
 
+// Podcast Description
+$podcastDesc = get_option("chinapower_podcast_desc_long");
+$itunesURL = get_option("chinapower_itunesURL");
+
 ?>
 
 <div id="primary" class="content-area">
@@ -87,7 +91,8 @@ else {
 				<div class="post-podcastDesc-container content-wrapper row">
 					<div class="podcastDesc-container col-xs-12 col-md-<?php echo $podcastDescWidth; ?>">
 						<h5 class="podcastDesc-heading">ChinaPower Podcast</h5>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+						<p><?php echo $podcastDesc; ?></p>
+						<a href="<?php echo $podcastURL; ?>" target="_blank" rel="noopener"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
 					</div>
 					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
 						<?php echo $relatedContentHeader; ?>
