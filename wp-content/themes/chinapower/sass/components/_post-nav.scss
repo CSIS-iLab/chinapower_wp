@@ -72,6 +72,18 @@
 
 		.post-share-buttons {
 			display: none;
+
+			.addtoany_list {
+				margin-top: 0;
+			}
+
+			.a2a_svg:before {
+				color: $black;
+			}
+
+			.a2a_svg:hover:before {
+				color: $red;
+			}
 		}
 
 		.post-nav-jumpto {

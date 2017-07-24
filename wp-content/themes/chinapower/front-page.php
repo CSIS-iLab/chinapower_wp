@@ -99,7 +99,7 @@ if(get_theme_mod('hp_stat')) {
 							<?php _e('Share this stat', 'chinapower'); ?>
 							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
 							    ADDTOANY_SHARE_SAVE_KIT( array( 
-							        'buttons' => array( 'facebook', 'twitter', 'linkedin', 'wechat', 'sina_weibo' ),
+							        'buttons' => array( 'facebook', 'twitter', 'linkedin', 'sina_weibo', 'wechat' ),
 							        'linkname' => $statSocial
 							    ) );
 							} ?>

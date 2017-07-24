@@ -257,6 +257,21 @@
 					line-height: 2.07;
 					color: $light-blue;
 					text-transform: uppercase;
+
+					.addtoany_list {
+						display: inline-block;
+						margin-top: 0;
+						margin-left: 0.5rem;
+
+						&.a2a_kit_size_32 a>span {
+							@include fontSize(14px);
+						}
+
+						.a2a_svg:hover:before {
+							color: $light-blue;
+						}
+
+					}
 				}
 
 				hr {
@@ -277,7 +292,7 @@
 						font-weight: normal;
 
 						&:hover {
-							color: $light-gray;
+							color: $white;
 						}
 					}
 				}

@@ -2,108 +2,87 @@
 =            Social Share            =
 ====================================*/
 
-.sharedaddy {
+.addtoany_list {
 	margin-top: 0.75rem;
+	line-height: inherit !important;
 
-	.sd-title {
+	a {
+		margin-right: 0.75rem;
+	}
+
+	.a2a_svg {
+		background-color: transparent !important;
+
+		&:before {
+			font-family: 'chinapower';
+			color: $white;
+			line-height: 1;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		/* Facebook */
+		&.a2a_s_facebook:before {
+			content: "\f09a";
+		}
+
+		/* Twitter */
+		&.a2a_s_twitter:before {
+			content: "\f099";
+		}
+
+		/* LinkedIn */
+		&.a2a_s_linkedin:before {
+			content: "\f0e1";
+		}
+
+		/* Weibo */
+		&.a2a_s_sina_weibo:before {
+			content: "\e810";
+		}
+
+		/* WeChat */
+		&.a2a_s_wechat:before {
+			content: "\e80c";
+		}
+
+		/* Print */
+		&.a2a_s_print:before {
+			content: "\e809";
+		}
+
+		/* Email */
+		&.a2a_s_email:before {
+			content: "\e807";
+		}
+
+		/* Copy Link */
+		&.a2a_s_link:before {
+			content: "\e805";
+		}
+
+		svg {display: none;}
+	}
+
+	&.a2a_kit_size_32 a>span {
+		width: inherit !important;
+		height: inherit !important;
+		line-height: inherit !important;
 		display: inline-block;
-		color: $gray;
-		@include fontSize(14px);
-		text-transform: uppercase !important;
-		font-weight: normal !important;
+		vertical-align: middle;
+		@include fontSize(20px);
+	}
 
-		&::before {
-			border: 0 !important;
+	/* Divider between Email & Social */
+	.a2a_button_email {
+
+		&:before {
+			content: "|";
+			color: $color__background-share-divider;
+			margin-left: 0.75rem;
+			margin-right: 1.5rem;
 		}
 	}
 
-	.sd-content {
-		display: inline-block;
-		margin-left: 0.5rem;
-
-		ul li {
-			margin-right: 8px !important;
-		}
-
-		ul li[class*='share-'] a {
-			border-radius: 0 !important;
-			padding: 0 !important;
-			top: -8px !important;
-
-			&.sd-button:before {
-				@include fontSize(20px);
-			}
-
-			&::before {
-				color: $dark-gray;
-				font-family: 'fontello' !important;
-			}
-
-			&:hover {
-				opacity: 1 !important;
-			}
-
-			&:hover::before {
-				color: $red;
-			}
-
-		}
-
-		// Twitter
-		.share-facebook {
-			background-color: transparent !important;
-
-			a::before {
-				content: '\f09a' !important;
-			}
-		}
-
-		// Twitter
-		.share-twitter {
-			background-color: transparent !important;
-
-			a::before {
-				content: '\f099' !important;
-				top: 3px !important;
-			}
-		}
-
-		// Google+
-		.share-google-plus-1 {
-			background-color: transparent !important;
-
-			a::before {
-				content: '\f30f' !important;
-				top: 2px !important;
-			}
-		}
-
-		// LinkedIn
-		.share-linkedin {
-			background-color: transparent !important;
-
-			a::before {
-				content: '\f318' !important;
-			}
-		}
-
-		// Email
-		.share-email {
-			background-color: transparent !important;
-			a::before {
-				content: '\e800' !important;
-				top: 4px !important;
-			}
-		}
-
-		// Print
-		.share-print {
-			background-color: transparent !important;
-			a::before {
-				content: '\e803' !important;
-				top: 3px !important;
-			}
-		}
-	}
 }
 
