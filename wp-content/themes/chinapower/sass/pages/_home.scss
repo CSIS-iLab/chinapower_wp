@@ -33,6 +33,10 @@
 						text-align: left;
 						margin-top: 0;
 						margin-bottom: 0;
+
+						&:hover {
+							color: $off-white;
+						}
 					}
 
 					.cat-links {
@@ -43,7 +47,13 @@
 						letter-spacing: 0.9px;
 						color: $light-blue;
 
-						a { color: $white; }
+						a { 
+							color: $white;
+
+							&:hover {
+								color: $off-white;
+							} 
+						}
 					}
 				}
 
@@ -209,6 +219,69 @@
 			@include breakpoint("medium") {
 				&:after {content: none;}
 			}
+
+			/*----------  Icon  ----------*/
+			.fa {
+				position: absolute;
+				top: 3px;
+				@include fontSize(320px);
+				color: $color__text-statIcon;
+			}
+
+			/*----------  Stat  ----------*/
+			.stat-content {
+				position: relative;
+				z-index: 10;
+				
+				@include breakpoint("medium") {
+					padding: 0 5rem;
+				}
+
+				.stat {
+					@include fontSize(22px);
+					font-weight: 600;
+					line-height: 1.32;
+					letter-spacing: 0.1px;
+					color: $white;
+					margin-bottom: 2rem;
+
+					.data-featuredStatNumber {
+						font-family: $font__Roboto;
+						@include fontSize(38px);
+					}
+				}
+
+				.share-stat {
+					@include fontSize(14px);
+					font-weight: 500;
+					line-height: 2.07;
+					color: $light-blue;
+					text-transform: uppercase;
+				}
+
+				hr {
+					background-color: $color__background-hr-stat-home;
+					margin: 0.5rem 0;
+				}
+
+				.stat-article {
+					@include fontSize(14px);
+					font-weight: 500;
+					line-height: 2.07;
+					color: $light-blue;
+					text-transform: uppercase;
+
+					a {
+						color: $light-blue;
+						text-transform: none;
+						font-weight: normal;
+
+						&:hover {
+							color: $light-gray;
+						}
+					}
+				}
+			}
 		}
 		
 		/*----------  Data Repo  ----------*/
@@ -260,6 +333,12 @@
 					margin-left: 0;
 					vertical-align: inherit;
 					@include fontSize(12px);
+				}
+
+				&:hover {
+					color: $off-white;
+
+					.icon {color: $off-white;}
 				}
 			}
 		}

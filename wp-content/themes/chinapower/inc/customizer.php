@@ -24,10 +24,6 @@ function chinapower_customize_register( $wp_customize ) {
 	    'title'      => __( 'Home Page: Features', 'chinapower' ),
 	    'priority'   => 30,
 	) );
-	// $wp_customize->add_section( 'chinapower-hp-series' , array(
-	//     'title'      => __( 'Home Page: Series', 'chinapower' ),
-	//     'priority'   => 30,
-	// ) );
 
 	// Footer: Site Description
 	$wp_customize->add_setting( 'footer-site' , array(
@@ -134,12 +130,32 @@ function chinapower_customize_register( $wp_customize ) {
 		)
 	);
 
+	// Home: Data Repo Description
+	$wp_customize->add_setting( 'hp-data' , array(
+	    'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control(
+		'hp-data', 
+		array(
+			'label'    => __( 'Home: Data Repository Desc', 'chinapower' ),
+			'section'  => 'chinapower-theme-settings',
+			'settings' => 'hp-data',
+			'type'     => 'textarea'
+		)
+	);
+
 	/*----------  Home Page: Features  ----------*/
     $featuredPosts_list = array();
-	$args = array('post_type' => 'post', 'numberposts' => '-1');
+	$args = array('post_type' => 'post', 'numberposts' => '-1', 'suppress_filters' => 0);
 	$featuredPosts = get_posts( $args ); 
 	foreach($featuredPosts as $featuredPost) {
 	    $featuredPosts_list[$featuredPost->ID] = $featuredPost->post_title;
+	}
+
+	$featuredStats = get_meta_values("'_data_stat1','_data_stat2','_data_stat3'", 'data' );
+	$featuredStats_list = array();
+	foreach($featuredStats as $featuredStat) {
+		$featuredStats_list[$featuredStat->post_id."-".$featuredStat->meta_key] = $featuredStat->meta_value;
 	}
 
     // Feature 1
@@ -154,20 +170,29 @@ function chinapower_customize_register( $wp_customize ) {
     $wp_customize->add_setting( 'hp_feature_3', array('transport' => 'postMessage'));
 	$wp_customize->add_control( 'hp_feature_3', array('label'    => esc_html__( 'Feature #3', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 4, 'choices'  => $featuredPosts_list, ));
 
+	// Featured Statistic
+	$wp_customize->add_setting( 'hp_stat', array('transport' => 'postMessage'));
+	$wp_customize->add_control( 'hp_stat', array('label'    => esc_html__( 'Featured Stat', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 5, 'choices'  => $featuredStats_list, ));
 
-    /*----------  Home Page: Series  ----------*/
- //    $series_list = array();
- //    $terms = get_terms( array(
-	//     'taxonomy' => 'series',
-	//     'hide_empty' => true,
-	// ) );
-	// foreach($terms as $term) {
-	// 	$series_list[$term->term_id] = $term->name;
-	// }
+	// Featured Stat: Icon
+	$wp_customize->add_setting( 'hp_stat_icon' , array(
+	    'transport' => 'postMessage',
+	) );
+	$wp_customize->add_control(
+		'hp_stat_icon', 
+		array(
+			'label'    => __( 'Featured Stat: Icon', 'chinapower' ),
+			'section'  => 'chinapower-hp-features',
+			'settings' => 'hp_stat_icon',
+			'type'     => 'text'
+		)
+	);
 
-	// // Featured Series
-	// $wp_customize->add_setting( 'hp_series_1', array('transport' => 'postMessage'));
-	// $wp_customize->add_control( 'hp_series_1', array('label'    => esc_html__( 'Featured Series', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-series', 'priority' => 4, 'choices'  => $series_list, ));
+	// Featured Stat: Related Post
+    $wp_customize->add_setting( 'hp_stat_post', array('transport' => 'postMessage'));
+	$wp_customize->add_control( 'hp_stat_post', array('label'    => esc_html__( 'Featured Stat Related Post', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 6, 'choices'  => $featuredPosts_list, ));
+
+    
 
 }
 add_action( 'customize_register', 'chinapower_customize_register' );
@@ -206,13 +231,6 @@ function wpse_custom_submenu_page() {
 	        'manage_options',
 	        '/customize.php?autofocus[section]=chinapower-hp-features'
 	    );
-	// add_submenu_page(
-	//     'themes.php',
-	//         __( 'HP: Series', 'chinapower' ),
-	//         __( 'HP: Series', 'chinapower' ),
-	//         'manage_options',
-	//         '/customize.php?autofocus[section]=chinapower-hp-series'
-	//     );
 }
 
 /**
@@ -226,4 +244,29 @@ function remove_unnecessary_wordpress_menus(){
         if($theme_menu[0] == 'Header' || $theme_menu[0] == 'Background')
         unset($submenu['themes.php'][$menu_index]);
     }
+}
+
+/**
+ * Displays post meta with specific key for all posts
+ * @param  string $key    Post meta key
+ * @param  string $type   Post type
+ * @param  string $status Publish status
+ * @return array          Array of meta values
+ */
+function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
+
+    global $wpdb;
+
+    if( empty( $key ) )
+        return;
+
+    $r = $wpdb->get_results($wpdb->prepare( "
+        SELECT pm.meta_value, pm.post_id, pm.meta_key FROM {$wpdb->postmeta} pm
+        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+        WHERE pm.meta_key IN ({$key}) 
+        AND p.post_status = '%s' 
+        AND p.post_type = '%s'
+    ", $status, $type ) );
+
+    return $r;
 }

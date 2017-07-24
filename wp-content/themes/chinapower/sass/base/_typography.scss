@@ -46,7 +46,6 @@ h1, h2, h3, h4, h5, h6 {
 %h4 {
 	font-family: $font__SourceSans;
 	@include fontSize(18px);
-	font-style: italic;
 	font-weight: normal;
 	color: $dark-gray;
 	letter-spacing: 0.4px;

@@ -81,7 +81,7 @@ add_shortcode( 'dataFeatured', 'chinapower_shortcode_data_featured' );
  */
 function chinapower_shortcode_data_featured_number( $atts, $content = null ) {
 
-	return "<div class='data-featuredStatNumber'>".$content."</div>";
+	return "<span class='data-featuredStatNumber'>".$content."</span>";
 
 }
 add_shortcode( 'stat', 'chinapower_shortcode_data_featured_number' );

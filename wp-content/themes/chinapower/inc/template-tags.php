@@ -55,11 +55,15 @@ if ( ! function_exists( 'chinapower_post_categories_home' ) ) :
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function chinapower_post_categories_home($postID) {
-	/* translators: used between list items, there is a space after the comma */
-	$categories_list = get_the_category_list( esc_html__( ' / ', 'chinapower' ), $postID );
-	if ( $categories_list && chinapower_categorized_blog() ) {
-		/* translators: 1: list of categories. */
-		printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+	$categories = get_the_category($postID);
+	$separator = ', ';
+	$output = '';
+	if ( ! empty( $categories ) ) {
+	    foreach( $categories as $category ) {
+	        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'chinapower' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+	    }
+	    $output = trim( $output, $separator );
+	    printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $output ); // WPCS: XSS OK.
 	}
 }
 endif;

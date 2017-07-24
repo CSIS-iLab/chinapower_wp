@@ -20,6 +20,19 @@ if(get_theme_mod('hp_feature_1')) {
 	$feature1->excerpt = get_the_excerpt($feature1);
 }
 
+// Featured Stat
+if(get_theme_mod('hp_stat')) {
+	$stat = explode("-",get_theme_mod('hp_stat'));
+	$stat['ID'] = $stat[0];
+	$stat['post_meta'] = $stat[1];
+	$statText = get_post_meta($stat['ID'], $stat['post_meta'], true);
+	$stat = do_shortcode($statText);
+	$statSocial = str_replace(array("[stat]","[/stat]"), "", $statText);
+
+	$statPost = get_theme_mod('hp_stat_post');
+	$statPost_url = esc_url( get_permalink($statPost));
+}
+
 ?>
 
 	<div id="primary" class="content-area">
@@ -79,15 +92,28 @@ if(get_theme_mod('hp_feature_1')) {
 			</section>
 			<section class="section-2 content-wrapper row">
 				<div class="featured-stat col-xs-12 col-md-8">
-					Featured Stat
+					<i class="fa fa-<?php echo get_theme_mod('hp_stat_icon'); ?>"></i>
+					<div class="stat-content">
+						<div class="stat"><?php echo $stat; ?></div>
+						<div class="share-stat">
+							<?php _e('Share this stat', 'chinapower'); ?>
+							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
+							    ADDTOANY_SHARE_SAVE_KIT( array( 
+							        'buttons' => array( 'facebook', 'twitter', 'linkedin', 'wechat', 'sina_weibo' ),
+							        'linkname' => $statSocial
+							    ) );
+							} ?>
+						</div>
+						<hr />
+						<div class="stat-article">
+							Related Article: <a href="<?php echo $statPost_url; ?>"><?php echo get_the_title($statPost); ?></a>
+						</div>
+					</div>
 				</div>
 				<div class="data-repo col-xs-12 col-md-4">
-					<a href=""><h4 class="data-repo-title">Data Repository</h4></a>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat.</p>
-					<a href="">Explore our curated library of resources<i class="icon icon-arrow-right"></i></a>
+					<a href="<?php echo get_post_type_archive_link('data'); ?>"><h4 class="data-repo-title">Data Repository</h4></a>
+					<p><?php echo get_theme_mod('hp-data'); ?></p>
+					<a href="<?php echo get_post_type_archive_link('data'); ?>">Explore our curated library of resources<i class="icon icon-arrow-right"></i></a>
 				</div>
 			</section>
 			<section class="section-3">

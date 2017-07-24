@@ -127,6 +127,8 @@ function chinapower_scripts() {
 		    var d = document.getElementById('btn-copy');
 			d.className += ' tooltipped';
 		});");
+
+    wp_enqueue_script('chinapower-fontawesome', 'https://use.fontawesome.com/9c9f828330.js', array(), '20170724', true);
 }
 add_action( 'wp_enqueue_scripts', 'chinapower_scripts' );
 
