@@ -166,7 +166,7 @@ function chinapower_add_sharing_component($output, $tag, $attr ){
 
 	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
 		$output .= '<div class="sharing-inline">';
-		$output .= '<div class="sharing-openShareBtn">Share</div>';
+		$output .= '<button class="btn btn-gray sharing-openShareBtn">Share <i class="icon icon-share"></i></button>';
 		$output .= '<div class="sharing-shareBtns">';
 		ob_start();
 	    ADDTOANY_SHARE_SAVE_KIT();
