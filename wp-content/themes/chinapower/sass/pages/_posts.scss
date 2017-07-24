@@ -159,5 +159,8 @@ article.post.cardLayout {
 	.entry-header .entry-title a:hover + .entry-content .learnMore {
 		display: block;
 	}
-
 }
+
+/*----------  Overwrite VisualComposer Styles  ----------*/
+.vc_row {margin: 0 !important;}
+.vc_column_container>.vc_column-inner {padding: 0 !important;}

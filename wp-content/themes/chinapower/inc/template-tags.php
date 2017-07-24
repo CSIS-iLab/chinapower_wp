@@ -50,6 +50,20 @@ function chinapower_post_categories() {
 }
 endif;
 
+if ( ! function_exists( 'chinapower_post_categories_home' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function chinapower_post_categories_home($postID) {
+	/* translators: used between list items, there is a space after the comma */
+	$categories_list = get_the_category_list( esc_html__( ' / ', 'chinapower' ), $postID );
+	if ( $categories_list && chinapower_categorized_blog() ) {
+		/* translators: 1: list of categories. */
+		printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+	}
+}
+endif;
+
 if ( ! function_exists( 'chinapower_post_tags' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -61,6 +75,16 @@ function chinapower_post_tags() {
 		/* translators: 1: list of tags. */
 		printf( '<span class="tags-heading">Keywords</span>' . esc_html__( '%1$s', 'chinapower' ), $tags_list ); // WPCS: XSS OK.
 	}
+}
+endif;
+
+if ( ! function_exists( 'chinapower_subtitle' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function chinapower_subtitle($ID) {
+	$subtitle = get_post_meta($ID, "_podcast_subtitle", true);
+	printf(': '.$subtitle);
 }
 endif;
 

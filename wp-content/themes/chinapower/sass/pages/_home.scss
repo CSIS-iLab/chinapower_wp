@@ -2,196 +2,320 @@
 =            Home Page            =
 =================================*/
 
-.home-container {
+.home {
 
-	/*----------  The Latest  ----------*/
-	.home-latestContainer {
-		@include breakpoint("medium") {
-			padding-right: 1rem;
-		}
+	.content-wrapper { max-width: $size__hp-container-max-width; }
 
-		.latest-title {
-			color: $gray;
-			@include fontSize(20px);
-			margin: 0;
-			text-transform: uppercase;
-			font-weight: normal;
-			overflow: hidden;
+	.site-main {
+		overflow-x: hidden;
+	}
 
-			span {
-				display: inline-block;
+	/*----------  Feature 1  ----------*/
+	.feature-1 {
+		.featureImg {
+			@extend %post-featureImg;
+
+			&:before {
+				height: 75%;
+			}
+
+			.post-info {
 				position: relative;
-				
-				&:after {
-				  content: "";
-				  position: absolute;
-				  height: 5px;
-				  border-bottom: 1px solid $light-gray;
-				  border-top: 1px solid $light-gray;
-				  top: 50%;
-				  margin-top: floor(-5px / 2);
-				  width: 800px;
-				  left: 100%;
-			  	  margin-left: 15px;
+				flex: 1;
+				align-self: flex-end;
+				max-width: $size__hp-container-max-width;
+				margin: 0 auto;
+
+				.feature-title {
+					.entry-title {
+						@extend %page-title;
+						color: $white;
+						text-align: left;
+						margin-top: 0;
+						margin-bottom: 0;
+					}
+
+					.cat-links {
+						font-family: $font__Hind;
+						@include fontSize(14px);
+						line-height: 2.07;
+						font-weight: 500;
+						letter-spacing: 0.9px;
+						color: $light-blue;
+
+						a { color: $white; }
+					}
 				}
-			}
-		}
 
-		.latest-titleDecoration {
-			height: 5px;
-			border-top: 1px solid $light-gray;
-			border-bottom: 1px solid $light-gray;
-			display: inline-block;
-			width: 54%;
-			margin-left: 4.5%;
-			vertical-align: middle;
-		}
-
-		article.post {
-			border-bottom: 2px solid $gray;
-			margin-bottom: 0;
-			padding-bottom: 0.75rem;
-			margin-top: 0.75rem;
-
-			@include breakpoint("medium") {
-				padding-bottom: 1.5rem;
-				margin-top: 1.5rem;
-			}
-
-			&:last-of-type {
-				border-bottom: 0;
-			}
-
-			header.entry-header .entry-title {
-				@include fontSize(18.5px);
-				a {
-					color: $black;
-
-					&:hover {
-						color: $red;
+				.feature-excerpt {
+					p {
+						color: $white;
 					}
 				}
 			}
 		}
-	}
+	}	
 
-	/*----------  Secondary Features  ----------*/
-	// Post styles in _posts.scss
-	.home-secondaryFeaturesContainer {
-		@include breakpoint("medium") {
-			padding-left: 1rem;
-		}
-	}
+	/*----------  Section 1  ----------*/
+	.section-1 {
 
-	/*----------  Series  ----------*/
-	.home-seriesContainer {
-		background-color: $light-gray;
-		margin-top: 1rem;
-
-		.content-wrapper.row {
-			padding: 0;
+		/*----------  Secondary Features  ----------*/
+		.secondary-features {
+			padding: 2rem 0.5rem;
 
 			@include breakpoint("medium") {
-				padding: initial;
-			}
-		}
-
-		.home-seriesSpotlight {
-			padding:2rem 1rem;
-
-			@include breakpoint("medium") {
-				padding:2rem 1rem 2rem 0;
+				padding-right: 2rem;
 			}
 
-			.series-featuredTitle {
-				font-family: $font__ExpoSerif;
-				@include fontSize(24px);
-				font-weight: 600;
-				margin: 0.25rem 0 1rem;
+			article {
+				margin-bottom: 2rem;
 
-				a {
-					color: $black;
+				.post-info {
+					padding-left: 1rem;
 
-					&:hover {
-						color: $red;
+					.entry-title {
+						@extend %homepage-heading;
+						margin: 0 0 0.25rem 0;
+
+						a {
+							color: $black;
+
+							&:hover {
+								color: $red;
+							}
+						}
 					}
+				}
+			}
+		}
+		
+		/*----------  Podcast  ----------*/
+		.podcast {
+			position: relative;
+			background-color: $off-white;
+			padding: 2rem 0.5rem;
+
+			@include breakpoint("medium") {
+				padding-left: 2rem;
+			}
+
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 100vw;
+				height: 100%;
+				background-color: $off-white;
+			}
+
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				right: 100%;
+				width: 100vw;
+				height: 100%;
+				background-color: $off-white;
+
+				@include breakpoint("medium") {
+					content: none;
+				}
+			}
+
+			.podcast-heading {
+				font-family: $font__Roboto;
+				@include fontSize(30px);
+				line-height: 1.53;
+				color: $blue;
+				text-transform: uppercase;
+				margin: 0 0 1rem 0;
+
+				img {
+					width: 25px;
+				}
+			}
+
+			article {
+				margin-bottom: 1.5rem;
+
+				.entry-title {
+					font-family: $font__Hind;
+					@include fontSize(18px);
+					font-weight: 500;
+					line-height: 1.22;
+					letter-spacing: 0.3px;
+					margin: 0;
+
+					a {
+						color: $black;
+
+						&:hover { color: $red; }
+					}
+				}
+			}
+
+			.btn {
+				.icon {
+					margin-left: 0;
+					color: $blue-gray;
+					@include fontSize(10px);
+					margin-top: 2px;
 				}
 			}
 
 			p {
 				@include fontSize(14px);
+				line-height: 1.5;
+				color: $gray;
 			}
-		}
 
-		.home-seriesAdditional {
-			padding: 1rem 1rem 2rem;
-			align-self: center;
+		}
+	}
+
+	/*----------  Section 2  ----------*/
+	.section-2 {
+
+		/*----------  Featured Stat  ----------*/
+		.featured-stat {
+			position: relative;
+			background-color: $blue;
+			padding: 2rem 2rem 2rem 0.5rem;
+
+			&:before {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				right: calc(100% - 1px);
+				width: 100vw;
+				height: 100%;
+				background-color: $blue;
+			}
+
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				top: 0;
+				left: calc(100% - 1px);
+				width: 100vw;
+				height: 100%;
+				background-color: $blue;
+			}
 
 			@include breakpoint("medium") {
-				padding: 2rem 1rem;
+				&:after {content: none;}
+			}
+		}
+		
+		/*----------  Data Repo  ----------*/
+		.data-repo {
+			position: relative;
+			padding: 2rem 0.5rem 2rem 0rem;
+
+			@include breakpoint("medium") {
+				padding-left: 2rem;
 			}
 
-			.series-additionalTitle {
-				font-family: $font__ExpoSerif;
-				@include fontSize(18px);
-				font-weight: 600;
-				margin: 0.5rem 0 0;
+			&:after {
+				content: "";
+				display: block;
+				position: absolute;
+				z-index: -1;
+				top: 0;
+				left: -1rem;
+				width: 100vw;
+				height: 100%;
+				background-image:url('/wp-content/themes/chinapower/img/chinapower-data-repo.jpg');
+				background-repeat: no-repeat;
+				background-size: cover;
+				background-color: $dark-blue;
 
-				a {
-					color: $black;
-
-					&:hover {
-						color: $red;
-					}
+				@include breakpoint("medium") {
+					left: 0;
 				}
+			}
+
+			.data-repo-title {
+				background-color: $red;
+				color: $white;
+				@extend %homepage-heading;
+				text-transform: uppercase;
+				margin: 0 0 1rem -2rem;
+				padding: 1rem 0 1rem 2rem;
 			}
 
 			p {
-				color: $dark-gray;
-				@include fontSize(12px);
-				margin-bottom: 1rem;
+				color: $white;
 			}
 
-			.series-exploreMore {
-				background-color: $dark-blue;
-				color: $light-gray;
-				text-transform: uppercase;
-				@include fontSize(13px);
-				padding: 0.5rem 3rem;
-				display: inline-block;
+			a {
+				color: $white;
+				font-weight: bold;
 
-				&:hover {
-					color: $white;
+				.icon {
+					margin-left: 0;
+					vertical-align: inherit;
+					@include fontSize(12px);
 				}
 			}
-
 		}
-
-		.home-seriesFeaturedImage {
-			padding: 0;
-			background-repeat: no-repeat;
-			background-size: cover;
-			background-position: center center;
-			min-height: 150px;
-		}
-
-		.series-sectionTitle, .series-learnMore {
-			color: $dark-blue;
-			@include fontSize(15px);
-			text-transform: uppercase;
-			font-weight: normal;
-			font-style: normal;
-			margin: 0;
-		}
-
-		.series-learnMore:hover {
-			color: $red;
-		}
-
 	}
-}
 
-/*----------  Footer  ----------*/
-body.home .site-footer {
-	margin-top: 0;
+	/*----------  Section 3  ----------*/
+	.section-3 {
+		background-color: $off-white;
+		padding: 2rem 0;
+
+		.heading {
+			@extend %postFooter-heading;
+			color: $blue;
+			font-style: normal;
+			margin-bottom: 0;
+		}
+
+		.winner-of {
+			.col-xs-6 {margin-bottom: 1rem;}
+
+			p {
+				margin-bottom: 0.5rem;
+			}
+
+			.seeMore {
+				color: $color__text-seeMore;
+
+				.icon {
+					@include fontSize(11px);
+					vertical-align: middle;
+					margin-left: -5px;
+					color: $gray;
+				}
+
+				&:hover {
+					color: $blue;
+
+					.icon {color: $blue;}
+				}
+			}
+		}
+
+		.featured-in {
+			.heading {
+				margin-bottom: 28px;
+			}
+
+			img {
+				max-width: 250px;
+				margin-bottom: 1rem;
+			}
+		}
+		
+	}
+
+	footer.site-footer {
+		margin-top: 0;
+	}
 }

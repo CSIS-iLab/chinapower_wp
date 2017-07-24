@@ -37,6 +37,15 @@ input[type="submit"],
 		}
 	}
 
+	&.btn-white {
+		background-color: $white;
+		color: $dark-gray;
+
+		&:hover {
+			background-color: $color__background-button-gray;
+		}
+	}
+
 	&.btn-blue {
 		background-color: $color__background-button-blue;
 
