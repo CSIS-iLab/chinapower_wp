@@ -59,14 +59,14 @@ function chinapower_shortcode_data_featured( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'id' => '', // ID of Podcast post
-			'sharing' => true // Include share component
+			'sharing' => true, // Include share component
+			'stat' => 1, // # of Featured Stat to Share
 		),
 		$atts,
 		'dataFeatured'
 	);
 
-	$post_content = get_post($atts['id']);
-	$content = $post_content->post_content;
+	$content = get_post_meta( $atts['id'], '_data_stat'.$atts['stat'], true);
 
 	return chinapower_data_display_featured($atts['id'], $content);
 

@@ -41,7 +41,7 @@ function chinapower_cpt_data() {
 		'label'                 => __( 'Data', 'chinapower' ),
 		'description'           => __( 'Data', 'chinapower' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', ),
+		'supports'              => array( 'title'),
 		'taxonomies'            => array( 'category'),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -90,6 +90,27 @@ function data_build_meta_box( $post ){
 
 	?>
 	<div class='inside'>
+		<?php
+			for($i = 1; $i <= 3; $i++) {
+				$current_stat = get_post_meta( $post->ID, '_data_stat'.$i, true );
+		?>
+			<h3><?php _e( 'Featured Stat #'.$i, 'chinapower' ); ?></h3>
+			<?php wp_editor( 
+				$current_stat, 
+				"data_stat".$i, 
+				array(
+					'textarea_rows' => 3, 
+					'media_buttons' => false, 
+					'textarea_name' => 'data_stat'.$i,
+					'quicktags' => false, 
+					'tinymce' => array(
+						'menubar' => false,
+						'toolbar1' => 'stats',
+						'toolbar2' => false
+					) 
+				) 
+			); ?>
+		<?php } ?>
 		<h3><?php _e( 'View URL', 'chinapower' ); ?></h3>
 		<p>
 			<input type="text" class="large-text" name="viewURL" value="<?php echo $current_viewURL; ?>" /> 
@@ -141,6 +162,16 @@ function data_save_meta_box_data( $post_id ){
 	}
 	else {
 		update_post_meta( $post_id, '_data_viewIsPDF', '' );
+	}
+
+	// Featured Stats
+	for($i = 1; $i <= 3; $i++) {
+		if ( isset( $_REQUEST['data_stat'.$i] ) ) {
+			update_post_meta( $post_id, '_data_stat'.$i, sanitize_text_field( $_POST['data_stat'.$i] ) );
+		}
+		else {
+			update_post_meta( $post_id, '_data_stat'.$i, '' );
+		}
 	}
 }
 add_action( 'save_post_data', 'data_save_meta_box_data' );

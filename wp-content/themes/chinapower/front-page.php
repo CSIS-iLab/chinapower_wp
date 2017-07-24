@@ -28,7 +28,7 @@ if(get_theme_mod('hp_feature_1')) {
 				<div class="featureImg" style="background-image:url('<?php echo $featured_img_url; ?>');">
 					<div class="post-info row">
 						<div class="feature-title col-xs-12 col-md-6">
-							<h1 class="entry-title"><?php echo $feature1->post_title; ?></h1>
+							<a href="<?php echo esc_url(get_the_permalink($feature1) ); ?>"><h1 class="entry-title"><?php echo $feature1->post_title; ?></h1></a>
 							<?php chinapower_post_categories_home($feature1->ID); ?>
 						</div>
 						<div class="feature-excerpt col-xs-12 col-md-6">
