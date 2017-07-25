@@ -41,7 +41,7 @@ function chinapower_cpt_podcasts() {
 		'label'                 => __( 'Podcast', 'chinapower' ),
 		'description'           => __( 'Podcasts', 'chinapower' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'editor', 'thumbnail' ),
+		'supports'              => array( 'title', 'editor', 'thumbnail', 'excerpt' ),
 		'taxonomies'            => array( 'category', 'post_tag' ),
 		'hierarchical'          => false,
 		'public'                => true,
