@@ -35,6 +35,7 @@ header.site-header {
 			height: 100px;
 			width: 100%;
 			padding-top: 1rem;
+			// @include transition(background .1s linear);
 		}
 
 		.content-wrapper {
@@ -519,6 +520,7 @@ header.site-header {
 			height: 50px;
 			padding-top: 0;
 			padding-bottom: 0;
+			@include transition(height .2s linear);
 
 			.content-wrapper {
 				align-items: center;
@@ -548,8 +550,7 @@ header.site-header {
 }
 
 .admin-bar header.site-header,
-.admin-bar header.site-header .header-navOverlay,
-.admin-bar .post-nav {
+.admin-bar header.site-header .header-navOverlay {
 	top: 46px;
 
 	@include breakpoint("medium") {

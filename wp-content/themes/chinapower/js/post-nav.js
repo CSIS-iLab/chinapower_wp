@@ -5,25 +5,6 @@
 
 ( function( $ ) {
 	if($(".post-nav").length) {
-		// Stick Menu on scroll
-		var postNavPosType = $(".post-nav").css("position");
-
-		// Only do this on desktop
-		if(postNavPosType != "fixed") {
-			var postNavPos = $(".post-nav").offset().top;
-			var headerHeight = $(".site-header").height() + parseInt($('.site-header').css('top'), 10);
-			$(window).scroll(function(){
-				var currentScroll = $(this).scrollTop();
-				  
-				if(currentScroll >= postNavPos - headerHeight){
-			    	$(".post-nav").css({"position": "fixed", "top": headerHeight - 50});
-				}
-				else {
-					$(".post-nav").css({"position": "relative", "top": 0});
-				}
-				
-			});
-		}
 
 		// Switch between panels
 		$(".post-nav-menu a").click(function() {

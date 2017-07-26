@@ -15,11 +15,16 @@
 	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 
 	@include breakpoint("medium") {
-		position: relative;
-		top: initial;
+		top: 50px;
+    	position: -webkit-sticky;
+    	position: sticky;
 		background-color: $off-white;
 		height: initial;
 		box-shadow: none;
+
+		.admin-bar & {
+			top: 82px;
+		}
 	}
 
 	.content-wrapper {

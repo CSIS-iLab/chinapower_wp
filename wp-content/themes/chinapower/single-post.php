@@ -48,7 +48,8 @@ else {
 					the_title( '<h1 class="entry-title">', '</h1>' );
 					?>
 				</div>
-				<div class="post-nav">
+			</header><!-- .entry-header -->
+			<div class="post-nav">
 					<div class="content-wrapper row flex-center__y">
 						<div class="post-nav-content hidden-xs col-md-8">
 							<div class="post-nav-title js-isDefault active"><?php the_title(); ?></div>
@@ -70,7 +71,6 @@ else {
 						</div>
 					</div>
 				</div>
-			</header><!-- .entry-header -->
 
 			<div class="content-wrapper-narrow entry-content">
 				<?php
