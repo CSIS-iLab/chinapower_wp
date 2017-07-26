@@ -35,13 +35,19 @@ function chinapower_shortcode_podcast( $atts ) {
 		'podcast'
 	);
 
+	if($atts['sharing']) {
+		$title = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);
+		$URL = get_the_permalink($atts['id']);
+		$sharing = chinapower_social_share($title, $URL);
+	}
+
 	if($atts['soundcloud']) {
-		return chinapower_podcast_display_iframe($atts['soundcloud']);
+		return chinapower_podcast_display_iframe($atts['soundcloud']).$sharing;
 	}
 	else {
 		$soundcloudID = get_post_meta( $atts['id'], '_podcast_soundcloudID', true );
 
-		return chinapower_podcast_display_iframe($soundcloudID);
+		return chinapower_podcast_display_iframe($soundcloudID).$sharing;
 	}
 
 }
@@ -68,7 +74,12 @@ function chinapower_shortcode_data_featured( $atts ) {
 
 	$content = get_post_meta( $atts['id'], '_data_stat'.$atts['stat'], true);
 
-	return chinapower_data_display_featured($atts['id'], $content);
+	if($atts['sharing']) {
+		$title = str_replace(array("[stat]","[/stat]"), "", $content);
+		$sharing = chinapower_social_share($title, $URL);
+	}
+
+	return chinapower_data_display_featured($atts['id'], $content).$sharing;
 
 }
 add_shortcode( 'dataFeatured', 'chinapower_shortcode_data_featured' );
@@ -99,7 +110,8 @@ function chinapower_shortcode_interactive( $atts ) {
 			'id' => '', // ID of Interactive Post
 			'width' => '', // Width of Interactive
 			'height' => '', // Height of Interactive,
-			'sharing' => true // Include share component
+			'sharing' => true, // Include share component
+			'toc' => true // Include in Table of Contents
 		),
 		$atts,
 		'interactive'
@@ -117,7 +129,19 @@ function chinapower_shortcode_interactive( $atts ) {
 		$fallbackImg = get_the_post_thumbnail($atts['id'], 'full');
 	}
 
-	return chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg, $iframeResizeDisabled);
+	$title = get_the_title($atts['id']);
+	$sanitizedTitle = sanitize_title($title);
+	$URL = get_permalink()."#".$sanitizedTitle;
+
+	if($atts['toc']) {
+		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
+	}
+	
+	if($atts['sharing']) {
+		$sharing = chinapower_social_share($title, $URL);
+	}
+
+	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg, $iframeResizeDisabled).$sharing;
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
@@ -149,34 +173,29 @@ function chinapower_shortcode_view( $atts ) {
 }
 add_shortcode( 'view', 'chinapower_shortcode_view' );
 
-/*----------  Add sharing component to shortcodes  ----------*/
-add_filter( 'do_shortcode_tag','chinapower_add_sharing_component',10,3);
-function chinapower_add_sharing_component($output, $tag, $attr ){
+/**
+ * Adds inline social sharing component to podcasts, stats, and interactives embedded in posts via shortcode
+ * @param  string $title Title to be used by social media
+ * @param  string $URL   URL to be used by social media
+ * @return string        HTML of share button
+ */
+function chinapower_social_share($title = "", $URL = "") {
+	$shareArgs = array(
+		'linkname' => $title,
+		'linkurl' => $URL
+	);
 
-	// Only Use for Specific Shortcodes
-	$acceptedTags = array('interactive', 'podcast', 'dataFeatured');
-	if(!in_array($tag, $acceptedTags)){ 
-    	return $output;
-  	}
-
-  	// Only if sharing attribute is true
-	if(isset($attr['sharing']) && $attr['sharing'] != 'true') {
-		return $output;
-	}
-
-	if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
-		$output .= '<div class="sharing-inline">';
-		$output .= '<button class="btn btn-gray sharing-openShareBtn">Share <i class="icon icon-share"></i></button>';
-		$output .= '<div class="sharing-shareBtns">';
-		ob_start();
-	    ADDTOANY_SHARE_SAVE_KIT();
-	    $output .= ob_get_contents();
-	    ob_end_clean();
-	    $output .= '<i class="icon icon-close-x"></i>';
-	    $output .= '</div>';
-	    $output .= '</div>';
-	    return $output;
-	}
+	$output = '<div class="sharing-inline">';
+	$output .= '<button class="btn btn-gray sharing-openShareBtn">Share <i class="icon icon-share"></i></button>';
+	$output .= '<div class="sharing-shareBtns">';
+	ob_start();
+    ADDTOANY_SHARE_SAVE_KIT($shareArgs);
+    $output .= ob_get_contents();
+    ob_end_clean();
+    $output .= '<i class="icon icon-close-x"></i>';
+    $output .= '</div>';
+    $output .= '</div>';
+    return $output;
 }
 
 /**

@@ -51,12 +51,20 @@
 		var counter = 0;
 		$(".entry-content h2").each(function() {
 			var text = $(this).text();
+			var ID = $(this).attr('id');
+			var hash;
 
-			// Add ID to element
-			$(this).attr('id', counter);
+			if(ID) {
+				hash = ID;
+			}
+			else {
+				hash = counter;
+				//Add ID to element
+				$(this).attr('id', hash);
+			}
 
 			// Add to Table of Contents
-			var listItem = '<li><a href="#'+counter+'">'+text+'</a></li>';
+			var listItem = '<li><a href="#'+hash+'">'+text+'</a></li>';
 			$(".post-nav-toc").append(listItem);
 
 			// Increase Counter

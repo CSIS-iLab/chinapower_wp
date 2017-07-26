@@ -18,8 +18,12 @@
 
 	/*----------  Post Content  ----------*/
 	.entry-content {
-		padding: 0;
+		padding: 0 1rem;
 		margin-top: 2rem;
+
+		@include breakpoint("medium") {
+			padding: 0;
+		}
 
 		/*----------  Full Width Content  ----------*/
 		.fullWidthFeatureContent {
@@ -30,6 +34,11 @@
 			margin-left: -50vw;
 			margin-right: -50vw;
 			text-align: center;
+		}
+
+		/*----------  Interactives  ----------*/
+		.interactive-heading {
+			display: none;
 		}
 	}
 
