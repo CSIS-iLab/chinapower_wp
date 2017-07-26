@@ -548,7 +548,18 @@ header.site-header {
 }
 
 .admin-bar header.site-header,
-.admin-bar header.site-header .header-navOverlay {
-	top: 32px;
+.admin-bar header.site-header .header-navOverlay,
+.admin-bar .post-nav {
+	top: 46px;
+
+	@include breakpoint("medium") {
+		top: 32px;
+	}
 }
-.admin-bar header.site-header .header-main .main-navigationContainer nav.main-navigation ul#primary-menu li .sub-menu-container {top: 132px;}
+.admin-bar header.site-header .header-main .main-navigationContainer nav.main-navigation ul#primary-menu li .sub-menu-container {
+	top: 146px;
+
+	@include breakpoint("medium") {
+		top: 132px;
+	}
+}

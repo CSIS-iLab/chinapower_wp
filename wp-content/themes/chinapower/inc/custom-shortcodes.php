@@ -172,6 +172,7 @@ function chinapower_add_sharing_component($output, $tag, $attr ){
 	    ADDTOANY_SHARE_SAVE_KIT();
 	    $output .= ob_get_contents();
 	    ob_end_clean();
+	    $output .= '<i class="icon icon-close-x"></i>';
 	    $output .= '</div>';
 	    $output .= '</div>';
 	    return $output;

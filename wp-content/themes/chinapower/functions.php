@@ -129,6 +129,8 @@ function chinapower_scripts() {
 		});");
 
     wp_enqueue_script('chinapower-fontawesome', 'https://use.fontawesome.com/9c9f828330.js', array(), '20170724', true);
+
+    wp_enqueue_script( 'chinapower-social-share', get_template_directory_uri() . '/js/social-share.js', array(), '20170726', true );
 }
 add_action( 'wp_enqueue_scripts', 'chinapower_scripts' );
 

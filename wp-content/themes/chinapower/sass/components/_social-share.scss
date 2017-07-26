@@ -98,6 +98,10 @@
 			margin-bottom: 2px !important;
 			vertical-align: middle;
 		}
+
+		&.isHidden {
+			display: none;
+		}
 	}
 
 	.sharing-shareBtns {
@@ -105,6 +109,22 @@
 		text-align: left;
 		padding: 0.2rem 0.5rem;
 		border-radius: 2px;
+		width: 0;
+		visibility: hidden;
+		opacity: 0;
+		position: absolute;
+
+		&.isVisible {
+			width: 100%;
+			visibility: visible;
+			opacity: 1;
+			position: static;
+			@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+		}
+
+		.addtoany_list {
+			display: inline-block;
+		}
 
 		.addtoany_list.a2a_kit_size_32 a>span {
 			@include fontSize(16px);
@@ -116,6 +136,13 @@
 
 		.a2a_svg:hover:before {
 			color: $red;
+		}
+
+		.icon-close-x {
+			float: right;
+			margin-top: 3px;
+			margin-left: 0;
+			margin-right: 5px;
 		}
 	}
 }
