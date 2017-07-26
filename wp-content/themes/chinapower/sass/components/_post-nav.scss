@@ -29,6 +29,10 @@
 	.post-nav-menu {
 		text-align: right;
 
+		&.alignTop {
+			align-self: flex-start;
+		}
+
 		ul {
 			margin: 0;
 			padding: 0;

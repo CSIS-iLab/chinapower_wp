@@ -104,3 +104,6 @@
 		}
 	}( container ) );
 } )();
+
+// Smooth Scroll Anchor Links
+jQuery(document).ready(function(t){t("a").on("click",function(o){if(""!==this.hash){o.preventDefault();var e=this.hash;t("html, body").animate({scrollTop:t(e).offset().top-t(".site-header").height()},800,function(){window.location.hash=e})}})});

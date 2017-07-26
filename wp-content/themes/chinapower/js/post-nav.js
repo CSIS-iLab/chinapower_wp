@@ -41,6 +41,14 @@
 				$(".post-nav-content .js-isDefault").addClass("active");
 			}
 
+			// Add class if viewing jump to
+			if(ID == "#jump" && !$(".post-nav-menu").hasClass("alignTop")) {
+				$(".post-nav-menu").addClass("alignTop");
+			}
+			else {
+				$(".post-nav-menu").removeClass("alignTop");
+			}
+
 			// Display Content on Mobile
 			if($(".post-nav-content").hasClass("hidden-xs")) {
 
@@ -58,7 +66,7 @@
 				hash = ID;
 			}
 			else {
-				hash = counter;
+				hash = "toc-"+counter;
 				//Add ID to element
 				$(this).attr('id', hash);
 			}
