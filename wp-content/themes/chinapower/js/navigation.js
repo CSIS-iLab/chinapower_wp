@@ -110,9 +110,6 @@ jQuery(document).ready(function($){
  var headerHeight = parseInt($(".site-header").css("top")) + 75;
 	var postNav = $(".post-nav").height();
 
-	      console.log(headerHeight);
-	      console.log(postNav);
-
   // Add smooth scrolling to all links
   $("a").on('click', function(event) {
 
@@ -128,9 +125,6 @@ jQuery(document).ready(function($){
 	      var headerHeight = parseInt($(".site-header").css("top")) + 100;
 	      var postNav = $(".post-nav").height();
 	      var scrollTo = $(hash).offset().top - headerHeight - postNav;
-
-	      console.log("headerHeight: "+headerHeight);
-	      console.log("postNav: "+postNav);
 	  }
 	  else {
 	  	var scrollTo = $(hash).offset().top;

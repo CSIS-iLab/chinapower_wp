@@ -3,7 +3,12 @@ table {
 	width: 100%;
 
 	thead {
-		border-bottom: 2px solid $light-gray;
+		background-color: $blue;
+		color: $white;
+		font-family: $font__Roboto;
+		@include fontSize(17px);
+		text-align: left;
+		font-weight: normal;
 	}
 
 	th, td {

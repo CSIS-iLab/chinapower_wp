@@ -1,0 +1,86 @@
+/*=======================================
+=            Data Repository            =
+=======================================*/
+
+/*----------  Archive/Data Repo Listing  ----------*/
+
+.post-type-archive-data {
+
+	.page-header {
+		.page-title {
+			text-transform: uppercase;
+		}
+
+		p {
+			-moz-column-count: 2;
+			-webkit-column-count: 2;
+			column-count: 2;
+		}
+	}
+
+	.data-container {
+		background-color: $white;
+		padding: 2rem 0;
+
+		.filterControls {
+			margin-bottom: 3rem;
+
+			.sortTitle {
+				font-weight: 600;
+				line-height: 1.81;
+				text-transform: uppercase;
+			}
+
+			.btn {
+				margin: 0;
+
+				&.active {
+					background-color: $red;
+					color: $white;
+				}
+			}
+
+			.filter-view {
+				text-align: center;
+
+				.icon {
+					color: $light-red;
+					@include fontSize(25px);
+
+					&:before {
+						margin-left: 0.1rem;
+						margin-right: 0.1rem;
+						vertical-align: middle;
+					}
+
+					&.active {color: $red;}
+				}
+			}
+
+			.filter-search {
+				display: flex;
+
+				label {
+					align-self: flex-end;
+				}
+
+				.icon {
+					color: $red;
+				}
+
+				input {
+					flex: 2;
+					border: 0;
+					border-bottom: 1px solid $gray;
+					border-radius: 0;
+					padding: 0;
+					margin-left: 0.3rem;
+				}
+			}
+		}
+
+		.dataTables_wrapper {
+			.dataTables_filter {display: none;}
+		}
+	}
+}

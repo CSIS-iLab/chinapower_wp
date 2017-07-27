@@ -245,6 +245,18 @@
       "search": [
         "weibo"
       ]
+    },
+    {
+      "uid": "b1887b423d2fd15c345e090320c91ca0",
+      "css": "th",
+      "code": 59409,
+      "src": "fontawesome"
+    },
+    {
+      "uid": "25a81737628d1e654a30ad412d7d6dd7",
+      "css": "align-justify",
+      "code": 59410,
+      "src": "fontawesome"
     }
   ]
 }
