@@ -28,7 +28,6 @@ $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 		<header class="entry-header">
 			<span class="isFeatured">Featured</span>
 			<?php
-			chinapower_post_categories();
 			if ( is_singular() ) :
 				the_title( '<h1 class="entry-title">', '</h1>' );
 			else :
@@ -44,7 +43,6 @@ $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 	<?php } else { ?>
 	<header class="entry-header col-xs-12 col-md-4">
 		<?php
-		chinapower_post_categories();
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
