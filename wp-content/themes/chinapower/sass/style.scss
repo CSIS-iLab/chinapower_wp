@@ -48,6 +48,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   ## Post Nav
   ## Related Content
   ## Tooltips
+  ## Footnotes
 # Layout
 	## Header
 	## Footer
@@ -60,7 +61,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   ## Archives
   ## Search
   ## 404
-  ## About
+  ## Pages
   ## Podcasts
   ## Data
 # Vendors
@@ -98,7 +99,8 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   'components/related-content',
   'components/tooltips',
   'components/post-meta',
-  'components/post-feature-img';
+  'components/post-feature-img',
+  'components/footnotes';
 
 /*----------  Layout  ----------*/
 @import
@@ -114,7 +116,7 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   'pages/archives',
   'pages/search',
   'pages/404',
-  'pages/about',
+  'pages/pages',
   'pages/podcasts',
   'pages/data';
 

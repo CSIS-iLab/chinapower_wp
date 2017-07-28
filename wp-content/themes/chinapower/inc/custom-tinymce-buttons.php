@@ -40,7 +40,7 @@ if ( ! function_exists( 'chinapower_add_buttons' ) ) {
  
 if ( ! function_exists( 'chinapower_register_buttons' ) ) {
     function chinapower_register_buttons( $buttons ) {
-        array_push( $buttons, 'podcasts', 'stats', 'view', 'cpp' );
+        array_push( $buttons, 'podcasts', 'stats', 'view', 'cpp', 'note' );
         return $buttons;
     }
 }
