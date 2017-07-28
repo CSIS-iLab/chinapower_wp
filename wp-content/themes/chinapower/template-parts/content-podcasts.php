@@ -17,6 +17,10 @@ else {
 
 $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 
+// Subtitle
+$subtitle = get_post_meta(get_the_ID(), '_podcast_subtitle', true);
+$fullTitle = get_the_title().': '.$subtitle;
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
@@ -28,11 +32,7 @@ $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 		<header class="entry-header">
 			<span class="isFeatured">Featured</span>
 			<?php
-			if ( is_singular() ) :
-				the_title( '<h1 class="entry-title">', '</h1>' );
-			else :
-				the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-			endif;
+			echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
 			chinapower_posted_on();
 			?>
 		</header><!-- .entry-header -->
@@ -43,11 +43,7 @@ $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 	<?php } else { ?>
 	<header class="entry-header col-xs-12 col-md-4">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
+		echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
 		chinapower_posted_on();
 		?>
 	</header><!-- .entry-header -->

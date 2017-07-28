@@ -33,6 +33,10 @@ else {
 $podcastDesc = get_option("chinapower_podcast_desc_long");
 $itunesURL = get_option("chinapower_itunesURL");
 
+// Subtitle
+$subtitle = get_post_meta($postID, '_podcast_subtitle', true);
+$fullTitle = get_the_title().': '.$subtitle;
+
 ?>
 
 <div id="primary" class="content-area">
@@ -40,29 +44,19 @@ $itunesURL = get_option("chinapower_itunesURL");
 		<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 			<header class="entry-header">
 				<div class="featureImg" style="background-image:url('<?php echo $featured_img_url; ?>');">
-					<?php
-					// Post Title
-					the_title( '<h1 class="entry-title">', '</h1>' );
-					?>
+					<h1 class="entry-title"><?php echo $fullTitle; ?></h1>
 				</div>
 				<div class="post-nav">
 					<div class="content-wrapper row flex-center__y">
 						<div class="post-nav-content hidden-xs col-md-8">
-							<div class="post-nav-title js-isDefault active"><?php the_title(); ?></div>
+							<div class="post-nav-title js-isDefault active"><?php echo $fullTitle; ?></div>
 							<div class="post-share-buttons">
 								<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
-							</div>
-							<div class="post-nav-jumpto">
-								<?php the_title('<span class="post-title">','</span>'); ?>
-								<span class="post-nav-toTop"><a href="#page">Top&#8593;</a></span>
-								<ul class="post-nav-toc"></ul>
 							</div>
 						</div>
 						<div class="post-nav-menu col-xs-12 col-md-4">
 							<ul>
 								<li><a id="share" data-panel="post-share-buttons">Share</a></li>
-								<li><a id="jump" data-panel="post-nav-jumpto">Jump To</a></li>
-								<?php echo chinapower_icl_post_languages(); ?>
 							</ul>
 						</div>
 					</div>
