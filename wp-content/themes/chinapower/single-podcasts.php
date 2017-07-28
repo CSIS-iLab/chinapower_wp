@@ -86,7 +86,7 @@ $fullTitle = get_the_title().': '.$subtitle;
 					<div class="podcastDesc-container col-xs-12 col-md-<?php echo $podcastDescWidth; ?>">
 						<h5 class="podcastDesc-heading">ChinaPower Podcast</h5>
 						<p><?php echo $podcastDesc; ?></p>
-						<a href="<?php echo $podcastURL; ?>" target="_blank" rel="noopener"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
+						<a href="<?php echo $itunesURL; ?>" target="_blank" rel="noopener"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
 					</div>
 					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
 						<?php echo $relatedContentHeader; ?>
