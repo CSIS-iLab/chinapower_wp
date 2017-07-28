@@ -28,12 +28,12 @@ get_header(); ?>
 					<div class="filterControls row middle-md">
 						<div class="filter-sort col-xs-12 col-md-4">
 							<span class="sortTitle">Sort By</span>
-							<button class="btn btn-gray btn-red-hover tableSort" data-sortCol="0" aria-label="Sort by Title">Title</button>
+							<button class="btn btn-gray btn-red-hover tableSort active" data-sortCol="0" aria-label="Sort by Title">Title</button>
 							<button class="btn btn-gray btn-red-hover tableSort" data-sortCol="1" aria-label="Sort by Topic">Topic</button>
 							<button class="btn btn-gray btn-red-hover tableSort" data-sortCol="2" aria-label="Sort by Source">Source</button>
 						</div>
 						<div class="filter-view col-xs-12 col-md-3">
-							<span class="sortTitle">View</span> <i class="icon icon-align-justify"></i> <i class="icon icon-th active"></i>
+							<span class="sortTitle">View</span> <i class="icon icon-align-justify cards active" title="View Card Format" aria-label="View Card Format"></i> <i class="icon icon-th table" title="View Table Format" aria-label="View Table Format"></i>
 						</div>
 						<div class="filter-search col-xs-12 col-md-5">
 							<label for="dataSearch" class="sortTitle">Filter <i class="icon icon-search"></i></label>
@@ -41,13 +41,14 @@ get_header(); ?>
 						</div>
 					</div>
 
-					<table id="dataRepo">
+					<table id="dataRepo" class="cards">
 						<thead>
 							<tr>
 								<th>Title</th>
 								<th>Topic</th>
 								<th>Source</th>
 								<th>View</th>
+								<th class="cardCol">Card</th>
 							</tr>
 						</thead>
 						<tbody>

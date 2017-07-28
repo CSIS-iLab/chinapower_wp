@@ -74,12 +74,16 @@ function chinapower_shortcode_data_featured( $atts ) {
 
 	$content = get_post_meta( $atts['id'], '_data_stat'.$atts['stat'], true);
 
+	if(!$content) {
+		return false;
+	}
+
 	if($atts['sharing']) {
 		$title = str_replace(array("[stat]","[/stat]"), "", $content);
 		$sharing = chinapower_social_share($title, $URL);
 	}
 
-	return chinapower_data_display_featured($atts['id'], $content).$sharing;
+	return chinapower_data_display_featured($atts['id'], $content, $sharing);
 
 }
 add_shortcode( 'dataFeatured', 'chinapower_shortcode_data_featured' );

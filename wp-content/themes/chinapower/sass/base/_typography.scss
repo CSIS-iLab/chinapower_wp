@@ -100,6 +100,15 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.36;
 }
 
+%dataSource-viewLink {
+	font-family: $font__Roboto;
+	@include fontSize(11px);
+	line-height: 2.64;
+	letter-spacing: 0.7px;
+	text-transform: uppercase;
+	color: $blue;
+}
+
 body.single, body.page {
 
 	h1 { @extend %h1 }

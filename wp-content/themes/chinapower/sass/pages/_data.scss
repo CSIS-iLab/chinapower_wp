@@ -53,7 +53,17 @@
 						vertical-align: middle;
 					}
 
-					&.active {color: $red;}
+					&.active {
+						color: $red;
+						pointer-events: none;
+
+						&:hover {cursor: default;}
+					}
+
+					&:hover {
+						cursor: pointer;
+						color: $red;
+					}
 				}
 			}
 
@@ -79,8 +89,101 @@
 			}
 		}
 
+		// Card Layout
+		#dataRepo.cards {
+			max-width: $size__content-max-width;
+
+			.cardCol{
+				width: 100%;
+				padding-left: 0;
+				padding-right: 0;
+				padding-bottom: 2rem;
+				border: 0;
+
+				.entry-title {
+					@extend %post-title;
+				}
+
+				.data-links {text-align: right;}
+
+				hr {
+					background-color: $blue;
+					margin: 0.5rem auto;
+				}
+
+				.dataSource-viewLink {display: none;}
+			}
+		}
+
+		// Card View
+		#dataRepo.cards td:not(.cardCol),
+		#dataRepo.cards th {
+			display: none;
+		}
+
+		// Table View
+		#dataRepo.striped td,
+		#dataRepo.striped th {
+			display: table-cell;
+
+			&.cardCol {display: none;}
+		}
+
 		.dataTables_wrapper {
 			.dataTables_filter {display: none;}
+
+			.dataTables_paginate {
+				@extend .pagination;
+				margin-top: 2rem;
+
+				span {
+					padding: 0;
+					background-color: transparent;
+				}
+			}
 		}
+
+		.cat-links {
+			display: inline;
+			margin-bottom: 0;
+			text-transform: none;
+			@include fontSize(16px);
+		}
+
+		.btn-view {
+			@include fontSize(11px);
+			line-height: 2.64;
+			letter-spacing: 0.7px;
+			background-color: $color__background-btn-view;
+			color: $black;
+			margin-top: 0;
+			margin-bottom: 0;
+
+			&:hover {
+				background-color: $color__background-btn-view-hover;
+			}
+
+			&:first-of-type {
+				margin-right: 5px;
+			}
+		}
+	}
+}
+
+/*----------  Featured Stat Component  ----------*/
+.data-featuredStatBlock {
+	background-color: $off-white;
+	padding: 0.5rem;
+	margin: 1rem auto;
+
+	p {margin-bottom: 0;}
+
+	.dataSource-viewLink {
+		@extend %dataSource-viewLink;
+	}
+
+	.sharing-inline {
+		margin: 0;
+		text-align: right;
 	}
 }

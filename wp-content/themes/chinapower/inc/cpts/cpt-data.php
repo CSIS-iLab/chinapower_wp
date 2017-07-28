@@ -223,9 +223,9 @@ add_action( 'init', 'chinapower_datasources', 0 );
  * @param  String $content 		Featured statistic
  * @return String               HTML of featured statistic
  */
-function chinapower_data_display_featured($ID, $content) {
+function chinapower_data_display_featured($ID, $content, $sharing) {
 
-	return '<div class="data-featuredStatBlock">'. do_shortcode($content).' Link to: '.$ID.'</div>';
+	return '<div class="data-featuredStatBlock"><p>'. do_shortcode($content).' <a href="/data/#post-'.$ID.'" class="dataSource-viewLink">View</a></p>'.$sharing.'</div>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

@@ -23,4 +23,16 @@
 	    ).draw();
     } );
 
+    // View
+    $(".filter-view .cards").click(function() {
+		$("#dataRepo").addClass("cards").removeClass("striped");
+		$(".filter-view .icon.active").removeClass("active");
+		$(this).addClass("active");
+    });
+    $(".filter-view .table").click(function() {
+		$("#dataRepo").removeClass("cards").addClass("striped");
+		$(".filter-view .icon.active").removeClass("active");
+		$(this).addClass("active");
+    });
+
 } )( jQuery );

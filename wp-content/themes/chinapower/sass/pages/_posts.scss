@@ -59,12 +59,7 @@
 			}
 
 			.dataSources-viewLink a {
-				font-family: $font__Roboto;
-				@include fontSize(11px);
-				line-height: 2.64;
-				letter-spacing: 0.7px;
-				text-transform: uppercase;
-				color: $blue;
+				@extend %dataSource-viewLink;
 
 				.icon {
 					color: $blue-gray;
