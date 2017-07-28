@@ -157,17 +157,18 @@ article.post.cardLayout {
 			padding: 2rem;
 		}
 
-		/*----------  ChinaPower Image  ----------*/
-		.img-cpp {
-			max-width:15px;
-			height: auto;
-			display: inline-block;
-		}
 	}
 
 	.entry-header .entry-title a:hover + .entry-content .learnMore {
 		display: block;
 	}
+}
+
+/*----------  ChinaPower Image  ----------*/
+.img-cpp {
+	max-width:15px;
+	height: auto;
+	display: inline-block;
 }
 
 /*----------  Overwrite VisualComposer Styles  ----------*/
