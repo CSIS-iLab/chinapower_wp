@@ -15,18 +15,16 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
+		<main id="main" class="site-main content-wrapper" role="main">
 
 		<?php
 		if ( have_posts() ) :
-
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+		?>
+			<header class="page-header">
+				<h1 class="page-title"><?php single_post_title(); ?></h1>
+			</header>
 
 			<?php
-			endif;
 
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
@@ -40,7 +38,7 @@ get_header(); ?>
 
 			endwhile;
 
-			the_posts_navigation();
+			the_posts_pagination();
 
 		else :
 
@@ -52,5 +50,4 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
 get_footer();

@@ -49,6 +49,10 @@ header.site-header {
 			padding: 0;
 			text-align: left;
 
+			@include breakpoint("medium") {
+				padding: 0 0.5rem;
+			}
+
 			&.isHidden {
 				display: none;
 			}
@@ -267,6 +271,7 @@ header.site-header {
 								top: 100px;
 								border-left: 0;
 								margin: 0;
+								@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 							}
 
 							ul.sub-menu {
@@ -321,6 +326,18 @@ header.site-header {
 								}
 							}
 						}
+
+						/*----------  Search  ----------*/
+						&.searchIcon {
+							.icon-search {
+								margin-left: 0;
+								line-height: 14px;
+								width: 14px;
+								height: 14px;
+								vertical-align: text-top;
+								padding-top: 2px;
+							}
+						}
 					}
 				}
 
@@ -370,6 +387,14 @@ header.site-header {
 		left: 0;
 		right: 0;
 
+		@include breakpoint("medium") {
+			top: initial;
+			background-color: $off-white;
+			@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
+			padding-top: 0.25rem;
+			padding-bottom: 0.25rem;
+		}
+
 		&.isVisible {
 			display: block;
 		}
@@ -381,6 +406,10 @@ header.site-header {
 		.search-form {
 			border-bottom: 1px solid $light-blue;
 			width: 100%;
+
+			@include breakpoint("medium") {
+				border-bottom-color: $blue-gray;
+			}
 		}
 
 		.search-field {
@@ -397,24 +426,19 @@ header.site-header {
 			&:focus {
 				box-shadow: none;
 				color: $white;
+
+				@include breakpoint("medium") {
+					color: $gray;
+				}
 			}
 
-			&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
-			    color:    $light-blue;
-			}
-			&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
-			   color:    $light-blue;
-			   opacity:  1;
-			}
-			&::-moz-placeholder { /* Mozilla Firefox 19+ */
-			   color:    $light-blue;
-			   opacity:  1;
-			}
-			&:-ms-input-placeholder { /* Internet Explorer 10-11 */
-			   color:    $light-blue;
-			}
-			&::-ms-input-placeholder { /* Microsoft Edge */
-			   color:    $light-blue;
+			@include placeholder($light-blue);
+
+			@include breakpoint("medium") {
+				color: $blue-gray;
+				padding: 0;
+
+				@include placeholder($blue-gray);
 			}
 		}
 
@@ -432,19 +456,15 @@ header.site-header {
 			text-align: right;
 		}
 
-		.search-closeContainer {
+		.search-close {
 			text-align: right;
-			padding: 0;
 
-			.close-icon {
-				display: inline-block;
-				width: 15px;
-				height: 15px;
-				top: 3px;
-
-				&::before, &::after {
-					background-color: $light-gray;
-				}
+			.icon {
+				color: $blue-gray;
+				margin-left: 0;
+				margin-right: 10px;
+				vertical-align: middle;
+				cursor: pointer;
 			}
 		}
 	}

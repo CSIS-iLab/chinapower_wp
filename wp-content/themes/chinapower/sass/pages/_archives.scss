@@ -2,7 +2,7 @@
 =            Archives            =
 ================================*/
 
-.archive {
+.archive, .blog {
 	background-color: $off-white;
 
 	header.page-header {
@@ -12,6 +12,7 @@
 		.page-title {
 			@extend %page-title;
 			margin: 0 0 1rem 0;
+			text-transform: uppercase;
 		}
 
 		.archive-description {
@@ -22,6 +23,8 @@
 	  		}
 		}
 	}
+
+	&.post-type-archive-podcasts header.page-header .page-title {text-transform: none;}
 
 	/*----------  Posts, Podcasts  ----------*/
 	article.post, article.podcasts {

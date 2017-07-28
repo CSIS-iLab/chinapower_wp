@@ -22,14 +22,19 @@
 		$(".header-navOverlay, .main-navigation, .header-searchFormContainer, .navOverlay-heading-search").removeClass("isVisible");
 	});
 
-	// Open Search
+	// Desktop: Search
+	$(".site-header .searchIcon, .site-header .search-close .icon").click(function() {
+		$(".header-searchFormContainer").toggleClass("isVisible");
+	});
+
+	// Mobile: Open Search
 	$(".header-navOverlay .icon-search").click(function() {
 		$(".navOverlay-heading-menu").addClass("isHidden");
 		$(".navOverlay-heading-search, .header-searchFormContainer").addClass("isVisible");
 		$(".main-navigation").removeClass("isVisible");
 	});
 
-	// Back from Search
+	// Mobile: Back from Search
 	$(".header-navOverlay .search-back").click(function() {
 		$(".navOverlay-heading-menu").removeClass("isHidden");
 		$(".navOverlay-heading-search, .header-searchFormContainer").removeClass("isVisible");

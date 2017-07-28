@@ -67,3 +67,38 @@ $breakpoint-xsmall: 25em;
   -o-transition: $args;
   transition: $args;
 }
+
+// Placeholder
+@mixin placeholder($color) {
+	&::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	    color:    $color;
+	}
+	&:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+	   color:    $color;
+	   opacity:  1;
+	}
+	&::-moz-placeholder { /* Mozilla Firefox 19+ */
+	   color:    $color;
+	   opacity:  1;
+	}
+	&:-ms-input-placeholder { /* Internet Explorer 10-11 */
+	   color:    $color;
+	}
+	&::-ms-input-placeholder { /* Microsoft Edge */
+	   color:    $color;
+	}
+}
+
+// Box Shadow
+/* @include box-shadow(1px,1px,1px,0, #fff, true); */
+@mixin box-shadow($top, $left, $blur, $size, $color, $inset: false) {
+    @if $inset {
+        -webkit-box-shadow:inset $top $left $blur $size $color;
+        -moz-box-shadow:inset $top $left $blur $size $color;
+        box-shadow:inset $top $left $blur $size $color;
+    } @else {
+        -webkit-box-shadow: $top $left $blur $size $color;
+        -moz-box-shadow: $top $left $blur $size $color;
+        box-shadow: $top $left $blur $size $color;
+    }
+}
