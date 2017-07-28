@@ -16,6 +16,16 @@ endif;
 $dataSources = get_post_meta($postID, '_post_dataSources', true);
 $furtherReading = get_post_meta($postID, '_post_furtherReading', true);
 
+if($dataSources) {
+	$dataSourcesContentWidth = "col-md-8";
+	$dataSourcesHeader = '<h5 class="dataSources-heading">Data Sources</h5>';
+	$dataSources = apply_filters('meta_content', $dataSources);
+}
+else {
+	$dataSourcesContentWidth = "hidden-xs";
+	$noMargin = "noMargin";
+}
+
 global $related;
 $rel = $related->show( get_the_ID(), true );
 
@@ -26,11 +36,12 @@ if($furtherReading) {
 }
 else {
 	$relatedContentWidth = "12";
+	$noMargin = "noMargin";
 }
 
 if(is_array($rel) && count($rel) > 0) {
 	$furtherReadingWidth = "8";
-	$relatedContentHeader = '<h6 class="relatedContent-heading">Related Content</h6>';
+	$relatedContentHeader = '<h6 class="relatedContent-heading '.$noMargin.'">Related Content</h6>';
 }
 else {
 	$furtherReadingWidth = "12";
@@ -95,12 +106,11 @@ else {
 				<!-- Data Sources & Citation -->
 				<div class="post-dataSources-container">
 					<div class="content-wrapper row">
-						<div class="dataSources-content col-xs-12 col-md-8">
-							<h5 class="dataSources-heading">Data Sources</h5>
-							<?php echo apply_filters('meta_content', $dataSources); ?>
+						<div class="dataSources-content col-xs-12 <?php echo $dataSourcesContentWidth; ?>">
+							<?php echo $dataSourcesHeader.$dataSources; ?>
 						</div>
 						<div class="col-xs-12 col-md-4">
-							<h6 class="cite-heading">Cite This Page</h6>
+							<h6 class="cite-heading <?php echo $noMargin; ?>">Cite This Page</h6>
 							<?php echo chinapower_citation(); ?>
 							<button class="btn btn-red tooltipped-n" id="btn-copy" data-clipboard-target=".cite-citation" aria-label="Copied!">Copy<i class="icon icon-copylink-share"></i></button>
 						</div>
