@@ -32,9 +32,15 @@
 
 			// Display Content on Mobile
 			if($(".post-nav-content").hasClass("hidden-xs")) {
-
 			}
 		});
+
+		// Close Menu on Back to Top
+		$(".post-nav-toTop a").click(function() {
+			$(".post-nav-menu a, .post-nav-content .active").removeClass("active");
+			$(".post-nav-menu").removeClass("alignTop");
+			$(".post-nav-content .js-isDefault").addClass("active");
+		})
 
 		// Create Table of Contents
 		var counter = 0;

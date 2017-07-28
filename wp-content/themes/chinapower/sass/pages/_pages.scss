@@ -2,7 +2,7 @@
 =            Pages            =
 =============================*/
 
-.page {
+.page:not(.home) {
 	.content-area {
 		padding: 2rem 0;
 	}

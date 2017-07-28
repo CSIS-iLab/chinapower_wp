@@ -16,6 +16,7 @@ footer.site-footer {
 
 	.footer-social {
 		margin-top: 0.5rem;
+		text-align: center;
 
 		@include breakpoint("medium") {
 			align-self: flex-end;
@@ -25,21 +26,38 @@ footer.site-footer {
 
 		a {
 			color: $light-blue;
-			@include fontSize(18px);
+			@include fontSize(32px);
+			margin-right: 10px;
+
+			@include breakpoint("medium") {
+				@include fontSize(18px);
+			}
 
 			.icon {
 				margin-left: 0;
+				line-height: 1;
+				height: 32px;
+				width: 32px;
+
+				&:before {
+					margin: 0 0 0 -1rem;
+				}
 
 				@include breakpoint("medium") {
 					margin-left: 5px;
+					height: 16px;
+					width: 16px;
 				}
 			}
 
 			.icon-twitter {
-				@include fontSize(20px);
 				height: 20px;
 				width: 20px;
 				line-height: 20px;
+
+				@include breakpoint("medium") {
+					@include fontSize(20px);
+				}
 			}
 
 			.icon-email-contact {

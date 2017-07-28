@@ -21,6 +21,13 @@
 		background-color: $off-white;
 		height: initial;
 		box-shadow: none;
+		padding: 0.25rem 0;
+
+		&.shadow {
+			-webkit-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+			-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+			box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
+		}
 
 		.admin-bar & {
 			top: 82px;
@@ -72,22 +79,26 @@
 
 	.post-nav-content {
 		.post-nav-title {
-			display: none;
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
 			font-family: $font__Hind;
 			@include fontSize(16px);
 			line-height: 1.81;
-			color: $dark-gray;
+			color: $gray;
 		}
 
 		.post-share-buttons {
-			display: none;
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
 
 			.addtoany_list {
 				margin-top: 0;
 			}
 
 			.a2a_svg:before {
-				color: $black;
+				color: $dark-gray;
 			}
 
 			.a2a_svg:hover:before {
@@ -96,7 +107,9 @@
 		}
 
 		.post-nav-jumpto {
-			display: none;
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
 
 			.post-title {
 				font-family: $font__Hind;
@@ -151,7 +164,10 @@
 		}
 
 		.active {
-			display: block;
+			opacity: 1;
+			visibility: visible;
+			position: static;
+			@include transition(all .2s ease-in-out);
 		}
 	}
 }

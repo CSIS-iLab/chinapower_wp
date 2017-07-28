@@ -71,17 +71,23 @@
 
 		/*----------  Secondary Features  ----------*/
 		.secondary-features {
-			padding: 2rem 0.5rem;
+			padding: 0;
 
 			@include breakpoint("medium") {
-				padding-right: 2rem;
+				padding: 2rem 2rem 2rem 0.5rem;
 			}
 
 			article {
-				margin-bottom: 2rem;
+				margin-bottom: 1rem;
+
+				@include breakpoint("medium") {
+					margin-bottom: 2rem;
+				}
 
 				.post-info {
-					padding-left: 1rem;
+					@include breakpoint("medium") {
+						padding-left: 1rem;
+					}
 
 					.entry-title {
 						@extend %homepage-heading;
@@ -149,7 +155,11 @@
 			}
 
 			article {
-				margin-bottom: 1.5rem;
+				margin-bottom: 1rem;
+
+				@include breakpoint("medium") {
+					margin-bottom: 1.5rem;
+				}
 
 				.entry-title {
 					font-family: $font__Hind;
@@ -254,9 +264,13 @@
 				.share-stat {
 					@include fontSize(14px);
 					font-weight: 500;
-					line-height: 2.07;
+					line-height: 1.5;
 					color: $light-blue;
 					text-transform: uppercase;
+
+					@include breakpoint("medium") {
+						line-height: 2.07;
+					}
 
 					.addtoany_list {
 						display: inline-block;
@@ -282,9 +296,13 @@
 				.stat-article {
 					@include fontSize(14px);
 					font-weight: 500;
-					line-height: 2.07;
+					line-height: 1.5;
 					color: $light-blue;
 					text-transform: uppercase;
+
+					@include breakpoint("medium") {
+						line-height: 2.07;
+					}
 
 					a {
 						color: $light-blue;
@@ -380,6 +398,12 @@
 
 			.seeMore {
 				color: $color__text-seeMore;
+				display: inline-block;
+				margin-bottom: 0.5rem;
+
+				@include breakpoint("medium") {
+					margin-bottom: 0;
+				}
 
 				.icon {
 					@include fontSize(11px);
@@ -398,16 +422,25 @@
 
 		.featured-in {
 			.heading {
-				margin-bottom: 28px;
+				margin-bottom: 10px;
+
+				@include breakpoint("medium") {
+					margin-bottom: 28px;
+				}
 			}
 
 			img {
-				max-width: 250px;
+				max-width: 200px;
 				max-height: 60px;
 				width: auto;
-				margin-bottom: 2rem;
+				margin-bottom: 1rem;
 				margin-right: 3rem;
 				vertical-align: middle;
+
+				@include breakpoint("medium") {
+					max-width: 250px;
+					margin-bottom: 2rem;
+				}
 			}
 		}
 		

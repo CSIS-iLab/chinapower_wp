@@ -16,10 +16,10 @@
 	<footer id="colophon" class="site-footer" role="contentinfo">
 		<div class="footer-logoContainer">
 			<div class="content-wrapper row">
-				<div class="footer-logo col-xs-12 col-md-8">
+				<div class="footer-logo col-xs-12 col-md-6">
 					<a href="https://www.csis.org" target="_blank"><img src="/wp-content/themes/chinapower/img/csis-cpp-logo-white.svg" title="Center for Strategic & International Studies" alt="Center for Strategic & International Studies" /></a>
 				</div>
-				<div class="footer-social col-xs-12 col-md-4">
+				<div class="footer-social col-xs-12 col-md-6">
 					<?php if(get_theme_mod('contact-facebook')) {
 						echo '<a href="https://www.facebook.com/'.get_theme_mod('contact-facebook').'" target="_blank"><i class="icon icon-facebook"></i></a>';
 					} ?>

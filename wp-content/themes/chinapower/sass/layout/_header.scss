@@ -204,9 +204,6 @@ header.site-header {
 
 						&:hover {
 							transition: none;
-							@include breakpoint("medium") {
-								background-color: $blue-hover;
-							}
 						}
 
 						&:hover > div.sub-menu-container {

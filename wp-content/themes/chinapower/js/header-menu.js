@@ -44,14 +44,32 @@
 		});
 	}
 
+	// If we're on a post page, add a class to the post nav
+	if($(".post-nav").length) {
+		var postNavTopPos = parseInt($(".post-nav").css("top"));
+		var postNavOffset = $(".post-nav").offset().top;
+		var postNavTriggerPoint = postNavOffset - postNavTopPos - 50;
+	}
+
 	// Add class to header on scroll
 	$(window).scroll(function(){
 		var currentScroll = $(this).scrollTop();
 		var headerHeight = $(".site-header").height() + parseInt($(".site-header").css("top"), 10);
+
 		  
 		if(currentScroll > 0){
 	    	$(".site-header").addClass("minimal");
 	    	$(".header-main .sub-menu-container").css("top",headerHeight);
+
+	    	// If we're on a post page, add a class to the post nav
+			if($(".post-nav").length) {
+				if(currentScroll >= postNavTriggerPoint) {
+					$(".post-nav").addClass("shadow");
+				}
+				else {
+					$(".post-nav").removeClass("shadow");
+				}
+			}
 		}
 		else {
 			$(".site-header").removeClass("minimal");
