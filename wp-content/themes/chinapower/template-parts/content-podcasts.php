@@ -21,6 +21,8 @@ $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 $subtitle = get_post_meta(get_the_ID(), '_podcast_subtitle', true);
 $fullTitle = get_the_title().': '.$subtitle;
 
+remove_filter( 'the_excerpt', 'wpautop' );
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
@@ -36,9 +38,7 @@ $fullTitle = get_the_title().': '.$subtitle;
 			chinapower_posted_on();
 			?>
 		</header><!-- .entry-header -->
-		<div class="entry-content">
-			<p><?php the_excerpt(); ?></p>
-		</div><!-- .entry-content -->
+		<div class="entry-content"><p><?php the_excerpt(); ?></p></div><!-- .entry-content -->
 	</div>
 	<?php } else { ?>
 	<header class="entry-header col-xs-12 col-md-4">

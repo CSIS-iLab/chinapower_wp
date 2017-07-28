@@ -26,8 +26,12 @@
 	/*----------  Posts, Podcasts  ----------*/
 	article.post, article.podcasts {
 		position: relative;
-		margin-bottom: 2rem;
+		margin-bottom: 1rem;
 		background-color: $white;
+
+		@include breakpoint("medium") {
+			margin-bottom: 2rem;
+		}
 
 		.sticky-container {
 			padding-left: 0;
@@ -63,17 +67,19 @@
 
 			.entry-content {
 				@include breakpoint("medium") {
-					padding: 0 1rem 1rem 1rem;
+					padding: 0 2rem 2rem 2rem;
 				}
 			}
 		}
 
 		/*----------  Learn More  ----------*/
 		.learnMore {
-			display: none;
 			position: absolute;
-			bottom: 0.5rem;
-			right: 2rem;
+		    bottom: 0.5rem;
+		    right: 2rem;
+		    opacity: 0;
+		    @include transition(all .25s ease-in-out);
+		    padding-right: 50px;
 
 			p {
 				margin-bottom: 0;
@@ -93,6 +99,7 @@
 				}
 
 				.icon {
+					position: relative;
 					margin-left: 0;
 					vertical-align: top;
 					color: $red;
@@ -101,7 +108,51 @@
 		}
 
 		&:hover > .learnMore {
-			display: block;
+		    display: block;
+		    opacity: 1;
+		    @include transition(all .25s ease-in-out);
+		    position: absolute;
+		    bottom: 0.5rem;
+		    right: 2rem;
+		    padding-right: 0px;
+
+		    .icon {
+		    	width: 40px;
+			    @include transition(all .25s ease-in-out);
+
+			    &:before {
+			    	content: " ";
+				    display: inline-block;
+				    height: 50%;
+				    width: 100%;
+				    display: block;
+				    border-bottom: 2px solid $red;
+				    position: absolute;
+				    top: 25%;
+			    }
+
+			    &:after {
+			    	content: " ";
+				    width: 10px;
+				    height: 10px;
+				    margin-left: 5px;
+				    border: solid #ed392a;
+				    border-width: 0px 2px 2px 0;
+				    display: block;
+				    left: calc(100% - 18px);
+				    padding: 5px;
+				    transform: rotate(-45deg);
+				    -webkit-transform: rotate(-45deg);
+				    position: absolute;
+				    top: 30%;
+			    }
+		    }
+		}
+
+		&:hover > .entry-header .entry-title a,
+		&:hover > .sticky-container .entry-header .entry-title a
+		{
+			color: $red;
 		}
 	}
 
@@ -138,11 +189,22 @@
 		@include breakpoint("medium") {
 			padding-right: 2rem;
 		}
+
+		.itunes-btn {
+			text-align: center;
+
+			@include breakpoint("medium") {
+				text-align: left;
+			}
+		}
 	}
 
 	.podcast-host {
+		text-align: center;
+
 		@include breakpoint("medium") {
 			padding-left: 2rem;
+			text-align: left;
 		}
 
 		strong {
@@ -170,7 +232,11 @@
 
 		.entry-thumbnail {
 			text-align: center;
-			padding: 2rem 0;
+			padding: 1rem 0;
+
+			@include breakpoint("medium") {
+				padding: 2rem 0;
+			}
 		}
 
 		.entry-header {
@@ -188,6 +254,7 @@
 		.soundcloud-mini-container {
 			background-color: $off-white;
 			padding: 0.5rem;
+			margin-bottom: 1rem;
 
 			iframe {
 				vertical-align: middle;

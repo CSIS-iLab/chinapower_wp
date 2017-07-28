@@ -14,6 +14,8 @@ else {
 	$classes = "row cardLayout";
 }
 
+remove_filter( 'the_excerpt', 'wpautop' );
+
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
@@ -35,13 +37,7 @@ else {
 				endif;
 				?>
 			</header><!-- .entry-header -->
-			<div class="entry-content">
-				<p>
-				<?php
-					the_excerpt();
-				?>
-				</p>
-			</div><!-- .entry-content -->
+			<div class="entry-content"><p><?php the_excerpt(); ?></p></div><!-- .entry-content -->
 		</div>
 		<?php } else { ?>
 		<header class="entry-header col-xs-12 col-md-3">
@@ -55,10 +51,10 @@ else {
 			?>
 		</header><!-- .entry-header -->
 		<div class="entry-content col-xs-12 col-md-5">
-			<p> <?php the_excerpt(); ?> </p>
+			<p><?php the_excerpt(); ?></p>
 		</div><!-- .entry-content -->
 	<?php } ?>
 	<footer class="entry-footer learnMore">
-		<p><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">Learn More <i class="icon icon-arrow-right-full"></i></a></p>
+		<p><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">Learn More <i class="icon"></i></a></p>
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

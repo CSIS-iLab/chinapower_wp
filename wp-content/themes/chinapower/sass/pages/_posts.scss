@@ -116,7 +116,7 @@ article.post.cardLayout {
 		padding: 1rem;
 
 		@include breakpoint("medium") {
-			padding: 2rem 1rem;
+			padding: 2rem 1rem 2rem 2rem;
 		}
 
 		.entry-title {
