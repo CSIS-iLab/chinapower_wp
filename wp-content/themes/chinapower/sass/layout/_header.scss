@@ -21,6 +21,10 @@ header.site-header {
 		width: 100%;
 	}
 
+	&.postnav-overlay-isActive {
+		display: none;
+	}
+
 	@include breakpoint("medium") {
 		width: 100%;
 		box-shadow: none;

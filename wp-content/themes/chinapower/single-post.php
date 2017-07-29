@@ -62,18 +62,20 @@ else {
 			</header><!-- .entry-header -->
 			<div class="post-nav">
 					<div class="content-wrapper row flex-center__y">
-						<div class="post-nav-content hidden-xs col-md-8">
+						<div class="post-nav-content col-xs-12 col-md-8">
 							<div class="post-nav-title js-isDefault active"><?php the_title(); ?></div>
 							<div class="post-share-buttons">
+								<div class="post-title"><?php the_title(); ?></div>
 								<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
 							</div>
 							<div class="post-nav-jumpto">
 								<?php the_title('<span class="post-title">','</span>'); ?>
-								<span class="post-nav-toTop"><a href="#page">Top&#8593;</a></span>
+								<span class="post-nav-toTop"><a href="#page">Top <i class="icon icon-up"></i></a></span>
 								<ul class="post-nav-toc"></ul>
 							</div>
 						</div>
 						<div class="post-nav-menu col-xs-12 col-md-4">
+							<i class="icon icon-close-x closePanel" aria-label="Close Menu"></i>
 							<ul>
 								<li><a id="share" data-panel="post-share-buttons">Share</a></li>
 								<li><a id="jump" data-panel="post-nav-jumpto">Jump To</a></li>

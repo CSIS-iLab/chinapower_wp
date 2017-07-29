@@ -12,6 +12,14 @@
 	height: 45px;
 	@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 
+	.admin-bar & {
+		top: 46px;
+	}
+
+	&.overlay-isActive {
+		background-color: $dark-blue;
+	}
+
 	@include breakpoint("medium") {
 		top: 50px;
     	position: -webkit-sticky;
@@ -41,6 +49,24 @@
 			align-self: flex-start;
 		}
 
+		.closePanel {
+			display: none;
+		}
+
+		.overlay-isActive & {
+			text-align: center;
+			align-self: flex-start;
+
+			.closePanel {
+				display: inline-block;
+				position: absolute;
+				left: 0.5rem;
+				top: 27%;
+				@include fontSize(18px);
+				color: $white;
+			}
+		}
+
 		ul {
 			margin: 0;
 			padding: 0;
@@ -58,10 +84,6 @@
 				a {
 					color: $dark-gray;
 					cursor: pointer;
-
-					&.active {
-						color: $red;
-					}
 				}
 
 				& + li::before {
@@ -69,19 +91,50 @@
 					margin: 0 0.5rem;
 					color: $light-gray;
 				}
+
+				&.active a {
+					color: $red;
+				}
+
+				.overlay-isActive &:not(.active) {display: none;}
+
+				.overlay-isActive &.active {
+					@include fontSize(18px);
+					line-height: 1.61;
+					letter-spacing: 1px;
+
+					a {color: $blue-gray;}
+
+					&:before {content: none;}
+				}
 			}
 		}
 	}
 
 	.post-nav-content {
+		display: none;
+
+		&.isVisible {
+			display: block;
+		}
+
+		@include breakpoint("medium") {
+			display: flex;
+		}
+
 		.post-nav-title {
-			opacity: 0;
-			visibility: hidden;
-			position: absolute;
-			font-family: $font__Hind;
-			@include fontSize(16px);
-			line-height: 1.81;
-			color: $gray;
+			display: none;
+
+			@include breakpoint("medium") {
+				display: block;
+				opacity: 0;
+				visibility: hidden;
+				position: absolute;
+				font-family: $font__Hind;
+				@include fontSize(16px);
+				line-height: 1.81;
+				color: $gray;
+			}
 		}
 
 		.post-share-buttons {
@@ -89,16 +142,100 @@
 			visibility: hidden;
 			position: absolute;
 
-			.addtoany_list {
-				margin-top: 0;
+			.post-title {display: none;}
+
+			.overlay-isActive & {
+				.post-title {
+					display: block;
+					@extend %post-title;
+					color: $white;
+					margin-bottom: 1rem;
+					text-align: center;
+					margin-bottom: 2rem;
+					padding: 0 2rem;
+				}
+
+				.addtoany_list {
+					text-align: center;
+					box-sizing: border-box;
+				    display: -webkit-box;
+				    display: -ms-flexbox;
+				    display: flex;
+				    -webkit-box-flex: 0;
+				    -ms-flex: 0 1 auto;
+				    flex: 0 1 auto;
+				    -webkit-box-orient: horizontal;
+				    -webkit-box-direction: normal;
+				    -ms-flex-direction: row;
+				    flex-direction: row;
+				    -ms-flex-wrap: wrap;
+				    flex-wrap: wrap;
+				    position: relative;
+
+					a {
+						display: inline-block;
+						flex: 33%;
+						margin-bottom: 2rem;
+						margin-right: 0;
+
+						span { @include fontSize(32px); }
+
+						&:nth-of-type(5) {
+							flex: 66%;
+
+							span {
+								margin-left: calc(100% / -2);
+							}
+						}
+
+						&.a2a_button_email:before {
+							content: " ";
+							border-top: 1px solid $blue-gray;
+							position: absolute;
+							left: 1.5rem;
+							right: 0.5rem;
+							top: calc(100% / 1.7);
+						}
+
+						%label {
+							clip: unset;
+							color: $light-blue;
+							font-family: $font__Hind;
+							@include fontSize(14px);
+							line-height: 2.07;
+							bottom: 1rem;
+						}
+
+						&.a2a_button_email .a2a_label {
+							@extend %label;
+							left: calc(100% / 8);
+						}
+
+						&.a2a_button_print .a2a_label {
+							@extend %label;
+							left: calc(100% / 2.15);
+						}
+
+						&.a2a_button_copy_link .a2a_label {
+							@extend %label;
+							left: calc(100% / 1.32);
+						}
+					}
+				}
 			}
 
-			.a2a_svg:before {
-				color: $dark-gray;
-			}
+			@include breakpoint("medium") {
+				.addtoany_list {
+					margin-top: 0;
+				}
 
-			.a2a_svg:hover:before {
-				color: $red;
+				.a2a_svg:before {
+					color: $dark-gray;
+				}
+
+				.a2a_svg:hover:before {
+					color: $red;
+				}
 			}
 		}
 
@@ -108,50 +245,118 @@
 			position: absolute;
 
 			.post-title {
-				font-family: $font__Hind;
-				@include fontSize(20px);
-				font-weight: 500;
-				line-height: 0.08;
-				color: $black;
+				display: block;
+				text-align: center;
+				@extend %post-title;
+				padding: 0 1rem;
+
+				@include breakpoint("medium") {
+					font-family: $font__Hind;
+					@include fontSize(20px);
+					font-weight: 500;
+					line-height: 0.08;
+					color: $black;
+					padding: 0;
+					display: inline;
+				}
 			}
 
-			.post-nav-toTop a {
-				font-family: $font__Roboto;
-				@include fontSize(11px);
-				text-transform: uppercase;
-				line-height: 2.64;
-				letter-spacing: 0.7px;
-				color: $blue;
-				margin-left: 0.25rem;
+			.post-nav-toTop {
+				position: absolute;
+				top: -2.25rem;
+				right: 1rem;
+
+				@include breakpoint("medium") {
+					position: static;
+					top: initial;
+					right: initial;
+				}
+
+				a {
+					font-family: $font__Roboto;
+					@include fontSize(13px);
+					line-height: 1.69;
+					letter-spacing: 0.6px;
+					color: $white;
+					text-transform: uppercase;
+
+					@include breakpoint("medium") {
+						font-family: $font__Roboto;
+						@include fontSize(11px);
+						line-height: 2.64;
+						letter-spacing: 0.7px;
+						color: $blue;
+						margin-left: 0.25rem;
+					}
+
+					.icon {
+						margin-left: -3px;
+						margin-top: 2px;
+						@include fontSize(10px);
+						vertical-align: text-top;
+						color: $blue-gray;
+
+						@include breakpoint("medium") {
+							margin-top: 0;
+						}
+					}
+				}
 			}
 
 			.post-nav-toc {
 				list-style-type: none;
-				border-left: 1px solid $light-gray;
+				border-left: 1px solid $light-blue;
 				padding-left: 10px;
-				margin: 0.75rem 0;
+				margin: 2rem 1rem;
+
+				@include breakpoint("medium") {
+					margin: 0.75rem 0;
+					border-left-color: $light-gray;
+				}
 
 				li {
 					font-family: $font__Hind;
-					@include fontSize(16px);
-					line-height: 1.4;
+					@include fontSize(20px);
+					line-height: 1.45;
+
+					@include breakpoint("medium") {
+						@include fontSize(16px);
+						line-height: 1.4;
+					}
 
 					a {
-						color: $off-black;
 						transition: none;
+						color: $light-blue;
 
+						@include breakpoint("medium") {
+							color: $off-black;
+						}
+						
 						&:hover {
-							color: $red;
+							color: $white;
+
+							@include breakpoint("medium") {
+								color: $red;
+							}
 						}
 
 						&.active {
 							font-weight: 600;
+							color: $white;
+
+							@include breakpoint("medium") {
+								color: $off-black;
+							}
 
 							&:before {
 								content: "\e802";
 								font-family: 'chinapower';
-								color: $red;
+								color: $white;
 								margin-right: 0.3rem;
+
+								@include breakpoint("medium") {
+									color: $red;
+								}
 							}
 						}
 					}
@@ -159,11 +364,32 @@
 			}
 		}
 
-		.active {
-			opacity: 1;
+		div.active {
 			visibility: visible;
-			position: static;
-			@include transition(all .2s ease-in-out);
+			position: fixed;
+			@include transition(visibility .2s ease-in-out, opacity .2s ease-in-out);
+			background-color: $dark-blue;
+			opacity: 0.95;
+			height: 100%;
+			top: 90px;
+			left: 0;
+			right: 0;
+			padding-top: 1rem;
+			color: $white;
+
+			@include breakpoint("medium") {
+				opacity: 1;
+				visibility: visible;
+				position: static;
+				@include transition(all .2s ease-in-out);
+				background-color: transparent;
+				height: initial;
+				top: initial;
+				left: initial;
+				right: initial;
+				padding-top: initial;
+				color: initial;
+			}
 		}
 	}
 }

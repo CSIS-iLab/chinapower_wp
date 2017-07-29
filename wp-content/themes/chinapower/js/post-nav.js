@@ -7,18 +7,18 @@
 	if($(".post-nav").length) {
 
 		// Switch between panels
-		$(".post-nav-menu a").click(function() {
+		$(".post-nav-menu a, .closePanel").click(function() {
 			var ID = "#"+$(this).attr('id');
 			var panel = "."+$(this).data('panel');
 			
 			// Toggle Active Class
-			$(".post-nav-menu a").not(ID).removeClass("active");
-			$(ID).toggleClass("active");
+			$(".post-nav-menu a").not(ID).parent().removeClass("active");
+			$(ID).parent().toggleClass("active");
 
 			// Toggle Active Panel or restore default panel
 			$(".post-nav-content div").not(panel).removeClass("active");
 			$(panel).toggleClass("active");
-			if(!$(".post-nav-menu a.active").length) {
+			if(!$(".post-nav-menu li.active").length) {
 				$(".post-nav-content .js-isDefault").addClass("active");
 			}
 
@@ -31,16 +31,41 @@
 			}
 
 			// Display Content on Mobile
-			if($(".post-nav-content").hasClass("hidden-xs")) {
+			if($(".post-nav-content").css("display") != "flex") {
+				$(".post-nav-content").toggleClass("isVisible");
+				$("body").toggleClass("overlay-isActive");
+				$(".site-header").toggleClass("postnav-overlay-isActive");
+				$(".post-nav").toggleClass("overlay-isActive");
 			}
 		});
 
 		// Close Menu on Back to Top
 		$(".post-nav-toTop a").click(function() {
-			$(".post-nav-menu a, .post-nav-content .active").removeClass("active");
+			$(".post-nav-menu li, .post-nav-content .active").removeClass("active");
 			$(".post-nav-menu").removeClass("alignTop");
 			$(".post-nav-content .js-isDefault").addClass("active");
-		})
+
+			if($(".post-nav").hasClass("overlay-isActive")) {
+				$(".post-nav-content").toggleClass("isVisible");
+				$("body").toggleClass("overlay-isActive");
+				$(".site-header").toggleClass("postnav-overlay-isActive");
+				$(".post-nav").toggleClass("overlay-isActive");
+			}
+		});
+
+		// Close Overlay on ToC Link
+		$(".post-nav-toc").on("click", "a", function() {
+			console.log("test");
+			if($(".post-nav").hasClass("overlay-isActive")) {
+				$(".post-nav-content").toggleClass("isVisible");
+				$("body").toggleClass("overlay-isActive");
+				$(".site-header").toggleClass("postnav-overlay-isActive");
+				$(".post-nav").toggleClass("overlay-isActive");
+				$(".post-nav-menu li").removeClass("active");
+				$(".post-nav-menu").removeClass("alignTop");
+				$(".post-nav-content div.active").removeClass("active");
+			}
+		});
 
 		// Create Table of Contents
 		var counter = 0;
@@ -94,8 +119,7 @@
 		});
 
 		window.addEventListener('resize', function(event){
-		  postNavPosType = $(".post-nav").css("position");
-		  postNavPos = $(".post-nav").offset().top;
+
 		});
 		
 	}
