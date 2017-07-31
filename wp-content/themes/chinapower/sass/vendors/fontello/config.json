@@ -257,6 +257,20 @@
       "css": "align-justify",
       "code": 59410,
       "src": "fontawesome"
+    },
+    {
+      "uid": "6a5bd91fb230abc3b48045cb5e033242",
+      "css": "hamburger-menu-icon",
+      "code": 59430,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M1533.3 960H40V826.7H1533.3V960ZM1813.3 426.7H40V560H1820V426.7ZM1133.3 26.7H40V160H1133.3V26.7Z",
+        "width": 1867
+      },
+      "search": [
+        "hamburger-menu-icon"
+      ]
     }
   ]
 }

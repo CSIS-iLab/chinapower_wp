@@ -9,33 +9,34 @@
 	var headerHeightInitial = $(".site-header").height() + parseInt($(".site-header").css("top"), 10);
 
 	// Open Mobile Menu
-	$(".main-navigationControl").click(function() {
+	$(".main-navigationControl").click(function(event) {
+		console.log("test");
 		$("body, .site-header").addClass("overlay-isActive");
 		$(".site-branding, .main-navigationControl").addClass("isHidden");
 		$(".header-navOverlay, .main-navigation").addClass("isVisible");
 	});
 
 	// Close Mobile Menu
-	$(".navOverlay-heading .icon-close-x").click(function() {
+	$(".navOverlay-heading .icon-close-x").click(function(event) {
 		$("body, .site-header").removeClass("overlay-isActive");
 		$(".site-branding, .main-navigationControl, .navOverlay-heading-menu").removeClass("isHidden");
 		$(".header-navOverlay, .main-navigation, .header-searchFormContainer, .navOverlay-heading-search").removeClass("isVisible");
 	});
 
 	// Desktop: Search
-	$(".site-header .searchIcon, .site-header .search-close .icon").click(function() {
+	$(".site-header .searchIcon, .site-header .search-close .icon").click(function(event) {
 		$(".header-searchFormContainer").toggleClass("isVisible");
 	});
 
 	// Mobile: Open Search
-	$(".header-navOverlay .icon-search").click(function() {
+	$(".header-navOverlay .icon-search").click(function(event) {
 		$(".navOverlay-heading-menu").addClass("isHidden");
 		$(".navOverlay-heading-search, .header-searchFormContainer").addClass("isVisible");
 		$(".main-navigation").removeClass("isVisible");
 	});
 
 	// Mobile: Back from Search
-	$(".header-navOverlay .search-back").click(function() {
+	$(".header-navOverlay .search-back").click(function(event) {
 		$(".navOverlay-heading-menu").removeClass("isHidden");
 		$(".navOverlay-heading-search, .header-searchFormContainer").removeClass("isVisible");
 		$(".main-navigation").addClass("isVisible");

@@ -10,10 +10,12 @@
 		$(".post-nav-menu a, .closePanel").click(function() {
 			var ID = "#"+$(this).attr('id');
 			var panel = "."+$(this).data('panel');
+
+			console.log($(ID).parent());
 			
 			// Toggle Active Class
 			$(".post-nav-menu a").not(ID).parent("li").removeClass("active");
-			$(ID).parent("li").toggleClass("active");
+			$(ID).parent().toggleClass("active");
 
 			// Toggle Active Panel or restore default panel
 			$(".post-nav-content div").not(panel).removeClass("active");

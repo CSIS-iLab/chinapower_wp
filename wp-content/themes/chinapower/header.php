@@ -26,17 +26,17 @@
 	<header id="masthead" class="site-header" role="banner">
 		<div class="header-main">
 			<div class="content-wrapper row">
-				<div class="site-branding col-xs-6 col-md-5">
+				<div class="site-branding col-xs-5 col-md-5">
 					<a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
 						<img src="/wp-content/themes/chinapower/img/chinapower-logo-main.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-main">
 						<img src="/wp-content/themes/chinapower/img/china-power-symbol.svg" alt="<?php bloginfo( 'name' ); ?>" title="<?php bloginfo( 'name' ); ?>" class="logo-mobile">
 						<span class="site-tagline"><?php bloginfo( 'description' ); ?></span>
 					</a>
 				</div><!-- .site-branding -->
-				<div class="main-navigationContainer col-xs-6 col-md-7">
-					<button class="main-navigationControl" type="button" aria-label="Menu" aria-controls="navigation">
-						<span></span>
-					</button>
+				<div class="main-navigationContainer col-xs-7 col-md-7">
+					<div class="main-navigationControl" aria-label="Menu" aria-controls="navigation">
+						<i class="icon icon-hamburger-menu-icon"></i>
+					</div>
 					<nav id="site-navigation" class="main-navigation" role="navigation">
 						<?php
 							wp_nav_menu( array(

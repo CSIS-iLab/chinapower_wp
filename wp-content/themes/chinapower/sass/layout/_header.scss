@@ -105,7 +105,8 @@ header.site-header {
 
 		/*----------  Navigation: Main Menu  ----------*/
 		.main-navigationContainer {
-			padding-left: 0.3rem;
+			padding-left: 0.4rem;
+			align-self: center;
 
 			@include breakpoint("medium") {
 				align-self: flex-end;
@@ -116,6 +117,12 @@ header.site-header {
 				background-color: transparent;
 				padding: 0;
 				margin: 0;
+				height: 100%;
+
+				.icon {
+					vertical-align: middle;
+					margin-left: 0;
+				}
 
 				@include breakpoint("medium") {
 					display: none;
@@ -123,32 +130,6 @@ header.site-header {
 
 				&.isHidden {
 					display: none;
-				}
-				
-				span {
-					position: absolute;
-					top: 50%;
-				}
-
-				span, 
-				span:before,
-				span:after {
-				  cursor: pointer;
-				  border-radius: 3px;
-				  height: 3px;
-				  width: 26px;
-				  background: $black;
-				  position: absolute;
-				  display: block;
-				  content: '';
-				}
-				span:before {
-				  top: -7px;
-				  width: 16px;
-				}
-				span:after {
-				  bottom: -7px;
-				  width: 21px; 
 				}
 			}
 		
@@ -340,6 +321,7 @@ header.site-header {
 								height: 14px;
 								vertical-align: text-top;
 								padding-top: 2px;
+								display: inline-block;
 							}
 						}
 					}
