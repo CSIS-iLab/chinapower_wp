@@ -73,13 +73,14 @@ else {
 								<span class="post-nav-toTop"><a href="#page">Top <i class="icon icon-up"></i></a></span>
 								<ul class="post-nav-toc"></ul>
 							</div>
+							<div class="post-translate"><?php echo chinapower_icl_post_languages(); ?></div>
 						</div>
 						<div class="post-nav-menu col-xs-12 col-md-4">
 							<i class="icon icon-close-x closePanel" aria-label="Close Menu"></i>
 							<ul>
 								<li><a id="share" data-panel="post-share-buttons">Share</a></li>
 								<li><a id="jump" data-panel="post-nav-jumpto">Jump To</a></li>
-								<?php echo chinapower_icl_post_languages(); ?>
+								<?php echo chinapower_icl_post_languages_menu(); ?>
 							</ul>
 						</div>
 					</div>

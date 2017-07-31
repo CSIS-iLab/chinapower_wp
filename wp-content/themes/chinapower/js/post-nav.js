@@ -12,8 +12,8 @@
 			var panel = "."+$(this).data('panel');
 			
 			// Toggle Active Class
-			$(".post-nav-menu a").not(ID).parent().removeClass("active");
-			$(ID).parent().toggleClass("active");
+			$(".post-nav-menu a").not(ID).parent("li").removeClass("active");
+			$(ID).parent("li").toggleClass("active");
 
 			// Toggle Active Panel or restore default panel
 			$(".post-nav-content div").not(panel).removeClass("active");
@@ -58,7 +58,6 @@
 
 		// Close Overlay on ToC Link
 		$(".post-nav-toc").on("click", "a", function() {
-			console.log("test");
 			if($(".post-nav").hasClass("overlay-isActive")) {
 				$(".post-nav-content").toggleClass("isVisible");
 				$("body").toggleClass("overlay-isActive");

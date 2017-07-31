@@ -365,6 +365,15 @@
 			}
 		}
 
+		/*----------  Translation  ----------*/
+		.post-translate {
+			opacity: 0;
+			visibility: hidden;
+			position: absolute;
+			@include fontSize(16px);
+			text-transform: uppercase;
+		}
+
 		div.active {
 			visibility: visible;
 			position: fixed;

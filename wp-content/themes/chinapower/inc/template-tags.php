@@ -145,7 +145,32 @@ function chinapower_icl_post_languages(){
 		$languages = icl_get_languages('skip_missing=1');
 		if(1 < count($languages)){
 			foreach($languages as $l){
-				if(!$l['active']) $langs[] = '<a href="'.$l['url'].'">'.$l['native_name'].'</a>';
+				if(!$l['active'] && $l['code'] != 'en') $langs[] = '<a href="'.$l['url'].'">'.$l['native_name'].'</a>';
+			}
+			$output = join(' / ', $langs);
+			return $output;
+		}
+	}
+}
+
+/**
+ * Display if post is available in a different language
+ * @return String Translated language names in native language
+ */
+function chinapower_icl_post_languages_menu(){
+	if ( function_exists('icl_object_id') ) {
+		$languages = icl_get_languages('skip_missing=1');
+		if(1 < count($languages)){
+			$chinese_flag = false;
+			foreach($languages as $l){
+
+				if($l['code'] != 'en' && $chinese_flag == false) {
+					$langs[] = '<a id="postTranslate" data-panel="post-translate">中文</a>';
+					$chinese_flag = true;
+				}
+				elseif($l['code'] == 'en') {
+					if(!$l['active']) $langs[] = '<a href="'.$l['url'].'">'.$l['native_name'].'</a>';
+				}
 			}
 			$output = "<li>".join(' / ', $langs)."</li>";
 			return $output;
