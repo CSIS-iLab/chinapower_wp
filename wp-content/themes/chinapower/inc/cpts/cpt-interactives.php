@@ -190,7 +190,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 	}
 
 	if($fallbackImg) {
-		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'</div>';
+		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'<p>For best experience, please view on a desktop computer.</p></div>';
 	}
 
 	if($iframeResizeDisabled) {
@@ -200,7 +200,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$enabledClass = " js-iframeResizeEnabled";
 	}
 
-	return '<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>'.$fallbackImg;
+	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

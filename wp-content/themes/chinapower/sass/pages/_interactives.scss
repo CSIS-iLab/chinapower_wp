@@ -1,0 +1,51 @@
+/*====================================
+=            Interactives            =
+====================================*/
+
+/*----------  Archives  ----------*/
+.post-type-archive-interactives {
+	article.interactives {
+		padding: 1rem;
+
+		.entry-header {
+			@extend .col-md-8;
+		}
+		.entry-content {display: none;}
+
+		.learnMore {display: none !important;}
+	}
+}
+
+/*----------  Single Interactive Post  ----------*/
+.single-interactives {
+	.entry-title {display: none;}
+	.fullWidthFeatureContent {
+		width: 100vw;
+		position: relative;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw;
+		margin-right: -50vw;
+		text-align: center;
+	}
+}
+
+/*----------  Interactive Embed  ----------*/
+.interactive-fallbackImg ~ .interactive-iframe {
+	display: none;
+
+	@include breakpoint("medium") {
+		display: inline;
+	}
+}
+
+.interactive-fallbackImg {
+	@include breakpoint("medium") {
+		display: none;
+	}
+
+	p {
+		@include fontSize(14px);
+		font-style: italic;
+	}
+}
