@@ -101,11 +101,15 @@
 					}
 				}
 
-				.icon {
+				.icon-arrow-long {
 					position: relative;
 					margin-left: 0;
 					vertical-align: top;
 					color: $red;
+					display: inline-block;
+				    width: 16px;
+				    height: 16px;
+				    line-height: 16px;
 				}
 			}
 		}
@@ -119,7 +123,7 @@
 		    right: 2rem;
 		    padding-right: 0px;
 
-		    .icon {
+		    .icon-arrow-long {
 		    	width: 40px;
 			    @include transition(all .25s ease-in-out);
 
@@ -138,7 +142,7 @@
 			    	content: " ";
 				    width: 10px;
 				    height: 10px;
-				    margin-left: 5px;
+				    margin-left: 10px;
 				    border: solid #ed392a;
 				    border-width: 0px 2px 2px 0;
 				    display: block;

@@ -154,6 +154,10 @@ article.post.cardLayout {
 	.entry-content {
 		padding: 0rem 1rem 1rem 1rem;
 
+		p {
+			@include fontSize(16px);
+		}
+
 		@include breakpoint("medium") {
 			padding: 2rem;
 		}
