@@ -71,7 +71,7 @@
 
 		/*----------  Secondary Features  ----------*/
 		.secondary-features {
-			padding: 0;
+			padding: 1rem 0 0 0;
 
 			@include breakpoint("medium") {
 				padding: 2rem 2rem 2rem 0.5rem;
