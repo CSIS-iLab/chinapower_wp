@@ -34,10 +34,10 @@ for($i = 1; $i <= 3; $i++) {
 	<td>
 		<?php
 		if($viewURL) {
-			echo '<a href="'.$viewURL.'" class="btn btn-view">'.$viewText.'</a>';
+			echo '<a href="'.$viewURL.'" class="btn btn-view" target="_blank">'.$viewText.' <i class="icon-external-link"></i></a>';
 		}
 		if($downloadURL) {
-			echo '<a href="'.$downloadURL.'" class="btn btn-view">Download</a>';
+			echo '<a href="'.$downloadURL.'" class="btn btn-view" target="_blank">Download</a>';
 		}
 		?>
 	</td>

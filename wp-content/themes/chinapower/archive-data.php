@@ -47,7 +47,7 @@ get_header(); ?>
 								<th>Title</th>
 								<th>Topic</th>
 								<th>Source</th>
-								<th>View</th>
+								<th style="width:23%;">View</th>
 								<th class="cardCol">Card</th>
 							</tr>
 						</thead>

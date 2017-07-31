@@ -178,6 +178,10 @@
 			&:first-of-type {
 				margin-right: 5px;
 			}
+
+			.icon-external-link {
+				@include fontSize(9px);
+			}
 		}
 	}
 }
@@ -235,6 +239,10 @@
 
 			&:first-of-type {
 				margin-right: 5px;
+			}
+
+			.icon-external-link {
+				@include fontSize(9px);
 			}
 		}		
 	}

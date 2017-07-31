@@ -35,6 +35,7 @@ table {
 		border: 1px solid $light-gray;
 		letter-spacing: 0.5px;
 		font-family: $font__Roboto;
+		@include fontSize(16px);
 	}
 
 	&.striped {
