@@ -8,12 +8,7 @@
 		margin-bottom: 2rem;
 		
 		.page-title {
-			font-family: $font__SourceSans;
-			@include fontSize(28px);
-			font-weight: 600;
-			line-height: 1.25;
-			color: $black;
-			margin: 0.25rem 0 0 0;
+			@extend %page-title;
 		}
 	}
 
