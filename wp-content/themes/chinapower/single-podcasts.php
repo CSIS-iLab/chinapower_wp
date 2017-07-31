@@ -46,22 +46,22 @@ $fullTitle = get_the_title().': '.$subtitle;
 				<div class="featureImg" style="background-image:url('<?php echo $featured_img_url; ?>');">
 					<h1 class="entry-title"><?php echo $fullTitle; ?></h1>
 				</div>
-				<div class="post-nav">
-					<div class="content-wrapper row flex-center__y">
-						<div class="post-nav-content col-xs-12 col-md-8">
-							<div class="post-nav-title js-isDefault active"><?php echo $fullTitle; ?></div>
-							<div class="post-share-buttons">
-								<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
-							</div>
-						</div>
-						<div class="post-nav-menu col-xs-12 col-md-4">
-							<ul>
-								<li><a id="share" data-panel="post-share-buttons">Share</a></li>
-							</ul>
+			</header><!-- .entry-header -->
+			<div class="post-nav">
+				<div class="content-wrapper row flex-center__y">
+					<div class="post-nav-content col-xs-12 col-md-8">
+						<div class="post-nav-title js-isDefault active"><?php echo $fullTitle; ?></div>
+						<div class="post-share-buttons">
+							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
 						</div>
 					</div>
+					<div class="post-nav-menu col-xs-12 col-md-4">
+						<ul>
+							<li><a id="share" data-panel="post-share-buttons">Share</a></li>
+						</ul>
+					</div>
 				</div>
-			</header><!-- .entry-header -->
+			</div>
 
 			<div class="content-wrapper-narrow entry-content">
 				<?php
