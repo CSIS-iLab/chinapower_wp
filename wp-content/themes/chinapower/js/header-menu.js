@@ -45,8 +45,8 @@
 	// Disable the dropdown menu on mobile
 	if(mobileDisplay != "none") {
 		$(".menu-item-has-children > a").click(function(e) {
-			e.preventDefault();
 			$(this).siblings(".sub-menu-container").toggleClass("isVisible");
+			e.preventDefault();
 		});
 	}
 

@@ -165,10 +165,10 @@ header.site-header {
 						padding: 0;
 
 						@include breakpoint("medium") {
-							display: inline-block !important;
-							width: auto !important;
-							border: 0 !important;
-							top: 0 !important;
+							display: inline-block;
+							width: auto;
+							border: 0;
+							top: 0;
 						}
 
 						a {
@@ -195,8 +195,10 @@ header.site-header {
 							transition: none;
 						}
 
-						&:hover > div.sub-menu-container {
-							display: block;
+						@include breakpoint("medium") {
+							&:hover > div.sub-menu-container {
+								display: block;
+							}
 						}
 
 						&:not(.menu-item-has-children) {
@@ -242,11 +244,33 @@ header.site-header {
 							}
 						}
 
+						// Home Link
+						&.home {
+							a {
+								text-transform: none;
+
+								img {
+									display: inline-block;
+									width: 25px;
+									height: 20px;
+									vertical-align: text-top;
+								}
+							}
+
+							@include breakpoint("medium") {
+								display: none;
+							}
+						}
+
 						// Sub-menus
 						.sub-menu-container {
 							display: none;
 							border-left: 1px solid $blue-gray;
 							margin: 0.5rem 1rem;
+
+							&.isVisible {
+								display: block;
+							}
 
 							@include breakpoint("medium") {
 								position: fixed;
@@ -308,20 +332,32 @@ header.site-header {
 											}
 										}
 									}
+
+									&.hidden-md {
+										@include breakpoint("medium") {
+											display: none;
+										}
+									}
 								}
 							}
 						}
 
 						/*----------  Search  ----------*/
 						&.searchIcon {
-							.icon-search {
-								margin-left: 0;
-								line-height: 14px;
-								width: 14px;
-								height: 14px;
-								vertical-align: text-top;
-								padding-top: 2px;
-								display: inline-block;
+							display: none;
+
+							@include breakpoint("medium") {
+							display: inline-block;
+
+								.icon-search {
+									margin-left: 0;
+									line-height: 14px;
+									width: 14px;
+									height: 14px;
+									vertical-align: text-top;
+									padding-top: 2px;
+									display: inline-block;
+								}
 							}
 						}
 					}
