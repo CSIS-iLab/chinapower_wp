@@ -5,7 +5,7 @@ select,
 textarea {
 	color: $color__text-main;
 	font-family: $font__main;
-	@include fontSize(16px);
+	@include fontSize(18px);
 	line-height: $font__line-height-body;
 }
 
@@ -22,34 +22,58 @@ h1, h2, h3, h4, h5, h6 {
 	@include fontSize(48px);
 	font-weight: bold;
 	line-height: 1.1;
-	letter-spacing: 1.1;
+	letter-spacing: 0.6;
 	color: $black;
-	margin: 0.25rem 0;
+	margin: 0 0 1rem 0;
 }
 
 %h2 {
 	font-family: $font__Roboto;
 	@include fontSize(30px);
-	line-height: 1.53;
-	font-weight: normal;
+	line-height: 1.2;
+	font-weight: 400;
 	color: $blue;
-	margin: 0 0 0.5rem 0;
+	margin: 0 0 1rem 0;
 }
 
 %h3 {
-	font-family: $font__SourceSans;
-	@include fontSize(20px);
-	font-weight: normal;
-	color: $gray;
-	margin: 1.5rem 0 0.5rem;
+	font-family: $font__Roboto;
+	@include fontSize(25px);
+	line-height: 1.2;
+	font-weight: bold;
+	color: $black;
+	margin: 1rem 0;
 }
 
 %h4 {
-	font-family: $font__SourceSans;
-	@include fontSize(18px);
+	font-family: $font__Roboto;
+	@include fontSize(22px);
+	line-height: 1.25;
+	font-weight: 600;
+	color: $black;
+	letter-spacing: 0.1px;
+	margin: 1rem 0;
+}
+
+%h5 {
+	font-family: $font__Roboto;
+	@include fontSize(22px);
+	line-height: 1.2;
 	font-weight: normal;
-	color: $dark-gray;
-	letter-spacing: 0.4px;
+	color: $black;
+	text-transform: uppercase;
+	letter-spacing: 1.1px;
+	margin: 1rem 0;
+}
+
+%h6 {
+	font-family: $font__Roboto;
+	@include fontSize(18px);
+	line-height: 1.2;
+	font-weight: 600;
+	color: $color__text-h6;
+	text-transform: uppercase;
+	letter-spacing: 1.1px;
 	margin: 1rem 0;
 }
 
@@ -116,6 +140,8 @@ body.single, body.page {
 	h2 { @extend %h2 }
 	h3 { @extend %h3 }
 	h4 { @extend %h4 }
+	h5 { @extend %h5 }
+	h6 { @extend %h6 }
 }
 
 /*============================
@@ -143,17 +169,28 @@ dfn, cite, em, i {
 }
 
 blockquote {
-	margin: 2rem 1rem;
+	margin: 2rem auto;
 	padding: 1rem;
 	border-top: 2px solid $red;
 	border-bottom: 2px solid $red;
 
+	@include breakpoint("medium") {
+		width: 85%;
+	}
+
+	p {
+		margin-bottom: 0;
+	}
+
 	.source {
 		text-align: right;
 		@include fontSize(14px);
+		line-height: 2.07;
+		letter-spacing: 0.4px;
 		color: $dark-gray;
 		text-transform: uppercase;
-		margin-top: -0.75rem;
+		margin-top: 5px;
+		margin-bottom: 0;
 	}
 }
 
@@ -241,42 +278,7 @@ a {
 	}
 }
 
-/*==================================
-=            Close Icon            =
-==================================*/
-
-.close-icon {
-	position: relative;
-    display: inline-block;
-    width: 35px;
-    height: 35px;
-    overflow: hidden;
-
-    &::before, &::after {
-    	content: '';
-	    position: absolute;
-	    height: 2px;
-	    width: 100%;
-	    top: 50%;
-	    left: 0;
-	    margin-top: -1px;
-	    background: $black;
-    }
-
-    &::before {
-    	-webkit-transform: rotate(45deg);
-	    -moz-transform: rotate(45deg);
-	    -ms-transform: rotate(45deg);
-	    -o-transform: rotate(45deg);
-	    transform: rotate(45deg);
-    }
-
-    &::after {
-    	-webkit-transform: rotate(-45deg);
-	    -moz-transform: rotate(-45deg);
-	    -ms-transform: rotate(-45deg);
-	    -o-transform: rotate(-45deg);
-	    transform: rotate(-45deg);
-    }
+.entry-content a:hover {
+	@include box-shadow(0px, -2px, 0px, 0, $light-gray, true);
 }
 
