@@ -36,6 +36,9 @@
 				$("body").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
 				$(".post-nav").toggleClass("overlay-isActive");
+				$(".sharing-inline").removeClass("overlay-isActive");
+				$(".sharing-shareBtns").removeClass("isVisible");
+				$(".sharing-openShareBtn").removeClass("isHidden");
 			}
 		});
 

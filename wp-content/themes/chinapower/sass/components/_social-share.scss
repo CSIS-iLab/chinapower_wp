@@ -63,7 +63,7 @@
 		svg {display: none;}
 	}
 
-	&.a2a_kit_size_32 a>span {
+	& a>span {
 		width: inherit !important;
 		height: inherit !important;
 		line-height: inherit !important;
@@ -87,6 +87,23 @@
 .sharing-inline {
 	text-align: center;
 	margin: 1rem 0;
+
+	&.overlay-isActive {
+		position: fixed;
+		background-color: $dark-blue;
+		opacity: 0.95;
+		height: 100%;
+		top: 0;
+		left: 50%;
+		right: 50%;
+		margin-left: -50vw !important;
+		margin-right: -50vw !important;
+		padding-top: 3rem;
+
+		.admin-bar & {
+			top: 75px;
+		}
+	}
 
 	.sharing-openShareBtn {
 		margin: 0 auto;
@@ -118,32 +135,128 @@
 			width: 100%;
 			visibility: visible;
 			opacity: 1;
-			position: static;
-			@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+			position: relative;
+			background-color: transparent;
+			@include transition(visibility 0s, position 0s);
+
+			@include breakpoint("medium") {
+				width: 100%;
+				position: static;
+				@include transition(visibility 0s, position 0s, opacity 0.5s linear, width 0.2s ease-in);
+				background-color: $off-white;
+			}
 		}
 
-		.addtoany_list {
-			display: inline-block;
-		}
+		.overlay-isActive & {
+			.post-title {
+				display: block;
+				@extend %post-title;
+				color: $white;
+				margin-bottom: 1rem;
+				text-align: center;
+				margin-bottom: 2rem;
+				padding: 0 2rem;
+			}
 
-		.addtoany_list.a2a_kit_size_32 a>span {
-			@include fontSize(16px);
-		}
+			.icon-close-x {display: none;}
+			.addtoany_list {
+				text-align: center;
+				box-sizing: border-box;
+			    display: -webkit-box;
+			    display: -ms-flexbox;
+			    display: flex;
+			    -webkit-box-flex: 0;
+			    -ms-flex: 0 1 auto;
+			    flex: 0 1 auto;
+			    -webkit-box-orient: horizontal;
+			    -webkit-box-direction: normal;
+			    -ms-flex-direction: row;
+			    flex-direction: row;
+			    -ms-flex-wrap: wrap;
+			    flex-wrap: wrap;
+			    position: relative;
 
-		.a2a_svg:before {
-			color: $dark-gray;
-		}
+				a {
+					display: inline-block;
+					flex: 33%;
+					margin-bottom: 2rem;
+					margin-right: 0;
 
-		.a2a_svg:hover:before {
-			color: $red;
-		}
+					& > span {
+						@include fontSize(32px);
 
-		.icon-close-x {
-			float: right;
-			margin-top: 3px;
-			margin-left: 0;
-			margin-right: 5px;
-			color: $gray;
+						&:before {color: $white;}
+
+					}
+
+					&:nth-of-type(5) {
+						flex: 66%;
+
+						span {
+							margin-left: calc(100% / -2);
+						}
+					}
+
+					&.a2a_button_email:before {
+						content: " ";
+						border-top: 1px solid $blue-gray;
+						position: absolute;
+						left: 1.5rem;
+						right: 0.5rem;
+						top: calc(100% / 1.7);
+					}
+
+					%label {
+						clip: unset;
+						color: $light-blue;
+						font-family: $font__Hind;
+						@include fontSize(14px);
+						line-height: 2.07;
+						bottom: 1rem;
+					}
+
+					&.a2a_button_email .a2a_label {
+						@extend %label;
+						left: calc(100% / 8);
+					}
+
+					&.a2a_button_print .a2a_label {
+						@extend %label;
+						left: calc(100% / 2.15);
+					}
+
+					&.a2a_button_copy_link .a2a_label {
+						@extend %label;
+						left: calc(100% / 1.32);
+					}
+				}
+			}
+		}
+		@include breakpoint("medium") {
+			.post-title {display: none;}
+			.addtoany_list {
+				display: inline-block;
+			}
+
+			.addtoany_list a > span {
+				@include fontSize(16px);
+			}
+
+			.a2a_svg:before {
+				color: $dark-gray;
+			}
+
+			.a2a_svg:hover:before {
+				color: $red;
+			}
+
+			.icon-close-x {
+				float: right;
+				margin-top: 3px;
+				margin-left: 0;
+				margin-right: 5px;
+				color: $gray;
+			}
 		}
 	}
 }

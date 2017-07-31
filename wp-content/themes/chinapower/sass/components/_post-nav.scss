@@ -18,6 +18,7 @@
 
 	&.overlay-isActive {
 		background-color: $dark-blue;
+		box-shadow: none;
 	}
 
 	@include breakpoint("medium") {

@@ -192,6 +192,7 @@ function chinapower_social_share($title = "", $URL = "") {
 	$output = '<div class="sharing-inline">';
 	$output .= '<button class="btn btn-gray sharing-openShareBtn">Share <i class="icon icon-share"></i></button>';
 	$output .= '<div class="sharing-shareBtns">';
+	$output .= '<div class="post-title">'.$title.'</div>';
 	ob_start();
     ADDTOANY_SHARE_SAVE_KIT($shareArgs);
     $output .= ob_get_contents();
