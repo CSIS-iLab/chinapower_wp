@@ -199,3 +199,43 @@
 		text-align: right;
 	}
 }
+
+/*----------  Data Single  ----------*/
+.single-data {
+	.site-main {
+		padding-top: 2rem;
+		
+		.entry-title {
+			@extend %post-title;
+		}
+
+		.data-links {text-align: right;}
+
+		.dataSource-viewLink {display: none;}
+
+		.cat-links {
+			display: inline;
+			margin-bottom: 0;
+			text-transform: none;
+			@include fontSize(16px);
+		}
+
+		.btn-view {
+			@include fontSize(11px);
+			line-height: 2.64;
+			letter-spacing: 0.7px;
+			background-color: $color__background-btn-view;
+			color: $black;
+			margin-top: 0;
+			margin-bottom: 0;
+
+			&:hover {
+				background-color: $color__background-btn-view-hover;
+			}
+
+			&:first-of-type {
+				margin-right: 5px;
+			}
+		}		
+	}
+}

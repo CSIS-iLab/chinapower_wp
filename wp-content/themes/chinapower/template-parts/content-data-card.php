@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Content: Data (Card)
  *
  * @link https://codex.wordpress.org/Template_Hierarchy
  *
@@ -25,13 +25,18 @@ for($i = 1; $i <= 3; $i++) {
 	$featuredStats .= '[dataFeatured id="'.$ID.'" stat="'.$i.'"]';
 }
 
+if ( is_singular() ) :
+	the_title( '<h1 class="entry-title">', '</h1>' );
+else :
+	the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+endif;
 ?>
-
-<tr id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<td><?php the_title( '<span class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></span>'); ?></td>
-	<td><?php chinapower_post_categories(); ?></td>
-	<td><?php echo $source[0]->name; ?></td>
-	<td>
+<div class="dataInfo row bottom-md">
+	<div class="col-xs-12 col-md-8">
+		<strong>Topic:</strong> <?php chinapower_post_categories(); ?><br />
+		<strong>Source:</strong> <?php echo $source[0]->name; ?>
+	</div>
+	<div class="data-links col-xs-12 col-md-4">
 		<?php
 		if($viewURL) {
 			echo '<a href="'.$viewURL.'" class="btn btn-view">'.$viewText.'</a>';
@@ -40,9 +45,6 @@ for($i = 1; $i <= 3; $i++) {
 			echo '<a href="'.$downloadURL.'" class="btn btn-view">Download</a>';
 		}
 		?>
-	</td>
-	<td class="cardCol">
-		<?php get_template_part( 'template-parts/content-data-card'); ?>
-		<hr />
-	</td>
-</tr><!-- #post-<?php the_ID(); ?> -->
+	</div>
+</div>
+<?php echo do_shortcode($featuredStats); ?>

@@ -371,7 +371,7 @@
 			background-color: $dark-blue;
 			opacity: 0.95;
 			height: 100%;
-			top: 90px;
+			top: 45px;
 			left: 0;
 			right: 0;
 			padding-top: 1rem;
@@ -389,6 +389,10 @@
 				right: initial;
 				padding-top: initial;
 				color: initial;
+			}
+
+			.admin-bar & {
+				top: 90px;
 			}
 		}
 	}
