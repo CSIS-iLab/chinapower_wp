@@ -10,8 +10,6 @@
 		$(".post-nav-menu a, .closePanel").click(function() {
 			var ID = "#"+$(this).attr('id');
 			var panel = "."+$(this).data('panel');
-
-			console.log($(ID).parent());
 			
 			// Toggle Active Class
 			$(".post-nav-menu a").not(ID).parent("li").removeClass("active");
@@ -87,8 +85,13 @@
 				$(this).attr('id', hash);
 			}
 
+			var linkClass = '';
+			if(counter == 0) {
+				linkClass = ' class="active"';
+			}
+
 			// Add to Table of Contents
-			var listItem = '<li><a href="#'+hash+'">'+text+'</a></li>';
+			var listItem = '<li><a href="#'+hash+'" id="link-'+hash+'"'+linkClass+'>'+text+'</a></li>';
 			$(".post-nav-toc").append(listItem);
 
 			// Increase Counter
@@ -97,8 +100,8 @@
 
 		// Active Table of Contents Link on click
 		$(".post-nav-toc").on("click", "li a", function() {
-			$(".post-nav-toc a").removeClass("active");
-			$(this).addClass("active");
+			$(".post-nav-toc a.active").removeClass("active");
+			$(this).addClass("active currentScroll");
 		})
 
 		// Active Table of Contents Link on scroll
@@ -107,23 +110,36 @@
 		$(window).scroll(function(){
 
 			var currentScroll = $(this).scrollTop();
-			var currentSection = 0;
+			var currentSection = 'toc-0';
 
 			$sections.each(function(){   
 				var headingPosition = $(this).offset().top;
+				var headerHeight = parseInt($(".site-header").css("top")) + 75;
+	      		var postNav = $(".post-nav").height();
+	      		var sectionHeading = headingPosition - headerHeight - postNav;
 			  
-				if( headingPosition - 1 < currentScroll ){
+			  	// Switch active table of content link based on which section the user is in. However, don't run this if the user clicked on a link to prevent the scroll classes from overriding the clicked classes
+				if( sectionHeading - 1 < currentScroll && !$(".post-nav-toc a").hasClass('currentScroll') ){
 			    	currentSection = $(this).attr('id');
+
+					$('.post-nav-toc a').not('#link-'+currentSection).removeClass('active');
+					$("#link-"+currentSection).addClass('active');
 				}
 
-				$('.post-nav-toc a').removeClass('active');
-				$(".post-nav-toc a[href=#"+currentSection+"]").addClass('active');
 			});
 
 		});
 
-		window.addEventListener('resize', function(event){
-
+		// Close menu if user clicks outside of the menu container element and the menu is open
+		$(document).click(function(event) { 
+		  if(!$(event.target).closest('.post-nav').length) {
+		      if($('.post-nav-jumpto').hasClass('active')) {
+		        // Close Jump to Menu
+				$(".post-nav-menu li, .post-nav-content .active").removeClass("active");
+				$(".post-nav-menu").removeClass("alignTop");
+				$(".post-nav-content .js-isDefault").addClass("active");
+		      }
+		  }        
 		});
 		
 	}

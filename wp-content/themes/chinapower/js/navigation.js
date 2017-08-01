@@ -114,7 +114,7 @@ jQuery(document).ready(function($){
   $("a").on('click', function(event) {
 
     // Make sure this.hash has a value before overriding default behavior
-    if (this.hash !== "" && $(this.hash).length) {
+    if (this.hash !== "") {
       // Prevent default anchor click behavior
       event.preventDefault();
 
@@ -122,7 +122,7 @@ jQuery(document).ready(function($){
       var hash = this.hash;
 
       if($(".post-nav").length) {
-	      var headerHeight = parseInt($(".site-header").css("top")) + 100;
+	      var headerHeight = parseInt($(".site-header").css("top")) + 75;
 	      var postNav = $(".post-nav").height();
 	      var scrollTo = $(hash).offset().top - headerHeight - postNav;
 	  }
@@ -138,6 +138,8 @@ jQuery(document).ready(function($){
    
         // Add hash (#) to URL when done scrolling (default click behavior)
         window.location.hash = hash;
+        // Remove currentScroll class from ToC link
+        $(".post-nav-toc a.currentScroll").removeClass("currentScroll");
       });
     } // End if
   });
