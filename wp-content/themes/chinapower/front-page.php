@@ -44,7 +44,7 @@ if(get_theme_mod('hp_stat')) {
 							<a href="<?php echo esc_url(get_the_permalink($feature1) ); ?>"><h1 class="entry-title"><?php echo $feature1->post_title; ?></h1></a>
 							<?php chinapower_post_categories_home($feature1->ID); ?>
 						</div>
-						<div class="feature-excerpt col-xs-12 col-md-6">
+						<div class="feature-excerpt hidden-xs col-md-6">
 							<p><?php echo $feature1->excerpt; ?></p>
 						</div>
 					</div>
@@ -92,7 +92,9 @@ if(get_theme_mod('hp_stat')) {
 			</section>
 			<section class="section-2 content-wrapper row">
 				<div class="featured-stat col-xs-12 col-md-8">
-					<i class="fa fa-<?php echo get_theme_mod('hp_stat_icon'); ?>"></i>
+					<div class="stat-container">
+						<i class="fa fa-<?php echo get_theme_mod('hp_stat_icon'); ?>"></i>
+					</div>
 					<div class="stat-content">
 						<div class="stat"><?php echo $stat; ?></div>
 						<div class="share-stat">

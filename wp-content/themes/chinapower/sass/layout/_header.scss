@@ -202,6 +202,11 @@ header.site-header {
 						}
 
 						&:not(.menu-item-has-children) {
+							&.sibHover a {
+								margin-right: -2rem;
+								transition: none;
+							}
+
 							a:after {
 								content: " ";
 								font-family: "chinapower";
@@ -211,6 +216,11 @@ header.site-header {
 						// Item is Parent Item
 						&.menu-item-has-children {
 
+							&.active a {
+								padding-left: 3rem;
+								transition: none;
+							}
+
 							a:after {
 								content: "\e800";
 								font-family: "chinapower";
@@ -219,6 +229,7 @@ header.site-header {
 							}
 
 							&:hover a {
+								// padding-left: 3rem;
 
 								&:after {
 									content: "\2013";
@@ -231,8 +242,8 @@ header.site-header {
 										content:'';
 									    position: absolute;
 									    bottom: 0;
-									    left: 0;
-									    right: 0;
+									    left: 50%;
+									    right: 50%;
 									    margin: 0 auto;
 									    width: 0;
 									    height: 0;
@@ -419,6 +430,7 @@ header.site-header {
 
 		&.isVisible {
 			display: block;
+			z-index: 200;
 		}
 
 		.header-searchInputContainer {

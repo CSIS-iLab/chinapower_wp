@@ -109,4 +109,14 @@ function is_first_post()
 
     return FALSE;
 }
+
+/**
+ * Changes the post order for the post page
+ */
+function change_posts_order( $query ) {
+    if ( $query->is_home() && $query->is_main_query() ) {
+        $query->set( 'orderby', 'modified' );
+    }
+}
+add_action( 'pre_get_posts', 'change_posts_order' );
  
