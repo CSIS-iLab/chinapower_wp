@@ -34,10 +34,11 @@ $color__background-nav-overlay-heading: #4a5b63;
 $color__background-share-divider: $color__background-hr-stat-home;
 $color__background-btn-view: #d1d8dc;
 $color__background-btn-view-hover: $color__background-button-gray;
+$color__background-input: #fafafa;
 
 $color__text-screen: $off-black;
-$color__text-input: $off-black;
-$color__text-input-focus: #111;
+$color__text-input: $gray;
+$color__text-input-focus: $black;
 $color__link: $red;
 $color__link-visited: $dark-red;
 $color__link-hover: $red;
@@ -48,7 +49,7 @@ $color__text-statIcon: #698491;
 $color__text-h6: #1c2e36;
 $color__text-captions: #808081;
 
-$color__border-input: #ccc;
+$color__border-input: $dark-blue;
 $color__border-abbr: #666;
 
 /*==================================
