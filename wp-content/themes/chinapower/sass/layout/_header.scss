@@ -456,6 +456,7 @@ header.site-header {
 			@include fontSize(16px);
 			line-height: 1;
 			-webkit-appearance: textfield;
+			margin: 0;
 
 			&:focus {
 				box-shadow: none;
