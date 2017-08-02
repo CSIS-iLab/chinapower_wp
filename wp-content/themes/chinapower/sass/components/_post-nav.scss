@@ -9,7 +9,7 @@
 	left: 0;
 	right: 0;
 	background-color: $white;
-	height: 45px;
+	height: 52.5312px;
 	@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 
 	.admin-bar & {
@@ -41,6 +41,7 @@
 
 	.content-wrapper {
 		height: 100%;
+
 	}
 
 	.post-nav-menu {
@@ -244,27 +245,32 @@
 			opacity: 0;
 			visibility: hidden;
 			position: absolute;
+			margin-top: 10px;
 
 			.post-title {
 				display: block;
 				text-align: center;
 				@extend %post-title;
 				padding: 0 1rem;
+				@include breakpoint("medium") {
+				color: $white;
+			}
 
 				@include breakpoint("medium") {
 					font-family: $font__Hind;
 					@include fontSize(20px);
 					font-weight: 500;
 					line-height: 1;
-					color: $black;
+					color: $gray;
 					padding: 0;
+
 					display: inline;
 				}
 			}
 
 			.post-nav-toTop {
 				position: absolute;
-				top: -2.25rem;
+				top: -2.5rem;
 				right: 1rem;
 
 				@include breakpoint("medium") {
@@ -342,7 +348,7 @@
 						}
 
 						&.active {
-							font-weight: 600;
+							font-weight: 400;
 							color: $white;
 
 							@include breakpoint("medium") {
@@ -381,7 +387,7 @@
 			background-color: $dark-blue;
 			opacity: 0.95;
 			height: 100%;
-			top: 45px;
+			top: 40px;
 			left: 0;
 			right: 0;
 			padding-top: 1rem;

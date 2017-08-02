@@ -78,7 +78,7 @@
 		/*----------  Learn More  ----------*/
 		.learnMore {
 			position: absolute;
-		    bottom: 0.5rem;
+		    bottom: 1rem;
 		    right: 2rem;
 		    opacity: 0;
 		    @include transition(all .25s ease-in-out);
@@ -119,7 +119,7 @@
 		    opacity: 1;
 		    @include transition(all .25s ease-in-out);
 		    position: absolute;
-		    bottom: 0.5rem;
+		    bottom: 1rem;
 		    right: 2rem;
 		    padding-right: 0px;
 
