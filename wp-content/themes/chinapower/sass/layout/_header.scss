@@ -13,7 +13,8 @@ header.site-header {
 	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 
-	.single-post & {
+	.single-post &,
+	.single-podcasts & {
 		box-shadow: none;
 	}
 

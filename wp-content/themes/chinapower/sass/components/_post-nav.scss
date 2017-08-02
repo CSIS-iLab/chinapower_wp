@@ -9,7 +9,7 @@
 	left: 0;
 	right: 0;
 	background-color: $white;
-	height: 52.5312px;
+	height: 48px;
 	@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 
 	.admin-bar & {

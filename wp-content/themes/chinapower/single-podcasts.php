@@ -52,7 +52,9 @@ $fullTitle = get_the_title().': '.$subtitle;
 					<div class="post-nav-content col-xs-12 col-md-8">
 						<div class="post-nav-title js-isDefault active"><?php echo $fullTitle; ?></div>
 						<div class="post-share-buttons">
-							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT(); } ?>
+							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT( array(
+								'linkname' => $fullTitle
+								)); } ?>
 						</div>
 					</div>
 					<div class="post-nav-menu col-xs-12 col-md-4">
