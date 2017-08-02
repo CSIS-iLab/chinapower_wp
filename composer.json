@@ -9,13 +9,17 @@
     ],
     "require": {
         "wpackagist-plugin/add-to-any": "*",
+        "wpackagist-plugin/archive-control": "*",
         "wpackagist-plugin/disable-comments": "*",
         "wpackagist-plugin/disable-emojis": "*",
+        "wpackagist-plugin/easy-footnotes": "*",
         "wpackagist-plugin/google-authenticator": "*",
         "wpackagist-plugin/tinymce-advanced": "*",
         "wpackagist-plugin/wordpress-seo": "*",
         "wpackagist-plugin/jetpack": "*",
         "wpackagist-plugin/related": "*",
-        "wpackagist-plugin/search-by-algolia-instant-relevant-results": "*"
+        "wpackagist-plugin/search-by-algolia-instant-relevant-results": "*",
+        "wpackagist-plugin/regenerate-thumbnails": "*"
+
     }
 }
