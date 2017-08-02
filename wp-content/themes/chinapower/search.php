@@ -26,10 +26,10 @@ get_header(); ?>
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
 
-				if(get_post_type('podcasts')) {
+				if(get_post_type() == 'podcasts') {
 					get_template_part( 'template-parts/content-podcasts' );
 				}
-				elseif(get_post_type('data')) {
+				elseif(get_post_type() == 'data') {
 					get_template_part('template-parts/content-data-card');
 				}
 				else {
