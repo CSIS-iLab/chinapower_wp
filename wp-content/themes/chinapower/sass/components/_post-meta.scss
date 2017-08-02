@@ -60,9 +60,13 @@
 
 	ul {
 		list-style-type: none;
-		display: inline-block;
+		display: inline;
 		margin-bottom: 0;
 		padding-left: 1.5rem;
+
+		@include breakpoint("medium") {
+			display: inline-block;
+		}
 
 		li {
 			display: inline-block;
