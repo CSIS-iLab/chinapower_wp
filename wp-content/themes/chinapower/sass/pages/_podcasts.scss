@@ -19,13 +19,24 @@
 				background-size: 35%;
 			}
 
-			.entry-title { @extend %post-featureImgTitle; }
+			.entry-title { 
+				@extend %post-featureImgTitle;
+				padding: 0 1rem;
+
+				@include breakpoint("medium") {
+					padding: 0;
+				}
+			}
 		}
 	}
 
 	.entry-content {
-		padding: 0;
+		padding: 0 1rem;
 		margin-top: 2rem;
+
+		@include breakpoint("medium") {
+			padding: 0;
+		}
 
 		iframe {
 			margin-bottom: 1rem;
