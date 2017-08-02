@@ -169,6 +169,12 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 
+sub, sup {
+	.overlay-isActive & {
+		position: static;
+	}
+}
+
 blockquote {
 	margin: 2rem auto;
 	padding: 1rem;
