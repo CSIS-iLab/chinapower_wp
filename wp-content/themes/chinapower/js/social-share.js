@@ -16,7 +16,7 @@
 				$(".post-nav").toggleClass("overlay-isActive");
 				$(".post-nav a#share").parent("li").toggleClass("active");
 				$(parent).toggleClass("overlay-isActive");
-				$("body").toggleClass("overlay-isActive");
+				$("html, body").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
 			}
 

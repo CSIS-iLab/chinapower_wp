@@ -135,15 +135,13 @@ jQuery(document).ready(function($){
 
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-      $('html, body').animate({
-        scrollTop: scrollTo
-      }, 800, function(){
-   
-        // Add hash (#) to URL when done scrolling (default click behavior)
-        window.location.hash = hash;
-        // Remove currentScroll class from ToC link
-        $(".post-nav-toc a.currentScroll").removeClass("currentScroll");
-      });
+      
+      	$('body, html').animate({ scrollTop: scrollTo }, 800, runOnce(function() {
+		     // Add hash (#) to URL when done scrolling (default click behavior)
+	        window.location.hash = hash;
+	        // Remove currentScroll class from ToC link
+	        $(".post-nav-toc a.currentScroll").removeClass("currentScroll");
+		}));
     } // End if
   });
 });

@@ -10,14 +10,14 @@
 
 	// Open Mobile Menu
 	$(".main-navigationControl").click(function(event) {
-		$("body, .site-header").addClass("overlay-isActive");
+		$("html, body, .site-header").addClass("overlay-isActive");
 		$(".site-branding, .main-navigationControl").addClass("isHidden");
 		$(".header-navOverlay, .main-navigation").addClass("isVisible");
 	});
 
 	// Close Mobile Menu
 	$(".navOverlay-heading .icon-close-x").click(function(event) {
-		$("body, .site-header").removeClass("overlay-isActive");
+		$("html, body, .site-header").removeClass("overlay-isActive");
 		$(".site-branding, .main-navigationControl, .navOverlay-heading-menu").removeClass("isHidden");
 		$(".header-navOverlay, .main-navigation, .header-searchFormContainer, .navOverlay-heading-search").removeClass("isVisible");
 	});

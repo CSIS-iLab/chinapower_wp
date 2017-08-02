@@ -1,5 +1,9 @@
 html {
 	box-sizing: border-box;
+
+	&.overlay-isActive {
+		@extend body.overlay-isActive;
+	}
 }
 
 *,
@@ -13,6 +17,8 @@ body {
 
 	&.overlay-isActive {
 		overflow-y: hidden;
+		position: relative;
+		height: 100%;
 	}
 }
 
