@@ -146,9 +146,10 @@ article.post.cardLayout {
 		img {
 			@include breakpoint("medium") {
 				height: 100%;
-				max-height: 276px;
+				max-height: 305px;
 				width: auto;
 				vertical-align: top;
+				object-fit: cover;
 			}
 		}
 	}
