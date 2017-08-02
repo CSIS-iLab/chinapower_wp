@@ -5,7 +5,6 @@
 /*----------  Archive/Data Repo Listing  ----------*/
 
 .post-type-archive-data {
-
 	.page-header {
 		.page-title {
 			text-transform: uppercase;
@@ -22,7 +21,7 @@
 
 	.data-container {
 		background-color: $white;
-		padding: 2rem 0;
+		padding: 2rem 0 3rem 0;
 
 		.filterControls {
 			margin-bottom: 3rem;
@@ -92,7 +91,8 @@
 					border-bottom: 1px solid $gray;
 					border-radius: 0;
 					padding: 0;
-					margin-left: 0.3rem;
+					margin: 0 0 0 0.3rem;
+					background-color: transparent;
 				}
 			}
 		}
@@ -183,6 +183,10 @@
 				@include fontSize(9px);
 			}
 		}
+	}
+
+	.site-footer {
+		margin-top: 0;
 	}
 }
 

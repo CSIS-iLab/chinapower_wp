@@ -74,9 +74,10 @@ header.site-header {
 					}
 				}
 				
-				.logo-mobile {
+				img.logo-mobile {
 					display: block;
-					height: 45px;
+				
+					max-width: 100%;
 
 					@include breakpoint("medium") {
 						display: none;
@@ -122,6 +123,7 @@ header.site-header {
 				.icon {
 					vertical-align: middle;
 					margin-left: 0;
+					font-size: 16px;
 				}
 
 				@include breakpoint("medium") {
@@ -131,13 +133,20 @@ header.site-header {
 				&.isHidden {
 					display: none;
 				}
+
 			}
+			
 		
 			nav.main-navigation {
-				display: none;
+				display: block;
 				position: absolute;
 				top: 5rem;
+
+				@include breakpoint("small") {
 				width: 100%;
+				left: -700px;
+				@include transition(all .25s ease-in-out);
+			}
 
 				@include breakpoint("medium") {
 					display: block;
@@ -149,7 +158,11 @@ header.site-header {
 				}
 
 				&.isVisible {
+					@include breakpoint("small") {
 					display: block;
+					left: 0px;
+					@include transition(all .25s ease-in-out);
+					}
 				}
 
 				ul#primary-menu {
@@ -174,7 +187,7 @@ header.site-header {
 						a {
 							font-family: $font__Hind;
 							@include fontSize(20px);
-							line-height: 1.45;
+							line-height: 2;
 							font-weight: 500;
 							text-decoration: none;
 							color: $white;
@@ -217,8 +230,12 @@ header.site-header {
 						&.menu-item-has-children {
 
 							&.active a {
-								padding-left: 3rem;
+								padding-left: 1rem;
 								transition: none;
+
+								@include breakpoint("medium") {
+									padding-left: 3rem;
+								}
 							}
 
 							a:after {
@@ -241,7 +258,7 @@ header.site-header {
 									&:before {
 										content:'';
 									    position: absolute;
-									    bottom: 0;
+									    bottom: -2px;
 									    left: 50%;
 									    right: 50%;
 									    margin: 0 auto;
@@ -257,14 +274,23 @@ header.site-header {
 
 						// Home Link
 						&.home {
+
 							a {
 								text-transform: none;
+								@include breakpoint("small") {
+									margin-bottom: .5rem;
+								}
 
 								img {
 									display: inline-block;
 									width: 25px;
 									height: 20px;
 									vertical-align: text-top;
+
+									@include breakpoint("small") {
+										width: auto;
+										height: 28px;
+									}
 								}
 							}
 
@@ -276,11 +302,25 @@ header.site-header {
 						// Sub-menus
 						.sub-menu-container {
 							display: none;
-							border-left: 1px solid $blue-gray;
-							margin: 0.5rem 1rem;
-
+							
+							
+								@include breakpoint("small") {
+									display: block;
+									overflow:hidden;
+								    max-height:0;
+								    -webkit-transition:max-height 500ms ease;
+								    -moz-transition:max-height 500ms ease;
+								    -o-transition:max-height 500ms ease;
+								    transition:all 500ms ease;
+								}
 							&.isVisible {
 								display: block;
+								@include breakpoint("small") {
+									border-left: 1px solid $blue-gray;
+									margin: 0rem 1rem 1rem;
+									display: block;
+ 									max-height:300px;
+								}					
 							}
 
 							@include breakpoint("medium") {
@@ -378,7 +418,7 @@ header.site-header {
 				ul.nav-socialContainer {
 					list-style: none;
 					margin-top: 2rem;
-					padding-left: 0.5rem;
+					padding-left: 1rem;
 
 					@include breakpoint("medium") {
 						display: none;
@@ -395,11 +435,20 @@ header.site-header {
 							color: $white;
 							@include fontSize(20px);
 							margin-left: 0;
-							margin-right: 2rem;
+							margin-right: 1.25rem;
 							vertical-align: middle;
 							height: 20px;
-							width: 20px;
+							width: auto;
 							line-height: 20px;
+
+							&::before{
+								@include breakpoint("small") {
+									text-align: left;
+									margin-left: 0px;
+
+								}
+
+							}	
 
 							&.icon-email-share {
 								@include fontSize(18px);
@@ -417,10 +466,18 @@ header.site-header {
 		position: absolute;
 		z-index: 51;
 		top: 5rem;
-		left: 0;
-		right: 0;
+
+		@include breakpoint("small") {
+			display: block;
+			width: 100%;
+		right: -700px;
+
+		@include transition(all .25s ease-in-out);
+	}
 
 		@include breakpoint("medium") {
+			right: 0;
+			left: 0;
 			top: initial;
 			background-color: $off-white;
 			@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
@@ -431,6 +488,12 @@ header.site-header {
 		&.isVisible {
 			display: block;
 			z-index: 200;
+
+			@include breakpoint("small") {
+			position: absolute;
+			right: 0px;
+			@include transition(all .25s ease-in-out);
+		}
 		}
 
 		.header-searchInputContainer {
@@ -438,6 +501,7 @@ header.site-header {
 		}
 
 		.search-form {
+
 			border-bottom: 1px solid $light-blue;
 			width: 100%;
 
@@ -510,17 +574,20 @@ header.site-header {
 		position: fixed;
 		z-index: 50;
 		top: 0;
-		left: 0;
+		left: -700px;
 		right: 0;
 		height: 100%;
 		overflow: hidden;
+		
 
 		&.isVisible {
 			display: block;
+			left: 0px;
+			@include transition(left .25s linear);
 		}
 
 		.navOverlay-heading {
-			background-color: $dark-blue;
+			background-color: #3b5159;
 			padding: 1rem 0;
 			text-align: center;
 			color: $blue-gray;
@@ -530,19 +597,66 @@ header.site-header {
 			letter-spacing: 1px;
 			text-transform: uppercase;
 
+				@include breakpoint("small") {
+					padding: 1rem 0 1rem;
+					height: 60px
+				}
+
 			.icon {
 				color: $white;
 			}
 
-			.navOverlay-heading-menu.isHidden {
-				display: none;
+			.navOverlay-heading-menu, .navOverlay-heading-search { 
+				.col-xs-2:first-of-type, .col-xs-3:first-of-type{
+					padding: 0px;
+					text-align: left;
+					i.icon {
+						margin-left: 0px;
+						width: auto;
+					}
+					
+				}
+				.col-xs-2:last-of-type, .col-xs-3:last-of-type{
+					padding: 0px;
+					text-align: right;
+
+					i.icon {
+						margin-left: 0px;
+						width: auto;
+					}
+				}
+			}
+
+			.icon-close, .icon-close:before {
+				margin: 0px;
+			}
+
+
+			.navOverlay-heading-menu {
+				position: absolute;
+				left: 0px;
+				@include transition(left .25s linear);
+				width: 100%;
+				z-index: 20;
+
+				&.isHidden {
+					position: absolute;
+					left: -700px;
+					@include transition(left .25s linear);
+				}
 			}
 
 			.navOverlay-heading-search {
-				display: none;
+				position: absolute;
+				right: -700px;
+				@include transition(right .25s linear);
+				width: 100%;
+				z-index: 20;
 
 				&.isVisible {
-					display: flex;
+					position: absolute;
+					right: 0px;
+					@include transition(right .25s linear);
 				}
 
 				.search-back {
@@ -605,6 +719,17 @@ header.site-header {
 				height: 100%;
 
 				.main-navigation {padding-top: 0;}
+
+				li.menu-item-has-children {
+						&:hover a {
+							@include breakpoint("medium") {
+									&:before {
+									    bottom: 0px;
+									    
+									}
+							}
+						}
+				}
 				
 			}
 		}
