@@ -14,7 +14,6 @@ table {
 			color: $white;
 			font-family: $font__Roboto;
 			@include fontSize(17px);
-			text-align: left;
 			font-weight: normal;
 
 			@include breakpoint("medium") {
@@ -36,6 +35,11 @@ table {
 
 	th, td {
 		padding: 10px;
+		text-align: left;
+
+		@include breakpoint("medium") {
+			text-align: center;
+		}
 
 		&.colorBG {
 			background-color: $off-white;
@@ -79,5 +83,13 @@ table {
 
 	&.showData td {
 		display: block;
+
+		@include breakpoint("medium") {
+			display: table-cell;
+
+			&.hidden-xs {
+				display: table-cell;
+			}
+		}
 	}
 }

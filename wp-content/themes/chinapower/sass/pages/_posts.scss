@@ -41,6 +41,14 @@
 			margin-left: -50vw;
 			margin-right: -50vw;
 			text-align: center;
+
+			@include breakpoint("medium") {
+				.sharing-shareBtns.isVisible {
+					max-width: $size__container-max-width;
+					margin-left: auto;
+					margin-right: auto;
+				}
+			}
 		}
 
 		/*----------  Interactives  ----------*/

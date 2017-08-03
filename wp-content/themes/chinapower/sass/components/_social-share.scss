@@ -189,6 +189,10 @@
 
 					}
 
+					&:hover {
+						box-shadow: none;
+					}
+
 					&:nth-of-type(5) {
 						flex: 66%;
 
@@ -240,6 +244,10 @@
 
 			.addtoany_list a > span {
 				@include fontSize(16px);
+			}
+
+			.addtoany_list a:hover {
+				box-shadow: none;
 			}
 
 			.a2a_svg:before {
