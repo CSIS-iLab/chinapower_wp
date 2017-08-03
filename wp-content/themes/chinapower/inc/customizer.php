@@ -155,7 +155,9 @@ function chinapower_customize_register( $wp_customize ) {
 	$featuredStats = get_meta_values("'_data_stat1','_data_stat2','_data_stat3'", 'data' );
 	$featuredStats_list = array();
 	foreach($featuredStats as $featuredStat) {
-		$featuredStats_list[$featuredStat->post_id."-".$featuredStat->meta_key] = $featuredStat->meta_value;
+		if($featuredStat->meta_value) {
+			$featuredStats_list[$featuredStat->post_id."-".$featuredStat->meta_key] = $featuredStat->meta_value;
+		}
 	}
 
     // Feature 1
