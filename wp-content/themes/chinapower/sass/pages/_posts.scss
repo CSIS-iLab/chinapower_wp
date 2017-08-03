@@ -44,7 +44,7 @@
 
 			@include breakpoint("medium") {
 				.sharing-shareBtns.isVisible {
-					max-width: $size__container-max-width;
+					max-width: $size__content-max-width;
 					margin-left: auto;
 					margin-right: auto;
 				}
