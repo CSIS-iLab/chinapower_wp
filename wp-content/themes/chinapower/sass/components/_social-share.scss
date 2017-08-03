@@ -90,7 +90,7 @@
 	margin: 0.5rem 0;
 
 	&.overlay-isActive {
-		position: fixed;
+		position: absolute;
 		background-color: $dark-blue;
 		opacity: 0.95;
 		height: 100%;

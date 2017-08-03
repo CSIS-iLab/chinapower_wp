@@ -6,6 +6,8 @@
 ( function( $ ) {
 	if($(".post-nav").length) {
 
+		var shareTopPos;
+
 		// Switch between panels
 		$(".post-nav-menu a, .closePanel").click(function() {
 			var ID = "#"+$(this).attr('id');
@@ -32,6 +34,12 @@
 
 			// Display Content on Mobile
 			if($(".post-nav-content").css("display") != "flex") {
+
+				// Set shareTopPos so we scroll back to where we were on mobile
+				if($(this).attr('id')) {
+					shareTopPos = $(this).offset().top;
+				}
+
 				$(".post-nav-content").toggleClass("isVisible");
 				$("body, html").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
@@ -39,6 +47,14 @@
 				$(".sharing-inline").removeClass("overlay-isActive");
 				$(".sharing-shareBtns").removeClass("isVisible");
 				$(".sharing-openShareBtn").removeClass("isHidden");
+			}
+		});
+
+		// Detect close click & scroll back to position on mobile
+		$(".post-nav-menu .closePanel").click(function() {
+			if(shareTopPos) {
+				window.scrollTo(0, shareTopPos);
+				shareTopPos = '';
 			}
 		});
 
