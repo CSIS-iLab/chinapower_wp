@@ -137,8 +137,8 @@ function chinapower_shortcode_interactive( $atts ) {
 	$sanitizedTitle = sanitize_title($title);
 	$URL = get_permalink()."#".$sanitizedTitle;
 
-	if($atts['toc']) {
-		// $heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
+	if($atts['toc'] === true) {
+		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
 	}
 	
 	if($atts['sharing']) {

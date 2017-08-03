@@ -136,11 +136,25 @@ jQuery(document).ready(function($){
       // Using jQuery's animate() method to add smooth page scroll
       // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
       
+	    function runOnce(fn) { 
+		    var count = 0; 
+		    return function() { 
+		        if(++count == 1)
+		            fn.apply(this, arguments);
+		    };
+		};
+      
       	$('body, html').animate({ scrollTop: scrollTo }, 800, runOnce(function() {
-		     // Add hash (#) to URL when done scrolling (default click behavior)
-	        window.location.hash = hash;
 	        // Remove currentScroll class from ToC link
 	        $(".post-nav-toc a.currentScroll").removeClass("currentScroll");
+
+	        // Update URL Hash
+            if(history.replaceState) {
+			    history.replaceState(null, null, hash);
+			}
+			else {
+			    location.hash = hash;
+			}
 		}));
     } // End if
   });

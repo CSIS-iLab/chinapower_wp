@@ -99,8 +99,7 @@
 		});
 
 		// Active Table of Contents Link on click
-		$(".post-nav-toc").on("click", "li a", function(e) {
-			e.preventdefault(); //stop the default behavior of anchor tag
+		$(".post-nav-toc").on("click", "li a", function() {
 			$(".post-nav-toc a.active").removeClass("active");
 			$(this).addClass("active currentScroll");
 		})

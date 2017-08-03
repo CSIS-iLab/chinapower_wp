@@ -45,7 +45,8 @@
 
 		/*----------  Interactives  ----------*/
 		.interactive-heading {
-			display: none;
+			visibility: hidden;
+			height: 1px;
 		}
 	}
 
