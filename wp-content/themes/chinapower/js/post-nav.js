@@ -33,7 +33,7 @@
 			// Display Content on Mobile
 			if($(".post-nav-content").css("display") != "flex") {
 				$(".post-nav-content").toggleClass("isVisible");
-				$("body").toggleClass("overlay-isActive");
+				$("body, html").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
 				$(".post-nav").toggleClass("overlay-isActive");
 				$(".sharing-inline").removeClass("overlay-isActive");
@@ -50,7 +50,7 @@
 
 			if($(".post-nav").hasClass("overlay-isActive")) {
 				$(".post-nav-content").toggleClass("isVisible");
-				$("body").toggleClass("overlay-isActive");
+				$("body, html").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
 				$(".post-nav").toggleClass("overlay-isActive");
 			}
