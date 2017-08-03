@@ -46,7 +46,8 @@
 		}
 
 		/* Print */
-		&.a2a_s_print:before {
+		&.a2a_s_print:before, 
+		&.a2a_s_printfriendly:before {
 			content: "\e809";
 		}
 
@@ -224,7 +225,9 @@
 						left: calc(100% / 8);
 					}
 
-					&.a2a_button_print .a2a_label {
+					&.a2a_button_print .a2a_label,
+					&.a2a_button_printfriendly .a2a_label
+					{
 						@extend %label;
 						left: calc(100% / 2.15);
 					}
