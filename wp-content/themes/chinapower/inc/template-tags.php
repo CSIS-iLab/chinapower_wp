@@ -193,7 +193,9 @@ function chinapower_relatedContent($rel){
             	echo '<div class="relatedContent-img col-xs-4">';
             	the_post_thumbnail('thumbnail');
             	echo '</div><div class="col-xs-8">';
-            	chinapower_post_categories();
+            	if($post->post_type == "post") {
+            		chinapower_post_categories();
+            	}
             	echo '<span class="relatedContent-title"><a href="'.get_permalink().'">';
             	the_title();
             	echo '</a></span>';

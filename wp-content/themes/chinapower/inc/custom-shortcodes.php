@@ -168,7 +168,7 @@ function chinapower_shortcode_view( $atts ) {
 	);
 
 	if($atts['external']) {
-		$linkTarget = 'target="_blank"';
+		$linkTarget = 'target="_blank" rel="nofollow"';
 		$externalIcon = '<i class="icon icon-external-link"></i>';
 	}
 
