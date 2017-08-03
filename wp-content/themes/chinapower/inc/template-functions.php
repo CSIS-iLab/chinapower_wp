@@ -134,3 +134,11 @@ function chinapower_cpt_search( $query ) {
     return $query;
 }
 add_filter( 'pre_get_posts', 'chinapower_cpt_search' );
+
+// Adds custom post types to tag archives
+function chinapower_cpt_tag_archives( $query ) {
+    if ( $query->is_tag() && $query->is_main_query() ) {
+        $query->set( 'post_type', array( 'post', 'podcasts', 'data' ) );
+    }
+}
+add_action( 'pre_get_posts', 'chinapower_cpt_tag_archives' );
