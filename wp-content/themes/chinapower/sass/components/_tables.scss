@@ -93,4 +93,11 @@ table {
 			}
 		}
 	}
+
+	tfoot td.source {
+		border: 0;
+		text-align: right;
+		color: #999;
+		@include fontSize(9px);
+	}
 }
