@@ -41,7 +41,7 @@ function chinapower_cpt_data() {
 		'label'                 => __( 'Data', 'chinapower' ),
 		'description'           => __( 'Data', 'chinapower' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title'),
+		'supports'              => array( 'title', 'editor'),
 		'taxonomies'            => array( 'category'),
 		'hierarchical'          => false,
 		'public'                => true,

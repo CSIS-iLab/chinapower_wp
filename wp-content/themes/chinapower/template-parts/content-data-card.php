@@ -47,4 +47,7 @@ endif;
 		?>
 	</div>
 </div>
+<?php if(is_single()) { ?>
+<div class="entry-content"><?php the_content(); ?></div>
+<?php } ?>
 <?php echo do_shortcode($featuredStats); ?>
