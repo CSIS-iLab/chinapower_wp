@@ -34,7 +34,7 @@ h1, h2, h3, h4, h5, h6 {
 	line-height: 1.2;
 	font-weight: 400;
 	color: $blue;
-	margin: 0 0 1rem 0;
+	margin: 0.5rem 0 1rem 0;
 }
 
 %h3 {
@@ -169,6 +169,12 @@ dfn, cite, em, i {
 	font-style: italic;
 }
 
+sub, sup {
+	.overlay-isActive & {
+		position: static;
+	}
+}
+
 blockquote {
 	margin: 2rem auto;
 	padding: 1rem;
@@ -282,4 +288,3 @@ a {
 .entry-content a:hover {
 	@include box-shadow(0px, -2px, 0px, 0, $light-gray, true);
 }
-

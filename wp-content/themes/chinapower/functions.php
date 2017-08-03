@@ -108,6 +108,8 @@ add_action( 'widgets_init', 'chinapower_widgets_init' );
 function chinapower_scripts() {
 	wp_enqueue_style( 'chinapower-style', get_stylesheet_uri() );
 
+	wp_enqueue_style( 'chinapower-print-style', get_template_directory_uri() . '/print.css' );
+
 	wp_enqueue_script( 'chinapower-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'chinapower-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -127,7 +129,8 @@ function chinapower_scripts() {
 		clipboard.on('success', function(e) {
 		    var d = document.getElementById('btn-copy');
 			d.className += ' tooltipped';
-		});");
+		});
+	");
 
     wp_enqueue_script('chinapower-fontawesome', 'https://use.fontawesome.com/9c9f828330.js', array(), '20170724', true);
 

@@ -46,7 +46,8 @@
 		}
 
 		/* Print */
-		&.a2a_s_print:before {
+		&.a2a_s_print:before, 
+		&.a2a_s_printfriendly:before {
 			content: "\e809";
 		}
 
@@ -86,10 +87,10 @@
 
 .sharing-inline {
 	text-align: center;
-	margin: 0.5rem 0;
+	margin: 0.5rem 0 2rem 0;
 
 	&.overlay-isActive {
-		position: fixed;
+		position: absolute;
 		background-color: $dark-blue;
 		opacity: 0.95;
 		height: 100%;
@@ -189,6 +190,10 @@
 
 					}
 
+					&:hover {
+						box-shadow: none;
+					}
+
 					&:nth-of-type(5) {
 						flex: 66%;
 
@@ -220,7 +225,9 @@
 						left: calc(100% / 8);
 					}
 
-					&.a2a_button_print .a2a_label {
+					&.a2a_button_print .a2a_label,
+					&.a2a_button_printfriendly .a2a_label
+					{
 						@extend %label;
 						left: calc(100% / 2.15);
 					}
@@ -240,6 +247,10 @@
 
 			.addtoany_list a > span {
 				@include fontSize(16px);
+			}
+
+			.addtoany_list a:hover {
+				box-shadow: none;
 			}
 
 			.a2a_svg:before {

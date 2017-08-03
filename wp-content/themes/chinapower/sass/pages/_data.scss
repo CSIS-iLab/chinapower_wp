@@ -9,14 +9,6 @@
 		.page-title {
 			text-transform: uppercase;
 		}
-
-		@include breakpoint("medium") {
-			p {
-				-moz-column-count: 2;
-				-webkit-column-count: 2;
-				column-count: 2;
-			}
-		}
 	}
 
 	.data-container {
@@ -111,6 +103,7 @@
 				padding-right: 0;
 				padding-bottom: 2rem;
 				border: 0;
+				text-align: left;
 
 				.entry-title {
 					@extend %post-title;
@@ -131,12 +124,14 @@
 		#dataRepo.cards td:not(.cardCol),
 		#dataRepo.cards th {
 			display: none;
+			text-align: left;
 		}
 
 		// Table View
 		#dataRepo.striped td,
 		#dataRepo.striped th {
 			display: table-cell;
+			text-align: left;
 
 			&.cardCol {display: none;}
 		}
@@ -247,6 +242,14 @@
 
 			.icon-external-link {
 				@include fontSize(9px);
+			}
+		}
+
+		.entry-content {
+			margin: 1rem 0;
+
+			p:last-of-type {
+				margin-bottom: 0;
 			}
 		}		
 	}

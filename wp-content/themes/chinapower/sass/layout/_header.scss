@@ -13,7 +13,8 @@ header.site-header {
 	-moz-box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 	box-shadow: 1px 1px 5px 0px rgba($gray,0.6);
 
-	.single-post & {
+	.single-post &,
+	.single-podcasts & {
 		box-shadow: none;
 	}
 
@@ -141,28 +142,24 @@ header.site-header {
 				display: block;
 				position: absolute;
 				top: 5rem;
-
-				@include breakpoint("small") {
 				width: 100%;
 				left: -700px;
 				@include transition(all .25s ease-in-out);
-			}
 
 				@include breakpoint("medium") {
 					display: block;
 					position: relative;
 					top: initial;
+					left: initial;
 					padding-top: 1rem;
 					padding-bottom: 0;
 					width: initial;
 				}
 
 				&.isVisible {
-					@include breakpoint("small") {
 					display: block;
 					left: 0px;
 					@include transition(all .25s ease-in-out);
-					}
 				}
 
 				ul#primary-menu {
@@ -277,20 +274,14 @@ header.site-header {
 
 							a {
 								text-transform: none;
-								@include breakpoint("small") {
-									margin-bottom: .5rem;
-								}
+								margin-bottom: .5rem;
 
 								img {
 									display: inline-block;
-									width: 25px;
-									height: 20px;
+									width: auto;
+									height: 28px;
 									vertical-align: text-top;
 
-									@include breakpoint("small") {
-										width: auto;
-										height: 28px;
-									}
 								}
 							}
 

@@ -9,7 +9,7 @@
 	left: 0;
 	right: 0;
 	background-color: $white;
-	height: 52.5312px;
+	height: 48px;
 	@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 
 	.admin-bar & {
@@ -387,7 +387,7 @@
 			background-color: $dark-blue;
 			opacity: 0.95;
 			height: 100%;
-			top: 40px;
+			top: 38px;
 			left: 0;
 			right: 0;
 			padding-top: 1rem;
@@ -408,7 +408,7 @@
 			}
 
 			.admin-bar & {
-				top: 90px;
+				top: 84px;
 			}
 		}
 	}
