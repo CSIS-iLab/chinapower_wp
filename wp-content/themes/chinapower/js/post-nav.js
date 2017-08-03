@@ -76,7 +76,7 @@
 		$(".post-nav-toc").on("click", "a", function() {
 			if($(".post-nav").hasClass("overlay-isActive")) {
 				$(".post-nav-content").toggleClass("isVisible");
-				$("body").toggleClass("overlay-isActive");
+				$("body, html").toggleClass("overlay-isActive");
 				$(".site-header").toggleClass("postnav-overlay-isActive");
 				$(".post-nav").toggleClass("overlay-isActive");
 				$(".post-nav-menu li").removeClass("active");
