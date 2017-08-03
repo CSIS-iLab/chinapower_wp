@@ -42,6 +42,10 @@
 			margin-right: -50vw;
 			text-align: center;
 
+			.overlay-isActive & {
+				position: static;
+			}
+
 			@include breakpoint("medium") {
 				.sharing-shareBtns.isVisible {
 					max-width: $size__content-max-width;
