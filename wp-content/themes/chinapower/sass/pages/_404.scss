@@ -3,31 +3,65 @@
 ===========================*/
 
 .error-404 {
-	margin-top: 4rem;
-	text-align: center;
+    margin-top: 4rem;
+    text-align: center;
 
-	.page-header {
-		margin-bottom: 2rem;
+    p {
+        text-align: left;
+    }
 
-		img {
-			max-height: 100px;
-		}
-	}
+    .col-sm-6 {
+        padding: 1rem;
+    }
 
-	.error-explanation {
-		@include fontSize(18px);
-	}
+    img {
+        max-width: $size__container-max-width;
+    }
 
-	.error-contactUs {
-		color: $gray;
 
-		a {
-			text-transform: uppercase;
-			color: $red;
 
-			&:hover {
-				color: $dark-blue;
-			}
-		}
-	}
+    .relatedContent-heading {
+        margin-top: 0px;
+    }
+    .relatedContent-post {
+        text-align: left;
+    }
+    .relatedContent-img {
+        max-width: 105px;
+        img {
+            padding-right: 10px;
+        }
+    }
+    .page-header {
+        margin-bottom: 2rem;
+
+        img {
+            max-height: 100px;
+        }
+    }
+
+    .error-explanation {
+        @include fontSize(18px);
+    }
+
+    .error-contactUs {
+        color: $gray;
+
+        a {
+            text-transform: uppercase;
+            color: $red;
+
+            &:hover {
+                color: $dark-blue;
+            }
+        }
+    }
+
+    form {
+        width: 100%;
+
+        input.search-field {
+            width: calc(90% - 80px);
+        }
+    }
 }
