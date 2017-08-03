@@ -99,5 +99,6 @@ table {
 		text-align: right;
 		color: #999;
 		@include fontSize(9px);
+		padding: 5px 0;
 	}
 }
