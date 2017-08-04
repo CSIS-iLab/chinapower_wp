@@ -18,10 +18,11 @@ get_header(); ?>
 				</header><!-- .page-header -->
 
 				<div class="page-content">
-					<img src="/wp-content/themes/chinapower/img/ChinaPower-404-wall.jpg" alt="404 Page Not Found">
-
 					<div class="content-wrapper row">
-						<div class="col-sm-6">
+					<img class="img404" src="/wp-content/themes/chinapower/img/ChinaPower-404-wall.jpg" alt="404 Page Not Found">
+
+					
+						<div class="col-xs-12 col-sm-6">
 							<p><?php esc_html_e( 'We were unable to locate the page you requested. The page may have moved or may no longer be available. We appologize for the inconvenience!', 'chinapower' ); ?></p>
 							<h4>Go to the <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">HOMEPAGE</a></h4>
 
@@ -31,7 +32,7 @@ get_header(); ?>
 							<?php get_search_form();?>
 						</div>
 
-						<div class="col-sm-6">
+						<div class="col-xs-12 col-sm-6">
 							<h3 class="relatedContent-heading">Recent Posts</h3>
 
 							<div class="relatedContent-container >">

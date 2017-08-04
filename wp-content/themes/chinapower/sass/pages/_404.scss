@@ -8,16 +8,26 @@
 
     p {
         text-align: left;
+
+        @include breakpoint("small") {
+            text-align: center;
+        }
     }
 
     .col-sm-6 {
-        padding: 1rem;
+
+        padding-top: 1rem;
+
+        @include breakpoint("medium") {
+            padding: 1rem;
+        }
     }
 
-    img {
-        max-width: $size__container-max-width;
+    .img404 {
+        display: block;
+        width: 100%;
+        height: 100%;
     }
-
 
 
     .relatedContent-heading {
