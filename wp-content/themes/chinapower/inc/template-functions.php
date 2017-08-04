@@ -111,16 +111,6 @@ function is_first_post()
 }
 
 /**
- * Changes the post order for the post page
- */
-function change_posts_order( $query ) {
-    if ( $query->is_home() && $query->is_main_query() ) {
-        $query->set( 'orderby', 'modified' );
-    }
-}
-add_action( 'pre_get_posts', 'change_posts_order' );
-
-/**
  * This function modifies the main WordPress query to include an array of 
  * post types instead of the default 'post' post type.
  *
