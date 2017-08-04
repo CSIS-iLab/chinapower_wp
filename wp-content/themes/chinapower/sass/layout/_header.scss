@@ -400,6 +400,10 @@ header.site-header {
 									vertical-align: text-top;
 									padding-top: 2px;
 									display: inline-block;
+
+									&:hover {
+										cursor: pointer;
+									}
 								}
 							}
 						}
