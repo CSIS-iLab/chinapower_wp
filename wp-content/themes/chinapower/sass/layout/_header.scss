@@ -333,6 +333,7 @@ header.site-header {
 
 								@include breakpoint("medium") {
 									padding: 0;
+									text-align: right;
 								}
 
 								li {
