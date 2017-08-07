@@ -210,3 +210,9 @@ function switch_to_relative_url($html, $id, $caption, $title, $align, $url, $siz
 	return $html;
 }
 add_filter('image_send_to_editor','switch_to_relative_url',10,8);
+
+/**
+ * Do not load WPML CSS
+ */
+define('ICL_DONT_LOAD_LANGUAGE_SELECTOR_CSS', true);
+define('ICL_DONT_LOAD_NAVIGATION_CSS', true);
