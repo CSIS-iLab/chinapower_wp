@@ -175,6 +175,17 @@ sub, sup {
 	}
 }
 
+%blockquote-source {
+	text-align: right;
+	@include fontSize(14px);
+	line-height: 2.07;
+	letter-spacing: 0.4px;
+	color: $dark-gray;
+	text-transform: uppercase;
+	margin-top: 5px;
+	margin-bottom: 0;
+}
+
 blockquote {
 	margin: 2rem auto;
 	padding: 1rem;
@@ -190,14 +201,7 @@ blockquote {
 	}
 
 	.source {
-		text-align: right;
-		@include fontSize(14px);
-		line-height: 2.07;
-		letter-spacing: 0.4px;
-		color: $dark-gray;
-		text-transform: uppercase;
-		margin-top: 5px;
-		margin-bottom: 0;
+		@extend %blockquote-source;
 	}
 }
 
