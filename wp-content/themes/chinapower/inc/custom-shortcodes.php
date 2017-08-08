@@ -12,7 +12,23 @@
  * @return string          Full width embedded content
  */
 function shortcode_fullWidth( $atts , $content = null ) {
-	return "<div class='fullWidthFeatureContent'>".do_shortcode($content)."</div>";
+	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'width' => '' // Max Width of the container
+		),
+		$atts,
+		'fullWidth'
+	);
+
+	if($atts['width']) {
+		$mod_content = '<div style="max-width:'.$atts['width'].'; margin: 0 auto;">'.do_shortcode($content).'</div>';
+	}
+	else {
+		$mod_content = do_shortcode($content);
+	}
+
+	return "<div class='fullWidthFeatureContent'>".$mod_content."</div>";
 }
 add_shortcode( 'fullWidth', 'shortcode_fullWidth' );
 
