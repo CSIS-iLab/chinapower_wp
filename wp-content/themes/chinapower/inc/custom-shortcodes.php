@@ -51,7 +51,7 @@ function chinapower_shortcode_podcast( $atts ) {
 		'podcast'
 	);
 
-	if($atts['sharing']) {
+	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$title = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);
 		$URL = get_the_permalink($atts['id']);
 		$sharing = chinapower_social_share($title, $URL);
@@ -94,7 +94,7 @@ function chinapower_shortcode_data_featured( $atts ) {
 		return false;
 	}
 
-	if($atts['sharing']) {
+	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$title = str_replace(array("[stat]","[/stat]"), "", $content);
 		$sharing = chinapower_social_share($title, $URL);
 	}
@@ -153,11 +153,11 @@ function chinapower_shortcode_interactive( $atts ) {
 	$sanitizedTitle = sanitize_title($title);
 	$URL = get_permalink()."#".$sanitizedTitle;
 
-	if($atts['toc'] === true) {
+	if($atts['toc'] === true || $atts['toc'] == 'true') {
 		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
 	}
 	
-	if($atts['sharing']) {
+	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$sharing = chinapower_social_share($title, $URL);
 	}
 
