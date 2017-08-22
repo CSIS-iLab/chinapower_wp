@@ -23,5 +23,5 @@ To update dependencies, run `composer update`.
 
 ## Compass
 This project uses [Compass](http://compass-style.org/) to compile the SASS files. To run the compiler:
-1. Navigate to `wp-content/themes/defense360` folder
+1. Navigate to `wp-content/themes/chinapower` folder
 2. Run `compass watch`
