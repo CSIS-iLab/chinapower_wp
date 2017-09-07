@@ -229,3 +229,37 @@ function chinapower_shortcode_cpp() {
 
 }
 add_shortcode( 'cpp', 'chinapower_shortcode_cpp' );
+
+/**
+ * Shortcode for displaying the "watch" link in posts
+ * @param  Array $atts 	url
+ * @return String       Formatted "Watch" link
+ */
+function chinapower_shortcode_watch( $atts ) {
+
+	// Attributes
+	$atts = shortcode_atts(
+		array(
+			'url' => '', // URL of Link
+			'text' => 'Watch' // Text to display
+		),
+		$atts,
+		'watch'
+	);
+
+	return '<span class="watch-interview"><a href="'.$atts['url'].'" target="_blank">'.$atts['text'].' <i class="icon icon-play"></i></a></span>';
+
+}
+add_shortcode( 'watch', 'chinapower_shortcode_watch' );
+
+/**
+ * Shortcode for displaying the "watch" link in posts
+ * @param  Array $atts 	url
+ * @return String       Formatted "Watch" link
+ */
+function chinapower_shortcode_info( $atts, $content = null ) {
+
+	return '<div class="info-container"><i class="icon-info icon-info-circled"></i> '.do_shortcode($content).'</div>';
+
+}
+add_shortcode( 'info', 'chinapower_shortcode_info' );
