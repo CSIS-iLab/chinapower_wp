@@ -67,6 +67,165 @@
 			visibility: hidden;
 			height: 1px;
 		}
+
+				/*----------  Watch  ----------*/
+		.watch-interview {
+			display: inline-block;
+
+			a {
+				@extend %dataSource-viewLink;
+
+				.icon {
+					color: $blue-gray;
+					opacity: 0.75;
+					@include fontSize(9px);
+					margin-left: -5px;
+				}
+
+				&:hover {
+					color: $dark-blue;
+
+					.icon {
+						color: $dark-blue;
+						@include transition(all .3s ease-in-out);
+					}
+				}
+			}
+		}
+
+		/*----------  Interviews  ----------*/
+		.expert-container p.topexpert {margin-bottom: 0;}
+		.expert-bio { @include fontSize(14px); }
+		.topexpert {
+			font-weight: bold;
+
+			&.green {color: $secondary-green;}
+			&.blue {color: $secondary-blue;}
+			&.purple {color: $secondary-purple;}
+		}
+
+		/*----------  Info Box  ----------*/
+		.info-container {
+			background-color: $off-white;
+			margin: 2rem auto;
+			padding: 1rem;
+
+			.icon-info {
+				@include fontSize(24px);
+				color: $red;
+			}
+		}
+
+		/*----------  Explore Box  ----------*/
+		.explore-container {
+			background-color: $off-white;
+			margin: 2rem auto;
+			position: relative;
+
+			.explore-img {
+				padding: 0;
+
+				a {
+					display: block;
+					line-height: 0;
+					height: 100%;
+
+					img {
+						object-fit: cover;
+						height: 100%;
+					}
+				}
+			}
+
+			.explore-text {
+				padding: 0.75rem;
+				@include fontSize(16px);
+			}
+
+			/*----------  Explore More  ----------*/
+			.exploreMore {
+				position: absolute;
+			    bottom: 1rem;
+			    right: 2rem;
+			    opacity: 0;
+			    @include transition(all .25s ease-in-out);
+			    padding-right: 50px;
+
+				p {
+					margin-bottom: 0;
+					text-align: right;
+					@include fontSize(14px);
+					font-weight: 600;
+					line-height: 1.33;
+					letter-spacing: 1.1px;
+					text-transform: uppercase;
+
+					a {
+						color: $black;
+						box-shadow: none;
+
+						&:hover {
+							color: $red;
+						}
+					}
+
+					.icon-arrow-long {
+						position: relative;
+						margin-left: 0;
+						vertical-align: top;
+						color: $red;
+						display: inline-block;
+					    width: 16px;
+					    height: 16px;
+					    line-height: 16px;
+					}
+				}
+			}
+
+			&:hover > .exploreMore {
+		    display: block;
+		    opacity: 1;
+		    @include transition(all .25s ease-in-out);
+		    position: absolute;
+		    bottom: 1rem;
+		    right: 2rem;
+		    padding-right: 0px;
+
+		    .icon-arrow-long {
+		    	width: 40px;
+			    @include transition(all .25s ease-in-out);
+			    height: 12px;
+			    line-height: 12px;
+
+			    &:before {
+			    	content: " ";
+				    display: inline-block;
+				    height: 50%;
+				    width: 100%;
+				    display: block;
+				    border-bottom: 2px solid $red;
+				    position: absolute;
+				    top: 25%;
+			    }
+
+			    &:after {
+			    	content: " ";
+				    width: 8px;
+				    height: 8px;
+				    margin-left: 8px;
+				    border: solid #ed392a;
+				    border-width: 0px 2px 2px 0;
+				    display: block;
+				    left: calc(100% - 18px);
+				    padding: 5px;
+				    transform: rotate(-45deg);
+				    -webkit-transform: rotate(-45deg);
+				    position: absolute;
+				    top: 19%;
+			    }
+		    }
+			}
+		}
 	}
 
 	/*----------  Data Sources  ----------*/
