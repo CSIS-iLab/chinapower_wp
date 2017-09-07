@@ -42,6 +42,13 @@
 			margin-right: -50vw;
 			text-align: center;
 
+			.fullWidthInner {
+				margin: 0 auto;  
+				@include breakpoint("small") {
+					max-width: 95% !important;
+				}
+			}
+
 			.overlay-isActive & {
 				position: static;
 			}

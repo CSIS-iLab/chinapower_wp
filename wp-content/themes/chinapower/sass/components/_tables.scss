@@ -16,6 +16,10 @@ table {
 			@include fontSize(17px);
 			font-weight: normal;
 
+			&.show-xs {
+				display: table-cell;
+			}
+
 			@include breakpoint("medium") {
 				display: table-cell;
 			}

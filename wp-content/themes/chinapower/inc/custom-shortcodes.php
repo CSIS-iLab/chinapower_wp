@@ -22,7 +22,7 @@ function shortcode_fullWidth( $atts , $content = null ) {
 	);
 
 	if($atts['width']) {
-		$mod_content = '<div style="max-width:'.$atts['width'].'; margin: 0 auto;">'.do_shortcode($content).'</div>';
+		$mod_content = '<div class="fullWidthInner" style="max-width:'.$atts['width'].';">'.do_shortcode($content).'</div>';
 	}
 	else {
 		$mod_content = do_shortcode($content);
