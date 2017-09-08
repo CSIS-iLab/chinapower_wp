@@ -68,7 +68,7 @@
 			height: 1px;
 		}
 
-				/*----------  Watch  ----------*/
+		/*----------  Watch  ----------*/
 		.watch-interview {
 			display: inline-block;
 
@@ -94,7 +94,7 @@
 		}
 
 		/*----------  Interviews  ----------*/
-		.expert-container p.topexpert {margin-bottom: 0;}
+		.expert-container p.topexpert { margin-bottom: 0; }
 		.expert-bio { @include fontSize(14px); }
 		.topexpert {
 			font-weight: bold;

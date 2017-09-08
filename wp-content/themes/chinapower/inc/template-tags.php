@@ -207,5 +207,8 @@ function chinapower_relatedContent($rel){
 }
 
 function chinapower_citation() {
-	return '<p class="cite-citation">China Power Team. "'.get_the_title().'" China Power. '.get_the_date().'. Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
+	if ( get_the_modified_date() ) {
+		$modified_date = 'Updated ' . get_the_modified_date() . '. ';
+	}
+	return '<p class="cite-citation">China Power Team. "'.get_the_title().'" China Power. '.get_the_date().'. ' . $modified_date . 'Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
 }
