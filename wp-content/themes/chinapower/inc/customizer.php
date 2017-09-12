@@ -17,17 +17,17 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Create Custom Sections
 	$wp_customize->add_section( 'chinapower-theme-settings' , array(
-	    'title'      => __( 'Theme Settings', 'chinapower' ),
-	    'priority'   => 30,
+		'title'      => __( 'Theme Settings', 'chinapower' ),
+		'priority'   => 30,
 	) );
 	$wp_customize->add_section( 'chinapower-hp-features' , array(
-	    'title'      => __( 'Home Page: Features', 'chinapower' ),
-	    'priority'   => 30,
+		'title'      => __( 'Home Page: Features', 'chinapower' ),
+		'priority'   => 30,
 	) );
 
 	// Footer: Site Description
 	$wp_customize->add_setting( 'footer-site' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -42,7 +42,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Footer: Newsletter
 	$wp_customize->add_setting( 'footer-newsletter' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -57,7 +57,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Contact: Newsletter Sign-up
 	$wp_customize->add_setting( 'newsletter-signup' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -72,7 +72,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Contact: Address
 	$wp_customize->add_setting( 'contact-address' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -87,7 +87,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Contact: Email
 	$wp_customize->add_setting( 'contact-email' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -102,7 +102,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Contact: Facebook
 	$wp_customize->add_setting( 'contact-facebook' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -117,7 +117,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Contact: Twitter
 	$wp_customize->add_setting( 'contact-twitter' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 
 	$wp_customize->add_control(
@@ -132,7 +132,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Home: Data Repo Description
 	$wp_customize->add_setting( 'hp-data' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control(
 		'hp-data', 
@@ -145,11 +145,11 @@ function chinapower_customize_register( $wp_customize ) {
 	);
 
 	/*----------  Home Page: Features  ----------*/
-    $featuredPosts_list = array();
+	$featuredPosts_list = array();
 	$args = array('post_type' => 'post', 'numberposts' => '-1', 'suppress_filters' => 0);
 	$featuredPosts = get_posts( $args ); 
 	foreach($featuredPosts as $featuredPost) {
-	    $featuredPosts_list[$featuredPost->ID] = $featuredPost->post_title;
+		$featuredPosts_list[$featuredPost->ID] = $featuredPost->post_title;
 	}
 
 	$featuredStats = get_meta_values("'_data_stat1','_data_stat2','_data_stat3'", 'data' );
@@ -160,16 +160,16 @@ function chinapower_customize_register( $wp_customize ) {
 		}
 	}
 
-    // Feature 1
-    $wp_customize->add_setting( 'hp_feature_1', array('transport' => 'postMessage'));
+	// Feature 1
+	$wp_customize->add_setting( 'hp_feature_1', array('transport' => 'postMessage'));
 	$wp_customize->add_control( 'hp_feature_1', array('label'    => esc_html__( 'Feature #1', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 4, 'choices'  => $featuredPosts_list, ));
 
-    // Feature 2
-    $wp_customize->add_setting( 'hp_feature_2', array('transport' => 'postMessage'));
+	// Feature 2
+	$wp_customize->add_setting( 'hp_feature_2', array('transport' => 'postMessage'));
 	$wp_customize->add_control( 'hp_feature_2', array('label'    => esc_html__( 'Feature #2', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 4, 'choices'  => $featuredPosts_list, ));
 
-    // Feature 3
-    $wp_customize->add_setting( 'hp_feature_3', array('transport' => 'postMessage'));
+	// Feature 3
+	$wp_customize->add_setting( 'hp_feature_3', array('transport' => 'postMessage'));
 	$wp_customize->add_control( 'hp_feature_3', array('label'    => esc_html__( 'Feature #3', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 4, 'choices'  => $featuredPosts_list, ));
 
 	// Featured Statistic
@@ -178,7 +178,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	// Featured Stat: Icon
 	$wp_customize->add_setting( 'hp_stat_icon' , array(
-	    'transport' => 'postMessage',
+		'transport' => 'postMessage',
 	) );
 	$wp_customize->add_control(
 		'hp_stat_icon', 
@@ -191,10 +191,10 @@ function chinapower_customize_register( $wp_customize ) {
 	);
 
 	// Featured Stat: Related Post
-    $wp_customize->add_setting( 'hp_stat_post', array('transport' => 'postMessage'));
+	$wp_customize->add_setting( 'hp_stat_post', array('transport' => 'postMessage'));
 	$wp_customize->add_control( 'hp_stat_post', array('label'    => esc_html__( 'Featured Stat Related Post', 'chinapower' ), 'type'     => 'select', 'section'  => 'chinapower-hp-features', 'priority' => 6, 'choices'  => $featuredPosts_list, ));
 
-    
+	
 
 }
 add_action( 'customize_register', 'chinapower_customize_register' );
@@ -212,10 +212,10 @@ add_action( 'customize_preview_init', 'chinapower_customize_preview_js' );
  */
 
 function wpse_225164_remove_core_sections( $wp_customize ) {
-    $wp_customize->remove_section( 'title_tagline' );
-    $wp_customize->remove_section( 'colors' );
-    $wp_customize->remove_section( 'header_image' );
-    $wp_customize->remove_section( 'background_image' );
+	$wp_customize->remove_section( 'title_tagline' );
+	$wp_customize->remove_section( 'colors' );
+	$wp_customize->remove_section( 'header_image' );
+	$wp_customize->remove_section( 'background_image' );
 }
 
 add_action( 'customize_register', 'wpse_225164_remove_core_sections' );
@@ -227,25 +227,12 @@ add_action( 'customize_register', 'wpse_225164_remove_core_sections' );
 add_action( 'admin_menu', 'wpse_custom_submenu_page' );
 function wpse_custom_submenu_page() {
 	add_submenu_page(
-	    'themes.php',
-	        __( 'HP: Features', 'chinapower' ),
-	        __( 'HP: Features', 'chinapower' ),
-	        'manage_options',
-	        '/customize.php?autofocus[section]=chinapower-hp-features'
-	    );
-}
-
-/**
- * Remove unnecessary links to Header & Background in the Appearance Menu
- */
-add_action('admin_menu', 'remove_unnecessary_wordpress_menus', 999);
-
-function remove_unnecessary_wordpress_menus(){
-    global $submenu;
-    foreach($submenu['themes.php'] as $menu_index => $theme_menu){
-        if($theme_menu[0] == 'Header' || $theme_menu[0] == 'Background')
-        unset($submenu['themes.php'][$menu_index]);
-    }
+		'themes.php',
+		__( 'HP: Features', 'chinapower' ),
+		__( 'HP: Features', 'chinapower' ),
+		'manage_theme_options',
+		'/customize.php?autofocus[section]=chinapower-hp-features'
+	);
 }
 
 /**
@@ -257,18 +244,18 @@ function remove_unnecessary_wordpress_menus(){
  */
 function get_meta_values( $key = '', $type = 'post', $status = 'publish' ) {
 
-    global $wpdb;
+	global $wpdb;
 
-    if( empty( $key ) )
-        return;
+	if( empty( $key ) )
+		return;
 
-    $r = $wpdb->get_results($wpdb->prepare( "
-        SELECT pm.meta_value, pm.post_id, pm.meta_key FROM {$wpdb->postmeta} pm
-        LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
-        WHERE pm.meta_key IN ({$key}) 
-        AND p.post_status = '%s' 
-        AND p.post_type = '%s'
-    ", $status, $type ) );
+	$r = $wpdb->get_results($wpdb->prepare( "
+		SELECT pm.meta_value, pm.post_id, pm.meta_key FROM {$wpdb->postmeta} pm
+		LEFT JOIN {$wpdb->posts} p ON p.ID = pm.post_id
+		WHERE pm.meta_key IN ({$key}) 
+		AND p.post_status = '%s' 
+		AND p.post_type = '%s'
+	", $status, $type ) );
 
-    return $r;
+	return $r;
 }
