@@ -67,6 +67,10 @@
 				}
 
 				.feature-excerpt {
+					@include breakpoint("medium") {
+						align-self: flex-end;
+					}
+					
 					p {
 						color: $white;
 					}
