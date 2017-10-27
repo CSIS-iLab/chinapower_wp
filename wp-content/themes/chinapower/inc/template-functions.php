@@ -145,7 +145,7 @@ function chinapower_algolia_shared_attributes( array $shared_attributes, WP_Post
 	$shared_attributes['permalink'] = wp_make_link_relative( get_post_permalink( $post ) );
 
 	if ( has_post_thumbnail( $post ) ) {
-		$shared_attributes['permalink'] = wp_make_link_relative( get_the_post_thumbnail_url( $post ) );
+		$shared_attributes['images']['thumbnail']['url'] = wp_make_link_relative( get_the_post_thumbnail_url( $post ) );
 	}
 
 	return $shared_attributes;
