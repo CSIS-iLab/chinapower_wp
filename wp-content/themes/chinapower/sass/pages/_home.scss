@@ -122,10 +122,6 @@
     					width: auto;
     					vertical-align: top;
     					object-fit: cover;
-    				@include breakpoint("small") {
-    					height: 200px;
-    				}
-    					
 					}
 					@include breakpoint("small") {
     						margin-bottom: 1rem;

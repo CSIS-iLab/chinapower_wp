@@ -35,14 +35,39 @@ function chinapower_posted_on() {
 }
 endif;
 
+function the_category_filter( $thelist, $separator = '' ) {
+	if ( ! defined( 'WP_ADMIN' ) ) {
+		// Category IDs to exclude.
+		$exclude = array( 346 );
+
+		$exclude2 = array();
+		foreach ( $exclude as $c ) {
+			$exclude2[] = get_cat_name( $c );
+		}
+
+		$cats = explode( $separator, $thelist );
+		$newlist = array();
+		foreach ( $cats as $cat ) {
+			$catname = trim( strip_tags( $cat ) );
+			if ( ! in_array( $catname, $exclude2 ) )
+				$newlist[] = $cat;
+		}
+		return implode( $separator, $newlist );
+	} else {
+		return $thelist;
+	}
+}
+add_filter('the_category','the_category_filter', 10, 2);
 
 if ( ! function_exists( 'chinapower_post_categories' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function chinapower_post_categories() {
+	global $post;
 	/* translators: used between list items, there is a space after the comma */
 	$categories_list = get_the_category_list( esc_html__( ' / ', 'chinapower' ) );
+
 	if ( $categories_list && chinapower_categorized_blog() ) {
 		/* translators: 1: list of categories. */
 		printf( '<span class="cat-links">' . esc_html__( '%1$s', 'chinapower' ) . '</span>', $categories_list ); // WPCS: XSS OK.
@@ -59,11 +84,11 @@ function chinapower_post_categories_home($postID) {
 	$separator = ', ';
 	$output = '';
 	if ( ! empty( $categories ) ) {
-	    foreach( $categories as $category ) {
-	        $output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'chinapower' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
-	    }
-	    $output = trim( $output, $separator );
-	    printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $output ); // WPCS: XSS OK.
+		foreach( $categories as $category ) {
+			$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'chinapower' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+		}
+		$output = trim( $output, $separator );
+		printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $output ); // WPCS: XSS OK.
 	}
 }
 endif;
@@ -185,25 +210,25 @@ function chinapower_icl_post_languages_menu(){
  */
 function chinapower_relatedContent($rel){
 	// Display the title and excerpt of each related post
-    if( is_array( $rel ) && count( $rel ) > 0 ) {
-    	global $post;
-        foreach( $rel as $post ) : setup_postdata($post);
-            if ($post->post_status != 'trash') {
-            	echo '<div class="relatedContent-post row">';
-            	echo '<div class="relatedContent-img col-xs-4">';
-            	the_post_thumbnail('thumbnail');
-            	echo '</div><div class="col-xs-8">';
-            	if($post->post_type == "post") {
-            		chinapower_post_categories();
-            	}
-            	echo '<span class="relatedContent-title"><a href="'.get_permalink().'">';
-            	the_title();
-            	echo '</a></span>';
-                echo '</div></div>';
-            }
-        endforeach;
-        wp_reset_postdata();
-    }
+	if( is_array( $rel ) && count( $rel ) > 0 ) {
+		global $post;
+		foreach( $rel as $post ) : setup_postdata($post);
+			if ($post->post_status != 'trash') {
+				echo '<div class="relatedContent-post row">';
+				echo '<div class="relatedContent-img col-xs-4">';
+				the_post_thumbnail('thumbnail');
+				echo '</div><div class="col-xs-8">';
+				if($post->post_type == "post") {
+					chinapower_post_categories();
+				}
+				echo '<span class="relatedContent-title"><a href="'.get_permalink().'">';
+				the_title();
+				echo '</a></span>';
+				echo '</div></div>';
+			}
+		endforeach;
+		wp_reset_postdata();
+	}
 }
 
 function chinapower_citation() {

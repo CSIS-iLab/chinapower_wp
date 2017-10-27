@@ -31,14 +31,14 @@ add_filter( 'body_class', 'chinapower_body_classes' );
  */
 class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
 {
-    function start_lvl( &$output, $depth = 0, $args = array() ) {
-        $indent = str_repeat("\t", $depth);
-        $output .= "\n$indent<div class='sub-menu-container'><ul class='sub-menu'>\n";
-    }
-    function end_lvl( &$output, $depth = 0, $args = array() ) {
-        $indent = str_repeat("\t", $depth);
-        $output .= "$indent</ul></div>\n";
-    }
+	function start_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "\n$indent<div class='sub-menu-container'><ul class='sub-menu'>\n";
+	}
+	function end_lvl( &$output, $depth = 0, $args = array() ) {
+		$indent = str_repeat("\t", $depth);
+		$output .= "$indent</ul></div>\n";
+	}
 }
 
 /**
@@ -48,13 +48,13 @@ class WPSE_78121_Sublevel_Walker extends Walker_Nav_Menu
  * @return int (Maybe) modified excerpt length.
  */
 function wpdocs_custom_excerpt_length( $length ) {
-    return 45;
+	return 45;
 }
 add_filter( 'excerpt_length', 'wpdocs_custom_excerpt_length', 999 );
 
 // Replaces the excerpt "Read More" text by a link
 function new_excerpt_more($more) {
-       global $post;
+	   global $post;
 	return '<a class="moretag" href="'. get_permalink($post->ID) . '">...</a>';
 }
 add_filter('excerpt_more', 'new_excerpt_more');
@@ -63,14 +63,14 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * Change the_archive_title to use custom text before categories, tags, and other taxonomies.
  */
 add_filter( 'get_the_archive_title', function ($title) {
-    if ( is_category() ) {
+	if ( is_category() ) {
 		$title = single_cat_title('', false );
-    } elseif ( is_tag() ) {
-        $title = single_tag_title( 'Keyword:', false );
-    } elseif ( is_author() ) {
-        $title = '<span class="vcard">' . get_the_author() . '</span>' ;
-    }
-    return $title;
+	} elseif ( is_tag() ) {
+		$title = single_tag_title( 'Keyword:', false );
+	} elseif ( is_author() ) {
+		$title = '<span class="vcard">' . get_the_author() . '</span>' ;
+	}
+	return $title;
 });
 
 /**
@@ -79,15 +79,15 @@ add_filter( 'get_the_archive_title', function ($title) {
 add_filter('the_posts', 'bump_sticky_posts_to_top');
 function bump_sticky_posts_to_top($posts) {
 	if( ! is_admin() && is_category())
-    {
-	    $stickies = array();
-	    foreach($posts as $i => $post) {
-	        if(is_sticky($post->ID)) {
-	            $stickies[] = $post;
-	            unset($posts[$i]);
-	        }
-	    }
-	    return array_merge($stickies, $posts);
+	{
+		$stickies = array();
+		foreach($posts as $i => $post) {
+			if(is_sticky($post->ID)) {
+				$stickies[] = $post;
+				unset($posts[$i]);
+			}
+		}
+		return array_merge($stickies, $posts);
 	}
 	else {
 		return $posts;
@@ -99,15 +99,15 @@ function bump_sticky_posts_to_top($posts) {
  */
 function is_first_post()
 {
-    static $called = FALSE;
+	static $called = FALSE;
 
-    if ( ! $called )
-    {
-        $called = TRUE;
-        return TRUE;
-    }
+	if ( ! $called )
+	{
+		$called = TRUE;
+		return TRUE;
+	}
 
-    return FALSE;
+	return FALSE;
 }
 
 /**
@@ -118,17 +118,38 @@ function is_first_post()
  * @return object $query The amended query.
  */
 function chinapower_cpt_search( $query ) {
-    if ( $query->is_search ) {
-    $query->set( 'post_type', array( 'post', 'podcasts', 'page') );
-    }
-    return $query;
+	if ( $query->is_search ) {
+	$query->set( 'post_type', array( 'post', 'podcasts', 'page') );
+	}
+	return $query;
 }
 add_filter( 'pre_get_posts', 'chinapower_cpt_search' );
 
 // Adds custom post types to tag archives
 function chinapower_cpt_tag_archives( $query ) {
-    if ( $query->is_tag() && $query->is_main_query() ) {
-        $query->set( 'post_type', array( 'post', 'podcasts', 'data' ) );
-    }
+	if ( $query->is_tag() && $query->is_main_query() ) {
+		$query->set( 'post_type', array( 'post', 'podcasts', 'data' ) );
+	}
 }
 add_action( 'pre_get_posts', 'chinapower_cpt_tag_archives' );
+
+/**
+ * Make links pushed to Algolia relative.
+ *
+ * @param array   $shared_attributes Attributes to push.
+ * @param WP_Post $post Post object.
+ * @return array Updated Attributes array.
+ */
+function chinapower_algolia_shared_attributes( array $shared_attributes, WP_Post $post ) {
+	// Here we make sure we push the post's language data to Algolia.
+	$shared_attributes['permalink'] = wp_make_link_relative( get_post_permalink( $post ) );
+
+	if ( has_post_thumbnail( $post ) ) {
+		$shared_attributes['permalink'] = wp_make_link_relative( get_the_post_thumbnail_url( $post ) );
+	}
+
+	return $shared_attributes;
+}
+
+add_filter( 'algolia_post_shared_attributes', 'chinapower_algolia_shared_attributes', 10, 2 );
+add_filter( 'algolia_searchable_post_shared_attributes', 'chinapower_algolia_shared_attributes', 10, 2 );
