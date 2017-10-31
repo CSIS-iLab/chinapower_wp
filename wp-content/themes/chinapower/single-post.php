@@ -14,11 +14,19 @@ endif;
 
 // Data Sources, Further Reading, Related Content
 $dataSources = get_post_meta($postID, '_post_dataSources', true);
+$data_sources_title = get_post_meta($postID, '_post_data_sources_title', true);
 $furtherReading = get_post_meta($postID, '_post_furtherReading', true);
+
+if($data_sources_title) {
+	$data_title = $data_sources_title;
+}
+else {
+	$data_title = "Data Sources";
+}
 
 if($dataSources) {
 	$dataSourcesContentWidth = "col-md-8";
-	$dataSourcesHeader = '<h5 class="dataSources-heading">Data Sources</h5>';
+	$dataSourcesHeader = '<h5 class="dataSources-heading">'. $data_title.'</h5>';
 	$dataSources = apply_filters('meta_content', $dataSources);
 }
 else {

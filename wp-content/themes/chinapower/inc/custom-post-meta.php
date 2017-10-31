@@ -30,9 +30,14 @@ function post_build_meta_box( $post ){
 	// Retrieve current value of fields
 	$current_dataSources = get_post_meta( $post->ID, '_post_dataSources', true );
 	$current_furtherReading = get_post_meta( $post->ID, '_post_furtherReading', true );
+	$current_data_sources_title = get_post_meta( $post->ID, '_post_data_sources_title', true );
 
 	?>
 	<div class='inside'>
+		<h3><?php _e( 'Data Sources Title', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="data_sources_title" value="<?php echo esc_textarea( $current_data_sources_title ); ?>" /> 
+		</p>
 		<h3><?php _e( 'Data Sources', 'chinapower' ); ?></h3>
 		<p>
 			<?php wp_editor( 
@@ -95,6 +100,10 @@ function post_save_meta_box_data( $post_id ){
 	// Data Sources
 	if ( isset( $_REQUEST['dataSources'] ) ) {
 		update_post_meta( $post_id, '_post_dataSources', wp_kses_post( $_POST['dataSources'] ) );
+	}
+	// Data Sources Title.
+	if ( isset( $_REQUEST['data_sources_title'] ) ) {
+		update_post_meta( $post_id, '_post_data_sources_title', wp_kses_post( $_POST['data_sources_title'] ) );
 	}
 	// Further Reading
 	if ( isset( $_REQUEST['furtherReading'] ) ) {
