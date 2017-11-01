@@ -85,7 +85,9 @@ function chinapower_post_categories_home($postID) {
 	$output = '';
 	if ( ! empty( $categories ) ) {
 		foreach( $categories as $category ) {
-			$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'chinapower' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+			if ( 'Interactive' !== $category->name ) {
+				$output .= '<a href="' . esc_url( get_category_link( $category->term_id ) ) . '" alt="' . esc_attr( sprintf( __( 'View all posts in %s', 'chinapower' ), $category->name ) ) . '">' . esc_html( $category->name ) . '</a>' . $separator;
+			}
 		}
 		$output = trim( $output, $separator );
 		printf( '<span class="cat-links">' . esc_html__( 'Topics: %1$s', 'chinapower' ) . '</span>', $output ); // WPCS: XSS OK.
