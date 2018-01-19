@@ -197,7 +197,7 @@ header.site-header {
 							@include breakpoint("medium") {
 								@include fontSize(16px);
 								line-height: 1.81;
-								padding: 0.63rem 1rem;
+								padding: 0.63rem 0.6rem;
 							}
 						}
 
@@ -211,7 +211,8 @@ header.site-header {
 							}
 						}
 
-						&:not(.menu-item-has-children) {
+						&:not(.menu-item-has-children),
+						&.about {
 							&.sibHover a {
 								margin-right: -2rem;
 								transition: none;
@@ -290,10 +291,45 @@ header.site-header {
 							}
 						}
 
+						// Languages Link
+						&.languages {
+							i {
+								color: $light-blue;
+							}
+
+							.sub-menu-container .languages-text {
+								@include breakpoint("medium") {
+									display: inline-block;
+									@include fontSize(14px);
+									color: $gray;
+									margin-right: 2rem;
+								}
+							}
+
+							.sub-menu {
+								display: inline-block;
+							}
+
+							li:first-child {
+								a {
+									@include breakpoint("medium") {
+										border-right: 1px solid $gray;
+										margin-right: 0.75rem !important;
+									}
+								}
+							}
+							li:last-child {
+								a { 
+									@include breakpoint("medium") {
+										margin-left: 0.5rem
+									}
+								}
+							}
+						}
+
 						// Sub-menus
 						.sub-menu-container {
 							display: none;
-							
 							
 								@include breakpoint("small") {
 									display: block;
@@ -325,11 +361,17 @@ header.site-header {
 								@include box-shadow(1px, 1px, 5px, 0px, rgba($gray,0.6));
 							}
 
-							ul.sub-menu {
+							.sub-menu-wrapper {
 								width: $size__container-max-width;
 								margin: 0 auto;
 								padding: 0 0 0 1rem;
+							}
+
+							.languages-text { display: none; }
+
+							ul.sub-menu {
 								list-style: none;
+								margin: 0;
 
 								@include breakpoint("medium") {
 									padding: 0;
@@ -349,7 +391,7 @@ header.site-header {
 
 									a {
 										padding: 0;
-										margin: 0 2rem 0 0;
+										margin-right: 2rem;
 										color: $blue-gray;
 										font-family: $font__Roboto;
 										@include fontSize(18px);
