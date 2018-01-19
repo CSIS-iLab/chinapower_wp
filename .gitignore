@@ -91,7 +91,7 @@ Thumbs.db
 !CHANGELOG.md
 !composer.json
 !.travis.yml
-!d360_travis.enc
+!chinapower_rsa.enc
 !deploy.sh
 
 # track favicon files, if they exist
