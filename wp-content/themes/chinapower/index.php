@@ -22,6 +22,11 @@ get_header(); ?>
 		?>
 			<header class="page-header">
 				<h1 class="page-title"><?php single_post_title(); ?></h1>
+				<?php
+					if ( function_exists('icl_object_id') && null !== ICL_LANGUAGE_CODE && ICL_LANGUAGE_CODE !== 'en' ) {
+						echo '<div class="archive-description">' . esc_html_x( 'Page description for translated all topics pages.', 'Page description for translated all topics pages.', 'chinapower') . '</div>';
+					}
+				?>
 			</header>
 
 			<?php

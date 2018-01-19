@@ -21,7 +21,7 @@ if($data_sources_title) {
 	$data_title = $data_sources_title;
 }
 else {
-	$data_title = "Data Sources";
+	$data_title = esc_html_x( 'Data Sources', 'chinapower' );
 }
 
 if($dataSources) {
@@ -40,7 +40,7 @@ $rel = $related->show( get_the_ID(), true );
 // Width of Further Reading & Related Content
 if($furtherReading) {
 	$relatedContentWidth = "4";
-	$furtherReadingHeader = '<h5 class="furtherReading-heading">Further Reading</h5>';
+	$furtherReadingHeader = '<h5 class="furtherReading-heading"> ' . esc_html_x( 'Further Reading', 'chinapower') . '</h5>';
 }
 else {
 	$relatedContentWidth = "12";
@@ -49,7 +49,7 @@ else {
 
 if(is_array($rel) && count($rel) > 0) {
 	$furtherReadingWidth = "8";
-	$relatedContentHeader = '<h6 class="relatedContent-heading '.$noMargin.'">Related Content</h6>';
+	$relatedContentHeader = '<h6 class="relatedContent-heading '.$noMargin.'">' . esc_html_x( 'Related Content', 'chinapower' ) . '</h6>';
 }
 else {
 	$furtherReadingWidth = "12";
@@ -78,7 +78,7 @@ else {
 						</div>
 						<div class="post-nav-jumpto">
 							<?php the_title('<span class="post-title">','</span>'); ?>
-							<span class="post-nav-toTop"><a href="#page">Top <i class="icon icon-up"></i></a></span>
+							<span class="post-nav-toTop"><a href="#page"><?php esc_html_e( 'Top', 'chinapower' ); ?> <i class="icon icon-up"></i></a></span>
 							<ul class="post-nav-toc"></ul>
 						</div>
 						<div class="post-translate"><?php echo chinapower_icl_post_languages(); ?></div>
@@ -86,8 +86,8 @@ else {
 					<div class="post-nav-menu col-xs-12 col-md-4">
 						<i class="icon icon-close-x closePanel" aria-label="Close Menu"></i>
 						<ul>
-							<li><a id="share" data-panel="post-share-buttons">Share</a></li>
-							<li><a id="jump" data-panel="post-nav-jumpto">Jump To</a></li>
+							<li><a id="share" data-panel="post-share-buttons"><?php esc_html_e( 'Share', 'chinapower' ); ?></a></li>
+							<li><a id="jump" data-panel="post-nav-jumpto"><?php esc_html_e( 'Jump to', 'chinapower' ); ?></a></li>
 							<?php echo chinapower_icl_post_languages_menu(); ?>
 						</ul>
 					</div>
@@ -121,9 +121,9 @@ else {
 							<?php echo $dataSourcesHeader.$dataSources; ?>
 						</div>
 						<div class="col-xs-12 col-md-4">
-							<h6 class="cite-heading <?php echo $noMargin; ?>">Cite This Page</h6>
+							<h6 class="cite-heading <?php echo $noMargin; ?>"><?php esc_html_x( 'Cite this Page', 'Page Citation Header', 'chinapower') ?></h6>
 							<?php echo chinapower_citation(); ?>
-							<button class="btn btn-red tooltipped-n" id="btn-copy" data-clipboard-target=".cite-citation" aria-label="Copied!">Copy<i class="icon icon-copylink-share"></i></button>
+							<button class="btn btn-red tooltipped-n" id="btn-copy" data-clipboard-target=".cite-citation" aria-label="<?php esc_html_e( 'Copied!', 'chinapower'); ?>"><?php esc_html_e( 'Copy', 'chinapower'); ?><i class="icon icon-copylink-share"></i></button>
 						</div>
 					</div>
 				</div>
