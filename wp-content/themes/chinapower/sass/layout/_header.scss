@@ -306,7 +306,10 @@ header.site-header {
 							}
 
 							.sub-menu {
-								display: inline-block;
+								display: block;
+								@include breakpoint("medium") {
+									display: inline-block;
+								}
 							}
 
 							li:first-child {
