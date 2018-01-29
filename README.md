@@ -1,8 +1,13 @@
 # chinapower_wp
 WordPress theme for [ChinaPower](https://chinapower.csis.org). Developed from the [_s starter theme](http://underscores.me).
 
-## Development
+## Contributing
+1. New features & updates should be created on individual branches. Branch from `master`
+2. When ready, submit pull request back into `master`. Rebase the feature branch first.
+3. TravisCI will automatically deploy changes on `master` to the staging site
+4. After reviewing your work on the staging site, use WPEngine to move from staging to live
 
+## Development
 ### Composer
 This project uses [Composer](https://getcomposer.org/) to manage WordPress plugin dependencies.
 To update dependencies, run `composer update`.
