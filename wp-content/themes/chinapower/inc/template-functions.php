@@ -155,3 +155,11 @@ function chinapower_algolia_shared_attributes( array $shared_attributes, WP_Post
 
 add_filter( 'algolia_post_shared_attributes', 'chinapower_algolia_shared_attributes', 10, 2 );
 add_filter( 'algolia_searchable_post_shared_attributes', 'chinapower_algolia_shared_attributes', 10, 2 );
+
+/**
+ * Disable WPML from redirecting the home URL to the language specific home page.
+ */
+function chinapower_wpml_home_url( $home_url, $url, $path, $orig_scheme, $blog_id ) {
+    return $url;
+}
+add_filter( 'wpml_get_home_url', 'chinapower_wpml_home_url', 99, 5 );
