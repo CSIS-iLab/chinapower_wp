@@ -197,7 +197,7 @@ header.site-header {
 							@include breakpoint("medium") {
 								@include fontSize(16px);
 								line-height: 1.81;
-								padding: 0.63rem 0.6rem;
+								padding: 0.63rem 1rem;
 							}
 						}
 
@@ -211,8 +211,7 @@ header.site-header {
 							}
 						}
 
-						&:not(.menu-item-has-children),
-						&.about {
+						&:not(.menu-item-has-children) {
 							&.sibHover a {
 								margin-right: -2rem;
 								transition: none;
@@ -227,7 +226,7 @@ header.site-header {
 						// Item is Parent Item
 						&.menu-item-has-children {
 
-							&.active a {
+							&.active:not(.languages) > a {
 								padding-left: 1rem;
 								transition: none;
 
@@ -365,6 +364,7 @@ header.site-header {
 								width: $size__container-max-width;
 								margin: 0 auto;
 								padding: 0 0 0 1rem;
+								text-align: right;
 							}
 
 							.languages-text { display: none; }
