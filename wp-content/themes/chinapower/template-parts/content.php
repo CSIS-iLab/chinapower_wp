@@ -27,7 +27,7 @@ remove_filter( 'the_excerpt', 'wpautop' );
 	?>
 		<div class="sticky-container col-xs-12 col-md-8">
 			<header class="entry-header">
-				<span class="isFeatured">Featured</span>
+				<span class="isFeatured"><?php esc_html_e( 'Featured', 'chinapower' ) ?></span>
 				<?php
 				chinapower_post_categories();
 				if ( is_singular() ) :
@@ -55,6 +55,6 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		</div><!-- .entry-content -->
 	<?php } ?>
 	<footer class="entry-footer learnMore">
-		<p><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark">Learn More <i class="icon-arrow-long"></i></a></p>
+		<p><a href="<?php esc_url( the_permalink() ); ?>" rel="bookmark"><?php esc_html_e( 'Learn More', 'chinapower' ) ?> <i class="icon-arrow-long"></i></a></p>
 	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->

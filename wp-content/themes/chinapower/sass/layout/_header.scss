@@ -364,10 +364,14 @@ header.site-header {
 							}
 
 							.sub-menu-wrapper {
-								width: $size__container-max-width;
+								max-width: $size__container-max-width;
 								margin: 0 auto;
 								padding: 0 0 0 1rem;
 								text-align: right;
+
+								.home & {
+									max-width: $size__hp-container-max-width
+								}
 							}
 
 							.languages-text { display: none; }
