@@ -378,6 +378,25 @@
 			position: absolute;
 			@include fontSize(16px);
 			text-transform: uppercase;
+
+			&.active {
+				text-align: center;
+				@include fontSize(24px);
+				padding-top: 50%;
+
+				@include breakpoint("medium") {
+					text-align: initial;
+					@include fontSize(16px);
+					padding-top: initial;
+				}
+
+				a {
+					display: block;
+					@include breakpoint("medium") {
+						display: inline;
+					}
+				}
+			}
 		}
 
 		div.active {
