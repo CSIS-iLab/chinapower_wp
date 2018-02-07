@@ -44,8 +44,12 @@
 
 			.fullWidthInner {
 				margin: 0 auto;  
-				@include breakpoint("small") {
-					max-width: 95% !important;
+				
+				// On small screens, we always want to override the inline styles and set a max width of less than the full width.
+				&[style] {
+					@media screen and (max-width: $breakpoint-medium) {
+						max-width: 90% !important;
+					}
 				}
 			}
 
