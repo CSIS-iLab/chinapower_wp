@@ -89,6 +89,7 @@ function interactive_build_meta_box( $post ){
 	$current_height = get_post_meta( $post->ID, '_interactive_height', true );
 	$current_iframeResizeDisabled = get_post_meta( $post->ID, '_interactive_iframeResizeDisabled', true );
 	$current_fallbackImgDisabled = get_post_meta( $post->ID, '_interactive_fallbackImgDisabled', true );
+	$current_twitter_pic_url = get_post_meta( $post->ID, '_data_twitter_pic_url', true );
 
 	?>
 	<div class='inside'>
@@ -113,6 +114,10 @@ function interactive_build_meta_box( $post ){
 		<h3><?php _e( 'Fallback Image', 'chinapower' ); ?></h3>
 		<p>
 			<input type="checkbox" name="fallbackImgDisabled" value="1" <?php checked( $current_fallbackImgDisabled, '1' ); ?> /> Disable fallback image on mobile?
+		</p>
+		<h3><?php esc_html_e( 'Twitter Pic URL', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="twitter_pic_url" value="<?php echo esc_url( $current_twitter_pic_url ); ?>" />
 		</p>
 
 	</div>
@@ -164,6 +169,10 @@ function interactive_save_meta_box_data( $post_id ){
 	}
 	else {
 		update_post_meta( $post_id, '_interactive_fallbackImgDisabled', '');
+	}
+	// Twitter Pic
+	if ( isset( $_REQUEST['twitter_pic_url'] ) ) {
+		update_post_meta( $post_id, '_data_twitter_pic_url', esc_url( $_POST['twitter_pic_url'] ) );
 	}
 
 }

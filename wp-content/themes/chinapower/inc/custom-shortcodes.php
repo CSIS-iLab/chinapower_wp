@@ -141,6 +141,7 @@ function chinapower_shortcode_interactive( $atts ) {
 	$width = get_post_meta( $atts['id'], '_interactive_width', true );
 	$height = get_post_meta( $atts['id'], '_interactive_height', true );
 	$iframeResizeDisabled = get_post_meta( $atts['id'], '_interactive_iframeResizeDisabled', true );
+	$iframe_twitter_pic_url = get_post_meta( $atts['id'], '_data_twitter_pic_url', true );
 
 	// Fallback Image
 	$fallbackImgDisabled = get_post_meta( $atts['id'], '_interactive_fallbackImgDisabled', true );
@@ -158,7 +159,7 @@ function chinapower_shortcode_interactive( $atts ) {
 	}
 	
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
-		$sharing = chinapower_social_share($title, $URL);
+		$sharing = chinapower_social_share($title, $URL, $iframe_twitter_pic_url);
 	}
 
 	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg, $iframeResizeDisabled).$sharing;
@@ -197,11 +198,12 @@ add_shortcode( 'view', 'chinapower_shortcode_view' );
  * Adds inline social sharing component to podcasts, stats, and interactives embedded in posts via shortcode
  * @param  string $title Title to be used by social media
  * @param  string $URL   URL to be used by social media
+ * @param  string $twitter_pic_url Picture to be shared on Twitter.
  * @return string        HTML of share button
  */
-function chinapower_social_share($title = "", $URL = "") {
+function chinapower_social_share($title = "", $URL = "", $twitter_pic_url = null) {
 	$shareArgs = array(
-		'linkname' => $title,
+		'linkname' => $title . ' ' . $twitter_pic_url,
 		'linkurl' => $URL
 	);
 
