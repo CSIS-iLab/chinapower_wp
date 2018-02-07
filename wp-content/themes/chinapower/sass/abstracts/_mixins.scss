@@ -32,8 +32,8 @@ $browser-context: 16px;
 // Breakpoints
 $breakpoint-xlarge: 90em;
 $breakpoint-large: 64em;
-$breakpoing-medium: 48em;
-$breakpoing-small: 35em;
+$breakpoint-medium: 48em;
+$breakpoint-small: 35em;
 $breakpoint-xsmall: 25em;
 
 @mixin breakpoint($break) {
@@ -44,10 +44,10 @@ $breakpoint-xsmall: 25em;
 		@media screen and (min-width:$breakpoint-large) { @content; }
 	}
 	@else if $break == medium {
-		@media screen and (min-width: $breakpoing-medium) { @content; }
+		@media screen and (min-width: $breakpoint-medium) { @content; }
 	}
 	@else if $break == small {
-		@media screen and (max-width: $breakpoing-small) { @content; }
+		@media screen and (max-width: $breakpoint-small) { @content; }
 	}
 	@else if $break == xsmall {
 		@media screen and (max-width: $breakpoint-xsmall) { @content; }
