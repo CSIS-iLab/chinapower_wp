@@ -222,6 +222,8 @@ function chinapower_relatedContent($rel){
 				echo '</div><div class="col-xs-8">';
 				if($post->post_type == "post") {
 					chinapower_post_categories();
+				} elseif ( $post->post_type === "podcasts") {
+					echo '<span class="cat-links"><a href="' . get_post_type_archive_link( $post->post_type ) . '">' . $post->post_type . '</a></span>';
 				}
 				echo '<span class="relatedContent-title"><a href="'.get_permalink().'">';
 				the_title();
