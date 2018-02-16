@@ -106,5 +106,38 @@
 				});
 			}
 		});
+
+		editor.addButton('fullWidth', {
+	        text: 'FullWidth',
+	        icon: null,
+	        tooltip: 'Insert Full Width',
+	        onclick: function() {
+	            editor.windowManager.open( {
+	                title: 'Insert Full Width',
+	                width: 600,
+	                minHeight: 200,
+	                body: [
+		                {
+		                    type: 'textbox',
+		                    multiline: false,
+		                    name: 'maxWidth',
+		                    label: 'Max Width',
+		                    placeholder: 'Insert Max Width'
+		                },
+		                {
+							type: 'textbox',
+							multiline: true,
+							name: 'content',
+							label: 'Full Width Content',
+							placeholder: 'Insert the content you want to display at full width here.',
+							minHeight: 125
+						}
+	                ],
+	                onsubmit: function( e ) {
+	                    editor.insertContent( '[fullWidth width="' + e.data.maxWidth + '"][/fullWidth]');
+	                }
+	            });
+	        }
+	    });
 	});
 })();
