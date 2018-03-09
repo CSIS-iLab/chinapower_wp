@@ -10,7 +10,6 @@ $postID = get_the_ID();
 // Post Thumbnail
 $featured_img_caption = '';
 if ( has_post_thumbnail() ) {
-	echo "foobar";
 	$featured_img_url = get_the_post_thumbnail_url();
 	$featured_img_caption = '<div class="post-featured-caption content-wrapper">' . esc_html_x( 'Photo Credit: ', 'chinapower' ) . get_the_post_thumbnail_caption() . '</div>';
 }
