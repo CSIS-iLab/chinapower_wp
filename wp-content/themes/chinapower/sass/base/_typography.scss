@@ -145,6 +145,12 @@ body.single, body.page {
 	h6 { @extend %h6 }
 }
 
+%captions {
+	@include fontSize(14px);
+	color: $color__text-captions;
+	line-height: 1.2;
+}
+
 /*============================
 =            Copy            =
 ============================*/

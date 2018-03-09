@@ -8,9 +8,12 @@ get_header();
 $postID = get_the_ID();
 
 // Post Thumbnail
-if (has_post_thumbnail()) :
+$featured_img_caption = '';
+if ( has_post_thumbnail() ) {
+	echo "foobar";
 	$featured_img_url = get_the_post_thumbnail_url();
-endif;
+	$featured_img_caption = '<div class="post-featured-caption content-wrapper">' . esc_html_x( 'Photo Credit: ', 'chinapower' ) . get_the_post_thumbnail_caption() . '</div>';
+}
 
 // Data Sources, Further Reading, Related Content
 $dataSources = get_post_meta($postID, '_post_dataSources', true);
@@ -98,18 +101,19 @@ else {
 				<?php
 					the_content( sprintf(
 						/* translators: %s: Name of current post. */
-						wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'defense360' ), array( 'span' => array( 'class' => array() ) ) ),
+						wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'chinapower' ), array( 'span' => array( 'class' => array() ) ) ),
 						the_title( '<span class="screen-reader-text">"', '"</span>', false )
 					) );
 
 					wp_link_pages( array(
-						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'defense360' ),
+						'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'chinapower' ),
 						'after'  => '</div>',
 					) );
 				?>
 			</div><!-- .entry-content -->
 
 			<footer class="entry-footer">
+				<?php echo $featured_img_caption; ?>
 				<!-- Tags -->
 				<div class="post-tags-container content-wrapper">
 					<?php chinapower_post_tags(); ?>
