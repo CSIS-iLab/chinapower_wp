@@ -125,13 +125,13 @@
 		                    placeholder: 'Insert Max Width'
 		                },
 		                {
-							type: 'textbox',
-							multiline: true,
-							name: 'content',
-							label: 'Full Width Content',
-							placeholder: 'Insert the content you want to display at full width here.',
-							minHeight: 125
-						}
+												type: 'textbox',
+												multiline: true,
+												name: 'content',
+												label: 'Full Width Content',
+												placeholder: 'Insert the content you want to display at full width here.',
+												minHeight: 125
+										}
 	                ],
 	                onsubmit: function( e ) {
 	                    editor.insertContent( '[fullWidth width="' + e.data.maxWidth + '"][/fullWidth]');
@@ -139,5 +139,37 @@
 	            });
 	        }
 	    });
+
+			editor.addButton('view-post', {
+						text: 'View Post',
+						icon: null,
+						tooltip: 'Insert View Post Container',
+						onclick: function() {
+								editor.windowManager.open( {
+										title: 'Insert View Post Container',
+										width: 600,
+										minHeight: 200,
+										body: [
+											{
+													type: 'textbox',
+													multiline: false,
+													name: 'title',
+													label: 'Title',
+													placeholder: 'LEARN MORE'
+											},
+											{
+													type: 'textbox',
+													multiline: false,
+													name: 'id',
+													label: 'Post ID'
+											}
+										],
+										onsubmit: function( e ) {
+									  		editor.insertContent( '[view-post title="' + e.data.title + '" id="' + e.data.id + '"]' );
+										}
+								});
+						}
+			});
+
 	});
 })();

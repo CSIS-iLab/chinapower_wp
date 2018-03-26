@@ -157,7 +157,7 @@ function chinapower_shortcode_interactive( $atts ) {
 	if($atts['toc'] === true || $atts['toc'] == 'true') {
 		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
 	}
-	
+
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$sharing = chinapower_social_share($title, $URL, $iframe_twitter_pic_url);
 	}
@@ -265,3 +265,33 @@ function chinapower_shortcode_info( $atts, $content = null ) {
 
 }
 add_shortcode( 'info', 'chinapower_shortcode_info' );
+
+/**
+ * Adds styled link to specific post
+ * @param  array $atts
+ * @param  string $content Embedded content
+ * @return string          Styled Link
+ */
+function chinapower_shortcode_viewpost( $atts ) {
+
+	// Attributes
+	$atts = shortcode_atts(
+			array(
+				'id' => null,
+				'title' => null
+			),
+			$atts,
+			'view-post'
+		);
+		$title = $atts['title'];
+		$post_url = get_the_permalink($atts['id']);
+		$post_title = get_the_title($atts['id']);
+
+		if (empty($title)) {
+			$title = 'LEARN MORE';
+		};
+
+		return "<aside class='view-post'><a href='" . esc_url( $post_url ) . "'>" . esc_attr__( $title, 'chinapower' ) . '</a><p>"' . esc_attr__( $post_title, 'chinapower' ) . '"</p></aside>';
+
+}
+add_shortcode( 'view-post', 'chinapower_shortcode_viewpost' );
