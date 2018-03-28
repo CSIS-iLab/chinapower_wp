@@ -12,7 +12,7 @@
 		.featureImg {
 			@extend %post-featureImg;
 
-			.entry-title { 
+			.entry-title {
 				@extend %post-featureImgTitle;
 				padding: 0 1rem;
 
@@ -43,8 +43,8 @@
 			text-align: center;
 
 			.fullWidthInner {
-				margin: 0 auto;  
-				
+				margin: 0 auto;
+
 				// On small screens, we always want to override the inline styles and set a max width of less than the full width.
 				&[style] {
 					@media screen and (max-width: $breakpoint-medium) {
@@ -117,6 +117,34 @@
 			.icon-info {
 				@include fontSize(24px);
 				color: $red;
+			}
+		}
+
+		/*----------  View-post Box  ----------*/
+		aside.view-post {
+			width: 100%;
+			background-color: $off-white;
+			border-top: $blue 3px solid;
+			padding: 25px 30px;
+			float: right;
+			margin: 10px;
+
+			@include breakpoint("medium") {
+				width: 34%;
+			}
+
+
+			span.view-post-title {
+				color: $blue;
+				font-weight: bold;
+				margin-right: auto;
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			span.view-post-content {
+				color: $black;
+				font-size: 1.25rem;
 			}
 		}
 
