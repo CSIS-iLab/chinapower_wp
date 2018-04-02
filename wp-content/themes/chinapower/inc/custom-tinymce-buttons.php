@@ -51,14 +51,25 @@ if ( !function_exists( 'chinapower_tinymce_extra_vars' ) ) {
 	function chinapower_tinymce_extra_vars() {
 
 		// Get list of Podcasts
-		$args = array( 'posts_per_page' => -1, 'post_type' => 'podcasts' );
-		$podcasts = get_posts( $args );
+		$args = array(
+			'posts_per_page' => -1,
+			'post_type' => array('podcasts', 'post'),
+			'orderby' => 'title',
+			'order' => 'asc'
+		);
+		$posts = get_posts( $args );
 		$podcastList = "";
-		foreach($podcasts as $podcast) {
-			$podcastList .= "{text: '".$podcast->post_title."', value: '".$podcast->ID."'},";
+		$postList = "";
+		foreach($posts as $post) {
+			$format = "{text: '" .  esc_html($post->post_title) . "', value: '" . $post->ID . "'},";
+			if ( $post->post_type == 'podcasts' ) {
+				$podcastList .= $format;
+			} elseif ( $post->post_type == 'post' ) {
+				$postList .= $format;
+			}
 		}
-
 		$podcastList = "[".$podcastList."]";
+		$postList = "[".$postList."]";
 
 		?>
 		<style>i.mce-i-icon {
@@ -79,7 +90,8 @@ if ( !function_exists( 'chinapower_tinymce_extra_vars' ) ) {
 				)
 				);
 			?>;
-			var tinyMCE_podcasts = <?php echo $podcastList; ?>
+			var tinyMCE_podcasts = <?php echo $podcastList; ?>;
+			var tinyMCE_posts = <?php echo $postList; ?>;
 		</script><?php
 	}
 }

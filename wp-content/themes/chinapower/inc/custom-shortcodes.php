@@ -278,7 +278,7 @@ function chinapower_shortcode_viewpost( $atts ) {
 	$atts = shortcode_atts(
 			array(
 				'id' => null,
-				'title' => null
+				'title' => 'Learn More'
 			),
 			$atts,
 			'view-post'
@@ -287,11 +287,8 @@ function chinapower_shortcode_viewpost( $atts ) {
 		$post_url = get_the_permalink($atts['id']);
 		$post_title = get_the_title($atts['id']);
 
-		if (empty($title)) {
-			$title = 'LEARN MORE';
-		};
 
-		return "<aside class='view-post'><a href='" . esc_url( $post_url ) . "'><span class='view-post-title'>" . esc_attr__( $title, 'chinapower' ) . '</span><span class="view-post-content">"' . esc_attr__( $post_title, 'chinapower' ) . '"</span></a></aside>';
+		return "<aside class='view-post'><a href='" . esc_url( $post_url ) . "'><span class='view-post-verb'>" . esc_attr__( $title, 'chinapower' ) . '</span><span class="view-post-title">"' . esc_attr__( $post_title, 'chinapower' ) . '"</span></a></aside>';
 
 }
 add_shortcode( 'view-post', 'chinapower_shortcode_viewpost' );
