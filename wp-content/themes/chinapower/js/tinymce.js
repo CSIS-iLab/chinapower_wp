@@ -69,7 +69,11 @@
 					},
 					],
 					onsubmit: function( e ) {
-						editor.insertContent( '[view url="'+e.data.url+'" external="'+e.data.external+'"]');
+						var externalAttr = ''
+						if ( e.data.external ) {
+							externalAttr = ' external="' + e.data.external + '"'
+						}
+						editor.insertContent( '[view url="'+e.data.url+'"' + externalAttr + ']');
 					}
 				});
 			}

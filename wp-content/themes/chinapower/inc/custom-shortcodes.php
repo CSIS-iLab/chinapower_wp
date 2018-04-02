@@ -178,7 +178,7 @@ function chinapower_shortcode_view( $atts ) {
 	$atts = shortcode_atts(
 		array(
 			'url' => '', // URL of Link
-			'external' => '', // Is this an external link
+			'external' => false, // Is this an external link
 		),
 		$atts,
 		'view'
