@@ -59,7 +59,7 @@
 				</div>
 			</div>
 			<div class="footer-copyright content-wrapper">
-				<p>&copy; <?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved.</p>
+				<p>&copy; <?php echo date('Y'); ?> by the Center for Strategic and International Studies. All rights reserved. | <a href="https://www.csis.org/privacy-policy" target="_blank" rel="nofollow">Privacy Policy</a></p>
 			</div>
 		</div>
 	</footer><!-- #colophon -->

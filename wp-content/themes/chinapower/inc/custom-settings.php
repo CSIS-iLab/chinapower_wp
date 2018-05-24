@@ -48,9 +48,21 @@ function chinapower_general_section() {
         )  
     ); 
 
+    add_settings_field(
+        'chinapower_stitcher_url', // Option ID
+        'Stitcher URL', // Label
+        'chinapower_textbox_callback', // !important - This is where the args go!
+        'general', // Page it will be displayed (General Settings)
+        'chinapower_settings_section', // Name of our section
+        array( // The $args
+            'chinapower_stitcher_url' // Should match Option ID
+        )  
+    ); 
+
     register_setting('general','chinapower_podcast_desc_long', 'esc_attr');
     register_setting('general','chinapower_podcast_desc_short', 'esc_attr');
     register_setting('general','chinapower_itunesURL', 'esc_attr');
+    register_setting('general','chinapower_stitcher_url', 'esc_url');
 }
 
 function chinapower_section_options_callback() { // Section Callback

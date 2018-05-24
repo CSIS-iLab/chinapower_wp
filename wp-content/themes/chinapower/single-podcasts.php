@@ -88,7 +88,10 @@ $fullTitle = get_the_title().': '.$subtitle;
 					<div class="podcastDesc-container col-xs-12 col-md-<?php echo $podcastDescWidth; ?>">
 						<h5 class="podcastDesc-heading">ChinaPower Podcast</h5>
 						<p><?php echo $podcastDesc; ?></p>
-						<a href="<?php echo $itunesURL; ?>" target="_blank" rel="noopener"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
+						<a href="<?php echo $itunesURL; ?>" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
+						<?php if ( get_option( 'chinapower_stitcher_url' ) ) {
+						echo '<a href="' . get_option("chinapower_stitcher_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/stitcher-badge.svg" alt="ChinaPower Podcast on Stitcher" /></a>';
+					} ?>
 					</div>
 					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
 						<?php echo $relatedContentHeader; ?>
