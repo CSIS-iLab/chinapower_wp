@@ -60,11 +60,8 @@ function chinapower_shortcode_podcast( $atts ) {
 
 	$titleText = null;
 	if($atts['title'] === true || $atts['title'] == 'true') {
-		echo 'true';
 		$titleText = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);
 	}
-
-	print_r($atts);
 
 	if($atts['soundcloud']) {
 		return chinapower_podcast_display_iframe($atts['soundcloud'], $titleText).$sharing;
