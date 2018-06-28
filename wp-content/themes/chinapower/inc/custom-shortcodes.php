@@ -45,7 +45,8 @@ function chinapower_shortcode_podcast( $atts ) {
 		array(
 			'id' => '', // ID of Podcast post
 			'soundcloud' => '', // ID of Soundcloud track
-			'sharing' => true // Include share component
+			'sharing' => true, // Include share component
+			'title' => false, // Show title on mobile
 		),
 		$atts,
 		'podcast'
@@ -57,13 +58,21 @@ function chinapower_shortcode_podcast( $atts ) {
 		$sharing = chinapower_social_share($title, $URL);
 	}
 
+	$titleText = null;
+	if($atts['title'] === true || $atts['title'] == 'true') {
+		echo 'true';
+		$titleText = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);
+	}
+
+	print_r($atts);
+
 	if($atts['soundcloud']) {
-		return chinapower_podcast_display_iframe($atts['soundcloud']).$sharing;
+		return chinapower_podcast_display_iframe($atts['soundcloud'], $titleText).$sharing;
 	}
 	else {
 		$soundcloudID = get_post_meta( $atts['id'], '_podcast_soundcloudID', true );
 
-		return chinapower_podcast_display_iframe($soundcloudID).$sharing;
+		return chinapower_podcast_display_iframe($soundcloudID, $titleText).$sharing;
 	}
 
 }

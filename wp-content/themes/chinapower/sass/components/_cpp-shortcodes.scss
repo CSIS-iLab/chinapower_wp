@@ -79,3 +79,10 @@
 	}
 }
 
+.podcast-embed-title {
+
+	@include breakpoint("medium") {
+		display: none;
+	}
+}
+

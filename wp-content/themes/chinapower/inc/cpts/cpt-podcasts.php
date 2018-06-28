@@ -149,9 +149,14 @@ add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
  * @param  String $soundcloudID Soundcloud ID for the podcast
  * @return String               iFrame code
  */
-function chinapower_podcast_display_iframe($soundcloudID) {
+function chinapower_podcast_display_iframe($soundcloudID, $title = null) {
 
-	return '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$soundcloudID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
+	$title_html = null;
+	if ( $title ) {
+		$title_html = '<h4 class="podcast-embed-title">' . $title . '</h4>';
+	}
+
+	return $title_html . '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$soundcloudID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/
