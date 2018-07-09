@@ -89,6 +89,9 @@ $fullTitle = get_the_title().': '.$subtitle;
 						<h5 class="podcastDesc-heading">ChinaPower Podcast</h5>
 						<p><?php echo $podcastDesc; ?></p>
 						<a href="<?php echo $itunesURL; ?>" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
+						<?php if ( get_option( 'chinapower_google_url' ) ) {
+							echo '<a href="' . get_option("chinapower_google_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/google-play-badge.png" alt="ChinaPower Podcast on Google Play Music" /></a>';
+						} ?>
 						<?php if ( get_option( 'chinapower_stitcher_url' ) ) {
 						echo '<a href="' . get_option("chinapower_stitcher_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/stitcher-badge.svg" alt="ChinaPower Podcast on Stitcher" /></a>';
 					} ?>

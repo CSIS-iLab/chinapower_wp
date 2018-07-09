@@ -88,6 +88,9 @@ if(get_theme_mod('hp_stat')) {
 					<hr />
 					<p><?php echo get_option("chinapower_podcast_desc_short"); ?></p>
 					<a href="<?php echo get_option("chinapower_itunesURL"); ?>" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
+					<?php if ( get_option( 'chinapower_google_url' ) ) {
+						echo '<a href="' . get_option("chinapower_google_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/google-play-badge.png" alt="ChinaPower Podcast on Google Play Music" /></a>';
+					} ?>
 					<?php if ( get_option( 'chinapower_stitcher_url' ) ) {
 						echo '<a href="' . get_option("chinapower_stitcher_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/stitcher-badge.svg" alt="ChinaPower Podcast on Stitcher" /></a>';
 					} ?>
