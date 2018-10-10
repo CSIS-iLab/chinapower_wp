@@ -204,7 +204,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 	}
 
 	if($iframeID) {
-		echo "<script>console.log( 'iframeID worked " . $iframeID . "' );</script>";
+ 		echo "<script>console.log( 'iframeID worked " . $iframeID . "' );</script>";
 	}
 
 	if($iframeResizeDisabled) {
