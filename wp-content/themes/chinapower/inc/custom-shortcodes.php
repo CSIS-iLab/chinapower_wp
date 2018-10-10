@@ -144,7 +144,6 @@ function chinapower_shortcode_interactive( $atts ) {
 	);
 
 	$interactiveURL = get_post_meta( $atts['id'], '_interactive_url', true );
-	$interactiveID = get_post_meta( $atts['id'], 'id');
 	$width = get_post_meta( $atts['id'], '_interactive_width', true );
 	$height = get_post_meta( $atts['id'], '_interactive_height', true );
 	$iframeResizeDisabled = get_post_meta( $atts['id'], '_interactive_iframeResizeDisabled', true );
