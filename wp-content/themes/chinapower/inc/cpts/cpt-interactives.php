@@ -184,12 +184,12 @@ add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
  * @param  String  $interactiveURL       URL to the interactive
  * @param  String  $width                Width of the iframe, can be in px or %
  * @param  String  $height               Height of the iframe, can be in px or %
+ * @param	 String  $iframeID	           ID of iFrame
  * @param  String  $fallbackImg          Featured image thumbnail img tag string
  * @param  boolean $iframeResizeDisabled Indicate if iframe should automatically resize based on content height
- * @param	 String  $iframeID	           ID of iFrame
  * @return String                        HTML of the iframe
  */
-function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null, $iframeResizeDisabled = false, $iframeID) {
+function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg = null, $iframeResizeDisabled = false) {
 
 	if(empty($width)) {
 		$width = "100%";
@@ -204,7 +204,6 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 	}
 
 	if($iframeID) {
-		// $iframeID = 'id= "'.$iframeID.'"';
 		echo "<script>console.log( 'iframeID worked " . $iframeID . "' );</script>";
 	}
 

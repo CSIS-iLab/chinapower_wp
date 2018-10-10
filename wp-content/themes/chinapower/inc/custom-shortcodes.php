@@ -173,7 +173,7 @@ function chinapower_shortcode_interactive( $atts ) {
 		$sharing = chinapower_social_share($title, $URL, $iframe_twitter_pic_url);
 	}
 
-	return $heading.chinapower_interactive_display_iframe($interactiveURL, $jump, $width, $height, $fallbackImg, $iframeResizeDisabled, $iframeID).$sharing;
+	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg, $iframeResizeDisabled).$sharing;
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
