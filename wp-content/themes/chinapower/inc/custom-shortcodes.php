@@ -166,7 +166,7 @@ function chinapower_shortcode_interactive( $atts ) {
 		echo "<script>console.log( 'heading worked " . $heading . "' );</script>";
 	}
 	else {
-	 	$iframeTitle = 'id="'.$sanitizedTitle.' (interactive)"';
+	 	$iframeTitle = $sanitizedTitle;
 		echo "<script>console.log( 'iframeTitle in custom shortcode: " . $iframeTitle . "' );</script>";
 	}
 
