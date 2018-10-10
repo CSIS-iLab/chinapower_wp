@@ -21,9 +21,9 @@ get_header(); ?>
 					<div class="content-wrapper row">
 					<img class="img404" src="/wp-content/themes/chinapower/img/ChinaPower-404-wall.jpg" alt="404 Page Not Found">
 
-					
+
 						<div class="col-xs-12 col-sm-6">
-							<p><?php esc_html_e( 'We were unable to locate the page you requested. The page may have moved or may no longer be available. We appologize for the inconvenience!', 'chinapower' ); ?></p>
+							<p><?php esc_html_e( 'We were unable to locate the page you requested. The page may have moved or may no longer be available. We apologize for the inconvenience!', 'chinapower' ); ?></p>
 							<h4>Go to the <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">HOMEPAGE</a></h4>
 
 							<?php if(get_theme_mod('contact-email')) {
@@ -51,19 +51,19 @@ get_header(); ?>
 						    	<?php chinapower_post_categories(); ?>
 						    	<span class="relatedContent-title">
 							    	<a href="'.get_permalink().'">
-										<?php the_title(); ?> 
+										<?php the_title(); ?>
 									</a>
 								</span>
 						    </div>
 						</div>
-				
-						<?php 
+
+						<?php
 						endwhile;
 						wp_reset_postdata();
 						?>
 
 					</div><!-- .content-wrapper -->
-			
+
 				</div><!-- .page-content -->
 			</section><!-- .error-404 -->
 
