@@ -185,11 +185,11 @@ add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
  * @param  String  $width                Width of the iframe, can be in px or %
  * @param  String  $height               Height of the iframe, can be in px or %
  * @param  String  $fallbackImg          Featured image thumbnail img tag string
- * @param	 String  $iframeTitle          Title of iFrame
  * @param  boolean $iframeResizeDisabled Indicate if iframe should automatically resize based on content height
+ * @param	 String  $iframeID	           ID of iFrame
  * @return String                        HTML of the iframe
  */
-function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null, $iframeResizeDisabled = false) {
+function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null, $iframeResizeDisabled = false, $iframeID) {
 
 	if(empty($width)) {
 		$width = "100%";
@@ -203,6 +203,11 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'<p>For best experience, please view on a desktop computer.</p></div>';
 	}
 
+	if($iframeID) {
+		// $iframeID = 'id= "'.$iframeID.'"';
+		echo "<script>console.log( 'iframeID worked " . $iframeID . "' );</script>";
+	}
+
 	if($iframeResizeDisabled) {
 		$enabledClass = "";
 	}
@@ -210,7 +215,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$enabledClass = " js-iframeResizeEnabled";
 	}
 
-	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" id="'.$iframeTitle.'" src="'.$interactiveURL.'"></iframe>';
+	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" id="'.$iframeID.'" src="'.$interactiveURL.'"></iframe>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/
