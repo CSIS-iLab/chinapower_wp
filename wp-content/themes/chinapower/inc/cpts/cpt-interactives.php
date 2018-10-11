@@ -1,4 +1,4 @@
-ranch<?php
+<?php
 /**
  * Custom Post Types: Interactives
  *
