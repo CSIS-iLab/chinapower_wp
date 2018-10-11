@@ -1,4 +1,4 @@
-<?php
+ranch<?php
 /**
  * Custom Post Types: Interactives
  *
@@ -214,7 +214,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$enabledClass = " js-iframeResizeEnabled";
 	}
 
-	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" id="'.$iframeID.'" id="jump" src="'.$interactiveURL.'"></iframe>';
+	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" id="'.$iframeID.'" src="'.$interactiveURL.'"></iframe>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/
