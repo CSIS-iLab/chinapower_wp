@@ -203,10 +203,6 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$fallbackImg = '<div class="interactive-fallbackImg">'.$fallbackImg.'<p>For best experience, please view on a desktop computer.</p></div>';
 	}
 
-	if($iframeID) {
-		echo "<script>console.log( 'iframeID worked " . $iframeID . "' );</script>";
-	}
-
 	if($iframeResizeDisabled) {
 		$enabledClass = "";
 	}

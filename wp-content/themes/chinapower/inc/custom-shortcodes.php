@@ -162,10 +162,10 @@ function chinapower_shortcode_interactive( $atts ) {
 
 	if($atts['toc'] === true || $atts['toc'] == 'true') {
 		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
+		$iframeID = null;
 	}
 	else {
 	 	$iframeID = $sanitizedTitle;
-		echo "<script>console.log( 'iframeID in custom shortcode: " . $iframeID . "' );</script>"; //correctly renders title
 	}
 
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
