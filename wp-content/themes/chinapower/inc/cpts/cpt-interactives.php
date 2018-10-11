@@ -52,7 +52,7 @@ function chinapower_cpt_interactives() {
 		'show_in_admin_bar'     => true,
 		'show_in_nav_menus'     => true,
 		'can_export'            => true,
-		'has_archive'           => true,		
+		'has_archive'           => true,
 		'exclude_from_search'   => true,
 		'publicly_queryable'    => true,
 		'capability_type'       => 'post',
@@ -100,12 +100,12 @@ function interactive_build_meta_box( $post ){
 
 		<h3><?php _e( 'iFrame Width', 'chinapower' ); ?></h3>
 		<p>
-			<input type="text" class="large-text" name="width" value="<?php echo $current_width; ?>" /> 
+			<input type="text" class="large-text" name="width" value="<?php echo $current_width; ?>" />
 		</p>
 
 		<h3><?php _e( 'iFrame Height', 'chinapower' ); ?></h3>
 		<p>
-			<input type="text" class="large-text" name="height" value="<?php echo $current_height; ?>" /> 
+			<input type="text" class="large-text" name="height" value="<?php echo $current_height; ?>" />
 		</p>
 		<p>
 			<input type="checkbox" name="iframeResizeDisabled" value="1" <?php checked( $current_iframeResizeDisabled, '1' ); ?> /> Disable autoheight resizing?
@@ -184,11 +184,12 @@ add_action( 'save_post_interactives', 'interactive_save_meta_box_data' );
  * @param  String  $interactiveURL       URL to the interactive
  * @param  String  $width                Width of the iframe, can be in px or %
  * @param  String  $height               Height of the iframe, can be in px or %
+ * @param	 String  $iframeID	           ID of iFrame
  * @param  String  $fallbackImg          Featured image thumbnail img tag string
  * @param  boolean $iframeResizeDisabled Indicate if iframe should automatically resize based on content height
  * @return String                        HTML of the iframe
  */
-function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg = null, $iframeResizeDisabled = false) {
+function chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg = null, $iframeResizeDisabled = false) {
 
 	if(empty($width)) {
 		$width = "100%";
@@ -209,7 +210,7 @@ function chinapower_interactive_display_iframe($interactiveURL, $width, $height,
 		$enabledClass = " js-iframeResizeEnabled";
 	}
 
-	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" src="'.$interactiveURL.'"></iframe>';
+	return $fallbackImg.'<iframe class="interactive-iframe'.$enabledClass.'" width="'.$width.'" '.$heightValue.' scrolling="no" frameborder="no" id="'.$iframeID.'" src="'.$interactiveURL.'"></iframe>';
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

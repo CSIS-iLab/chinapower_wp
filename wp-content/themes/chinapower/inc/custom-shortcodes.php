@@ -162,13 +162,17 @@ function chinapower_shortcode_interactive( $atts ) {
 
 	if($atts['toc'] === true || $atts['toc'] == 'true') {
 		$heading = '<h2 class="interactive-heading" id="'.$sanitizedTitle.'">'.$title.'</h2>';
+		$iframeID = null;
+	}
+	else {
+	 	$iframeID = $sanitizedTitle;
 	}
 
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$sharing = chinapower_social_share($title, $URL, $iframe_twitter_pic_url);
 	}
 
-	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $fallbackImg, $iframeResizeDisabled).$sharing;
+	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg, $iframeResizeDisabled).$sharing;
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
