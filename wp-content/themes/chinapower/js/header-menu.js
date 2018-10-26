@@ -25,6 +25,7 @@
 	// Desktop: Search
 	$(".site-header .searchIcon, .site-header .search-close .icon").click(function(event) {
 		$(".header-searchFormContainer").toggleClass("isVisible");
+		$(".search-field").focus();
 	});
 
 	// Mobile: Open Search
@@ -32,6 +33,7 @@
 		$(".navOverlay-heading-menu").addClass("isHidden");
 		$(".navOverlay-heading-search, .header-searchFormContainer").addClass("isVisible");
 		$(".main-navigation").removeClass("isVisible");
+		$(".search-field").focus();
 	});
 
 	// Mobile: Back from Search
@@ -72,7 +74,7 @@
 		var currentScroll = $(this).scrollTop();
 		var headerHeight = $(".site-header").height() + parseInt($(".site-header").css("top"), 10);
 
-		  
+
 		if(currentScroll > 0){
 	    	$(".site-header").addClass("minimal");
 	    	$(".header-main .sub-menu-container").css("top",headerHeight);
@@ -91,7 +93,7 @@
 			$(".site-header").removeClass("minimal");
 			$(".header-main .sub-menu-container").css("top",headerHeightInitial);
 		}
-		
+
 	});
 
 
