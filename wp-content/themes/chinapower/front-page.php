@@ -7,7 +7,7 @@
  * @package chinapower
  */
 
-get_header(); 
+get_header();
 
 // Featured Item
 if(get_theme_mod('hp_feature_1')) {
@@ -99,14 +99,14 @@ if(get_theme_mod('hp_stat')) {
 			<section class="section-2 content-wrapper row">
 				<div class="featured-stat col-xs-12 col-md-8">
 					<div class="stat-container">
-						<i class="fa fa-<?php echo get_theme_mod('hp_stat_icon'); ?>"></i>
+						<i class="<?php echo get_theme_mod('hp_stat_icon'); ?>"></i>
 					</div>
 					<div class="stat-content">
 						<div class="stat"><?php echo $stat; ?></div>
 						<div class="share-stat">
 							<?php _e('Share this stat', 'chinapower'); ?>
-							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { 
-							    ADDTOANY_SHARE_SAVE_KIT( array( 
+							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) {
+							    ADDTOANY_SHARE_SAVE_KIT( array(
 							        'buttons' => array( 'facebook', 'twitter', 'linkedin', 'sina_weibo', 'wechat' ),
 							        'linkname' => $statSocial
 							    ) );
