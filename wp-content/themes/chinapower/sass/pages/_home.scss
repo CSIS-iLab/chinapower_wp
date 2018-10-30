@@ -264,7 +264,8 @@
 			    top: 0;
 			    overflow: hidden;
 
-				.fa {
+				svg {
+					margin-top: 1rem;
 					font-size: calc(100vh / 2);
 					color: $color__text-statIcon;
 
