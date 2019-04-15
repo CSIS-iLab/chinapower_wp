@@ -41,7 +41,7 @@ function chinapower_cpt_interactives() {
 		'label'                 => __( 'Interactive', 'chinapower' ),
 		'description'           => __( 'Interactives', 'chinapower' ),
 		'labels'                => $labels,
-		'supports'              => array( 'title', 'thumbnail'),
+		'supports'              => array( 'editor', 'title', 'thumbnail'),
 		'taxonomies'            => array(),
 		'hierarchical'          => false,
 		'public'                => true,
@@ -229,3 +229,14 @@ function chinapower_interactives_column( $colname, $cptid ) {
           echo '<a href="#" class="button button-small" onclick="prompt(\'Shortcode to include featured interactive in posts and pages:\', \''.$shortcode_html.'\'); return false;">Get Embed Code</a>';
 }
 add_action('manage_interactives_posts_custom_column', 'chinapower_interactives_column', 10, 2);
+
+function chinapower_wp_default_editor( $editor ) {
+	$post_type = get_post_type();
+
+	if ( 'interactives' === $post_type ) {
+		return 'html';
+	}
+
+	return $editor;
+}
+add_filter( 'wp_default_editor', 'chinapower_wp_default_editor' );
