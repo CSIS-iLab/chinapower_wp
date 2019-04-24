@@ -143,6 +143,9 @@ function chinapower_shortcode_interactive( $atts ) {
 		'interactive'
 	);
 
+	$interactivePost = get_post( $atts['id'] );
+	$interactiveHTML = $interactivePost->post_content;
+
 	$interactiveURL = get_post_meta( $atts['id'], '_interactive_url', true );
 	$width = get_post_meta( $atts['id'], '_interactive_width', true );
 	$height = get_post_meta( $atts['id'], '_interactive_height', true );
@@ -172,7 +175,14 @@ function chinapower_shortcode_interactive( $atts ) {
 		$sharing = chinapower_social_share($title, $URL, $iframe_twitter_pic_url);
 	}
 
-	return $heading.chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg, $iframeResizeDisabled).$sharing;
+	$returnHTML = '';
+	if ( '' !== $interactiveHTML ) {
+		$returnHTML = do_shortcode($interactiveHTML);
+	} elseif ( $interactiveURL ) {
+		$returnHTML = chinapower_interactive_display_iframe($interactiveURL, $width, $height, $iframeID, $fallbackImg, $iframeResizeDisabled);
+	}
+
+	return $heading.$returnHTML.$sharing;
 
 }
 add_shortcode( 'interactive', 'chinapower_shortcode_interactive' );
