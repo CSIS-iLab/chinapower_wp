@@ -18,7 +18,7 @@
   wp.richText.registerFormatType(
     'footnote/sample-output', {
       title: 'footnote Shortcode',
-      tagName: 'div',
+      tagName: 'footnote',
       className: null,
       edit: footnoteShortcode
     }

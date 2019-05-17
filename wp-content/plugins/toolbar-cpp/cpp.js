@@ -18,7 +18,7 @@
   wp.richText.registerFormatType(
     'cpp/sample-output', {
       title: 'CPP Shortcode',
-      tagName: 'div',
+      tagName: 'cpp',
       className: null,
       edit: cppShortcode
     }
