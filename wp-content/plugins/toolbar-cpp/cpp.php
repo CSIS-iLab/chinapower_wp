@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: CPP Icon
+Plugin Name: Toolbar - CPP Icon
 */
 
 function cpp_script_register() {
