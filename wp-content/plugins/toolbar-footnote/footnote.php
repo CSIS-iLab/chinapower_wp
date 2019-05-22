@@ -1,7 +1,10 @@
 <?php
-/*
-Plugin Name: CSIS Toolbar - Footnote
-*/
+/**
+  * Plugin Name:    CSIS Toolbar - Footnote
+  * Description:    Affixes a button to the editor toolbar which will add the footnote shortcode to the block.
+  * Version:        1.0
+**/
+
 
 function footnote_script_register() {
     wp_register_script(

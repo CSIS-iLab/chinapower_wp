@@ -1,7 +1,9 @@
 <?php
-/*
-Plugin Name: CSIS Toolbar - CPP
-*/
+/**
+  * Plugin Name:    CSIS Toolbar - CPP
+  * Description:    Affixes a button to the editor toolbar which will add the China Power symbol shortcode to the block.
+  * Version:        1.0
+**/
 
 function cpp_script_register() {
     wp_register_script(

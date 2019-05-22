@@ -1,7 +1,9 @@
 <?php
-/*
-Plugin Name: CSIS Toolbar - FullWidth
-*/
+/**
+  * Plugin Name:    CSIS Toolbar - FullWidth
+  * Description:    Affixes a button to the editor toolbar which will add the fullwidth shortcode to the block.
+  * Version:        1.0
+**/
 
 function full_width_script_register() {
     wp_register_script(
