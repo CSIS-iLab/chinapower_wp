@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Toolbar - CPP Icon
+Plugin Name: CSIS Toolbar - CPP
 */
 
 function cpp_script_register() {

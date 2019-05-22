@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Toolbar - Footnote
+Plugin Name: CSIS Toolbar - Footnote
 */
 
 function footnote_script_register() {

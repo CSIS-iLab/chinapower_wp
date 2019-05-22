@@ -1,6 +1,6 @@
 <?php
 /*
-Plugin Name: Toolbar - Full Width
+Plugin Name: CSIS Toolbar - FullWidth
 */
 
 function full_width_script_register() {
