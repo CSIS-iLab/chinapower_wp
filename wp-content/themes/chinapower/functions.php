@@ -110,6 +110,8 @@ function chinapower_scripts() {
 
 	wp_enqueue_style( 'chinapower-print-style', get_template_directory_uri() . '/print.css' );
 
+	wp_enqueue_script ('font-awesome', 'https://kit.fontawesome.com/c7e48d45aa.js', array(), '20190604', true);
+
 	wp_enqueue_script( 'chinapower-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
 
 	wp_enqueue_script( 'chinapower-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20151215', true );
@@ -132,7 +134,7 @@ function chinapower_scripts() {
 		});
 	");
 
-    wp_enqueue_script( 'chinapower-social-share', get_template_directory_uri() . '/js/social-share.js', array(), '20170726', true );
+  wp_enqueue_script( 'chinapower-social-share', get_template_directory_uri() . '/js/social-share.js', array(), '20170726', true );
 }
 add_action( 'wp_enqueue_scripts', 'chinapower_scripts' );
 
