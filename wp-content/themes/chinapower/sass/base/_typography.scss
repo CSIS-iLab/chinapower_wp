@@ -244,6 +244,12 @@ blockquote {
   .source {
     @extend %blockquote-source;
   }
+
+  cite {
+    display: block;
+    @extend %blockquote-source;
+    font-style: normal;
+  }
 }
 
 blockquote,
