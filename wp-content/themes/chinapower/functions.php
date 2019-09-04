@@ -134,7 +134,11 @@ function chinapower_scripts() {
 		});
 	");
 
-  wp_enqueue_script( 'chinapower-social-share', get_template_directory_uri() . '/js/social-share.js', array(), '20170726', true );
+	wp_enqueue_script( 'chinapower-social-share', get_template_directory_uri() . '/js/social-share.js', array(), '20170726', true );
+	
+	if (is_page_template('info-is-beautiful-2019.php')) {
+		wp_enqueue_script( 'chinapower-video-on-hover', get_template_directory_uri() . '/js/video-on-hover.js', array(), '20190904', true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'chinapower_scripts' );
 
