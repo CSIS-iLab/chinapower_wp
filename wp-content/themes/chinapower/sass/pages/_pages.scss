@@ -3,28 +3,221 @@
 =============================*/
 
 .page:not(.home) {
-	.content-area {
-		padding: 2rem 0;
-	}
+  .content-area {
+    padding: 2rem 0;
+  }
 }
 
 .type-page.cardLayout {
-	margin-left: 0.5rem;
-	margin-right: 0.5rem;
-	padding-bottom: 1.5rem;
+  margin-left: 0.5rem;
+  margin-right: 0.5rem;
+  padding-bottom: 1.5rem;
 
-	.entry-thumbnail {display: none;}
-	.entry-header,
-	.entry-content {
-		@include breakpoint("medium") {
-			flex-basis:100%;
-			max-width: 100%;
-			padding-left: 2rem;
-			padding-right: 2rem;
-		}
-	}
+  .entry-thumbnail {
+    display: none;
+  }
+  .entry-header,
+  .entry-content {
+    @include breakpoint("medium") {
+      flex-basis: 100%;
+      max-width: 100%;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
 
-	.entry-header .entry-title {margin: 0;}
-	.entry-header {padding-top: 2rem;}
+  .entry-header .entry-title {
+    margin: 0;
+  }
+  .entry-header {
+    padding-top: 2rem;
+  }
+}
 
+// Information is Beautiful
+.page-template-info-is-beautiful-2019 {
+  background-color: $off-white;
+
+  .content-area {
+    padding: 0 !important;
+  }
+
+  .entry-header {
+    padding: 0;
+
+    .featureImg {
+      @extend %post-featureImg;
+
+      .entry-title {
+        @extend %post-featureImgTitle;
+        padding: 0 1rem;
+
+        @include breakpoint("medium") {
+          padding: 0;
+        }
+      }
+    }
+  }
+
+  .content-wrapper {
+    padding-top: 2rem;
+  }
+
+  .card {
+    position: relative;
+    display: grid;
+    grid-template-areas: "img" "header" "content";
+    grid-template-columns: 1fr;
+    grid-auto-rows: min-content;
+    margin: 2rem 0;
+    background-color: $white;
+
+    @include breakpoint("medium") {
+      grid-template-areas:
+        "img header"
+        "img content";
+      grid-template-columns: 1fr 2fr;
+    }
+
+    &-img {
+      grid-area: img;
+
+      img,
+      video {
+        width: 100%;
+
+        @include breakpoint("medium") {
+          width: 100%;
+          height: 100%;
+          max-height: unset;
+          vertical-align: top;
+          object-fit: cover;
+        }
+      }
+    }
+
+    &-header {
+      grid-area: header;
+      padding: 1rem;
+
+      @include breakpoint("medium") {
+        padding: 2rem 2rem 1rem;
+      }
+
+      .entry-title {
+        @extend %post-title;
+
+        a {
+          color: $black;
+
+          &:hover {
+            color: $red;
+          }
+        }
+      }
+    }
+
+    &-content {
+      grid-area: content;
+      padding: 0rem 1rem;
+
+      @include breakpoint("medium") {
+        padding: 0 2rem 2rem;
+      }
+
+      p {
+        margin-bottom: 0;
+        @include fontSize(16px);
+      }
+    }
+
+    &-footer {
+      grid-area: footer;
+    }
+
+    /*----------  Learn More  ----------*/
+    .learnMore {
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      opacity: 0;
+      @include transition(all 0.25s ease-in-out);
+      padding-right: 50px;
+
+      p {
+        margin-bottom: 0;
+        text-align: right;
+        @include fontSize(18px);
+        font-weight: 600;
+        line-height: 1.33;
+        letter-spacing: 1.1px;
+        text-transform: uppercase;
+
+        a {
+          color: $black;
+
+          &:hover {
+            color: $red;
+          }
+        }
+
+        .icon-arrow-long {
+          position: relative;
+          margin-left: 0;
+          vertical-align: top;
+          color: $red;
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          line-height: 16px;
+        }
+      }
+    }
+
+    &:hover > .learnMore {
+      display: block;
+      opacity: 1;
+      @include transition(all 0.25s ease-in-out);
+      position: absolute;
+      bottom: 1rem;
+      right: 2rem;
+      padding-right: 0px;
+
+      .icon-arrow-long {
+        width: 40px;
+        @include transition(all 0.25s ease-in-out);
+
+        &:before {
+          content: " ";
+          display: inline-block;
+          height: 50%;
+          width: 100%;
+          display: block;
+          border-bottom: 2px solid $red;
+          position: absolute;
+          top: 25%;
+        }
+
+        &:after {
+          content: " ";
+          width: 10px;
+          height: 10px;
+          margin-left: 10px;
+          border: solid #ed392a;
+          border-width: 0px 2px 2px 0;
+          display: block;
+          left: calc(100% - 18px);
+          padding: 5px;
+          transform: rotate(-45deg);
+          -webkit-transform: rotate(-45deg);
+          position: absolute;
+          top: 30%;
+        }
+      }
+    }
+
+    &:hover > .card-header .entry-title a {
+      color: $red;
+    }
+  }
 }
