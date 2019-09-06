@@ -5,17 +5,17 @@
  */
 
 window.onload = function() {
-  //executes this code after the DOM loads
-  //--- this is the selector element. Feel free to change this if you don't want all video objects targeted.
-  const vids = document.getElementsByTagName(`video`);
+  const videoContainers = document.querySelectorAll(".video-preview");
+  const videos = [];
 
-  //--- Now we loop over all of the selected elements and add event listeners
-  for (let i = 0; i < vids.length; i++) {
-    vids[i].addEventListener(`mouseover`, function(e) {
-      vids[i].play();
+  for (let i = 0; i < videoContainers.length; i++) {
+    videos[i] = videoContainers[i].getElementsByTagName("video")[0];
+
+    videoContainers[i].addEventListener(`mouseover`, function(e) {
+      videos[i].play();
     });
-    vids[i].addEventListener(`mouseout`, function(e) {
-      vids[i].pause();
+    videoContainers[i].addEventListener(`mouseout`, function(e) {
+      videos[i].pause();
     });
   }
 };
