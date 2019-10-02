@@ -1,0 +1,50 @@
+/*=================================================
+=            Ultimate blocks Accordion            =
+=================================================*/
+
+.wp-block-ub-content-toggle {
+  margin: 2rem 0;
+
+  @include breakpoint("medium") {
+    margin-right: 2rem;
+    margin-left: 2rem;
+  }
+
+  &-accordion {
+    margin-bottom: 0;
+    border: 0;
+
+    &-title {
+      padding: 0 !important;
+      color: $off-black !important;
+      transition: color 0.3s ease-in-out;
+    }
+
+    &-title-wrap {
+      padding-top: 0.7rem;
+      padding-bottom: 0.5rem;
+      background-color: transparent !important;
+      border-bottom: 2px solid $off-white;
+
+      &:hover {
+        .wp-block-ub-content-toggle-accordion-title {
+          color: $red !important;
+        }
+
+        .wp-block-ub-content-toggle-accordion-state-indicator {
+          color: $dark-red !important;
+        }
+      }
+    }
+
+    &-state-indicator {
+      color: $red !important;
+      transition: color 0.3s ease-in-out;
+    }
+
+    &-content-wrap {
+      padding: 1rem !important;
+      border-bottom: 2px solid $off-white;
+    }
+  }
+}

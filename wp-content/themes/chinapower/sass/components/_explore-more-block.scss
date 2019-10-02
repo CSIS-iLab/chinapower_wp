@@ -1,0 +1,43 @@
+/*================================================
+=            Ultimate Blocks: Explore            =
+================================================*/
+
+.ub-expand {
+  * + .ub-expand-toggle-button {
+    margin-top: -1rem;
+  }
+
+  &-toggle-button {
+    color: $black;
+    font-weight: 600;
+    @include fontSize(14px);
+    line-height: 1.33;
+    letter-spacing: 1.1px;
+    text-align: right;
+    text-transform: uppercase;
+    box-shadow: none;
+    cursor: pointer;
+
+    &:hover {
+      box-shadow: none !important;
+    }
+
+    &:not(.ub-hide) {
+      display: block;
+      margin-bottom: 1rem;
+    }
+
+    &::after {
+      content: "\e800";
+      line-height: 1.75;
+      font-family: "chinapower";
+      color: $light-blue;
+      margin-left: 5px;
+      transition: color 0.3s ease-in-out;
+    }
+  }
+
+  &-full .ub-expand-toggle-button::after {
+    content: "\2013";
+  }
+}
