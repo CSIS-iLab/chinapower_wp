@@ -1,7 +1,5 @@
 <div class="awards-block clearfix">
-    <div class="award-image">
-        <img src="<?php block_field('award-image'); ?>"/>
-    </div>
+    <img class="award-image" src="<?php block_field( 'award-image' ); ?>" />
     <div class="award-info-box">
         <p><strong><?php block_field('award-organization'); ?></strong></p>
         <p><?php block_field('award-name'); ?></p>
