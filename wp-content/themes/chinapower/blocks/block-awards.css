@@ -1,0 +1,23 @@
+.awards-block {
+    width: 100%;
+    margin-bottom: 25px;
+    font-family: sans-serif;
+    font-size: 18px;
+    color: #333333;
+  }
+   
+  .award-image {
+    float: left;
+    width: 25%;
+  }
+   
+  .award-info-box {
+    float: right;
+    width: 74%;
+  }
+   
+  .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+  }
