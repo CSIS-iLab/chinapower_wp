@@ -108,7 +108,7 @@ add_action( 'widgets_init', 'chinapower_widgets_init' );
 function chinapower_scripts() {
 	wp_enqueue_style( 'chinapower-style', get_stylesheet_uri() );
 
-	wp_enqueue_style( 'chinapower-print-style', get_template_directory_uri() . '/print.css' );
+	wp_enqueue_style( 'chinapower-print-style', get_template_directory_uri() . '/print.css', array(), '20200317', 'print' );
 
 	wp_enqueue_script ('font-awesome', 'https://kit.fontawesome.com/c7e48d45aa.js', array(), '20190604', true);
 
