@@ -112,7 +112,7 @@ function podcast_build_meta_box( $post ){
 			<input type="text" class="large-text" name="megaphoneURL" value="<?php echo $current_megaphoneURL; ?>" /> 
 		</p>
 
-		<h3><?php _e( 'Megaphone iFrame', 'chinapower' ); ?></h3>
+		<h3><?php _e( 'Megaphone iFrame URL', 'chinapower' ); ?></h3>
 		<p>
 			<input type="text" class="large-text" name="megaphoneIFrame" value="<?php echo $current_megaphoneIFrame; ?>" /> 
 		</p>
@@ -152,14 +152,14 @@ function podcast_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['soundcloudID'] ) ) {
 		update_post_meta( $post_id, '_podcast_soundcloudID', sanitize_text_field( $_POST['soundcloudID'] ) );
 	}
-		// Megaphone URL
-		if ( isset( $_REQUEST['megaphoneURL'] ) ) {
-			update_post_meta( $post_id, '_podcast_megaphoneURL', esc_url( $_POST['megaphoneURL'] ) );
-		}
-				// Megaphone iFrame
-				if ( isset( $_REQUEST['megaphoneIFrame'] ) ) {
-					update_post_meta( $post_id, '_podcast_megaphoneIFrame', esc_textarea( $_POST['megaphoneIFrame'] ) );
-				}
+	// Megaphone URL
+	if ( isset( $_REQUEST['megaphoneURL'] ) ) {
+		update_post_meta( $post_id, '_podcast_megaphoneURL', esc_url( $_POST['megaphoneURL'] ) );
+	}
+	// Megaphone iFrame
+	if ( isset( $_REQUEST['megaphoneIFrame'] ) ) {
+		update_post_meta( $post_id, '_podcast_megaphoneIFrame', esc_url( $_POST['megaphoneIFrame'] ) );
+	}
 }
 add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
 
