@@ -77,7 +77,7 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		?>
 	</header><!-- .entry-header -->
 	<div class="entry-content col-xs-12 col-md-8">
-		<div class="soundcloud-mini-container">
+		<div class="megaphone-mini-container">
 		<audio controls controlsList="nodownload" src="<?php echo $megaphoneURL ?>">
 		Your browser does not support the
 		<code>audio</code> element.
