@@ -71,7 +71,7 @@ $fullTitle = get_the_title().': '.$subtitle;
 				if($soundcloudID) {
 					echo chinapower_podcast_display_iframe($soundcloudID);
 				} else { ?>
-					<iframe frameborder="0" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>" width="100%"></iframe>
+					<iframe frameborder="0" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="100%"></iframe>
 				<?php }
 					chinapower_posted_on();
 					the_content( sprintf(
