@@ -14,6 +14,7 @@ endif;
 
 // Soundcloud ID
 $soundcloudID = get_post_meta($postID, '_podcast_soundcloudID', true);
+$megaphoneIFrame = get_post_meta($postID, '_podcast_megaphoneIFrame', true);
 
 // Related Content
 global $related;
@@ -67,7 +68,11 @@ $fullTitle = get_the_title().': '.$subtitle;
 
 			<div class="content-wrapper-narrow entry-content">
 				<?php
+				if($soundcloudID) {
 					echo chinapower_podcast_display_iframe($soundcloudID);
+				} else { ?>
+					<iframe frameborder="0" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>" width="100%"></iframe>
+				<?php }
 					chinapower_posted_on();
 					the_content( sprintf(
 						/* translators: %s: Name of current post. */
