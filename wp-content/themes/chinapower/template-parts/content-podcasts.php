@@ -28,60 +28,41 @@ remove_filter( 'the_excerpt', 'wpautop' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
-	<?php if ( $sticky and $soundcloudID ) { ?>
-	<div class="entry-thumbnail col-xs-12 col-md-4">
-		<iframe width="246" height="245" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-	</div>
-	<div class="sticky-container col-xs-12 col-md-8">
+	<?php if ( $sticky and ($soundcloudID or $megaphoneIFrame )) { ?>
+	<div class="sticky-container">
 		<header class="entry-header">
 			<span class="isFeatured">Featured</span>
-			<?php
-			echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
-			chinapower_posted_on();
+				<?php
+				echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
+				chinapower_posted_on();
 			?>
 		</header><!-- .entry-header -->
-		<div class="entry-content"><p><?php the_excerpt(); ?></p></div><!-- .entry-content -->
+		<div class="entry-content">
+			<?php if ($soundcloudID) {?>
+			<iframe width="246" height="245" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
+			<?php } else {?>
+			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="100%"></iframe>
+			<?php } ?>
+			<p><?php the_excerpt(); ?></p>
+		</div><!-- .entry-content -->
 	</div>
-	<?php } elseif ($sticky and $megaphoneIFrame) { ?>
-		<div class="entry-thumbnail col-xs-12 col-md-4">
-			<iframe frameborder="no" height="245" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&tile=true&light=true" width="246"></iframe>
-		</div>
-	<div class="sticky-container col-xs-12 col-md-8">
+	<?php } else { ?>
 		<header class="entry-header">
-			<span class="isFeatured">Featured</span>
-			<?php
-			echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
-			chinapower_posted_on();
-			?>
-		</header><!-- .entry-header -->
-		<div class="entry-content"><p><?php the_excerpt(); ?></p></div><!-- .entry-content -->
-	</div>
-	<?php } elseif ($soundcloudID) { ?>
-		<header class="entry-header col-xs-12 col-md-4">
 		<?php
 		echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
 		chinapower_posted_on();
 		?>
 	</header><!-- .entry-header -->
-	<div class="entry-content col-xs-12 col-md-8">
+	<div class="entry-content">
+		<?php if ($soundcloudID) { ?>
 		<div class="soundcloud-mini-container">
 			<iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true""></iframe>
 		</div>
-		<p><?php the_excerpt(); ?></p>
-	</div><!-- .entry-content -->
-			<?php } elseif ($megaphoneURL) { ?>
-		<header class="entry-header col-xs-12 col-md-4">
-		<?php
-		echo '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">'.$fullTitle.'</a></h2>';
-		chinapower_posted_on();
-		?>
-	</header><!-- .entry-header -->
-	<div class="entry-content col-xs-12 col-md-8">
-		<div class="megaphone-mini-container">
-		<audio controls controlsList="nodownload" src="<?php echo $megaphoneURL ?>">
-		Your browser does not support the
-		<code>audio</code> element.
-	</audio>		</div>
+			<?php } else {?>
+				<div class="megaphone-mini-container">
+			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="620"></iframe>
+		</div>
+			<?php } ?>
 		<p><?php the_excerpt(); ?></p>
 	</div><!-- .entry-content -->
 			<?php } ?>

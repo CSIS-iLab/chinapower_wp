@@ -241,15 +241,15 @@
 			}
 		}
 
-		.entry-header {
+		header.entry-header {
 			@include breakpoint("medium") {
-				padding: 2rem 1rem 2rem 2rem;
+				padding: 2rem 1rem 1rem 2rem;
 			}
 		}
 
 		.entry-content {
 			@include breakpoint("medium") {
-				padding: 2rem 2rem 2rem 1rem;
+				padding: 0 2rem 2rem 1rem;
 			}
 		}
 
@@ -257,7 +257,8 @@
 		.soundcloud-mini-container {
 			background-color: $off-white;
 			padding: 0.5rem;
-			margin-bottom: 1rem;
+			margin: 0 auto 1rem auto;
+			max-width: 620px;
 
 			iframe {
 				vertical-align: middle;
@@ -265,11 +266,7 @@
 		}
 		
 		.megaphone-mini-container {
-			padding-bottom: 0;
-			
-			audio {
-				width: 100%;
-			}
+			padding: 0;
 		}
 	}
 }
