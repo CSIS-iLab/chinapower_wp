@@ -70,9 +70,9 @@ $fullTitle = get_the_title().': '.$subtitle;
 				<?php
 				if($soundcloudID) {
 					echo chinapower_podcast_display_iframe($soundcloudID);
-				} else { ?>
-					<iframe frameborder="0" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="100%"></iframe>
-				<?php }
+				} else { 
+					echo chinapower_podcast_display_megaphone_iframe($megaphoneIFrame);
+				}
 					chinapower_posted_on();
 					the_content( sprintf(
 						/* translators: %s: Name of current post. */

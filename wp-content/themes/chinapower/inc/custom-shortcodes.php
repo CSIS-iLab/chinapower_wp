@@ -45,12 +45,15 @@ function chinapower_shortcode_podcast( $atts ) {
 		array(
 			'id' => '', // ID of Podcast post
 			'soundcloud' => '', // ID of Soundcloud track
+			'megaphone' => '', // URL of Megaphone track
 			'sharing' => true, // Include share component
 			'title' => false, // Show title on mobile
 		),
 		$atts,
 		'podcast'
 	);
+
+	$megaphone = get_post_meta( $atts['id'], '_podcast_megaphoneIFrame', true);
 
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$title = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);
@@ -65,6 +68,12 @@ function chinapower_shortcode_podcast( $atts ) {
 
 	if($atts['soundcloud']) {
 		return chinapower_podcast_display_iframe($atts['soundcloud'], $titleText).$sharing;
+	}
+	elseif($atts['megaphone']) {
+		return chinapower_podcast_display_megaphone_iframe($atts['megaphone'], $titleText).$sharing;
+	}
+	elseif($megaphone) {
+		return chinapower_podcast_display_megaphone_iframe($megaphone, $titleText).$sharing;
 	}
 	else {
 		$soundcloudID = get_post_meta( $atts['id'], '_podcast_soundcloudID', true );

@@ -38,7 +38,7 @@
 			padding: 0;
 		}
 
-		iframe {
+		> iframe {
 			margin-bottom: 1rem;
 		}
 
@@ -64,6 +64,13 @@
 				@extend %postFooter-heading;
 			}
 		}
+	}
+
+	.megaphone-mini-container {
+		background-color: $color__background-megaphone;
+		margin: 0 auto 1rem auto;
+		display: flex;
+		justify-content: center;
 	}
 }
 
