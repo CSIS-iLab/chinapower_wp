@@ -40,7 +40,7 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		<div class="entry-content">
 			<?php if ($soundcloudID) {?>
 			<iframe width="246" height="245" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-			<?php } else {?>
+			<?php } elseif ($megaphoneIFrame) {?>
 			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="100%"></iframe>
 			<?php } ?>
 			<p><?php the_excerpt(); ?></p>
@@ -58,7 +58,7 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		<div class="soundcloud-mini-container">
 			<iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true""></iframe>
 		</div>
-			<?php } else {?>
+			<?php } elseif ($megaphoneIFrame) {?>
 				<div class="megaphone-mini-container">
 			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="620"></iframe>
 		</div>
