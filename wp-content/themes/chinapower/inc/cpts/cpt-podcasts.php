@@ -146,7 +146,7 @@ function podcast_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['soundcloudID'] ) ) {
 		update_post_meta( $post_id, '_podcast_soundcloudID', sanitize_text_field( $_POST['soundcloudID'] ) );
 	}
-	// Megaphone iFrame
+	// Megaphone Embed URL
 	if ( isset( $_REQUEST['megaphoneEmbedURL'] ) ) {
 		update_post_meta( $post_id, '_podcast_megaphoneEmbedURL', esc_url( $_POST['megaphoneEmbedURL'] ) );
 	}
