@@ -67,18 +67,18 @@ function chinapower_shortcode_podcast( $atts ) {
 	}
 
 	if($atts['soundcloud']) {
-		return chinapower_podcast_display_iframe($atts['soundcloud'], $titleText).$sharing;
+		return chinapower_podcast_display_iframe('soundcloud', $atts['soundcloud'], $titleText).$sharing;
 	}
 	elseif($atts['megaphone']) {
-		return chinapower_podcast_display_megaphone_iframe($atts['megaphone'], $titleText).$sharing;
+		return chinapower_podcast_display_iframe('megaphone', $atts['megaphone'], $titleText).$sharing;
 	}
 	elseif($megaphone) {
-		return chinapower_podcast_display_megaphone_iframe($megaphone, $titleText).$sharing;
+		return chinapower_podcast_display_iframe('megaphone', $megaphone, $titleText).$sharing;
 	}
 	else {
 		$soundcloudID = get_post_meta( $atts['id'], '_podcast_soundcloudID', true );
 
-		return chinapower_podcast_display_iframe($soundcloudID, $titleText).$sharing;
+		return chinapower_podcast_display_iframe('soundcloud', $soundcloudID, $titleText).$sharing;
 	}
 
 }

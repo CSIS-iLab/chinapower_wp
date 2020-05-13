@@ -163,35 +163,31 @@ function podcast_save_meta_box_data( $post_id ){
 }
 add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
 
-/*----------  Display iFrame  ----------*/
+/*----------  Display Embed  ----------*/
 /**
- * Displays the embedded Soundcloud iframe
- * @param  String $soundcloudID Soundcloud ID for the podcast
+ * Displays the embedded Soundcloud or Megaphone iframe
+ * @param  String $type soundcloud or megaphone
+ * @param  String $embedID Soundcloud ID for the podcast or Megaphone URL
  * @return String               iFrame code
  */
-function chinapower_podcast_display_iframe($soundcloudID, $title = null) {
+function chinapower_podcast_display_iframe($type, $embedID, $title = null) {
 
 	$title_html = null;
 	if ( $title ) {
 		$title_html = '<h4 class="podcast-embed-title">' . $title . '</h4>';
 	}
 
-	return $title_html . '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$soundcloudID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
-}
+	$embedHTML = '';
 
-/**
- * Displays the embedded Megaphone iframe
- * @param  String $megaphoneIFrame Megaphone iframe URL for the podcast
- * @return String               iFrame code
- */
-function chinapower_podcast_display_megaphone_iframe($megaphoneIFrame, $title = null) {
-
-	$title_html = null;
-	if ( $title ) {
-		$title_html = '<h4 class="podcast-embed-title">' . $title . '</h4>';
+	if ( $type === 'soundcloud') {
+		$embedHTML = '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$embedID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
 	}
 
-	return $title_html . '<div class="megaphone-mini-container"><iframe frameborder="0" height="200" scrolling="no" src="'.$megaphoneIFrame.'&light=true" width="620"></iframe></div>';
+	if ($type === 'megaphone') {
+		$embedHTML = '<div class="megaphone-mini-container"><iframe frameborder="0" height="200" scrolling="no" src="'.$embedID.'&light=true" width="620"></iframe></div>';
+	}
+
+	return $title_html . $embedHTML;
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

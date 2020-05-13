@@ -69,9 +69,9 @@ $fullTitle = get_the_title().': '.$subtitle;
 			<div class="content-wrapper-narrow entry-content">
 				<?php
 				if($soundcloudID) {
-					echo chinapower_podcast_display_iframe($soundcloudID);
-				} else { 
-					echo chinapower_podcast_display_megaphone_iframe($megaphoneIFrame);
+					echo chinapower_podcast_display_iframe('soundcloud', $soundcloudID);
+				} elseif($megaphoneIFrame) { 
+					echo chinapower_podcast_display_iframe('megaphone', $megaphoneIFrame);
 				}
 					chinapower_posted_on();
 					the_content( sprintf(
