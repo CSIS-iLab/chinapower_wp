@@ -87,8 +87,7 @@ function podcast_build_meta_box( $post ){
 	$current_subtitle = get_post_meta( $post->ID, '_podcast_subtitle', true );
 	$current_soundcloudURL = get_post_meta( $post->ID, '_podcast_soundcloudURL', true );
 	$current_soundcloudID = get_post_meta( $post->ID, '_podcast_soundcloudID', true );
-	$current_megaphoneURL = get_post_meta( $post->ID, '_podcast_megaphoneURL', true );
-	$current_megaphoneIFrame = get_post_meta( $post->ID, '_podcast_megaphoneIFrame', true );
+	$current_megaphoneEmbedURL = get_post_meta( $post->ID, '_podcast_megaphoneEmbedURL', true );
 
 	?>
 	<div class='inside'>
@@ -107,14 +106,9 @@ function podcast_build_meta_box( $post ){
 			<input type="text" class="large-text" name="soundcloudID" value="<?php echo $current_soundcloudID; ?>" /> 
 		</p>
 
-		<h3><?php _e( 'Megaphone URL', 'chinapower' ); ?></h3>
+		<h3><?php _e( 'Megaphone iFrame Embed URL', 'chinapower' ); ?></h3>
 		<p>
-			<input type="text" class="large-text" name="megaphoneURL" value="<?php echo $current_megaphoneURL; ?>" /> 
-		</p>
-
-		<h3><?php _e( 'Megaphone iFrame URL', 'chinapower' ); ?></h3>
-		<p>
-			<input type="text" class="large-text" name="megaphoneIFrame" value="<?php echo $current_megaphoneIFrame; ?>" /> 
+			<input type="text" class="large-text" name="megaphoneEmbedURL" value="<?php echo $current_megaphoneEmbedURL; ?>" /> 
 		</p>
 	</div>
 	<?php
@@ -152,13 +146,9 @@ function podcast_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['soundcloudID'] ) ) {
 		update_post_meta( $post_id, '_podcast_soundcloudID', sanitize_text_field( $_POST['soundcloudID'] ) );
 	}
-	// Megaphone URL
-	if ( isset( $_REQUEST['megaphoneURL'] ) ) {
-		update_post_meta( $post_id, '_podcast_megaphoneURL', esc_url( $_POST['megaphoneURL'] ) );
-	}
 	// Megaphone iFrame
-	if ( isset( $_REQUEST['megaphoneIFrame'] ) ) {
-		update_post_meta( $post_id, '_podcast_megaphoneIFrame', esc_url( $_POST['megaphoneIFrame'] ) );
+	if ( isset( $_REQUEST['megaphoneEmbedURL'] ) ) {
+		update_post_meta( $post_id, '_podcast_megaphoneEmbedURL', esc_url( $_POST['megaphoneEmbedURL'] ) );
 	}
 }
 add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );

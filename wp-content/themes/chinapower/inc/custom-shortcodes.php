@@ -53,7 +53,7 @@ function chinapower_shortcode_podcast( $atts ) {
 		'podcast'
 	);
 
-	$megaphone = get_post_meta( $atts['id'], '_podcast_megaphoneIFrame', true);
+	$megaphone = get_post_meta( $atts['id'], '_podcast_megaphoneEmbedURL', true);
 
 	if($atts['sharing'] === true || $atts['sharing'] == 'true') {
 		$title = get_the_title($atts['id']).": ".get_post_meta($atts['id'], "_podcast_subtitle", true);

@@ -16,7 +16,7 @@ else {
 }
 
 $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
-$megaphoneIFrame = get_post_meta(get_the_ID(), '_podcast_megaphoneIFrame', true);
+$megaphoneEmbedURL = get_post_meta(get_the_ID(), '_podcast_megaphoneEmbedURL', true);
 $megaphoneURL = get_post_meta(get_the_ID(), '_podcast_megaphoneURL', true);
 
 // Subtitle
@@ -28,7 +28,7 @@ remove_filter( 'the_excerpt', 'wpautop' );
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class($classes); ?>>
-	<?php if ( $sticky and ($soundcloudID or $megaphoneIFrame )) { ?>
+	<?php if ( $sticky and ($soundcloudID or $megaphoneEmbedURL )) { ?>
 	<div class="sticky-container">
 		<header class="entry-header">
 			<span class="isFeatured">Featured</span>
@@ -40,8 +40,8 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		<div class="entry-content">
 			<?php if ($soundcloudID) {?>
 			<iframe width="246" height="245" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=true"></iframe>
-			<?php } elseif ($megaphoneIFrame) {?>
-			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="100%"></iframe>
+			<?php } elseif ($megaphoneEmbedURL) {?>
+			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneEmbedURL; ?>&light=true" width="100%"></iframe>
 			<?php } ?>
 			<p><?php the_excerpt(); ?></p>
 		</div><!-- .entry-content -->
@@ -58,9 +58,9 @@ remove_filter( 'the_excerpt', 'wpautop' );
 		<div class="soundcloud-mini-container">
 			<iframe width="100%" height="20" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/<?php echo $soundcloudID; ?>&amp;color=ff5500&amp;inverse=false&amp;auto_play=false&amp;show_user=true""></iframe>
 		</div>
-			<?php } elseif ($megaphoneIFrame) {?>
+			<?php } elseif ($megaphoneEmbedURL) {?>
 				<div class="megaphone-mini-container">
-			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneIFrame; ?>&light=true" width="620"></iframe>
+			<iframe frameborder="no" height="200" scrolling="no" src="<?php echo $megaphoneEmbedURL; ?>&light=true" width="620"></iframe>
 		</div>
 			<?php } ?>
 		<p><?php the_excerpt(); ?></p>
