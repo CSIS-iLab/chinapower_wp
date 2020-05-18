@@ -241,7 +241,7 @@
 			}
 		}
 
-		header.entry-header {
+		.entry-header {
 			@include breakpoint("medium") {
 				padding: 2rem 1rem 1rem 2rem;
 			}
