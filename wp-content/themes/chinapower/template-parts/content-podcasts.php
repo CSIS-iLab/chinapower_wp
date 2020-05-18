@@ -17,7 +17,6 @@ else {
 
 $soundcloudID = get_post_meta(get_the_ID(), '_podcast_soundcloudID', true);
 $megaphoneEmbedURL = get_post_meta(get_the_ID(), '_podcast_megaphoneEmbedURL', true);
-$megaphoneURL = get_post_meta(get_the_ID(), '_podcast_megaphoneURL', true);
 
 // Subtitle
 $subtitle = get_post_meta(get_the_ID(), '_podcast_subtitle', true);
