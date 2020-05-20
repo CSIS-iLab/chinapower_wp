@@ -38,6 +38,14 @@
 			height: 1px;
 		}
 
+		/*----------  Podcasts  ----------*/
+		.megaphone-mini-container {
+			background-color: $color__background-megaphone;
+			margin: 0 auto 1rem auto;
+			display: flex;
+			justify-content: center;
+		}
+
 		/*----------  Watch  ----------*/
 		.watch-interview {
 			display: inline-block;
@@ -278,7 +286,7 @@ article.post.cardLayout {
 	margin-right: .5rem;
 
 	/*----------  Post Header  ----------*/
-	header.entry-header {
+	.entry-header {
 		padding: 1rem;
 
 		@include breakpoint("medium") {

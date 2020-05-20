@@ -38,7 +38,7 @@
 			padding: 0;
 		}
 
-		iframe {
+		> iframe {
 			margin-bottom: 1rem;
 		}
 
@@ -65,9 +65,21 @@
 			}
 		}
 	}
+
+	.megaphone-mini-container {
+		background-color: $color__background-megaphone;
+		margin: 0 auto 1rem auto;
+		display: flex;
+		justify-content: center;
+	}
 }
 
 /*----------  Card Layout Styles  ----------*/
 article.podcasts.cardLayout {
 	@extend article.post.cardLayout;
+
+	.entry-header {
+		padding-bottom: 0;
+	}
+
 }

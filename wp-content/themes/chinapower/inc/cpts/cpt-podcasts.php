@@ -87,6 +87,7 @@ function podcast_build_meta_box( $post ){
 	$current_subtitle = get_post_meta( $post->ID, '_podcast_subtitle', true );
 	$current_soundcloudURL = get_post_meta( $post->ID, '_podcast_soundcloudURL', true );
 	$current_soundcloudID = get_post_meta( $post->ID, '_podcast_soundcloudID', true );
+	$current_megaphoneEmbedURL = get_post_meta( $post->ID, '_podcast_megaphoneEmbedURL', true );
 
 	?>
 	<div class='inside'>
@@ -103,6 +104,11 @@ function podcast_build_meta_box( $post ){
 		<h3><?php _e( 'Soundcloud ID', 'chinapower' ); ?></h3>
 		<p>
 			<input type="text" class="large-text" name="soundcloudID" value="<?php echo $current_soundcloudID; ?>" /> 
+		</p>
+
+		<h3><?php _e( 'Megaphone iFrame Embed URL', 'chinapower' ); ?></h3>
+		<p>
+			<input type="text" class="large-text" name="megaphoneEmbedURL" value="<?php echo $current_megaphoneEmbedURL; ?>" /> 
 		</p>
 	</div>
 	<?php
@@ -140,23 +146,38 @@ function podcast_save_meta_box_data( $post_id ){
 	if ( isset( $_REQUEST['soundcloudID'] ) ) {
 		update_post_meta( $post_id, '_podcast_soundcloudID', sanitize_text_field( $_POST['soundcloudID'] ) );
 	}
+	// Megaphone Embed URL
+	if ( isset( $_REQUEST['megaphoneEmbedURL'] ) ) {
+		update_post_meta( $post_id, '_podcast_megaphoneEmbedURL', esc_url( $_POST['megaphoneEmbedURL'] ) );
+	}
 }
 add_action( 'save_post_podcasts', 'podcast_save_meta_box_data' );
 
-/*----------  Display iFrame  ----------*/
+/*----------  Display Embed  ----------*/
 /**
- * Displays the embedded Soundcloud iframe
- * @param  String $soundcloudID Soundcloud ID for the podcast
+ * Displays the embedded Soundcloud or Megaphone iframe
+ * @param  String $type soundcloud or megaphone
+ * @param  String $embedID Soundcloud ID for the podcast or Megaphone URL
  * @return String               iFrame code
  */
-function chinapower_podcast_display_iframe($soundcloudID, $title = null) {
+function chinapower_podcast_display_iframe($type, $embedID, $title = null) {
 
 	$title_html = null;
 	if ( $title ) {
 		$title_html = '<h4 class="podcast-embed-title">' . $title . '</h4>';
 	}
 
-	return $title_html . '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$soundcloudID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
+	$embedHTML = '';
+
+	if ( $type === 'soundcloud') {
+		$embedHTML = '<iframe width="100%" height="166" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/'.$embedID.'&amp;color=ff5500&amp;auto_play=false&amp;hide_related=false&amp;show_playcount=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;show_artwork=false"></iframe>';
+	}
+
+	if ($type === 'megaphone') {
+		$embedHTML = '<div class="megaphone-mini-container"><iframe frameborder="0" height="200" scrolling="no" src="'.$embedID.'&light=true" width="620"></iframe></div>';
+	}
+
+	return $title_html . $embedHTML;
 }
 
 /*----------  Display Generate Shortcode Button  ----------*/

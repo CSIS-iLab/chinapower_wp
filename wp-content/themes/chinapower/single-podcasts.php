@@ -14,6 +14,7 @@ endif;
 
 // Soundcloud ID
 $soundcloudID = get_post_meta($postID, '_podcast_soundcloudID', true);
+$megaphoneEmbedURL = get_post_meta($postID, '_podcast_megaphoneEmbedURL', true);
 
 // Related Content
 global $related;
@@ -67,7 +68,11 @@ $fullTitle = get_the_title().': '.$subtitle;
 
 			<div class="content-wrapper-narrow entry-content">
 				<?php
-					echo chinapower_podcast_display_iframe($soundcloudID);
+				if($soundcloudID) {
+					echo chinapower_podcast_display_iframe('soundcloud', $soundcloudID);
+				} elseif($megaphoneEmbedURL) { 
+					echo chinapower_podcast_display_iframe('megaphone', $megaphoneEmbedURL);
+				}
 					chinapower_posted_on();
 					the_content( sprintf(
 						/* translators: %s: Name of current post. */
