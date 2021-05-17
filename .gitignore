@@ -111,4 +111,16 @@ Thumbs.db
 
 wp-content/themes/chinapower/.sass-cache
 **/.DS_Store
-wp-content/themes/chinapower/*.css
+
+# track these mu-plugins, plugins, and themes
+# add your own entries here
+!wp-content/themes/chinapower
+!wp-content/themes/chinapower/.eslintignore
+!wp-content/themes/chinapower/.eslintrc.js
+!wp-content/themes/chinapower/.stylelintrc.json
+
+wp-content/themes/*/**/*.css
+wp-content/themes/chinapower/assets/img
+wp-content/themes/chinapower/assets/js
+
+!.github/
