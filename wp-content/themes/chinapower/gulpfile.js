@@ -60,12 +60,12 @@ function clean() {
 // The default (if someone just runs `gulp`) is to run each task in parallel
 exports.default = series(
   clean,
-  parallel(images, sass),
+  parallel(images, sass, webpack),
   parallel(serve, watcher)
 )
 
 // Build site for production
-exports.build = series(clean, parallel(images, sass))
+exports.build = series(clean, parallel(images, sass, webpack))
 
 // This is our watcher task that instructs gulp to watch directories and
 // act accordingly

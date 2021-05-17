@@ -23,7 +23,7 @@ config.webpack.mode = argv.mode || config.webpack.mode
 
 function webpackTask() {
   if (!jsFiles.length) {
-    return
+    return src('.', { allowEmpty: true })
   }
 
   return src(jsFiles)
