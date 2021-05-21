@@ -1,6 +1,6 @@
 # Theme: chinapower
 
-This theme was created in 2017 and is based off of the [\_s theme](https://github.com/automattic/_s). It uses Gulp as a task runner to compile Sass to CSS. The Gulp workflow could also be used to minify images or bundle JavaScript, but the project is not set up to do that as of May 2021.
+This theme was created in 2017 for [ChinaPower](https://chinapower.csis.org) and is based off of the [\_s theme](https://github.com/automattic/_s). It uses Gulp as a task runner to compile Sass to CSS. The Gulp workflow could also be used to minify images or bundle JavaScript, but the project is not set up to do that as of May 2021.
 
 ## Development
 
