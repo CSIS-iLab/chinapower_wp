@@ -48,7 +48,6 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
   ## Post Nav
   ## Related Content
   ## Tooltips
-  ## Footnotes
   ## CPP Shortcodes
 # Layout
 	## Header
@@ -69,63 +68,31 @@ Nicolas Gallagher and Jonathan Neal http://necolas.github.com/normalize.css/
 --------------------------------------------------------------*/
 
 /*----------  Abstracts: Configuration and Helpers  ----------*/
-@import
-  'abstracts/variables',
-  'abstracts/mixins';
+@import 'abstracts/variables', 'abstracts/mixins';
 
 /*----------  Base  ----------*/
-@import
-  'base/normalize',
-  'base/base',
-  'base/typography';
+@import 'base/normalize', 'base/base', 'base/typography';
 
 /*----------  Modules  ----------*/
-@import
-  'modules/accessibility',
-  'modules/alignments',
-  'modules/clearings',
+@import 'modules/accessibility', 'modules/alignments', 'modules/clearings',
   'modules/infinite-scroll';
 
 /*----------  Components  ----------*/
-@import
-  'components/accordion',
-  'components/buttons',
-  'components/explore-more-block',
-  'components/fields',
-  'components/lists',
-  'components/media',
-  'components/tables',
-  'components/social-share',
-  'components/pagination',
-  'components/autocomplete',
-  'components/post-nav',
-  'components/related-content',
-  'components/tooltips',
-  'components/post-meta',
-  'components/post-feature-img',
-  'components/footnotes',
-  'components/cpp-shortcodes';
+@import 'components/accordion', 'components/buttons',
+  'components/explore-more-block', 'components/fields', 'components/lists',
+  'components/media', 'components/tables', 'components/social-share',
+  'components/pagination', 'components/autocomplete', 'components/post-nav',
+  'components/related-content', 'components/tooltips', 'components/post-meta',
+  'components/post-feature-img', 'components/cpp-shortcodes';
 
 /*----------  Layout  ----------*/
-@import
-  'layout/header',
-  'layout/footer',
-  'layout/widgets';
+@import 'layout/header', 'layout/footer', 'layout/widgets';
 
 /*----------  Pages  ----------*/
-@import
-  'pages/home',
-  'pages/posts',
-  'pages/archives',
-  'pages/search',
-  'pages/404',
-  'pages/pages',
-  'pages/podcasts',
-  'pages/data',
+@import 'pages/home', 'pages/posts', 'pages/archives', 'pages/search',
+  'pages/404', 'pages/pages', 'pages/podcasts', 'pages/data',
   'pages/interactives';
 
 /*----------  Vendors  ----------*/
-@import
-  'vendors/flexbox/flexbox-main',
-  'vendors/flexbox/flexbox-helpers',
+@import 'vendors/flexbox/flexbox-main', 'vendors/flexbox/flexbox-helpers',
   'vendors/fontello/fontello';
