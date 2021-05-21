@@ -163,3 +163,16 @@ function chinapower_wpml_home_url( $home_url, $url, $path, $orig_scheme, $blog_i
     return $url;
 }
 add_filter( 'wpml_get_home_url', 'chinapower_wpml_home_url', 99, 5 );
+
+if ( class_exists( 'easyFootnotes' ) ) {
+	/**
+	 * Removes the easy footnotes from the content.
+	 * @param  string $content The post content.
+	 * @return string          The modified post content.
+	 */
+	function chinapower_remove_easy_footnotes($content) {
+			$content = preg_replace('#<ol[^>]*class="easy-footnotes-wrapper"[^>]*>.*?</ol>#is', '', $content);
+			return $content;
+	}
+	add_filter('the_content', 'chinapower_remove_easy_footnotes', 20);
+}
