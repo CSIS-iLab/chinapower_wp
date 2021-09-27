@@ -36,6 +36,8 @@ GitHub Actions will automatically build & deploy the theme to either the develop
 
 - The `WPE_ENVIRONMENT_NAME: ${{ secrets.WPENGINE_STAGING_ENV_NAME }}` setting will be deployed to the WPE Staging Environment. **Note:** The program actively uses their staging site, so it is recommended that you coordinate with the program before pushing changes to this environment.
 
+- We should add a button to the WP Admin for one-click deploy
+
 ### See More Commands
 
 This will display all available commands, such as running eslint or imagemin independently.
