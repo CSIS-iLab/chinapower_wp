@@ -122,7 +122,7 @@ function chinapower_scripts() {
 
 	wp_enqueue_script( 'chinapower-iframe-resize', 'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js', array(), '20170622', true );
 
-	wp_add_inline_script( 'chinapower-iframe-resize', 'jQuery("iframe.js-iframeResizeEnabled").iFrameResize({log:false});' );
+	wp_add_inline_script( 'chinapower-iframe-resize', 'jQuery("iframe.js-iframeResizeEnabled").iFrameResize({log:false, heightCalculationMethod: "max"});' );
 
 	wp_enqueue_script('chinapower-clipboard', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js', array(), '20170713', true );
 
