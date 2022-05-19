@@ -80,6 +80,9 @@ Thumbs.db
 *.tar
 *.zip
 
+# ignore package-lock.json 
+package-lock.json
+
 # -------------------------
 # BEGIN Whitelisted Files
 # -------------------------
