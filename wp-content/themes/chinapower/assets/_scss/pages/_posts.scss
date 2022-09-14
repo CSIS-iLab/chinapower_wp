@@ -3,7 +3,8 @@
 =============================*/
 
 /*----------  Single Post Styles  ----------*/
-.single-post article.post {
+.single-post article.post,
+.single-tracker article.tracker {
   /*----------  Post Header  ----------*/
   .entry-header {
     padding: 0;
