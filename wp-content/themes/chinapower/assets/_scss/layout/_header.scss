@@ -195,7 +195,7 @@ header.site-header {
               @include breakpoint('medium') {
                 @include fontSize(16px);
                 line-height: 1.81;
-                padding: 0.63rem 1rem;
+                padding: 0.63rem 0.5rem;
               }
             }
 
