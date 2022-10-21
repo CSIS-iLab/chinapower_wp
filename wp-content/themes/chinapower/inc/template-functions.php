@@ -65,7 +65,9 @@ add_filter('excerpt_more', 'new_excerpt_more');
  * Change the_archive_title to use custom text before categories, tags, and other taxonomies.
  */
 add_filter( 'get_the_archive_title', function ($title) {
-	if ( is_category() ) {
+	if (is_post_type_archive('guest_author_posts')) {
+		$title = 'Analysis';
+	} elseif ( is_category() ) {
 		$title = single_cat_title('', false );
 	} elseif ( is_tag() ) {
 		$title = single_tag_title( 'Keyword:', false );
