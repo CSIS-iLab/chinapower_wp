@@ -18,7 +18,7 @@ get_header(); ?>
 			<header class="page-header">
 				<?php
 					the_archive_title( '<h1 class="page-title">', '</h1>' );
-					if ( is_post_type_archive('podcasts') ) {
+					if ( is_post_type_archive('podcasts') || is_post_type_archive('guest_author_posts') || is_post_type_archive('tracker')) {
 						the_archive_top_content();
 					} else {
 						the_archive_description( '<div class="archive-description">', '</div>' );
