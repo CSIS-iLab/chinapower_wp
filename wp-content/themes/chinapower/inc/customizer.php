@@ -146,7 +146,7 @@ function chinapower_customize_register( $wp_customize ) {
 
 	/*----------  Home Page: Features  ----------*/
 	$featuredPosts_list = array();
-	$args = array('post_type' => 'post', 'numberposts' => '-1', 'suppress_filters' => 0);
+	$args = array('post_type' => array('post', 'guest_author_posts', 'tracker'), 'numberposts' => '-1', 'suppress_filters' => 0);
 	$featuredPosts = get_posts( $args ); 
 	foreach($featuredPosts as $featuredPost) {
 		$featuredPosts_list[$featuredPost->ID] = $featuredPost->post_title;

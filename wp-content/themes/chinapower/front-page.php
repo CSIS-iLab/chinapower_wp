@@ -12,7 +12,6 @@ get_header();
 // Featured Item
 if(get_theme_mod('hp_feature_1')) {
 	$feature1 = get_post(get_theme_mod('hp_feature_1'));
-
 	if (has_post_thumbnail($feature1)) :
 		$featured_img_url = get_the_post_thumbnail_url($feature1);
 	endif;
@@ -59,11 +58,13 @@ if(get_theme_mod('hp_stat')) {
 								get_theme_mod('hp_feature_2'),
 								get_theme_mod('hp_feature_3')
 								),
-							'orderby' => 'post__in'
+							'orderby' => 'post__in',
+              'post_type' => array('post', 'guest_author_posts', 'tracker'),
 						);
+
 						$featured_posts = get_posts($featuredPostsArgs);
 						foreach($featured_posts as $post) : setup_postdata($post);
-							get_template_part( 'template-parts/hp-secondary-features-content', get_post_format() );
+							get_template_part( 'template-parts/hp-secondary-features-content' );
 						endforeach;
 						wp_reset_postdata();
 					}
