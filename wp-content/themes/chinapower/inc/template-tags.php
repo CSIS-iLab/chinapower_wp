@@ -236,8 +236,28 @@ function chinapower_relatedContent($rel){
 }
 
 function chinapower_citation() {
-	if ( get_the_modified_date() ) {
-		$modified_date = 'Updated ' . get_the_modified_date() . '. ';
-	}
-	return '<p class="cite-citation">China Power Team. "'.get_the_title().'" China Power. '.get_the_date().'. ' . $modified_date . 'Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
+
+  $post_type = get_post_type( $post->ID );
+	$guest_author_name = get_field('guest_author');
+
+  if ( get_the_modified_date() ) {
+    $modified_date = 'Updated ' . get_the_modified_date() . '. ';
+  }
+
+  if ($post_type == 'guest_author_posts' && $guest_author_name) {
+
+		$guest_author_names = "";
+
+		foreach ($guest_author_name as $key => $name) {
+			if ($key == 0) {
+				$guest_author_names = $name -> post_title;
+			} else {
+				$guest_author_names .= ", " . $name -> post_title;
+			}
+		}
+
+    return '<p class="cite-citation">' . $guest_author_names. '. "' .get_the_title(). '" China Power. '.get_the_date().'. ' . $modified_date . 'Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
+  } else {
+    return '<p class="cite-citation">China Power Team. "' .get_the_title(). '" China Power. '.get_the_date().'. ' . $modified_date . 'Accessed '.current_time('F j, Y').'. '.get_the_permalink().'</p>';
+  }
 }
