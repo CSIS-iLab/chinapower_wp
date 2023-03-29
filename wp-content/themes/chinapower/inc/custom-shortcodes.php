@@ -321,3 +321,31 @@ function chinapower_shortcode_viewpost( $atts ) {
 
 }
 add_shortcode( 'view-post', 'chinapower_shortcode_viewpost' );
+
+function guestAuthorBio() {
+	$guest_author = get_field('guest_author');
+	$guest_author_names = array();
+	$guest_author_IDs = array();
+	global $coauthors_plus;
+	$output = '';
+
+  if ($guest_author) {
+
+		foreach ($guest_author as $key => $name) {
+				array_push($guest_author_names, $name -> post_title);
+				array_push($guest_author_IDs, $name -> ID);
+		}
+
+
+		for ($i = 0; $i <= count($guest_author_IDs); $i++) {
+			
+			$coauthor_data = $coauthors_plus->get_coauthor_by( 'id', $guest_author_IDs[$i]);
+
+			$output .= '<i><p><b>' .$guest_author_names[$i]. '</b> '.$coauthor_data -> description . '</p></i>';
+		}
+	}
+
+	return $output;
+}
+
+add_shortcode('guest-author-bio', 'guestAuthorBio');
