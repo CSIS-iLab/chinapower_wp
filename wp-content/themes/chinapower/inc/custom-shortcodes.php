@@ -341,7 +341,9 @@ function guestAuthorBio() {
 			
 			$coauthor_data = $coauthors_plus->get_coauthor_by( 'id', $guest_author_IDs[$i]);
 
-			$output .= '<i><p><b>' .$guest_author_names[$i]. '</b> '.$coauthor_data -> description . '</p></i>';
+			if ($coauthor_data -> description) {
+				$output .= '<i><p><b>' .$guest_author_names[$i]. '</b> '.$coauthor_data -> description . '</p></i>';
+			}
 		}
 	}
 
