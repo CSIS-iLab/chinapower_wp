@@ -120,9 +120,9 @@ function chinapower_scripts() {
 
 	wp_enqueue_script( 'chinapower-post-nav', get_template_directory_uri() . '/js/post-nav.js', array(), '20170630', true );
 
-	wp_enqueue_script( 'chinapower-iframe-resize', 'https://cdnjs.cloudflare.com/ajax/libs/iframe-resizer/3.5.14/iframeResizer.min.js', array(), '20170622', true );
+  wp_enqueue_script( 'chinapower-iframe-resize', 'https://cdn.jsdelivr.net/npm/@iframe-resizer/parent@5.4.5', array(), '5.4.5', true );
 
-	wp_add_inline_script( 'chinapower-iframe-resize', 'jQuery("iframe.js-iframeResizeEnabled").iFrameResize({log:false, heightCalculationMethod: "max"});' );
+	wp_add_inline_script( 'chinapower-iframe-resize', 'iframeResize({ direction: "vertical", license: "GPLv3" }, "iframe.js-iframeResizeEnabled");' );
 
 	wp_enqueue_script('chinapower-clipboard', 'https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js', array(), '20170713', true );
 
