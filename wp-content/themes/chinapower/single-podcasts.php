@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Template: Single Podcasts
  */
@@ -18,25 +19,24 @@ $megaphoneEmbedURL = get_post_meta($postID, '_podcast_megaphoneEmbedURL', true);
 
 // Related Content
 global $related;
-$rel = $related->show( $postID, true );
+$rel = $related->show($postID, true);
 
 // Width of Further Reading & Related Content
-if(is_array($rel) && count($rel) > 0) {
+if (is_array($rel) && count($rel) > 0) {
 	$podcastDescWidth = "8";
 	$relatedContentWidth = "4";
 	$relatedContentHeader = '<h6 class="relatedContent-heading">Related Content</h6>';
-}
-else {
+} else {
 	$podcastDescWidth = "12";
 }
 
 // Podcast Description
 $podcastDesc = get_option("chinapower_podcast_desc_long");
-$itunesURL = get_option("chinapower_itunesURL");
+$appleURL = get_option("chinapower_appleURL");
 
 // Subtitle
 $subtitle = get_post_meta($postID, '_podcast_subtitle', true);
-$fullTitle = get_the_title().': '.$subtitle;
+$fullTitle = get_the_title() . ': ' . $subtitle;
 
 ?>
 
@@ -53,9 +53,11 @@ $fullTitle = get_the_title().': '.$subtitle;
 					<div class="post-nav-content col-xs-12 col-md-8">
 						<div class="post-nav-title js-isDefault active"><?php echo $fullTitle; ?></div>
 						<div class="post-share-buttons">
-							<?php if ( function_exists( 'ADDTOANY_SHARE_SAVE_KIT' ) ) { ADDTOANY_SHARE_SAVE_KIT( array(
-								'linkname' => $fullTitle
-								)); } ?>
+							<?php if (function_exists('ADDTOANY_SHARE_SAVE_KIT')) {
+								ADDTOANY_SHARE_SAVE_KIT(array(
+									'linkname' => $fullTitle
+								));
+							} ?>
 						</div>
 					</div>
 					<div class="post-nav-menu col-xs-12 col-md-4">
@@ -68,17 +70,17 @@ $fullTitle = get_the_title().': '.$subtitle;
 
 			<div class="content-wrapper-narrow entry-content">
 				<?php
-				if($soundcloudID) {
+				if ($soundcloudID) {
 					echo chinapower_podcast_display_iframe('soundcloud', $soundcloudID);
-				} elseif($megaphoneEmbedURL) { 
+				} elseif ($megaphoneEmbedURL) {
 					echo chinapower_podcast_display_iframe('megaphone', $megaphoneEmbedURL);
 				}
-					chinapower_posted_on();
-					the_content( sprintf(
-						/* translators: %s: Name of current post. */
-						wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'defense360' ), array( 'span' => array( 'class' => array() ) ) ),
-						the_title( '<span class="screen-reader-text">"', '"</span>', false )
-					) );
+				chinapower_posted_on();
+				the_content(sprintf(
+					/* translators: %s: Name of current post. */
+					wp_kses(__('Continue reading %s <span class="meta-nav">&rarr;</span>', 'defense360'), array('span' => array('class' => array()))),
+					the_title('<span class="screen-reader-text">"', '"</span>', false)
+				));
 				?>
 			</div><!-- .entry-content -->
 
@@ -93,13 +95,16 @@ $fullTitle = get_the_title().': '.$subtitle;
 					<div class="podcastDesc-container col-xs-12 col-md-<?php echo $podcastDescWidth; ?>">
 						<h5 class="podcastDesc-heading">ChinaPower Podcast</h5>
 						<p><?php echo $podcastDesc; ?></p>
-						<a href="<?php echo $itunesURL; ?>" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/itunes-badge.svg" alt="ChinaPower Podcast on iTunes" /></a>
-						<?php if ( get_option( 'chinapower_google_url' ) ) {
-							echo '<a href="' . get_option("chinapower_google_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/google-play-badge.png" alt="ChinaPower Podcast on Google Play Music" /></a>';
+						<a href="<?php echo $appleURL; ?>" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/apple-badge.png" alt="ChinaPower Podcast on Apple Podcasts" /></a>
+						<?php if (get_option('chinapower_spotifyURL')) {
+							echo '<a href="' . get_option("chinapower_spotifyURL") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/spotify-badge.png" alt="ChinaPower Podcast on Spotify" /></a>';
 						} ?>
-						<?php if ( get_option( 'chinapower_stitcher_url' ) ) {
-						echo '<a href="' . get_option("chinapower_stitcher_url") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/stitcher-badge.svg" alt="ChinaPower Podcast on Stitcher" /></a>';
-					} ?>
+						<?php if (get_option('chinapower_youtubeURL')) {
+							echo '<a href="' . get_option("chinapower_youtubeURL") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/youtube-badge.png" alt="ChinaPower Podcast on YouTube" /></a>';
+						} ?>
+						<?php if (get_option('chinapower_pandoraURL')) {
+							echo '<a href="' . get_option("chinapower_pandoraURL") . '" target="_blank" rel="noopener" class="podcast-services-badge"><img src="/wp-content/themes/chinapower/img/pandora-badge.png" alt="ChinaPower Podcast on Pandora" /></a>';
+						} ?>
 					</div>
 					<div class="relatedContent-container col-xs-12 col-md-<?php echo $relatedContentWidth; ?>">
 						<?php echo $relatedContentHeader; ?>
@@ -110,4 +115,4 @@ $fullTitle = get_the_title().': '.$subtitle;
 		</article><!-- #post-## -->
 	</main><!-- #main -->
 </div><!-- #primary -->
-<?php get_footer(); 
+<?php get_footer();
